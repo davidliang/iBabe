@@ -1,0 +1,67 @@
+10
+
+dir
+71
+https://david@192.168.1.103:8443/svn/iBabe/3rd-party/three20/src
+https://david@192.168.1.103:8443/svn/iBabe
+
+
+
+2012-07-03T11:16:22.484600Z
+71
+david
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+48c38e68-70ad-4847-8b50-93838e067645
+
+Three20UICommon
+dir
+
+Three20.bundle
+dir
+
+Three20Core
+dir
+
+Three20UINavigator
+dir
+
+Three20Network
+dir
+
+extThree20CSSStyle
+dir
+
+extThree20JSON
+dir
+
+scripts
+dir
+
+Three20UI
+dir
+
+common
+dir
+
+Three20
+dir
+
+Three20Style
+dir
+
+extThree20XML
+dir
+

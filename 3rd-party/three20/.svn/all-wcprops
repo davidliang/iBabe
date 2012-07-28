@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/iBabe/!svn/ver/71/3rd-party/three20
+END
+config.template
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/iBabe/!svn/ver/71/3rd-party/three20/config.template
+END
+README.mdown
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/iBabe/!svn/ver/71/3rd-party/three20/README.mdown
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/iBabe/!svn/ver/71/3rd-party/three20/LICENSE
+END
+project.dev
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/iBabe/!svn/ver/71/3rd-party/three20/project.dev
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/iBabe/!svn/ver/71/3rd-party/three20/.gitignore
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/iBabe/!svn/ver/71/3rd-party/three20/AUTHORS
+END
+diffstrings.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/iBabe/!svn/ver/71/3rd-party/three20/diffstrings.py
+END
+Icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/iBabe/!svn/ver/71/3rd-party/three20/Icon.png
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTNavigatorDemo/Configurations
+END
+App.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTNavigatorDemo/Configurations/App.xcconfig
+END
+UnitTests.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTNavigatorDemo/Configurations/UnitTests.xcconfig
+END
+Project.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTNavigatorDemo/Configurations/Project.xcconfig
+END
+RelPath.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTNavigatorDemo/Configurations/RelPath.xcconfig
+END

@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers
+END
+TTExtensionInfoPrivate.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTExtensionInfoPrivate.h
+END
+Three20Core+Additions.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/Three20Core+Additions.h
+END
+TTDebug.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTDebug.h
+END
+TTExtensionInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTExtensionInfo.h
+END
+TTMarkupStripper.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTMarkupStripper.h
+END
+TTGlobalCoreLocale.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTGlobalCoreLocale.h
+END
+NSStringAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSStringAdditions.h
+END
+NSObjectAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSObjectAdditions.h
+END
+TTExtensionAuthor.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTExtensionAuthor.h
+END
+NSDataAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSDataAdditions.h
+END
+Three20.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/Three20.h
+END
+TTDebugFlags.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTDebugFlags.h
+END
+TTExtensionLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTExtensionLoader.h
+END
+TTCorePreprocessorMacros.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTCorePreprocessorMacros.h
+END
+NSDateAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSDateAdditions.h
+END
+NSArrayAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSArrayAdditions.h
+END
+TTEntityTables.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTEntityTables.h
+END
+NSMutableDictionaryAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSMutableDictionaryAdditions.h
+END
+Three20Version.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/Three20Version.h
+END
+TTGlobalCore.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTGlobalCore.h
+END
+TTGlobalCorePaths.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTGlobalCorePaths.h
+END
+TTAvailability.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTAvailability.h
+END
+TTGlobalCoreRects.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/TTGlobalCoreRects.h
+END
+Three20Core.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/Three20Core.h
+END
+Three20Core_Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/Three20Core_Prefix.pch
+END
+NSMutableArrayAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Core/Headers/NSMutableArrayAdditions.h
+END

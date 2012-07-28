@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts
+END
+Clean.command
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Clean.command
+END
+docs.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/docs.py
+END
+ttmodule.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/ttmodule.py
+END
+Paths.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Paths.py
+END
+lint
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/lint
+END
+Pbxproj.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Pbxproj.html
+END
+Pbxproj.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Pbxproj.py
+END
+Build.command
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Build.command
+END
+Protect.command
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/scripts/Protect.command
+END

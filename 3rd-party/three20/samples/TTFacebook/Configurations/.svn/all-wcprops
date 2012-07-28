@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTFacebook/Configurations
+END
+App.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTFacebook/Configurations/App.xcconfig
+END
+UnitTests.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTFacebook/Configurations/UnitTests.xcconfig
+END
+Project.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTFacebook/Configurations/Project.xcconfig
+END
+RelPath.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/three20/samples/TTFacebook/Configurations/RelPath.xcconfig
+END

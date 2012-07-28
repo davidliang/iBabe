@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers
+END
+TTURLResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLResponse.h
+END
+TTURLImageResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLImageResponse.h
+END
+TTURLCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLCache.h
+END
+TTUserInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTUserInfo.h
+END
+TTModelDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTModelDelegate.h
+END
+TTURLRequestModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequestModel.h
+END
+TTModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTModel.h
+END
+TTURLRequestDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequestDelegate.h
+END
+TTErrorCodes.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTErrorCodes.h
+END
+TTGlobalNetwork.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTGlobalNetwork.h
+END
+TTURLRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequest.h
+END
+TTURLDataResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLDataResponse.h
+END
+Three20Network.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/Three20Network.h
+END
+Three20Network_Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/Three20Network_Prefix.pch
+END
+TTURLRequestQueueInternal.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequestQueueInternal.h
+END
+TTURLRequestCachePolicy.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequestCachePolicy.h
+END
+TTRequestLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTRequestLoader.h
+END
+TTURLRequestQueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/Three20Network/Headers/TTURLRequestQueue.h
+END

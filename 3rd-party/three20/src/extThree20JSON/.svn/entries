@@ -1,0 +1,80 @@
+10
+
+dir
+71
+https://david@192.168.1.103:8443/svn/iBabe/3rd-party/three20/src/extThree20JSON
+https://david@192.168.1.103:8443/svn/iBabe
+
+
+
+2012-07-03T11:16:22.484600Z
+71
+david
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+48c38e68-70ad-4847-8b50-93838e067645
+
+extThree20JSON.xcodeproj
+dir
+
+README.mdown
+file
+
+
+
+
+2012-07-03T09:50:52.000000Z
+d59aaee60308f5a7d1c4c6304f6e7c54
+2012-07-03T11:16:22.484600Z
+71
+david
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1897
+
+Source
+dir
+
+Vendors
+dir
+
+UnitTests
+dir
+
+Configurations
+dir
+
+Headers
+dir
+

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations
+END
+UnitTests.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations/UnitTests.xcconfig
+END
+Library.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations/Library.xcconfig
+END
+Project.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations/Project.xcconfig
+END
+Libraries.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations/Libraries.xcconfig
+END
+Paths.xcconfig
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/common/Configurations/Paths.xcconfig
+END

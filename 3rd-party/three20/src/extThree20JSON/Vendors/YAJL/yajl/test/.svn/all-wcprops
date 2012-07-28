@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/extThree20JSON/Vendors/YAJL/yajl/test
+END
+run_tests.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/extThree20JSON/Vendors/YAJL/yajl/test/run_tests.sh
+END
+yajl_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/extThree20JSON/Vendors/YAJL/yajl/test/yajl_test.c
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/three20/src/extThree20JSON/Vendors/YAJL/yajl/test/CMakeLists.txt
+END
