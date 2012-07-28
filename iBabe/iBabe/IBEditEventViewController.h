@@ -16,8 +16,8 @@
 #import "SMDateConvertUtil.h"
 
 @interface IBEditEventViewController : UIViewController<UITextViewDelegate, UIGestureRecognizerDelegate>
-
 {
+	//---
     TDDatePickerController* datePickerView;
 	TDGeneralPickerController* genPickerView;
     NSDate* presetEndDateTime;
