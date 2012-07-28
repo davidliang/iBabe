@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/main.m
+END
+CalendarSampleWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/CalendarSampleWindowController.m
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/Info.plist
+END
+CalendarSampleAppController.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/CalendarSampleAppController.h
+END
+EditACLWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/EditACLWindowController.h
+END
+EditEventWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/EditEventWindowController.h
+END
+CalendarSampleAppController.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/CalendarSampleAppController.m
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/README.txt
+END
+EditACLWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/EditACLWindowController.m
+END
+CalendarSampleWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/CalendarSampleWindowController.h
+END
+buildStripHeaders
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/buildStripHeaders
+END
+EditEventWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/CalendarSample/EditEventWindowController.m
+END

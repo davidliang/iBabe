@@ -1,0 +1,350 @@
+//
+//  IBEditEventViewController.m
+//  iBabe
+//
+//  Created by David Liang on 30/06/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "IBEditEventViewController.h"
+
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 140;
+static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
+static NSString* BUTTON_STRING_FORMAT = @"   %@";
+CGFloat animatedDistance;
+
+enum PickType {
+    date = 0,
+    startTime = 1,
+    endTime = 2
+};
+
+enum PickType pType;
+
+@interface IBEditEventViewController ()
+
+@end
+
+@implementation IBEditEventViewController
+@synthesize tvNote;
+@synthesize tvLocation;
+@synthesize scrollView;
+@synthesize contentView;
+@synthesize btnSave;
+@synthesize tbTitle;
+@synthesize btnDate;
+@synthesize btnStartTime;
+@synthesize btnEndTime;
+
+
+
+#pragma mark- TextView Delegate
+
+//---- shift the whole view up for the current textview when editing.
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{    
+    CGRect textFieldRect = [self.view.window convertRect:textView.bounds fromView:textView];
+    CGRect viewRect = [self.view.window convertRect:self.view.bounds fromView:self.view];
+    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
+    CGFloat numerator =
+    midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
+    CGFloat denominator =
+    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
+    CGFloat heightFraction = numerator / denominator;
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+    UIInterfaceOrientation orientation = 
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||
+        orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    
+    return YES;
+}
+
+-(void) resetViewPositionAfterKeyboardDissmised
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y = 0.0f;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    [textView resignFirstResponder];
+}
+
+
+
+
+#pragma mark- View Life cycle 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{ 
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self customiseUI];
+}
+
+-(void) customiseUI
+{
+    // --- add border and setup border color for the text boxes.
+    tvNote.layer.borderWidth=1;
+    tvNote.layer.borderColor = [[UIColor colorWithRed:0.878 green:0.773 blue:0.804 alpha:1]CGColor];
+    
+    
+    tbTitle.layer.borderWidth=1;
+    tbTitle.layer.borderColor = [[UIColor colorWithRed:0.878 green:0.773 blue:0.804 alpha:1]CGColor];
+    
+    
+    tvLocation.layer.borderWidth=1;
+    tvLocation.layer.borderColor = [[UIColor colorWithRed:0.878 green:0.773 blue:0.804 alpha:1]CGColor];
+    
+    // --- Content and scroll view
+    [[self contentView] setFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT*2, self.contentView.frame.size.width, self.contentView.frame.size.height + self.btnSave.frame.size.height + NAVIGATION_BAR_HEIGHT*2)];
+    
+    [self.contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"] ]];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height) ];
+    
+    
+    // --- buttons.
+    [[self btnStartTime] setTintColor:[UIColor colorWithRed:0.925 green:0.784 blue:0.839 alpha:1]];
+    [[self btnEndTime] setTintColor:[UIColor colorWithRed:0.925 green:0.784 blue:0.839 alpha:1]];    
+    [[self btnDate] setTintColor:[UIColor colorWithRed:0.925 green:0.784 blue:0.839 alpha:1]];
+}
+
+
+- (void)viewDidUnload
+{
+    [self setTvNote:nil];
+    [self setTvLocation:nil];
+    [self setScrollView:nil];
+    [self setBtnSave:nil];
+    
+    [self setContentView:nil];
+    [self setTbTitle:nil];
+    [self setBtnDate:nil];
+    [self setBtnStartTime:nil];
+    [self setBtnEndTime:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+
+
+
+
+#pragma mark -
+#pragma mark Date Picker Delegate
+
+- (IBAction)didTapBtnSetDate:(id)sender {
+    
+    
+    if (datePickerView==Nil)
+    {
+        datePickerView = [[TDDatePickerController alloc] 
+                          initWithNibName:@"TDDatePickerController" 
+                          bundle:nil];
+        datePickerView.delegate = self;
+    }
+    
+    // -- Pass the current Date Value to the DatePicker.
+    NSString* currentDateStr = [self.btnDate.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSDate* currentDate = [SMDateConvertUtil convertString2Date:currentDateStr withFormatterStyle:ddMMMyyyy];
+    [datePickerView setupPickerWithDatePickerMode:UIDatePickerModeDate AndInitDatePickerValue:currentDate];
+    
+    [datePickerView.datePicker setMinimumDate:Nil];
+    pType = date;
+    
+    [self presentSemiModalViewController:datePickerView];
+    
+}
+
+- (IBAction)didTapTimeStart:(id)sender {
+    pType = startTime;
+    
+    if (datePickerView==Nil)
+    {
+        datePickerView = [[TDDatePickerController alloc] 
+                          initWithNibName:@"TDDatePickerController" 
+                          bundle:nil];
+        datePickerView.delegate = self;
+    }
+    
+    
+    // --- Set the init selected start time on the picker.
+    NSString* startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDate.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    
+    NSDate* startDateTime = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+    [datePickerView setupPickerWithDatePickerMode:UIDatePickerModeTime AndInitDatePickerValue:startDateTime];
+    
+    
+    // --- Reset the minimum date value for the picker.
+    [datePickerView.datePicker setMinimumDate:Nil];
+    
+    [self presentSemiModalViewController:datePickerView];
+}
+
+- (IBAction)didTapTimeEnd:(id)sender {
+    pType = endTime;
+    
+    if (datePickerView==Nil)
+    {
+        datePickerView = [[TDDatePickerController alloc] 
+                          initWithNibName:@"TDDatePickerController" 
+                          bundle:nil];
+        datePickerView.delegate = self;
+    }
+    
+    
+    // --- Set minimum end time to be 5 mins after the start time.
+    NSString* startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDate.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    
+    NSDate* startDateTime = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+    NSDate* minEndDateTime = [startDateTime dateByAddingTimeInterval:5*60];
+    [datePickerView.datePicker setMinimumDate:minEndDateTime];
+    
+    
+    
+    //--- Set the init selected end time on the picker.
+    NSString* endDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDate.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnEndTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    
+    NSDate* endDateTime = [SMDateConvertUtil convertString2Date:endDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+    
+    [datePickerView setupPickerWithDatePickerMode:UIDatePickerModeTime AndInitDatePickerValue:endDateTime];    
+    
+    
+    [self presentSemiModalViewController:datePickerView];
+}
+
+
+-(void)datePickerSetDate:(TDDatePickerController*)viewController {
+	[self dismissSemiModalViewController:datePickerView];
+    
+    
+    switch (pType) {
+        case date:
+            [self.btnDate setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getDDMMYYYYFromNSDate:viewController.datePicker.date] ] forState:UIControlStateNormal];
+            
+            break;
+        case startTime:
+            [self.btnStartTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:viewController.datePicker.date]] forState:UIControlStateNormal];
+            
+            // -- Pre set the end time and force it 5 min later than the start time.
+            presetEndDateTime = [viewController.datePicker.date dateByAddingTimeInterval:60*5 ];
+            [self.btnEndTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:presetEndDateTime]] forState:UIControlStateNormal];
+            
+            break;
+        case endTime:
+            [self.btnEndTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:viewController.datePicker.date] ]forState:UIControlStateNormal];
+            
+        default:
+            break;
+    }
+}
+
+-(void)datePickerClearDate:(TDDatePickerController*)viewController {
+	[self dismissSemiModalViewController:datePickerView];
+}
+
+-(void)datePickerCancel:(TDDatePickerController*)viewController {
+	[self dismissSemiModalViewController:datePickerView];
+}
+
+
+
+
+#pragma mark- UIGestureRecognizerDelegate
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return YES;
+}
+
+#pragma mark- Guesture functions
+
+
+- (IBAction)tapToCloseKeyboard:(id)sender {
+    [tvNote resignFirstResponder];
+    [tvLocation resignFirstResponder];
+    [tbTitle resignFirstResponder];
+    
+    [self resetViewPositionAfterKeyboardDissmised];
+}
+
+- (IBAction)didTapBtnSave:(id)sender {
+    
+    NSLog(@"saved.");
+}
+
+- (IBAction)swipeToNavBack:(id)sender {
+    [[self navigationController ]popViewControllerAnimated:YES];
+}
+
+
+- (void)dealloc {
+    [scrollView release];
+    [btnSave release];
+    [contentView release];
+    [tbTitle release];
+    [btnDate release];
+    [btnStartTime release];
+    [btnEndTime release];
+    [super dealloc];
+}
+@end

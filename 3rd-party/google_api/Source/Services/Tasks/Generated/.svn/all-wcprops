@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated
+END
+GTLTasksConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksConstants.h
+END
+GTLTasks.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasks.h
+END
+GTLTasksTaskLists.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTaskLists.h
+END
+GTLTasksConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksConstants.m
+END
+GTLTasksTasks.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTasks.h
+END
+GTLTasksTaskLists.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTaskLists.m
+END
+GTLTasksTasks.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTasks.m
+END
+GTLTasksTaskList.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTaskList.h
+END
+GTLServiceTasks.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLServiceTasks.h
+END
+GTLTasksTask.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTask.h
+END
+GTLTasksTaskList.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTaskList.m
+END
+GTLServiceTasks.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLServiceTasks.m
+END
+GTLQueryTasks.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLQueryTasks.h
+END
+GTLTasksTask.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLTasksTask.m
+END
+GTLQueryTasks.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Tasks/Generated/GTLQueryTasks.m
+END

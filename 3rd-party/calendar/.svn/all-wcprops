@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/iBabe/!svn/ver/71/3rd-party/calendar
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/iBabe/!svn/ver/71/3rd-party/calendar/.gitignore
+END
+.gitmodules
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/iBabe/!svn/ver/71/3rd-party/calendar/.gitmodules
+END
+README.textile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/iBabe/!svn/ver/71/3rd-party/calendar/README.textile
+END

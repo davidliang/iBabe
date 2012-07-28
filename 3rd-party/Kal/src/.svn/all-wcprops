@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src
+END
+KalLogic.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalLogic.m
+END
+KalView.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalView.h
+END
+KalPrivate.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalPrivate.h
+END
+KalDate.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalDate.h
+END
+KalViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalViewController.h
+END
+Kal.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/Kal.h
+END
+KalView.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalView.m
+END
+Kal_Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/Kal_Prefix.pch
+END
+UIViewAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/UIViewAdditions.h
+END
+KalMonthView.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalMonthView.h
+END
+KalGridView.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalGridView.h
+END
+KalDate.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalDate.m
+END
+KalViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalViewController.m
+END
+UIViewAdditions.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/UIViewAdditions.m
+END
+KalMonthView.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalMonthView.m
+END
+KalGridView.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalGridView.m
+END
+NSDateAdditions.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/NSDateAdditions.h
+END
+KalTileView.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalTileView.h
+END
+KalDataSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalDataSource.h
+END
+NSDateAdditions.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/NSDateAdditions.m
+END
+KalTileView.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalTileView.m
+END
+KalLogic.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalLogic.h
+END
+KalDataSource.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/src/KalDataSource.m
+END

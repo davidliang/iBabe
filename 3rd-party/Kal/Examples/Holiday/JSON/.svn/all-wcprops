@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON
+END
+JSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/JSON.h
+END
+SBJsonBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonBase.h
+END
+SBJsonParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonParser.h
+END
+SBJsonWriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonWriter.h
+END
+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJSON.h
+END
+SBJsonBase.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonBase.m
+END
+SBJsonParser.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonParser.m
+END
+SBJsonWriter.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJsonWriter.m
+END
+NSObject+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/NSObject+SBJSON.h
+END
+NSString+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/NSString+SBJSON.h
+END
+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/SBJSON.m
+END
+NSObject+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/NSObject+SBJSON.m
+END
+NSString+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/JSON/NSString+SBJSON.m
+END

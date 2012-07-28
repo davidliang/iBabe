@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests
+END
+GTMHTTPFetcherCachingTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherCachingTest.m
+END
+GTMReadMonitorInputStreamTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMReadMonitorInputStreamTest.m
+END
+GTMHTTPFetcherServiceTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherServiceTest.m
+END
+GTMHTTPServer.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPServer.h
+END
+GTMHTTPFetcherTestServer.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherTestServer.h
+END
+GTMHTTPFetcherUtilityTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherUtilityTest.m
+END
+GTMHTTPUploadFetcherTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPUploadFetcherTest.m
+END
+GTMGatherInputStreamTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMGatherInputStreamTest.m
+END
+GTMHTTPServer.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPServer.m
+END
+GTMMIMEDocumentTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMMIMEDocumentTest.m
+END
+GTMHTTPFetcherTestServer.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherTestServer.m
+END
+GTMHTTPFetcherFetchingTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/HTTPFetcher/Tests/GTMHTTPFetcherFetchingTest.m
+END

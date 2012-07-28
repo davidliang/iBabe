@@ -1,0 +1,299 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated
+END
+GTLCalendarAclRule.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarAclRule.m
+END
+GTLCalendarFreeBusyRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyRequest.h
+END
+GTLCalendarSettings.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarSettings.h
+END
+GTLServiceCalendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLServiceCalendar.h
+END
+GTLCalendarTimePeriod.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarTimePeriod.h
+END
+GTLCalendarFreeBusyRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyRequest.m
+END
+GTLCalendarEvents.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEvents.h
+END
+GTLCalendarSettings.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarSettings.m
+END
+GTLServiceCalendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLServiceCalendar.m
+END
+GTLCalendarTimePeriod.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarTimePeriod.m
+END
+GTLCalendarEvents.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEvents.m
+END
+GTLCalendarConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarConstants.h
+END
+GTLCalendarFreeBusyRequestItem.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyRequestItem.h
+END
+GTLCalendarFreeBusyCalendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyCalendar.h
+END
+GTLCalendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendar.h
+END
+GTLCalendarConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarConstants.m
+END
+GTLCalendarFreeBusyRequestItem.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyRequestItem.m
+END
+GTLCalendarFreeBusyCalendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyCalendar.m
+END
+GTLCalendarCalendarListEntry.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendarListEntry.h
+END
+GTLCalendarColorDefinition.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarColorDefinition.h
+END
+GTLCalendarError.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarError.h
+END
+GTLCalendarEventAttendee.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventAttendee.h
+END
+GTLCalendarCalendarListEntry.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendarListEntry.m
+END
+GTLCalendarColorDefinition.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarColorDefinition.m
+END
+GTLCalendarEventDateTime.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventDateTime.h
+END
+GTLCalendarError.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarError.m
+END
+GTLCalendarAcl.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarAcl.h
+END
+GTLCalendarEventAttendee.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventAttendee.m
+END
+GTLCalendarColors.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarColors.h
+END
+GTLCalendarFreeBusyGroup.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyGroup.h
+END
+GTLCalendarEventDateTime.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventDateTime.m
+END
+GTLCalendarFreeBusyResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyResponse.h
+END
+GTLCalendarAcl.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarAcl.m
+END
+GTLCalendarCalendarList.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendarList.h
+END
+GTLQueryCalendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLQueryCalendar.h
+END
+GTLCalendarColors.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarColors.m
+END
+GTLCalendarFreeBusyGroup.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyGroup.m
+END
+GTLCalendarEventReminder.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventReminder.h
+END
+GTLCalendarFreeBusyResponse.m
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarFreeBusyResponse.m
+END
+GTLCalendarCalendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendar.h
+END
+GTLCalendarCalendarList.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendarList.m
+END
+GTLQueryCalendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLQueryCalendar.m
+END
+GTLCalendarEventReminder.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEventReminder.m
+END
+GTLCalendarSetting.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarSetting.h
+END
+GTLCalendarCalendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarCalendar.m
+END
+GTLCalendarEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEvent.h
+END
+GTLCalendarSetting.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarSetting.m
+END
+GTLCalendarEvent.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarEvent.m
+END
+GTLCalendarAclRule.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Calendar/Generated/GTLCalendarAclRule.h
+END

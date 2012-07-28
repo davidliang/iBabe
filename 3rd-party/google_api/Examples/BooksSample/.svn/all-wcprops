@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample
+END
+BooksSampleAppController.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/BooksSampleAppController.m
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/main.m
+END
+BooksSampleWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/BooksSampleWindowController.h
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/Info.plist
+END
+BooksSampleWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/BooksSampleWindowController.m
+END
+BooksSampleAppController.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/BooksSampleAppController.h
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/README.txt
+END
+buildStripHeaders
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/BooksSample/buildStripHeaders
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample
+END
+LatitudeSampleWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/LatitudeSampleWindowController.h
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/main.m
+END
+LatitudeSampleWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/LatitudeSampleWindowController.m
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/Info.plist
+END
+LatitudeSampleAppController.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/LatitudeSampleAppController.h
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/README.txt
+END
+LatitudeSampleAppController.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/LatitudeSampleAppController.m
+END
+buildStripHeaders
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/LatitudeSample/buildStripHeaders
+END

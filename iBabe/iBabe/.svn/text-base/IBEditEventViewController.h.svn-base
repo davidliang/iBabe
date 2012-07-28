@@ -1,0 +1,42 @@
+//
+//  IBEditEventViewController.h
+//  iBabe
+//
+//  Created by David Liang on 30/06/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "TDDatePickerController.h"
+#import "SMDateConvertUtil.h"
+
+@interface IBEditEventViewController : UIViewController<UITextViewDelegate, UIGestureRecognizerDelegate>
+
+{
+    TDDatePickerController* datePickerView;
+    NSDate* presetEndDateTime;
+
+}
+
+@property (retain, nonatomic) IBOutlet UITextView *tvNote;
+@property (retain, nonatomic) IBOutlet UITextView *tvLocation;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (retain, nonatomic) IBOutlet UIView *contentView;
+@property (retain, nonatomic) IBOutlet UIButton *btnSave;
+@property (retain, nonatomic) IBOutlet UITextField *tbTitle;
+
+@property (retain, nonatomic) IBOutlet UIButton *btnDate;
+@property (retain, nonatomic) IBOutlet UIButton *btnStartTime;
+@property (retain, nonatomic) IBOutlet UIButton *btnEndTime;
+
+- (IBAction)tapToCloseKeyboard:(id)sender;
+- (IBAction)didTapBtnSave:(id)sender;
+- (IBAction)swipeToNavBack:(id)sender;
+
+- (IBAction)didTapBtnSetDate:(id)sender;
+- (IBAction)didTapTimeStart:(id)sender;
+- (IBAction)didTapTimeEnd:(id)sender;
+
+
+@end

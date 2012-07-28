@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes
+END
+Holiday.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/Holiday.h
+END
+HolidayAppDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidayAppDelegate.m
+END
+HolidaySqliteDataSource.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidaySqliteDataSource.m
+END
+Holiday.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/Holiday.m
+END
+HolidayJSONDataSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidayJSONDataSource.h
+END
+HolidaysDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidaysDetailViewController.h
+END
+HolidayJSONDataSource.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidayJSONDataSource.m
+END
+HolidaysDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidaysDetailViewController.m
+END
+HolidayAppDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidayAppDelegate.h
+END
+HolidaySqliteDataSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/Kal/Examples/Holiday/Classes/HolidaySqliteDataSource.h
+END

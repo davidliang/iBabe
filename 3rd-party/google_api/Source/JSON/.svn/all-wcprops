@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON
+END
+JSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/JSON.h
+END
+SBJsonBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonBase.h
+END
+SBJsonParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonParser.h
+END
+SBJsonWriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonWriter.h
+END
+SBJsonBase.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonBase.m
+END
+SBJsonParser.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonParser.m
+END
+SBJsonWriter.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/SBJsonWriter.m
+END
+NSObject+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/NSObject+SBJSON.h
+END
+NSString+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/NSString+SBJSON.h
+END
+NSObject+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/NSObject+SBJSON.m
+END
+NSString+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/JSON/NSString+SBJSON.m
+END

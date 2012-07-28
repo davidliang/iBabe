@@ -1,0 +1,287 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated
+END
+GTLBooksDownloadAccesses.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksDownloadAccesses.m
+END
+GTLBooksAnnotationsdata.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationsdata.h
+END
+GTLBooksLayersummary.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayersummary.h
+END
+GTLBooksVolumes.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumes.h
+END
+GTLBooksAnnotationsdata.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationsdata.m
+END
+GTLBooksLayersummary.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayersummary.m
+END
+GTLBooksVolumes.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumes.m
+END
+GTLBooksAnnotationdata.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationdata.h
+END
+GTLBooksAnnotationdata.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationdata.m
+END
+GTLBooksConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksConstants.h
+END
+GTLBooksBookshelf.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksBookshelf.h
+END
+GTLBooksDownloadAccessRestriction.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksDownloadAccessRestriction.h
+END
+GTLBooks.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooks.h
+END
+GTLBooksConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksConstants.m
+END
+GTLBooksBookshelf.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksBookshelf.m
+END
+GTLBooksDownloadAccessRestriction.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksDownloadAccessRestriction.m
+END
+GTLBooksBookshelves.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksBookshelves.h
+END
+GTLBooksVolumeannotations.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumeannotations.h
+END
+GTLBooksBookshelves.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksBookshelves.m
+END
+GTLBooksConcurrentAccessRestriction.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksConcurrentAccessRestriction.h
+END
+GTLBooksVolumeannotations.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumeannotations.m
+END
+GTLBooksAnnotations.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotations.h
+END
+GTLBooksReadingPosition.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksReadingPosition.h
+END
+GTLBooksConcurrentAccessRestriction.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksConcurrentAccessRestriction.m
+END
+GTLServiceBooks.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLServiceBooks.h
+END
+GTLBooksLayerGeoData.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayerGeoData.h
+END
+GTLBooksReview.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksReview.h
+END
+GTLBooksLayersummaries.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayersummaries.h
+END
+GTLBooksAnnotations.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotations.m
+END
+GTLBooksVolumeannotation.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumeannotation.h
+END
+GTLBooksReadingPosition.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksReadingPosition.m
+END
+GTLQueryBooks.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLQueryBooks.h
+END
+GTLServiceBooks.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLServiceBooks.m
+END
+GTLBooksLayerGeoData.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayerGeoData.m
+END
+GTLBooksReview.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksReview.m
+END
+GTLBooksLayersummaries.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksLayersummaries.m
+END
+GTLBooksVolume.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolume.h
+END
+GTLBooksVolumeannotation.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolumeannotation.m
+END
+GTLBooksAnnotation.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotation.h
+END
+GTLBooksAnnotationsRange.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationsRange.h
+END
+GTLBooksRequestAccess.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksRequestAccess.h
+END
+GTLQueryBooks.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLQueryBooks.m
+END
+GTLBooksVolume.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksVolume.m
+END
+GTLBooksAnnotation.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotation.m
+END
+GTLBooksAnnotationsRange.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksAnnotationsRange.m
+END
+GTLBooksRequestAccess.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksRequestAccess.m
+END
+GTLBooksDownloadAccesses.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Books/Generated/GTLBooksDownloadAccesses.h
+END

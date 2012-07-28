@@ -1,0 +1,85 @@
+//
+//  IBEventDetailsViewController.m
+//  iBabe
+//
+//  Created by David Liang on 26/06/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "IBEventDetailsViewController.h"
+#import "SMDateConvertUtil.h"
+#import "IBEventLocationMapViewController.h"
+
+@implementation IBEventDetailsViewController
+@synthesize lbDate;
+@synthesize lbStartTime;
+@synthesize lbEndTime;
+@synthesize lbNote;
+@synthesize lbLocation;
+@synthesize lbEventTitle, currentEvent;
+
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self initNavigationBar];
+}
+
+-(void) initNavigationBar
+{
+    UIBarButtonItem* btnEdit = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIControlStateNormal target:self action:@selector(didTapNavEditButton)];
+    [[self navigationItem] setRightBarButtonItem:btnEdit];
+}
+
+-(void) didTapNavEditButton
+{
+    [self performSegueWithIdentifier:@"segueEditEvent" sender:self];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    [lbEventTitle setText:[currentEvent title]];
+    [lbNote setText:[currentEvent notes]];
+    [lbLocation setText:[currentEvent location]];
+    [lbStartTime setText:[SMDateConvertUtil getTimeFromNSDate:[currentEvent startDate]]];
+    [lbEndTime setText:[SMDateConvertUtil getTimeFromNSDate:[currentEvent endDate]]];    
+    [lbDate setText:[SMDateConvertUtil getDDMMYYYYFromNSDate:[currentEvent startDate]]];
+
+}
+
+- (void)dealloc {
+    [lbEventTitle release];
+    [currentEvent release];
+    [lbDate release];
+    [lbStartTime release];
+    [lbEndTime release];
+    [lbLocation release];
+    [lbNote release];
+    [super dealloc];
+}
+
+- (void)viewDidUnload {
+    [self setLbEventTitle:nil];
+    [self setLbDate:nil];
+    [self setLbStartTime:nil];
+    [self setLbEndTime:nil];
+    [self setLbLocation:nil];
+    [self setLbNote:nil];
+    [super viewDidUnload];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"mapViewSegue"])
+    {
+        IBEventLocationMapViewController* locationViewCtrl = [segue destinationViewController];
+        locationViewCtrl.location = [lbLocation text];
+    }
+
+}
+
+@end

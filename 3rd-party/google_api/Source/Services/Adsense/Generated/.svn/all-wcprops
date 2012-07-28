@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated
+END
+GTLAdsenseAccounts.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAccounts.h
+END
+GTLAdsense.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsense.h
+END
+GTLAdsenseConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseConstants.m
+END
+GTLAdsenseAdClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdClient.h
+END
+GTLAdsenseUrlChannels.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseUrlChannels.m
+END
+GTLAdsenseAdUnit.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdUnit.h
+END
+GTLAdsenseAccounts.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAccounts.m
+END
+GTLAdsenseCustomChannels.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseCustomChannels.h
+END
+GTLAdsenseAdClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdClient.m
+END
+GTLAdsenseAdUnit.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdUnit.m
+END
+GTLAdsenseAdsenseReportsGenerateResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdsenseReportsGenerateResponse.h
+END
+GTLAdsenseCustomChannels.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseCustomChannels.m
+END
+GTLAdsenseUrlChannel.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseUrlChannel.h
+END
+GTLAdsenseAccount.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAccount.h
+END
+GTLAdsenseAdsenseReportsGenerateResponse.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdsenseReportsGenerateResponse.m
+END
+GTLAdsenseUrlChannel.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseUrlChannel.m
+END
+GTLServiceAdsense.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLServiceAdsense.h
+END
+GTLAdsenseAccount.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAccount.m
+END
+GTLAdsenseCustomChannel.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseCustomChannel.h
+END
+GTLQueryAdsense.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLQueryAdsense.h
+END
+GTLServiceAdsense.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLServiceAdsense.m
+END
+GTLAdsenseAdClients.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdClients.h
+END
+GTLAdsenseAdUnits.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdUnits.h
+END
+GTLAdsenseCustomChannel.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseCustomChannel.m
+END
+GTLQueryAdsense.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLQueryAdsense.m
+END
+GTLAdsenseAdClients.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdClients.m
+END
+GTLAdsenseAdUnits.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseAdUnits.m
+END
+GTLAdsenseConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseConstants.h
+END
+GTLAdsenseUrlChannels.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Adsense/Generated/GTLAdsenseUrlChannels.h
+END

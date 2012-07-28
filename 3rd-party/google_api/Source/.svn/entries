@@ -1,0 +1,126 @@
+10
+
+dir
+71
+https://david@192.168.1.103:8443/svn/iBabe/3rd-party/google_api/Source
+https://david@192.168.1.103:8443/svn/iBabe
+
+
+
+2012-07-03T11:16:22.484600Z
+71
+david
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+48c38e68-70ad-4847-8b50-93838e067645
+
+HTTPFetcher
+dir
+
+GTL.xcodeproj
+dir
+
+OAuth2
+dir
+
+Tests
+dir
+
+Services
+dir
+
+Networking
+dir
+
+ReleaseNotes.txt
+file
+
+
+
+
+2012-07-03T09:50:30.000000Z
+0718e43df62004fef3f0ad4d4d5f792d
+2012-07-03T11:16:22.484600Z
+71
+david
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1379
+
+JSON
+dir
+
+Objects
+dir
+
+GTLDefines.h
+file
+
+
+
+
+2012-07-03T09:50:30.000000Z
+be2c3ce7a8099b117fe26aba44ba3701
+2012-07-03T11:16:22.484600Z
+71
+david
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4073
+
+Resources
+dir
+
+Utilities
+dir
+

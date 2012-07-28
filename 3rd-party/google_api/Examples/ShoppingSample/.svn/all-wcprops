@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/main.m
+END
+ShoppingSampleWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/ShoppingSampleWindowController.m
+END
+ShoppingSampleAppController.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/ShoppingSampleAppController.h
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/Info.plist
+END
+ShoppingSampleAppController.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/ShoppingSampleAppController.m
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/README.txt
+END
+ShoppingSampleWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/ShoppingSampleWindowController.h
+END
+buildStripHeaders
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Examples/ShoppingSample/buildStripHeaders
+END

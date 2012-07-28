@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated
+END
+GTLLatitudeLocation.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeLocation.h
+END
+GTLQueryLatitude.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLQueryLatitude.m
+END
+GTLLatitudeConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeConstants.h
+END
+GTLLatitudeLocationFeed.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeLocationFeed.h
+END
+GTLLatitudeLocation.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeLocation.m
+END
+GTLLatitude.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitude.h
+END
+GTLServiceLatitude.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLServiceLatitude.h
+END
+GTLLatitudeConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeConstants.m
+END
+GTLLatitudeLocationFeed.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLLatitudeLocationFeed.m
+END
+GTLQueryLatitude.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLQueryLatitude.h
+END
+GTLServiceLatitude.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Latitude/Generated/GTLServiceLatitude.m
+END

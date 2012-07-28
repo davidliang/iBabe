@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated
+END
+GTLPlus.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlus.h
+END
+GTLPlusActivityFeed.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusActivityFeed.h
+END
+GTLPlusConstants.m
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusConstants.m
+END
+GTLPlusActivityFeed.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusActivityFeed.m
+END
+GTLPlusCommentFeed.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusCommentFeed.h
+END
+GTLPlusAclentryResource.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusAclentryResource.h
+END
+GTLPlusCommentFeed.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusCommentFeed.m
+END
+GTLPlusActivity.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusActivity.h
+END
+GTLPlusAclentryResource.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusAclentryResource.m
+END
+GTLPlusAcl.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusAcl.h
+END
+GTLServicePlus.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLServicePlus.h
+END
+GTLPlusActivity.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusActivity.m
+END
+GTLPlusComment.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusComment.h
+END
+GTLPlusAcl.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusAcl.m
+END
+GTLQueryPlus.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLQueryPlus.h
+END
+GTLServicePlus.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLServicePlus.m
+END
+GTLPlusPerson.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusPerson.h
+END
+GTLPlusComment.m
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusComment.m
+END
+GTLPlusPeopleFeed.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusPeopleFeed.h
+END
+GTLQueryPlus.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLQueryPlus.m
+END
+GTLPlusPerson.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusPerson.m
+END
+GTLPlusConstants.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusConstants.h
+END
+GTLPlusPeopleFeed.m
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iBabe/!svn/ver/71/3rd-party/google_api/Source/Services/Plus/Generated/GTLPlusPeopleFeed.m
+END

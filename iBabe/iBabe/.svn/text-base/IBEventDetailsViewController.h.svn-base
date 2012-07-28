@@ -1,0 +1,28 @@
+//
+//  IBEventDetailsViewController.h
+//  iBabe
+//
+//  Created by David Liang on 26/06/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+
+
+@interface IBEventDetailsViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UILabel *lbEventTitle;
+@property (retain, nonatomic) IBOutlet UILabel *lbDate;
+
+@property (retain, nonatomic) IBOutlet UILabel *lbStartTime;
+@property (retain, nonatomic) IBOutlet UILabel *lbEndTime;
+
+@property (retain, nonatomic) IBOutlet UITextView *lbNote;
+
+@property (retain, nonatomic) IBOutlet UITextView *lbLocation;
+
+
+@property (retain, nonatomic) EKEvent* currentEvent;
+
+@end
