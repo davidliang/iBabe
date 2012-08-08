@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "SMMapUtil.h"
+#import "MBProgressHUD/MBProgressHUD.h"
+
 @class IBAnnotation;
 
 
-@interface IBEventLocationMapViewController : UIViewController<MKMapViewDelegate>
+@interface IBEventLocationMapViewController : UIViewController<MKMapViewDelegate, MBProgressHUDDelegate>
 {
     CLLocationCoordinate2D locationCoord;
+	MBProgressHUD progressHUD;
 	
 }
 

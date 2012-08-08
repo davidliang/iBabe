@@ -15,6 +15,10 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 140;
 static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
 static NSString* BUTTON_STRING_FORMAT = @"   %@";
+static NSString* ALARM_NOT_SET = @"Not Set";
+static const NSInteger ALERTVIEW_TAG_CONFIRM_DELETE_EVENT = 1;
+static const NSInteger ALERTVIEW_TAG_NORMAL = 0;
+
 CGFloat animatedDistance;
 
 
@@ -67,6 +71,8 @@ enum GeneralPickerType genPType;
 @synthesize btnAlarm2;
 @synthesize btnDelete;
 @synthesize currentEvent;
+@synthesize isNewEvent;
+
 
 
 
@@ -163,11 +169,24 @@ enum GeneralPickerType genPType;
     [super viewDidLoad];
     [self customiseUI];
 	
+	if (currentEvent==Nil)
+	{
+		EKEventStore* eventStore = [[EKEventStore alloc]init];
+		currentEvent = [EKEvent eventWithEventStore:eventStore]; 
+		currentEvent.title = @"";
+		[eventStore release];
+
+	}
+	
+	if (isNewEvent)
+	{
+		[btnDelete setHidden:YES];
+	}
 	
 	
 	alarmValues = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithInt:-5*60],[NSNumber numberWithInt:-15*60],[NSNumber numberWithInt:-30*60],[NSNumber numberWithInt:-60*60],[NSNumber numberWithInt:-2*60*60],[NSNumber numberWithInt:-24*60*60],[NSNumber numberWithInt:-2*24*60*60], nil];
 	
-	alarmTitles =  [[NSArray alloc] initWithObjects:@"At time of event",@"5 mins before",@"15 mins before",@"30 mins before",@"1 hour before",@"2 hours before",@"1 day before",@"2 days before",@"Not Set", nil];
+	alarmTitles =  [[NSArray alloc] initWithObjects:@"At time of event",@"5 mins before",@"15 mins before",@"30 mins before",@"1 hour before",@"2 hours before",@"1 day before",@"2 days before",ALARM_NOT_SET, nil];
 	
 	[self boundData];
 	
@@ -175,60 +194,70 @@ enum GeneralPickerType genPType;
 
 -(void) boundData
 {
-	if (currentEvent!=nil)
+	
+	[self.tbTitle setText:currentEvent.title];
+	[self.tvLocation setText:currentEvent.location];
+	[self.tvNote setText:currentEvent.notes];
+	
+	
+	[self.btnDateStart setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getDDMMYYYYFromNSDate:currentEvent.startDate]] forState:UIControlStateNormal];
+	
+	[self.btnStartTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:currentEvent.startDate]] forState:UIControlStateNormal];
+	
+	[self.btnDateEnd setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getDDMMYYYYFromNSDate:currentEvent.endDate]] forState:UIControlStateNormal];
+	
+	[self.btnEndTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:currentEvent.endDate]] forState:UIControlStateNormal];
+	
+	NSString* alarmTitle1 = ALARM_NOT_SET;
+	NSString* alarmTitle2 = ALARM_NOT_SET;
+	
+	if (currentEvent.alarms !=Nil)
 	{
-		[self.tbTitle setText:currentEvent.title];
-		[self.tvLocation setText:currentEvent.location];
-		[self.tvNote setText:currentEvent.notes];
-		
-		[self.btnDateStart setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getDDMMYYYYFromNSDate:currentEvent.startDate]] forState:UIControlStateNormal];
-		
-		[self.btnStartTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:currentEvent.startDate]] forState:UIControlStateNormal];
-		
-		[self.btnDateEnd setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getDDMMYYYYFromNSDate:currentEvent.endDate]] forState:UIControlStateNormal];
-		
-		[self.btnEndTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT,[SMDateConvertUtil getTimeFromNSDate:currentEvent.endDate]] forState:UIControlStateNormal];
-		
-		NSString* alarmTitle1 = @"Not set";
-		NSString* alarmTitle2 = @"Not set";
-		
-		if (currentEvent.alarms !=Nil)
+		if ([currentEvent.alarms count]>0)
 		{
-			if ([currentEvent.alarms count]>0)
-			{
-				EKAlarm* alarm1 =	[currentEvent.alarms objectAtIndex:0];
-				
-				
-				if (alarm1!=Nil)
-				{
-					NSInteger alarm1Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm1.relativeOffset]];
-					alarmTitle1 = [alarmTitles objectAtIndex:alarm1Row];
-				}
-				
-			}
+			EKAlarm* alarm1 =	[currentEvent.alarms objectAtIndex:0];
 			
 			
-			if ([currentEvent.alarms count]>1)
+			if (alarm1!=Nil)
 			{
-				EKAlarm* alarm2 =	[currentEvent.alarms objectAtIndex:1];
-				
-				if (alarm2!=Nil)
-				{
-					NSInteger alarm2Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm2.relativeOffset]];
-					alarmTitle2 = [alarmTitles objectAtIndex:alarm2Row];
-				}
-				
+				NSInteger alarm1Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm1.relativeOffset]];
+				alarmTitle1 = [alarmTitles objectAtIndex:alarm1Row];
 			}
+			
 		}
-		[self.btnAlarm1 setTitle:[NSString stringWithFormat:@"   %@",alarmTitle1] forState:UIControlStateNormal];
-		[self.btnAlarm2 setTitle:[NSString stringWithFormat:@"   %@",alarmTitle2] forState:UIControlStateNormal];
 		
+		
+		if ([currentEvent.alarms count]>1)
+		{
+			EKAlarm* alarm2 =	[currentEvent.alarms objectAtIndex:1];
+			
+			if (alarm2!=Nil)
+			{
+				NSInteger alarm2Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm2.relativeOffset]];
+				alarmTitle2 = [alarmTitles objectAtIndex:alarm2Row];
+			}
+			
+		}
 	}
+	[self.btnAlarm1 setTitle:[NSString stringWithFormat:@"   %@",alarmTitle1] forState:UIControlStateNormal];
+	[self.btnAlarm2 setTitle:[NSString stringWithFormat:@"   %@",alarmTitle2] forState:UIControlStateNormal];
+	
+	
 	
 }
 
+-(void)hudWasHidden:(MBProgressHUD *)hud
+{
+	// Remove HUD from screen when the HUD was hidded
+	[progressHud removeFromSuperview];
+	[progressHud release];
+	progressHud = nil;
+}
+
+
 -(void) customiseUI
 {
+	
     // --- add border and setup border color for the text boxes.
     tvNote.layer.borderWidth=1;
     tvNote.layer.borderColor = [[UIColor colorWithRed:0.878 green:0.773 blue:0.804 alpha:1]CGColor];
@@ -451,7 +480,51 @@ enum GeneralPickerType genPType;
 }
 
 - (IBAction)didTapDelete:(id)sender {
+	UIAlertView* confirmView = [[UIAlertView alloc]initWithTitle:@"Confirm" message:@"Are you sure you want to delete this reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", Nil];
+	
+	confirmView.tag = ALERTVIEW_TAG_CONFIRM_DELETE_EVENT;
+	
+	[confirmView show];
 }
+
+#pragma mark - 
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	
+	switch (buttonIndex) {
+		case 0: // -- Cancel button
+			switch (alertView.tag) {
+				case ALERTVIEW_TAG_CONFIRM_DELETE_EVENT:
+				case ALERTVIEW_TAG_NORMAL:
+				default:
+					break;
+			}
+
+			break;
+		case 1: // -- Action button
+			switch (alertView.tag) {
+				case ALERTVIEW_TAG_CONFIRM_DELETE_EVENT:
+					[IBEKCalendarHelper deleteEvent:[currentEvent eventIdentifier]];
+					[self.navigationController popToRootViewControllerAnimated:YES];
+					break;
+					
+				case ALERTVIEW_TAG_NORMAL:
+				default:
+					break;
+			}
+
+			break;
+		default:
+			break;
+	}
+	
+
+}
+
+
+
+
 
 #pragma mark -
 #pragma mark TDGeneralPickerController Delegate
@@ -481,10 +554,10 @@ enum GeneralPickerType genPType;
 {
 	switch (genPType) {
 		case alarm1:
-			[self.btnAlarm1 setTitle:@"   Not set" forState:UIControlStateNormal];
+			[self.btnAlarm1 setTitle:@"   Not Set" forState:UIControlStateNormal];
 			break;
 		case alarm2:
-			[self.btnAlarm2 setTitle:@"   Not set" forState:UIControlStateNormal];
+			[self.btnAlarm2 setTitle:@"   Not Set" forState:UIControlStateNormal];
 			break;
 		default:
 			break;
@@ -650,61 +723,122 @@ enum GeneralPickerType genPType;
     [tbTitle resignFirstResponder];
     
     [self resetViewPositionAfterKeyboardDissmised];
+	
+	
+}
+
+
+-(void) saveEvent{
+	
+	
+	if ([SMStringUtil isEmptyString:self.tbTitle.text])
+	{
+		UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Invalid Input" message:@"Title cannot be blank" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+		alert.tag = ALERTVIEW_TAG_NORMAL;
+		[alert show];
+		[alert release];
+		
+		
+	}
+	else
+	{
+		currentEvent.title = self.tbTitle.text;
+		currentEvent.location = self.tvLocation.text;
+		currentEvent.notes = self.tvNote.text;
+		
+		NSString* startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateStart.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+		
+		currentEvent.startDate = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+		
+		NSString* endDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateEnd.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnEndTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+		
+		currentEvent.endDate = [SMDateConvertUtil convertString2Date:endDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+		
+		
+		// --- Alarms
+		NSString* alarmTitle1 = [self.btnAlarm1.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		//NSMutableArray* newAlarms = [[NSMutableArray alloc]init];
+		
+		
+		
+		switch ([currentEvent.alarms count]) {
+			case 1:
+				[currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
+				break;
+			case 2:
+				[currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:1]];
+				[currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
+				
+				break;
+				
+			default:
+				break;
+		}
+		
+		
+		if (![alarmTitle1 isEqualToString:ALARM_NOT_SET])
+		{
+			NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
+			
+			NSNumber* alarmSelectedVal1 = (NSNumber*)[alarmValues objectAtIndex:titleIdx1];
+			EKAlarm* alarm1 = [[EKAlarm alloc]init];
+			alarm1.relativeOffset = [alarmSelectedVal1 integerValue];
+			
+			[currentEvent addAlarm:alarm1];
+			
+
+			[alarm1 release];
+		}
+		
+		
+		NSString* alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		if (![alarmTitle2 isEqualToString:ALARM_NOT_SET])
+		{
+			NSNumber* alarmSelectedVal1 = (NSNumber*)[alarmValues objectAtIndex:[alarmTitles indexOfObject:alarmTitle2]];
+			EKAlarm* alarm2 = [[EKAlarm alloc]init];
+			alarm2.relativeOffset = [alarmSelectedVal1 integerValue];
+
+			[currentEvent addAlarm:alarm2];
+			[alarm2 release];
+		}
+		
+		
+		if(!isNewEvent)
+		{
+			isSaved = [IBEKCalendarHelper updateEvent:currentEvent];
+		}
+		else
+		{
+			isSaved = [IBEKCalendarHelper addEvent:currentEvent];
+			
+		}
+		
+		[progressHud hide:YES];
+		
+		[self.navigationController popToRootViewControllerAnimated:YES];
+		
+	}
+	
 }
 
 - (IBAction)didTapBtnSave:(id)sender {
 	
-	currentEvent.title = self.tbTitle.text;
-	currentEvent.location = self.tvLocation.text;
-	currentEvent.notes = self.tvNote.text;
+	isSaved = NO;
 	
-	NSString* startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateStart.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+	progressHud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[progressHud setLabelText:@"Saving..."];
+	[progressHud setMode:MBProgressHUDModeIndeterminate];
 	
-	currentEvent.startDate = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+	[self.navigationController.view addSubview:progressHud];
 	
-	NSString* endDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateEnd.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnEndTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+	progressHud.dimBackground = YES;
 	
-	currentEvent.endDate = [SMDateConvertUtil convertString2Date:endDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+	// Regiser for HUD callbacks so we can remove it from the window at the right time
+	progressHud.delegate = self;
 	
-	
-	// --- Alarms
-	NSString* alarmTitle1 = [self.btnAlarm1.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	NSMutableArray* newAlarms = [[NSMutableArray alloc]init];
-	
-	if (![alarmTitle1 isEqualToString:@"Not set"])
-	{
-		NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
-		
-		NSNumber* alarmSelectedVal1 = (NSNumber*)[alarmValues objectAtIndex:titleIdx1];
-		EKAlarm* alarm1 = [[EKAlarm alloc]init];
-		alarm1.relativeOffset = [alarmSelectedVal1 integerValue];
-		
-		[newAlarms addObject:alarm1];
-		[alarm1 release];
-	}
-	
-	
-	NSString* alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	if (![alarmTitle2 isEqualToString:@"Not set"])
-	{
-		NSNumber* alarmSelectedVal1 = (NSNumber*)[alarmValues objectAtIndex:[alarmTitles indexOfObject:alarmTitle2]];
-		EKAlarm* alarm2 = [[EKAlarm alloc]init];
-		alarm2.relativeOffset = [alarmSelectedVal1 integerValue];
-		[newAlarms addObject:alarm2];
-		
-		[alarm2 release];
-	}
-	
-	
-	
-	if (currentEvent.alarms==Nil)
-		currentEvent.alarms = [[NSMutableArray alloc]initWithArray:newAlarms];
-	else
-		currentEvent.alarms = newAlarms;
-	
-	[newAlarms release];
-	[IBEKCalendarHelper updateEvent:currentEvent];
-	
+	// Show the HUD while the provided method executes in a new thread
+	[progressHud showWhileExecuting:@selector(saveEvent) onTarget:self withObject:nil animated:YES];
+
 }
 
 - (IBAction)swipeToNavBack:(id)sender {
@@ -720,11 +854,12 @@ enum GeneralPickerType genPType;
     [btnDateStart release];
     [btnStartTime release];
     [btnEndTime release];
-	[currentEvent release];
+	//[currentEvent release];
 	[btnDateEnd release];
 	[btnAlarm1 release];
 	[btnAlarm2 release];
 	[btnDelete release];
-    [super dealloc];
+	[progressHud release];
+	[super dealloc];
 }
 @end

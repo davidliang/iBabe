@@ -12,6 +12,7 @@
 #import "IBDateHelper.h"
 #import "IBEditEventViewController.h"
 #import "IBEventDetailsViewController.h"
+#import "IBEKCalendarHelper.h"
 
 @interface IBCalendarViewController : UIViewController<TKCalendarMonthViewDelegate,TKCalendarMonthViewDataSource, UITableViewDataSource,UITableViewDelegate>
 {
@@ -19,8 +20,9 @@
 	UITableView* eventTable;
 	NSMutableArray* eventsForCurrentMonth;
 	NSMutableArray* eventsForCurrentDate;
-	
+	NSDate* selectedDate;
 	EKEvent* selectedEvent;
+	
 }
 
 

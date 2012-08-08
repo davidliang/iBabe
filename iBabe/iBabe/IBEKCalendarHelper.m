@@ -25,6 +25,7 @@
 	predicate = [currentEventStore predicateForEventsWithStartDate:start	endDate:to calendars:cals];
 	matchedEvents = [currentEventStore eventsMatchingPredicate:predicate];
 	
+	
 	return matchedEvents;
 }
 
@@ -75,7 +76,7 @@
         
         fromDate = toDate;
         toDate = [toDate dateByAddingTimeInterval:daysInSecond*30 ];
-    }
+    };
 	
 	return currentEvents;
 }
@@ -164,6 +165,25 @@
 }
 
 
++ (BOOL)deleteEvent:(NSString *)eventId
+{
+	EKEventStore* eventStore = [[EKEventStore alloc]init];
+	EKEvent* event = [eventStore eventWithIdentifier:eventId];
+	
+	NSError* err = Nil;
+	
+	[eventStore removeEvent:event span:EKSpanThisEvent commit:YES error:&err];
+	
+	if (err != noErr)
+	{
+		NSLog(@"##ERROR: deleteEvent Err - %@",err);
+		return NO;
+	}
+	
+	return YES;
+}
+
+
 + (void) removeDevCal
 {
 	
@@ -201,8 +221,9 @@
 		NSString* calID = [[NSUserDefaults new] objectForKey:USER_DEFAULT_CALENDAR_NAME];
 		
 		EKCalendar* ibbCal = [eventStore calendarWithIdentifier:calID];
-		
-		return ibbCal;
+
+		[eventStore release];
+		return [ibbCal autorelease];
 	}
 	
 	return Nil;
@@ -225,10 +246,42 @@
 	
 	[eventStore saveEvent:storedEvent span:EKSpanThisEvent error:&err];
 	
-	if (err != noErr)
-		NSLog(@"%@",err);
 	
 	[eventStore release];
+	
+	if (err != noErr)
+	{
+		NSLog(@"##ERROR: updateEvent Err - %@",err);
+		return NO;
+	}
+	
+	return YES;
+}
+
++(BOOL)addEvent:(EKEvent *)newEvent
+{
+	EKEventStore* eventStore = [[EKEventStore alloc]init];
+	EKEvent* event = [EKEvent eventWithEventStore:eventStore];
+	NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+	NSString* calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
+	event.calendar = [eventStore calendarWithIdentifier:calID];
+	
+	event.title = newEvent.title;
+	event.URL = newEvent.URL;
+	event.location = newEvent.location;
+	event.startDate = newEvent.startDate;
+	event.endDate = newEvent.endDate;
+	event.notes = newEvent.notes;
+	event.alarms = newEvent.alarms;
+	
+	NSError* err = nil;
+	[eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+	
+	if (err != noErr)
+	{
+		NSLog(@"%@",err);
+		return NO;
+	}
 	
 	return YES;
 }

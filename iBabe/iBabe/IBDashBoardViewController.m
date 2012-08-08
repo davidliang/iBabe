@@ -140,8 +140,6 @@
 	EKEvent* cellEvent = [currentEvents objectAtIndex:[indexPath row] ];
     
     
-    //NSString* year = [SMDateConvertUtil getYearFromNSDate:[cellEvent startDate]];
-    //NSString* date = [SMDateConvertUtil getDateFromNSDate:[cellEvent startDate]];
     
     NSString* month =[SMDateConvertUtil getMonthFromNSDate:[cellEvent startDate]];
     
@@ -276,8 +274,6 @@
 
 -(void) initRemindersList
 {
-	//    currentEvents = [EventKitDataSource getCurrentEventsWithTopEventNumber:10];
-	
 	currentEvents = [IBEKCalendarHelper getCurrentEventsWithTopEventNumber:10];
     [eventsList reloadData];
 }

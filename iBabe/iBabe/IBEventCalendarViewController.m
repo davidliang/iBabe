@@ -31,21 +31,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// Display a details screen for the selected event/row.
-	EKEventViewController *vc = [[[EKEventViewController alloc] init] autorelease];
-	vc.event = (EKEvent*)[self.dataSource eventAtIndexPath:indexPath];
-	vc.allowsEditing = NO;
-	
-	[[self navigationController]pushViewController:vc animated:YES];
-	
-	
-	//[self performSegueWithIdentifier:@"showDetails" sender:self];
-	//	
-	//	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-	//    IBNavKalViewWrapperViewController *myVC = (IBNavKalViewWrapperViewController *)[storyboard instantiateViewControllerWithIdentifier:@"IBNavKalViewWrapperViewController"];
-	//
-	//
-	//	[myVC pushViewController:vc animated:YES];
+
 	
 }
 

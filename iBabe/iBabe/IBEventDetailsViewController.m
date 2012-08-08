@@ -42,7 +42,7 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
     [self.contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"] ]];
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height) ];
     
-
+	
 }
 
 -(void) initNavigationBar
@@ -71,7 +71,7 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
     [lbNote setText:[currentEvent notes]];
     [lbLocation setText:[currentEvent location]];
     [lbStartTime setText:[SMDateConvertUtil getDDMMYYYYhhmmssaFromNSDate:[currentEvent startDate]]];
-    [lbEndTime setText:[SMDateConvertUtil getDDMMYYYYhhmmssaFromNSDate:[currentEvent endDate]]];    
+    [lbEndTime setText:[SMDateConvertUtil getDDMMYYYYhhmmssaFromNSDate:[currentEvent endDate]]];
     [lbDate setText:[SMDateConvertUtil getDDMMYYYYFromNSDate:[currentEvent startDate]]];
 	
 	if ([SMStringUtil isEmptyString:[currentEvent location]])
@@ -81,12 +81,15 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
 	else {
 		[btnShowLocation setHidden:NO];
 	}
-
+	
+	
+	
+	
 }
 
 - (void)dealloc {
     [lbEventTitle release];
-    [currentEvent release];
+	//  [currentEvent release];
     [lbDate release];
     [lbStartTime release];
     [lbEndTime release];
@@ -126,8 +129,9 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
 	else if ([segue.identifier isEqualToString:@"segueEditEvent"]) {
 		IBEditEventViewController* editEventViewCtrl = [segue destinationViewController];
 		editEventViewCtrl.currentEvent = currentEvent;
+		editEventViewCtrl.isNewEvent= NO;
 	}
-
+	
 }
 
 @end

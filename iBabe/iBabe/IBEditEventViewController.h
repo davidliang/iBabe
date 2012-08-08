@@ -14,14 +14,20 @@
 #import "TDDatePickerController.h"
 #import "TDGeneralPickerController.h"
 #import "SMDateConvertUtil.h"
+#import "SMStringUtil.h"
 
-@interface IBEditEventViewController : UIViewController<UITextViewDelegate, UIGestureRecognizerDelegate>
+#import "MBProgressHUD/MBProgressHUD.h"
+
+@interface IBEditEventViewController : UIViewController<UITextViewDelegate, UIGestureRecognizerDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
 {
 	//---
     TDDatePickerController* datePickerView;
 	TDGeneralPickerController* genPickerView;
     NSDate* presetEndDateTime;
 
+	MBProgressHUD* progressHud;
+	BOOL isSaved;
+	
 }
 
 @property (retain, nonatomic) IBOutlet UITextView *tvNote;
@@ -40,6 +46,9 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnDelete;
 
 @property (retain, nonatomic) EKEvent* currentEvent;
+@property (nonatomic) BOOL isNewEvent;
+
+
 
 - (IBAction)tapToCloseKeyboard:(id)sender;
 - (IBAction)didTapBtnSave:(id)sender;

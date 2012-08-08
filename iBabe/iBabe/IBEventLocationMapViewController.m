@@ -68,11 +68,23 @@
     
 }
 
+
+-(void)mapViewWillStartLoadingMap:(MKMapView *)mapView
+{
+	[progressHUD show:YES];
+}
+
+-(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+	[progressHUD hide:YES afterDelay:60*3];
+}
+
+
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     
     //MKPinAnnotationView *annView = nil;
-    
+	
     MKAnnotationView* annView = nil;
     static NSString* defaultPinID = @"com.sigmapps.iBabe.defPin";
     static NSString* userLocationPinID = @"com.sigmapps.iBabe.userLocPin";
@@ -125,7 +137,15 @@
 }
 
 
-
+#pragma mark-
+#pragma MBProgresHUD Delegate
+-(void)hudWasHidden:(MBProgressHUD *)hud
+{
+	// Remove HUD from screen when the HUD was hidded
+	[progressHUD removeFromSuperview];
+	[progressHUD release];
+	progressHUD = nil;
+}
 
 
 #pragma mark- View Life Cycle
@@ -146,6 +166,15 @@
     [mapEventLocation.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:NULL];
     
     mapEventLocation.showsUserLocation = YES;
+	
+	
+	progressHUD = [[MBProgressHUD alloc]initWithView:[self.navigationController view ]];
+	[progressHUD setLabelText:@"Loading..."];
+	[progressHUD setMode:MBProgressHUDModeDeterminate];
+	
+	
+	
+	
     
     [self initNavigationBar];
     

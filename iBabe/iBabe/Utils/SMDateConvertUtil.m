@@ -101,6 +101,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatString];
     
+	if (rawDate==Nil)
+		rawDate = [NSDate date];
+	
     NSString *result = [formatter stringFromDate:rawDate];
     [formatter release];
     
