@@ -14,7 +14,6 @@
 @interface IBDashBoardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, UIScrollViewDelegate>
 {
 	NSMutableArray* currentEvents;
-	BOOL pageControlBeingUsed;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsList;

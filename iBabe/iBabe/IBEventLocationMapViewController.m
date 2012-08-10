@@ -71,13 +71,24 @@
 
 -(void)mapViewWillStartLoadingMap:(MKMapView *)mapView
 {
-	[progressHUD show:YES];
+
 }
 
 -(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
-	[progressHUD hide:YES afterDelay:60*3];
+
 }
+
+-(void)mapViewWillStartLocatingUser:(MKMapView *)mapView
+{
+		[progressHUD show: YES];
+}
+
+-(void)mapViewDidStopLocatingUser:(MKMapView *)mapView
+{
+	[progressHUD hide: YES];
+}
+
 
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -171,11 +182,8 @@
 	progressHUD = [[MBProgressHUD alloc]initWithView:[self.navigationController view ]];
 	[progressHUD setLabelText:@"Loading..."];
 	[progressHUD setMode:MBProgressHUDModeDeterminate];
+	[self.navigationController.view addSubview:progressHUD];
 	
-	
-	
-	
-    
     [self initNavigationBar];
     
 }

@@ -39,7 +39,6 @@
 		634F98E615A303C600228957 /* background-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98A715A303C600228957 /* background-green@2x.png */; };
 		634F98E715A303C600228957 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98A815A303C600228957 /* background.png */; };
 		634F98E815A303C600228957 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98A915A303C600228957 /* background@2x.png */; };
-		634F98E915A303C600228957 /* bar_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98AA15A303C600228957 /* bar_pink.png */; };
 		634F98EA15A303C600228957 /* button-pink-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98AB15A303C600228957 /* button-pink-down.png */; };
 		634F98EB15A303C600228957 /* button-pink-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98AC15A303C600228957 /* button-pink-down@2x.png */; };
 		634F98EC15A303C600228957 /* button-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98AD15A303C600228957 /* button-pink.png */; };
@@ -142,12 +141,8 @@
 		63526E5A158CD0140089916D /* w-9-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 63526E20158CD0140089916D /* w-9-up.png */; };
 		635FBE5F15983ED5002B9656 /* SMDateConvertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FBE5E15983ED5002B9656 /* SMDateConvertUtil.m */; };
 		6367F9D115809FEA00B96330 /* IBDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367F9D015809FEA00B96330 /* IBDateHelper.m */; };
-		636CDC99158DA30B001AAD06 /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 636CDC92158DA30B001AAD06 /* Kal.bundle */; };
-		636CDC9F158DA341001AAD06 /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDC9C158DA30B001AAD06 /* libKal.a */; };
 		636CDCA6158DA7CE001AAD06 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA5158DA7CE001AAD06 /* EventKit.framework */; };
 		636CDCA8158DA80D001AAD06 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA7158DA80D001AAD06 /* EventKitUI.framework */; };
-		636CDCAE158DA9AA001AAD06 /* EventKitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 636CDCAD158DA9AA001AAD06 /* EventKitDataSource.m */; };
-		636CDCB1158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636CDCB0158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.m */; };
 		6383E987157B119C00EB163E /* IBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6383E986157B119C00EB163E /* IBSettingsViewController.m */; };
 		638F3210157B02350057AD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F320F157B02350057AD60 /* UIKit.framework */; };
 		638F3212157B02350057AD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F3211157B02350057AD60 /* Foundation.framework */; };
@@ -187,7 +182,6 @@
 		63A8FBF615C392BD001DA048 /* button-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF215C392BD001DA048 /* button-green@2x.png */; };
 		63BB567415A99753002B16B0 /* TDGeneralPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BB567215A99753002B16B0 /* TDGeneralPickerController.m */; };
 		63BB567515A99753002B16B0 /* TDGeneralPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */; };
-		63D8C6E31586214C00DC2E86 /* IBEventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C6E21586214B00DC2E86 /* IBEventCalendarViewController.m */; };
 		63E3FE7115A30222006CA462 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E3FE7015A30222006CA462 /* icon.png */; };
 		63E3FE7315A30225006CA462 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E3FE7215A30225006CA462 /* icon@2x.png */; };
 		63E586D515A2FD2C00C89E70 /* SMUICustomiseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E586D415A2FD2C00C89E70 /* SMUICustomiseUtil.m */; };
@@ -196,20 +190,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		636CDC9B158DA30B001AAD06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 636CDC93158DA30B001AAD06 /* Kal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = Kal;
-		};
-		636CDC9D158DA33C001AAD06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 636CDC93158DA30B001AAD06 /* Kal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = Kal;
-		};
 		638F323F157B02350057AD60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 638F3202157B02340057AD60 /* Project object */;
@@ -287,7 +267,6 @@
 		634F98A715A303C600228957 /* background-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-green@2x.png"; sourceTree = "<group>"; };
 		634F98A815A303C600228957 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		634F98A915A303C600228957 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
-		634F98AA15A303C600228957 /* bar_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_pink.png; sourceTree = "<group>"; };
 		634F98AB15A303C600228957 /* button-pink-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-pink-down.png"; sourceTree = "<group>"; };
 		634F98AC15A303C600228957 /* button-pink-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-pink-down@2x.png"; sourceTree = "<group>"; };
 		634F98AD15A303C600228957 /* button-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-pink.png"; sourceTree = "<group>"; };
@@ -393,14 +372,8 @@
 		635FBE5E15983ED5002B9656 /* SMDateConvertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDateConvertUtil.m; path = Utils/SMDateConvertUtil.m; sourceTree = "<group>"; };
 		6367F9CF15809FEA00B96330 /* IBDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDateHelper.h; sourceTree = "<group>"; };
 		6367F9D015809FEA00B96330 /* IBDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDateHelper.m; sourceTree = "<group>"; };
-		636CDC92158DA30B001AAD06 /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kal.bundle; path = "../../3rd-party/Kal/src/Kal.bundle"; sourceTree = "<group>"; };
-		636CDC93158DA30B001AAD06 /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = "../../3rd-party/Kal/src/Kal.xcodeproj"; sourceTree = "<group>"; };
 		636CDCA5158DA7CE001AAD06 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		636CDCA7158DA80D001AAD06 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
-		636CDCAC158DA9AA001AAD06 /* EventKitDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventKitDataSource.h; sourceTree = "<group>"; };
-		636CDCAD158DA9AA001AAD06 /* EventKitDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventKitDataSource.m; sourceTree = "<group>"; };
-		636CDCAF158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBNavKalViewWrapperViewController.h; sourceTree = "<group>"; };
-		636CDCB0158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBNavKalViewWrapperViewController.m; sourceTree = "<group>"; };
 		6383E985157B119C00EB163E /* IBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBSettingsViewController.h; sourceTree = "<group>"; };
 		6383E986157B119C00EB163E /* IBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBSettingsViewController.m; sourceTree = "<group>"; };
 		638F320B157B02350057AD60 /* iBabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,8 +434,6 @@
 		63BB567115A99753002B16B0 /* TDGeneralPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGeneralPickerController.h; sourceTree = "<group>"; };
 		63BB567215A99753002B16B0 /* TDGeneralPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGeneralPickerController.m; sourceTree = "<group>"; };
 		63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDGeneralPickerController.xib; sourceTree = "<group>"; };
-		63D8C6E11586214B00DC2E86 /* IBEventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEventCalendarViewController.h; sourceTree = "<group>"; };
-		63D8C6E21586214B00DC2E86 /* IBEventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEventCalendarViewController.m; sourceTree = "<group>"; };
 		63E3FE7015A30222006CA462 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		63E3FE7215A30225006CA462 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
 		63E586D315A2FD2C00C89E70 /* SMUICustomiseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUICustomiseUtil.h; sourceTree = "<group>"; };
@@ -481,7 +452,6 @@
 				63A69B691590BAC100ABB416 /* libTapkuLibrary.a in Frameworks */,
 				636CDCA8158DA80D001AAD06 /* EventKitUI.framework in Frameworks */,
 				636CDCA6158DA7CE001AAD06 /* EventKit.framework in Frameworks */,
-				636CDC9F158DA341001AAD06 /* libKal.a in Frameworks */,
 				6302A46E158442F200DC1B4C /* MapKit.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				638F3210157B02350057AD60 /* UIKit.framework in Frameworks */,
@@ -550,7 +520,6 @@
 				634F98A715A303C600228957 /* background-green@2x.png */,
 				634F98A815A303C600228957 /* background.png */,
 				634F98A915A303C600228957 /* background@2x.png */,
-				634F98AA15A303C600228957 /* bar_pink.png */,
 				634F98AB15A303C600228957 /* button-pink-down.png */,
 				634F98AC15A303C600228957 /* button-pink-down@2x.png */,
 				634F98AD15A303C600228957 /* button-pink.png */,
@@ -691,18 +660,8 @@
 				63A69B6A159183C400ABB416 /* TouchJSON */,
 				63A69B651590BA9C00ABB416 /* TapkuLibrary.bundle */,
 				63A69B591590BA9100ABB416 /* TapkuLibrary.xcodeproj */,
-				636CDC92158DA30B001AAD06 /* Kal.bundle */,
-				636CDC93158DA30B001AAD06 /* Kal.xcodeproj */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		636CDC94158DA30B001AAD06 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				636CDC9C158DA30B001AAD06 /* libKal.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		638F3200157B02340057AD60 = {
@@ -808,8 +767,6 @@
 		638F3253157B02910057AD60 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				636CDCAC158DA9AA001AAD06 /* EventKitDataSource.h */,
-				636CDCAD158DA9AA001AAD06 /* EventKitDataSource.m */,
 				0AF165F0157F7EEC00AEE88C /* IBBCommon.h */,
 				0AF165F1157F7EEC00AEE88C /* IBBCommon.m */,
 				6367F9CF15809FEA00B96330 /* IBDateHelper.h */,
@@ -825,16 +782,12 @@
 			children = (
 				634F992715A3093200228957 /* IBEditEventViewController.h */,
 				634F992815A3093200228957 /* IBEditEventViewController.m */,
-				63D8C6E11586214B00DC2E86 /* IBEventCalendarViewController.h */,
-				63D8C6E21586214B00DC2E86 /* IBEventCalendarViewController.m */,
 				638F3227157B02350057AD60 /* IBDashBoardViewController.h */,
 				638F3228157B02350057AD60 /* IBDashBoardViewController.m */,
 				6383E985157B119C00EB163E /* IBSettingsViewController.h */,
 				6383E986157B119C00EB163E /* IBSettingsViewController.m */,
 				0AB8250E157E59620094BBD7 /* SettingDetailsViewController.h */,
 				0AB8250F157E59620094BBD7 /* SettingDetailsViewController.m */,
-				636CDCAF158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.h */,
-				636CDCB0158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.m */,
 				63A69B511590B16E00ABB416 /* IBCalendarViewController.h */,
 				63A69B521590B16E00ABB416 /* IBCalendarViewController.m */,
 				63A69BAE1592FD9D00ABB416 /* IBSettingsNavViewController.h */,
@@ -948,7 +901,6 @@
 			);
 			dependencies = (
 				63A69B681590BABB00ABB416 /* PBXTargetDependency */,
-				636CDC9E158DA33C001AAD06 /* PBXTargetDependency */,
 			);
 			name = iBabe;
 			productName = iBabe;
@@ -994,10 +946,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 636CDC94158DA30B001AAD06 /* Products */;
-					ProjectRef = 636CDC93158DA30B001AAD06 /* Kal.xcodeproj */;
-				},
-				{
 					ProductGroup = 63A69B5A1590BA9100ABB416 /* Products */;
 					ProjectRef = 63A69B591590BA9100ABB416 /* TapkuLibrary.xcodeproj */;
 				},
@@ -1011,13 +959,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		636CDC9C158DA30B001AAD06 /* libKal.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKal.a;
-			remoteRef = 636CDC9B158DA30B001AAD06 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		63A69B621590BA9100ABB416 /* libTapkuLibrary.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1083,7 +1024,6 @@
 				63526E58158CD0140089916D /* w-8-up.png in Resources */,
 				63526E59158CD0140089916D /* w-9-down.png in Resources */,
 				63526E5A158CD0140089916D /* w-9-up.png in Resources */,
-				636CDC99158DA30B001AAD06 /* Kal.bundle in Resources */,
 				63A69B661590BA9C00ABB416 /* TapkuLibrary.bundle in Resources */,
 				63A69B84159183C500ABB416 /* LICENSE.txt in Resources */,
 				63A69B85159183C500ABB416 /* README.txt in Resources */,
@@ -1100,7 +1040,6 @@
 				634F98E615A303C600228957 /* background-green@2x.png in Resources */,
 				634F98E715A303C600228957 /* background.png in Resources */,
 				634F98E815A303C600228957 /* background@2x.png in Resources */,
-				634F98E915A303C600228957 /* bar_pink.png in Resources */,
 				634F98EA15A303C600228957 /* button-pink-down.png in Resources */,
 				634F98EB15A303C600228957 /* button-pink-down@2x.png in Resources */,
 				634F98EC15A303C600228957 /* button-pink.png in Resources */,
@@ -1213,9 +1152,6 @@
 				0AF165F2157F7EEC00AEE88C /* IBBCommon.m in Sources */,
 				63E87F2D15807C4700C36820 /* Settings.m in Sources */,
 				6367F9D115809FEA00B96330 /* IBDateHelper.m in Sources */,
-				63D8C6E31586214C00DC2E86 /* IBEventCalendarViewController.m in Sources */,
-				636CDCAE158DA9AA001AAD06 /* EventKitDataSource.m in Sources */,
-				636CDCB1158DBAA8001AAD06 /* IBNavKalViewWrapperViewController.m in Sources */,
 				63A69B531590B16F00ABB416 /* IBCalendarViewController.m in Sources */,
 				63A69B86159183C500ABB416 /* CDataScanner.m in Sources */,
 				63A69B87159183C500ABB416 /* CDataScanner_Extensions.m in Sources */,
@@ -1259,11 +1195,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		636CDC9E158DA33C001AAD06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Kal;
-			targetProxy = 636CDC9D158DA33C001AAD06 /* PBXContainerItemProxy */;
-		};
 		638F3240157B02350057AD60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 638F320A157B02350057AD60 /* iBabe */;
@@ -1331,12 +1262,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../3rd-party/three20/Build/Products/three20",
-					"$(BUILT_PRODUCTS_DIR)/../three20",
-					"$(BUILT_PRODUCTS_DIR)/../../three20",
-					../../../three20/Build/Products/three20,
-				);
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -1356,12 +1282,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../3rd-party/three20/Build/Products/three20",
-					"$(BUILT_PRODUCTS_DIR)/../three20",
-					"$(BUILT_PRODUCTS_DIR)/../../three20",
-					../../../three20/Build/Products/three20,
-				);
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";

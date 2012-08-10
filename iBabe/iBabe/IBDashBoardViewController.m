@@ -43,11 +43,11 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!pageControlBeingUsed) {
+    
         CGFloat pageWidth = self.topScrollView.frame.size.width;
         int page = floor((self.topScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         self.topViewPageControl.currentPage = page;
-    }
+    
 }
 
 - (IBAction)onTopViewChanged:(id)sender {
@@ -58,7 +58,7 @@
     frame.origin.y = 0;
     frame.size = self.topScrollView.frame.size;
     [self.topScrollView scrollRectToVisible:frame animated:YES];
-    pageControlBeingUsed = YES;
+	
 }
 
 
@@ -291,7 +291,6 @@
 {
 	[super viewDidLoad];
     
-    pageControlBeingUsed = NO;
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
 	

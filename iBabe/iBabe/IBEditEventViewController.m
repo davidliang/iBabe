@@ -246,13 +246,6 @@ enum GeneralPickerType genPType;
 	
 }
 
--(void)hudWasHidden:(MBProgressHUD *)hud
-{
-	// Remove HUD from screen when the HUD was hidded
-	[progressHud removeFromSuperview];
-	[progressHud release];
-	progressHud = nil;
-}
 
 
 -(void) customiseUI
@@ -706,6 +699,16 @@ enum GeneralPickerType genPType;
 }
 
 
+
+#pragma mark -
+#pragma MBProgressHUD Delegate
+-(void)hudWasHidden:(MBProgressHUD *)hud
+{
+	// Remove HUD from screen when the HUD was hidded
+	[progressHud removeFromSuperview];
+	[progressHud release];
+	progressHud = nil;
+}
 
 
 #pragma mark- UIGestureRecognizerDelegate

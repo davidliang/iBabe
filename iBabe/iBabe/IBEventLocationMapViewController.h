@@ -17,7 +17,7 @@
 @interface IBEventLocationMapViewController : UIViewController<MKMapViewDelegate, MBProgressHUDDelegate>
 {
     CLLocationCoordinate2D locationCoord;
-	MBProgressHUD progressHUD;
+	MBProgressHUD *progressHUD;
 	
 }
 

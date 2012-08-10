@@ -21,7 +21,7 @@
     
     
     // --- Set up the general navigation bar button.
-    UIImage* imgGenBtnBg =  [[UIImage imageNamed:@"tab-bar-button.png"]resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    UIImage* imgGenBtnBg =  [[UIImage imageNamed:@"tab-bar-button.png"]resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 6)];
     [[UIBarButtonItem appearance]setBackgroundImage:imgGenBtnBg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     //--- Set up the Nav back button.

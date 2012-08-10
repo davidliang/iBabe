@@ -53,7 +53,6 @@ static int calendarShadowOffset = (int)-20;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	//[self performSegueWithIdentifier:@"showEventDetailsSegue" sender:self];
 	
 	selectedEvent = [eventsForCurrentDate objectAtIndex:[indexPath row]];
 	
@@ -84,6 +83,12 @@ static int calendarShadowOffset = (int)-20;
 
 
 
+-(void)didTapGoToToday
+{
+	[calendar selectDate:[NSDate date]];
+}
+
+
 - (void)loadView {
 	
 	eventsForCurrentMonth = [[NSMutableArray alloc]init];
@@ -97,10 +102,7 @@ static int calendarShadowOffset = (int)-20;
 	for (EKEvent* aEvent in initEventsTemp) {
 		[eventsForCurrentDate addObject:aEvent];
 	}
-	
-	
-	
-	
+
 	calendar = 	[[TKCalendarMonthView alloc] init];
 	calendar.delegate = self;
 	calendar.dataSource = self;
@@ -121,8 +123,15 @@ static int calendarShadowOffset = (int)-20;
 	calendar.frame = CGRectMake(0, 0, calendar.frame.size.width,calendar.frame.size.height);
 	
 	UIBarButtonItem* btnAddEvent = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)];
-	[[self navigationItem] setRightBarButtonItem:btnAddEvent];
+	//	[[self navigationItem] setRightBarButtonItem:btnAddEvent];
 	[[self navigationItem]	setTitle:@"iBabe Calendar"];
+	
+	UIBarButtonItem* btnToday = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)];
+	
+	NSArray* btnsetRight = [[NSArray alloc]initWithObjects:btnAddEvent,btnToday, nil];
+	
+	[[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
+	
 	
 	eventTable = [[UITableView alloc]initWithFrame:CGRectMake(0, calendar.frame.size.height+calendar.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height-calendar.frame.size.height)];
 	
@@ -135,7 +144,7 @@ static int calendarShadowOffset = (int)-20;
 	
 	// Ensure this is the last "addSubview" because the calendar must be the top most view layer
 	[self.view addSubview:calendar];
-
+	
 }
 
 
@@ -148,7 +157,7 @@ static int calendarShadowOffset = (int)-20;
 {
 	if([[segue identifier] isEqualToString:@"showAddEventSegue"])
 	{
-		EKEventStore* eventStore = [[EKEventStore alloc]init];
+		EKEventStore* eventStore = [[[EKEventStore alloc]init]autorelease];
 		EKEvent* newEvent = [EKEvent eventWithEventStore:eventStore];
 		
 		EKCalendar* cal = [IBEKCalendarHelper getIBabeCalendar];
@@ -193,9 +202,14 @@ static int calendarShadowOffset = (int)-20;
 
 - (void)calendarMonthView:(TKCalendarMonthView *)monthView didSelectDate:(NSDate *)d {
 	
+	[self loadEventsForSelectedDate:d];
+}
 
+
+-(void)loadEventsForSelectedDate: (NSDate*) d
+{
 	[eventsForCurrentDate removeAllObjects];
-
+	
 	
 	for (EKEvent* aEvent in eventsForCurrentMonth) {
 		if ([[SMDateConvertUtil	getFormatedDateStringForCalendarControllerFromNSDate:[aEvent startDate]]isEqualToString:[SMDateConvertUtil getFormatedDateStringForCalendarControllerFromNSDate:d]])
@@ -205,6 +219,8 @@ static int calendarShadowOffset = (int)-20;
 		}
 	}
 	[eventTable reloadData];
+	
+	
 }
 
 - (void)calendarMonthView:(TKCalendarMonthView *)monthView monthDidChange:(NSDate *)d {
@@ -223,28 +239,17 @@ static int calendarShadowOffset = (int)-20;
 	eventTable.frame = CGRectMake(0, calendar.frame.size.height+calendar.frame.origin.y,eventTable.frame.size.width,eventTable.frame.size.height);
 	[UIView commitAnimations];
 	
+	[calendar selectDate:month];
+	[self loadEventsForSelectedDate:month];
+	
 	//---- Reload the table data
 	[eventTable reloadData];
 	
 }
 
 - (NSArray*)calendarMonthView:(TKCalendarMonthView *)monthView marksFromDate:(NSDate *)startDate toDate:(NSDate *)lastDate {
-	//	NSLog(@"calendarMonthView marksFromDate toDate");
-	//	NSLog(@"Make sure to update 'data' variable to pull from CoreData, website, User Defaults, or some other source.");
-	//	// When testing initially you will have to update the dates in this array so they are visible at the
-	//	// time frame you are testing the code.
-	//	NSArray *data = [NSArray arrayWithObjects:
-	//					 @"2011-01-01 00:00:00 +0000", @"2011-01-09 00:00:00 +0000", @"2011-01-22 00:00:00 +0000",
-	//					 @"2011-01-10 00:00:00 +0000", @"2011-01-11 00:00:00 +0000", @"2011-01-12 00:00:00 +0000",
-	//					 @"2011-01-15 00:00:00 +0000", @"2011-01-28 00:00:00 +0000", @"2011-01-04 00:00:00 +0000",
-	//					 @"2011-01-16 00:00:00 +0000", @"2011-01-18 00:00:00 +0000", @"2011-01-19 00:00:00 +0000",
-	//					 @"2011-01-23 00:00:00 +0000", @"2011-01-24 00:00:00 +0000", @"2011-01-25 00:00:00 +0000",
-	//					 @"2011-02-01 00:00:00 +0000", @"2011-03-01 00:00:00 +0000", @"2011-04-01 00:00:00 +0000",
-	//					 @"2011-05-01 00:00:00 +0000", @"2011-06-01 00:00:00 +0000", @"2011-07-01 00:00:00 +0000",
-	//					 @"2011-08-01 00:00:00 +0000", @"2011-09-01 00:00:00 +0000", @"2011-10-01 00:00:00 +0000",
-	//					 @"2011-11-01 00:00:00 +0000", @"2011-12-01 00:00:00 +0000", nil];
 	
-	NSMutableArray* data = [[NSMutableArray alloc]init];
+	NSMutableArray* data = [[[NSMutableArray alloc]init]autorelease];
 	NSArray* events = [IBEKCalendarHelper getEventsFromDate:startDate toDate:lastDate];
 	
 	[eventsForCurrentMonth removeAllObjects];
@@ -300,6 +305,7 @@ static int calendarShadowOffset = (int)-20;
 	[offsetComponents release];
 	return [NSArray arrayWithArray:marks];
 }
+
 
 #pragma mark -
 #pragma mark Rotation
