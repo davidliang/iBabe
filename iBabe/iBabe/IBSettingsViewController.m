@@ -14,75 +14,90 @@
 @synthesize settingsView;
 @synthesize settings;
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [self loadSettingsFromPlist];
     [settingsView reloadData];
 }
 
-- (void) loadSettingsFromPlist{
-    
+
+
+- (void)loadSettingsFromPlist
+{
     NSDate *date = [IBBCommon loadDueDateFromPlist];
 
-    NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init]autorelease]; 
-	[dateFormat setDateFormat:@"dd/MM/yyyy"];
-    
-    self.settings = [[NSMutableArray alloc] initWithObjects: [NSString stringWithFormat:@"Due Date: %@",[dateFormat stringFromDate:date]], nil];
-	
+    NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+
+    self.settings = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"Due Date: %@", [dateFormat stringFromDate:date]], nil];
 }
 
-- (void)loadView{
+
+
+- (void)loadView
+{
     [super loadView];
-    
-	
+
     [self loadSettingsFromPlist];
-    
-    
+
     [settingsView setDelegate:self];
     [settingsView setDataSource:self];
-    
-    self.title = @"Settings";    
-    
+
+    self.title = @"Settings";
 }
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+
+    if (self)
+    {
         // Custom initialization
     }
+
     return self;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
+
+
 
 #pragma mark - View lifecycle
 
 /*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView
- {
- }
+ *   // Implement loadView to create a view hierarchy programmatically, without using a nib.
+ *   - (void)loadView
+ *   {
+ *   }
  */
 
 /*
- // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- - (void)viewDidLoad
- {
- [super viewDidLoad];
- }
+ *   // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+ *   - (void)viewDidLoad
+ *   {
+ *   [super viewDidLoad];
+ *   }
  */
 
--(void)dealloc{
+- (void)dealloc
+{
     [settings release];
     [settingsView release];
     [super dealloc];
 }
+
+
 
 - (void)viewDidUnload
 {
@@ -91,39 +106,55 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+// - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+// {
+//    // Return YES for supported orientations
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+// }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [self.settings count];
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.row;
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger       row = indexPath.row;
     static NSString *SimpleTableIdentifier = @"mycell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-                             SimpleTableIdentifier];
-    if (cell == nil) {        
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier: SimpleTableIdentifier] autorelease];
+        SimpleTableIdentifier];
+
+    if (cell == nil)
+    {
+        cell = [[[UITableViewCell alloc]    initWithStyle   :UITableViewCellStyleDefault
+                                            reuseIdentifier :SimpleTableIdentifier] autorelease];
     }
-    
+
     cell.textLabel.text = [self.settings objectAtIndex:row];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //id item = [self.parsedData.items objectAtIndex: [indexPath row]]; UIViewController* svc = [[StoryViewController alloc] initWithItem: item]; [self.navigationController pushViewController:svc animated:YES];
-    
-    //id item = [self.settings objectAtIndex: [indexPath row]];
-    
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // id item = [self.parsedData.items objectAtIndex: [indexPath row]]; UIViewController* svc = [[StoryViewController alloc] initWithItem: item]; [self.navigationController pushViewController:svc animated:YES];
+
+    // id item = [self.settings objectAtIndex: [indexPath row]];
 }
+
+
 
 @end

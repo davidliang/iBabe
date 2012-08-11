@@ -5,10 +5,30 @@
 #import <Availability.h>
 
 #ifndef __IPHONE_5_0
-#warning "This project uses features only available in iOS SDK 5.0 and later."
+  #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
 #endif
+
+// ---- For error logging
+
+// Macro wrapper for NSLog only if debug mode has been enabled
+#ifdef MA_DEBUG
+  #define AshDebugLog(fmt, ...) NSLog(@"%@", [NSString stringWithFormat:(fmt), ##__VA_ARGS__]);
+#else
+    // If debug mode hasn't been enabled, don't do anything when the macro is called
+  #define AshDebugLog(...)
+#endif
+
+// Log using the same parameters above but include the function name and source code line number in the log statement
+#ifdef MA_DEBUG
+  #define AshDebugLogDetailed(fmt, ...) NSLog((@"Func: %s, Line: %d, " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+  #define AshDebugLogDetailed(...)
+#endif
+
+// This macro will create a detailed log message and run even during a production build
+#define AshDetailedLog(fmt, ...) NSLog((@"Func: %s, Line: %d, " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

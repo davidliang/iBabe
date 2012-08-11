@@ -14,6 +14,12 @@
 
 
 @interface IBEventDetailsViewController : UIViewController
+{
+	NSArray* alarmValues;
+	NSArray* alarmTitles;
+}
+
+
 @property (retain, nonatomic) IBOutlet UILabel *lbEventTitle;
 @property (retain, nonatomic) IBOutlet UILabel *lbDate;
 

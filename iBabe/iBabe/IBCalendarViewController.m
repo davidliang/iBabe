@@ -86,6 +86,7 @@ static int calendarShadowOffset = (int)-20;
 -(void)didTapGoToToday
 {
 	[calendar selectDate:[NSDate date]];
+	[self loadEventsForSelectedDate:[NSDate date]];
 }
 
 
@@ -224,7 +225,7 @@ static int calendarShadowOffset = (int)-20;
 }
 
 - (void)calendarMonthView:(TKCalendarMonthView *)monthView monthDidChange:(NSDate *)d {
-	NSLog(@"calendarMonthView monthDidChange");
+	//NSLog(@"calendarMonthView monthDidChange");
 }
 
 #pragma mark -
@@ -311,10 +312,10 @@ static int calendarShadowOffset = (int)-20;
 #pragma mark Rotation
 
 // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Disabled rotation for this example
-	return NO;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//	// Disabled rotation for this example
+//	return NO;
+//}
 
 #pragma mark -
 #pragma mark Memory Management

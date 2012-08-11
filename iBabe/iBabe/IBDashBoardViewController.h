@@ -10,35 +10,31 @@
 #import <EventKit/EventKit.h>
 #import "IBAppDelegate.h"
 
-
-@interface IBDashBoardViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, UIScrollViewDelegate>
+@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {
-	NSMutableArray* currentEvents;
+    NSMutableArray *currentEvents;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsList;
 
+// ---- For the count down days view
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopLeft;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxBottomLeft;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopRight;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxBottomRight;
+@property (retain, nonatomic) IBOutlet UIImageView  *dayIdxTop;
+@property (retain, nonatomic) IBOutlet UIImageView  *dayIdxBottom;
 
-//---- For the count down days view
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxTopLeft;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxBottomLeft;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxTopRight;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxBottomRight;
-@property (retain, nonatomic) IBOutlet UIImageView *dayIdxTop;
-@property (retain, nonatomic) IBOutlet UIImageView *dayIdxBottom;
+// ---- For the post pregnant days view
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopLeftPregnant;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxBottomLeftPregnant;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopRightPregnant;
+@property (retain, nonatomic) IBOutlet UIImageView  *weekIdxBottomRightPregnant;
+@property (retain, nonatomic) IBOutlet UIImageView  *dayIdxTopPregnant;
+@property (retain, nonatomic) IBOutlet UIImageView  *dayIdxBottomPregnant;
 
-
-//---- For the post pregnant days view
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxTopLeftPregnant;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxBottomLeftPregnant;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxTopRightPregnant;
-@property (retain, nonatomic) IBOutlet UIImageView *weekIdxBottomRightPregnant;
-@property (retain, nonatomic) IBOutlet UIImageView *dayIdxTopPregnant;
-@property (retain, nonatomic) IBOutlet UIImageView *dayIdxBottomPregnant;
-
-
-@property (retain, nonatomic) IBOutlet UIView *dueDateCountDownSubView;
-@property (retain, nonatomic) IBOutlet UIView *pregnantDaysSubView;
+@property (retain, nonatomic) IBOutlet UIView   *dueDateCountDownSubView;
+@property (retain, nonatomic) IBOutlet UIView   *pregnantDaysSubView;
 
 @property (retain, nonatomic) IBOutlet UIPageControl *topViewPageControl;
 

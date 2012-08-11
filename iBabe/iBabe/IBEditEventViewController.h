@@ -18,24 +18,23 @@
 
 #import "MBProgressHUD/MBProgressHUD.h"
 
-@interface IBEditEventViewController : UIViewController<UITextViewDelegate, UIGestureRecognizerDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
+@interface IBEditEventViewController : UIViewController <UITextViewDelegate, UIGestureRecognizerDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
 {
-	//---
-    TDDatePickerController* datePickerView;
-	TDGeneralPickerController* genPickerView;
-    NSDate* presetEndDateTime;
+    // ---
+    TDDatePickerController      *datePickerView;
+    TDGeneralPickerController   *genPickerView;
+    NSDate                      *presetEndDateTime;
 
-	MBProgressHUD* progressHud;
-	BOOL isSaved;
-	
+    MBProgressHUD   *progressHud;
+    BOOL            isSaved;
 }
 
-@property (retain, nonatomic) IBOutlet UITextView *tvNote;
-@property (retain, nonatomic) IBOutlet UITextView *tvLocation;
+@property (retain, nonatomic) IBOutlet UITextView   *tvNote;
+@property (retain, nonatomic) IBOutlet UITextView   *tvLocation;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (retain, nonatomic) IBOutlet UIView *contentView;
-@property (retain, nonatomic) IBOutlet UIButton *btnSave;
-@property (retain, nonatomic) IBOutlet UITextField *tbTitle;
+@property (retain, nonatomic) IBOutlet UIView       *contentView;
+@property (retain, nonatomic) IBOutlet UIButton     *btnSave;
+@property (retain, nonatomic) IBOutlet UITextField  *tbTitle;
 
 @property (retain, nonatomic) IBOutlet UIButton *btnDateStart;
 @property (retain, nonatomic) IBOutlet UIButton *btnStartTime;
@@ -45,10 +44,8 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnAlarm2;
 @property (retain, nonatomic) IBOutlet UIButton *btnDelete;
 
-@property (retain, nonatomic) EKEvent* currentEvent;
-@property (nonatomic) BOOL isNewEvent;
-
-
+@property (retain, nonatomic) EKEvent   *currentEvent;
+@property (nonatomic) BOOL              isNewEvent;
 
 - (IBAction)tapToCloseKeyboard:(id)sender;
 - (IBAction)didTapBtnSave:(id)sender;
@@ -61,6 +58,5 @@
 - (IBAction)didTapAlarm1:(id)sender;
 - (IBAction)didTapAlarm2:(id)sender;
 - (IBAction)didTapDelete:(id)sender;
-
 
 @end

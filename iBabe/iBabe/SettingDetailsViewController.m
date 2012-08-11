@@ -8,7 +8,6 @@
 
 #import "SettingDetailsViewController.h"
 #import "IBBCommon.h"
-#import "Settings.h"
 #import "IBDateHelper.h"
 
 @implementation SettingDetailsViewController
@@ -64,11 +63,11 @@
 
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    // Return YES for supported orientations
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+//}
 
 -(IBAction)datePickerValueChanged:(id)sender{
     [btnSaveDueDate setEnabled:YES];
