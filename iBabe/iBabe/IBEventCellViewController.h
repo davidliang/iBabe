@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface IBEventCellViewController : UITableViewCell
+@property (retain, nonatomic) IBOutlet UILabel *lbTitle;
 
 @end

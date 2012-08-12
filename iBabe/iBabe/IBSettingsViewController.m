@@ -123,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.settings count];
+    return 2;
 }
 
 
@@ -142,7 +142,16 @@
                                             reuseIdentifier :SimpleTableIdentifier] autorelease];
     }
 
-    cell.textLabel.text = [self.settings objectAtIndex:row];
+    if ([indexPath row] == 0)
+    {
+        cell.textLabel.text = [self.settings objectAtIndex:row];
+    }
+
+    if ([indexPath row] == 1)
+    {
+        cell.textLabel.text = @"No. of recent reminders";
+    }
+
     return cell;
 }
 

@@ -12,6 +12,6 @@
 {
 }
 
-+(void) customiseNavigationBar;
-+(void) customiseUISegmentedControlAndSwitch;
++ (void)customiseNavigationBar;
++ (void)customiseUISegmentedControlAndSwitch;
 @end
