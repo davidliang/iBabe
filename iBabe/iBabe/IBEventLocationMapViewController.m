@@ -55,6 +55,16 @@
 
 #pragma mark- MKMap Delegate
 
+-(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+//	MKAnnotationView *annotationView = [views objectAtIndex:0];
+//	id mp = [annotationView annotation];
+//	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate] ,250,250);
+//	[mapEventLocation setRegion:region animated:YES];
+
+}
+
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([mapEventLocation showsUserLocation])
@@ -155,6 +165,25 @@
 
 
 
+#pragma mark -
+#pragma LocationManagerDelegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    if ((newLocation != nil) && (oldLocation != newLocation))
+    {
+        locationTmpNew = newLocation;
+        locationTmpOld = oldLocation;
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+
+}
+
+
+
 #pragma mark- View Life Cycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -173,11 +202,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = 6.0;
+    locationManager.distanceFilter = 6.0;
+    [locationManager startUpdatingLocation];
+
     mapEventLocation.delegate = self;
 
-    [mapEventLocation.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
-
+    // ---OLD
+    // [mapEventLocation.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
     mapEventLocation.showsUserLocation = YES;
+    [mapEventLocation setUserTrackingMode:MKUserTrackingModeFollow];
 
     progressHUD = [[MBProgressHUD alloc] initWithView:[self.navigationController view]];
     [progressHUD setLabelText:@"Loading..."];

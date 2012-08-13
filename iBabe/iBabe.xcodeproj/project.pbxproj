@@ -19,6 +19,7 @@
 		63106AB415D6497000D5B164 /* bullet_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 63106AB115D6497000D5B164 /* bullet_blue.png */; };
 		632AEA4E15D7819900E566A2 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 632AEA4D15D7819900E566A2 /* transparent.png */; };
 		632AEA5015D7826400E566A2 /* segment-divider.png in Resources */ = {isa = PBXBuildFile; fileRef = 632AEA4F15D7826400E566A2 /* segment-divider.png */; };
+		632AEA5215D8E21200E566A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632AEA5115D8E21200E566A2 /* CoreLocation.framework */; };
 		63482021159984BC003594AF /* IBEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63482020159984BC003594AF /* IBEventDetailsViewController.m */; };
 		63482030159AECDC003594AF /* SMColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348202F159AECDC003594AF /* SMColorUtil.m */; };
 		6348203B159BE805003594AF /* IBEventLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348203A159BE805003594AF /* IBEventLocationMapViewController.m */; };
@@ -232,6 +233,7 @@
 		63106AB115D6497000D5B164 /* bullet_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_blue.png; sourceTree = "<group>"; };
 		632AEA4D15D7819900E566A2 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
 		632AEA4F15D7826400E566A2 /* segment-divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segment-divider.png"; sourceTree = "<group>"; };
+		632AEA5115D8E21200E566A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6348201F159984BC003594AF /* IBEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEventDetailsViewController.h; sourceTree = "<group>"; };
 		63482020159984BC003594AF /* IBEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEventDetailsViewController.m; sourceTree = "<group>"; };
 		6348202E159AECDC003594AF /* SMColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMColorUtil.h; path = Utils/SMColorUtil.h; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632AEA5215D8E21200E566A2 /* CoreLocation.framework in Frameworks */,
 				63A69B691590BAC100ABB416 /* libTapkuLibrary.a in Frameworks */,
 				636CDCA8158DA80D001AAD06 /* EventKitUI.framework in Frameworks */,
 				636CDCA6158DA7CE001AAD06 /* EventKit.framework in Frameworks */,
@@ -670,6 +673,7 @@
 		638F320E157B02350057AD60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				632AEA5115D8E21200E566A2 /* CoreLocation.framework */,
 				636CDCA7158DA80D001AAD06 /* EventKitUI.framework */,
 				636CDCA5158DA7CE001AAD06 /* EventKit.framework */,
 				6302A46D158442F200DC1B4C /* MapKit.framework */,

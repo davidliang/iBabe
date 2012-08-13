@@ -15,20 +15,20 @@
 #import "IBEKCalendarHelper.h"
 #import "IBEventCellViewController.h"
 
-@interface IBCalendarViewController : UIViewController<TKCalendarMonthViewDelegate,TKCalendarMonthViewDataSource, UITableViewDataSource,UITableViewDelegate, MBProgressHUDDelegate>
+
+@interface IBCalendarViewController : UIViewController <TKCalendarMonthViewDelegate, TKCalendarMonthViewDataSource, UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate>
 {
-	TKCalendarMonthView *calendar;	
-	UITableView* eventTable;
-	NSMutableArray* eventsForCurrentMonth;
-	NSMutableArray* eventsForCurrentDate;
-	NSDate* selectedDate;
-	EKEvent* selectedEvent;
+    TKCalendarMonthView *calendar;
+    UITableView         *eventTable;
+    NSMutableArray      *eventsForCurrentMonth;
+    NSMutableArray      *eventsForCurrentDate;
+    NSDate              *selectedDate;
+    EKEvent             *selectedEvent;
+	
+	
 	
 }
 
-
-- (void) toggleCalendar;
-
-
+- (void)toggleCalendar;
 
 @end
