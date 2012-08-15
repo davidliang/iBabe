@@ -13,11 +13,24 @@
 
 @synthesize settingsView;
 @synthesize settings;
+@synthesize tbNumberOfRecentReminders;
+@synthesize cellDueDate;
+@synthesize stpRecentReminders;
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self loadSettingsFromPlist];
     [settingsView reloadData];
+	
+	
+
+	[cellDueDate.textLabel setText:[settings objectAtIndex:0]];
+	[tbNumberOfRecentReminders setText:[settings objectAtIndex:1]];
+	
+
+	
+	[stpRecentReminders setValue:[[settings objectAtIndex:1] doubleValue]];
+	
 }
 
 
@@ -30,7 +43,18 @@
 
     [dateFormat setDateFormat:@"dd/MM/yyyy"];
 
-    self.settings = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"Due Date: %@", [dateFormat stringFromDate:date]], nil];
+    NSNumber *amountOfReminders = [IBBCommon loadNoOfRecentRemindersFromPlist];
+
+    self.settings = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"%@", [dateFormat stringFromDate:date]], [NSString stringWithFormat:@"%@", amountOfReminders], nil];
+}
+
+- (IBAction)dismissRecentReminderKeyboard:(id)sender {
+	[tbNumberOfRecentReminders resignFirstResponder];
+}
+
+- (IBAction)stpRecentRemindersStepperValueChanged:(id)sender {
+	
+	[tbNumberOfRecentReminders setText:[NSString stringWithFormat:@"%0.f",[stpRecentReminders value]]];
 }
 
 
@@ -75,25 +99,13 @@
 
 #pragma mark - View lifecycle
 
-/*
- *   // Implement loadView to create a view hierarchy programmatically, without using a nib.
- *   - (void)loadView
- *   {
- *   }
- */
-
-/*
- *   // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
- *   - (void)viewDidLoad
- *   {
- *   [super viewDidLoad];
- *   }
- */
-
 - (void)dealloc
 {
     [settings release];
     [settingsView release];
+	[tbNumberOfRecentReminders release];
+	[cellDueDate release];
+	[stpRecentReminders release];
     [super dealloc];
 }
 
@@ -101,6 +113,9 @@
 
 - (void)viewDidUnload
 {
+	[self setTbNumberOfRecentReminders:nil];
+	[self setCellDueDate:nil];
+	[self setStpRecentReminders:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -113,57 +128,6 @@
 //    // Return YES for supported orientations
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 // }
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 2;
-}
-
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger       row = indexPath.row;
-    static NSString *SimpleTableIdentifier = @"mycell";
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
-        SimpleTableIdentifier];
-
-    if (cell == nil)
-    {
-        cell = [[[UITableViewCell alloc]    initWithStyle   :UITableViewCellStyleDefault
-                                            reuseIdentifier :SimpleTableIdentifier] autorelease];
-    }
-
-    if ([indexPath row] == 0)
-    {
-        cell.textLabel.text = [self.settings objectAtIndex:row];
-    }
-
-    if ([indexPath row] == 1)
-    {
-        cell.textLabel.text = @"No. of recent reminders";
-    }
-
-    return cell;
-}
-
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // id item = [self.parsedData.items objectAtIndex: [indexPath row]]; UIViewController* svc = [[StoryViewController alloc] initWithItem: item]; [self.navigationController pushViewController:svc animated:YES];
-
-    // id item = [self.settings objectAtIndex: [indexPath row]];
-}
-
 
 
 @end

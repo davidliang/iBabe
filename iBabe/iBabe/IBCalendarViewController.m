@@ -365,7 +365,6 @@ static int calendarShadowOffset = (int)-20;
     [calendar release];
     [eventTable release];
     [selectedEvent release];
-
     [super dealloc];
 }
 

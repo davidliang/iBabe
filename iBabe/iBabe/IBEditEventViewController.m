@@ -760,6 +760,7 @@ enum GeneralPickerType  genPType;
     [btnAlarm2 release];
     [btnDelete release];
     [progressHud release];
+    [datePickerView release];
     [super dealloc];
 }
 

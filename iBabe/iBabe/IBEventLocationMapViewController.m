@@ -7,7 +7,7 @@
 //
 
 #import "IBEventLocationMapViewController.h"
-#import "IBEventDetailsViewController.h"
+//#import "IBEventDetailsViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -266,6 +266,8 @@
 
 - (void)dealloc
 {
+	
+	[locationManager release];
     [mapEventLocation release];
     [super dealloc];
 }

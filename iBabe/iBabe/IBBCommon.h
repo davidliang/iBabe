@@ -11,24 +11,24 @@
 
 @interface IBBCommon : NSObject
 
-+(NSDate *)loadDueDateFromPlist;
-+(void) saveDueDateToPlist: (NSDate*)date;
++ (NSDate *)loadDueDateFromPlist;
++ (void)saveDueDateToPlist:(NSDate *)date;
 
-+(NSDate *)loadUserSelectedDateFromPlist;
-+(void) saveUserSelectedDateToPlist: (NSDate*)date;
++ (NSNumber *)loadNoOfRecentRemindersFromPlist;
++ (void)saveNoOfRecentRemindersToPlist:(NSNumber *)amount;
 
-+(BOOL)loadIsDateTypeLastPeriodFromPlist;
-+(void) saveIsDateTypeLastPeriodToPlist: (BOOL) isLastPeriod;
++ (NSDate *)loadUserSelectedDateFromPlist;
++ (void)saveUserSelectedDateToPlist:(NSDate *)date;
 
++ (BOOL)loadIsDateTypeLastPeriodFromPlist;
++ (void)saveIsDateTypeLastPeriodToPlist:(BOOL)isLastPeriod;
 
-+(BOOL)loadIsDateTypeLastPeriodFromPlist;
-+(void) saveIsDateTypeLastPeriodToPlist: (BOOL) isLastPeriod;
++ (BOOL)loadIsDateTypeLastPeriodFromPlist;
++ (void)saveIsDateTypeLastPeriodToPlist:(BOOL)isLastPeriod;
 
-+(Settings* )loadSettingsFromPlist;
-+(void) saveSettingsToPlist: (Settings*) newSettings;
++ (Settings *)loadSettingsFromPlist;
++ (void)saveSettingsToPlist:(Settings *)newSettings;
 
-+(void) createBBSettingsPlistFileForNewVersionWithThisVersionNumber: (int) thisVersion;
-
-
++ (void)createBBSettingsPlistFileForNewVersionWithThisVersionNumber:(int)thisVersion;
 
 @end

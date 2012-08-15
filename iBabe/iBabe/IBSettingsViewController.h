@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IBSettingsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface IBSettingsViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property(assign) IBOutlet UITableView *settingsView;
 
 @property(atomic,retain) NSArray *settings;
+@property (retain, nonatomic) IBOutlet UITextField *tbNumberOfRecentReminders;
+@property (retain, nonatomic) IBOutlet UITableViewCell *cellDueDate;
+@property (retain, nonatomic) IBOutlet UIStepper *stpRecentReminders;
 
 - (void) loadSettingsFromPlist;
+- (IBAction)dismissRecentReminderKeyboard:(id)sender;
+
+- (IBAction)stpRecentRemindersStepperValueChanged:(id)sender;
 
 
 @end

@@ -437,24 +437,18 @@
             <point key="canvasLocation" x="-626" y="374"/>
         </scene>
         <!--Settings View Controller-->
-        <scene sceneID="MAT-H7-RkR">
+        <scene sceneID="Nu2-5m-ilQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VWA-Iy-4Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="mytable" id="x1g-Ju-AkY" customClass="IBSettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WgM-Dt-yb1">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B87-3W-SDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="T3N-Hr-Mnt" customClass="IBSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="exK-Cu-VJI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="mdw-9F-ryJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="IyB-VS-lgy">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mycell" id="lPK-Y5-goK">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Due Date" id="7IQ-4u-2Xj">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="SQr-NS-GZ7">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -463,21 +457,87 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="D15-4f-ISn" kind="push" id="Xqv-gg-d31"/>
+                                            <segue destination="D15-4f-ISn" kind="push" id="0UO-Wr-Ejm"/>
                                         </connections>
                                     </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Amount of recent reminders" id="20g-cO-mgo">
+                                <cells>
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="tAc-SU-BJC">
+                                        <rect key="frame" x="0.0" y="137" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" placeholder="Enter the number of recent reminders" minimumFontSize="17" id="0o8-1R-lxS">
+                                                    <rect key="frame" x="12" y="0.0" width="98" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="3" maximumValue="10" id="PU6-c3-yKk">
+                                                    <rect key="frame" x="186" y="8" width="94" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <connections>
+                                                        <action selector="stpRecentRemindersStepperValueChanged:" destination="T3N-Hr-Mnt" eventType="valueChanged" id="Tu5-aZ-iYy"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="About" id="Xnc-Rs-nf2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="acB-FO-Rtd">
+                                        <rect key="frame" x="0.0" y="228" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
+                                        <connections>
+                                            <segue destination="KXF-Rh-R65" kind="push" id="EeB-Gv-q6z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="T3N-Hr-Mnt" id="CSy-rk-DPS"/>
+                            <outlet property="delegate" destination="T3N-Hr-Mnt" id="Feh-PJ-avz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="2B3-uE-bgH"/>
+                    <connections>
+                        <outlet property="cellDueDate" destination="SQr-NS-GZ7" id="idQ-dk-1Cm"/>
+                        <outlet property="stpRecentReminders" destination="PU6-c3-yKk" id="0gW-or-O7c"/>
+                        <outlet property="tbNumberOfRecentReminders" destination="0o8-1R-lxS" id="nl8-wF-Le4"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="490" y="1019"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JJU-kV-SMB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSx-4E-qBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="KXF-Rh-R65" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g4c-vo-ifC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xsc-X5-zMP"/>
-                    <connections>
-                        <outlet property="settingsView" destination="IyB-VS-lgy" id="5UY-3p-8kX"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="BF9-iC-Nqw"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="461" y="1013"/>
+            <point key="canvasLocation" x="1038" y="1951"/>
         </scene>
         <!--Edit Event View Controller-->
         <scene sceneID="h0l-vA-4AP">
@@ -864,7 +924,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1002" y="748"/>
+            <point key="canvasLocation" x="1038" y="741"/>
         </scene>
         <!--Settings Nav View Controller - Settings-->
         <scene sceneID="5oI-Nb-Ccj">
@@ -879,7 +939,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="x1g-Ju-AkY" kind="relationship" relationship="rootViewController" id="Rof-Ba-NHV"/>
+                        <segue destination="T3N-Hr-Mnt" kind="relationship" relationship="rootViewController" id="yKZ-x8-uKI"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -1024,18 +1084,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventLocationMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventLocationMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="btnShowMyLocationPressed:"/>
-                <relationship kind="action" name="btnShowTargetLocationPressed:"/>
                 <relationship kind="outlet" name="mapEventLocation" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="IBSettingsNavViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBSettingsNavViewController.h"/>
         </class>
-        <class className="IBSettingsViewController" superclassName="UIViewController">
+        <class className="IBSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBSettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="dismissRecentReminderKeyboard:"/>
+                <relationship kind="action" name="stpRecentRemindersStepperValueChanged:"/>
+                <relationship kind="outlet" name="cellDueDate" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="settingsView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="stpRecentReminders" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="tbNumberOfRecentReminders" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="SettingDetailsViewController" superclassName="UIViewController">

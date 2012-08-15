@@ -123,12 +123,12 @@
 
     if (cell == nil)
     {
-        NSArray *topLvObjs = [[NSBundle mainBundle] loadNibNamed:@"DashboardEventCell" owner:nil options:nil];
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"DashboardEventCell" owner:nil options:nil];
 
-        for (id currentObj in topLvObjs) {
-            if ([currentObj isKindOfClass:[UITableViewCell class]])
+        for (UIView *currentView in views) {
+            if ([currentView isKindOfClass:[UITableViewCell class]])
             {
-                cell = (IBDashboardEventCellViewController *)currentObj;
+                cell = (IBDashboardEventCellViewController *)currentView;
                 break;
             }
         }

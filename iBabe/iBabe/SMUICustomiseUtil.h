@@ -14,4 +14,6 @@
 
 + (void)customiseNavigationBar;
 + (void)customiseUISegmentedControlAndSwitch;
++ (void)customiseTableView;
+
 @end
