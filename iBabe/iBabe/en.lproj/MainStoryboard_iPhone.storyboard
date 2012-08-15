@@ -532,12 +532,19 @@
                     <view key="view" contentMode="scaleToFill" id="g4c-vo-ifC">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="bgy-Kc-3Hy">
+                                <rect key="frame" x="0.0" y="-9" width="320" height="376"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BF9-iC-Nqw"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1038" y="1951"/>
+            <point key="canvasLocation" x="1038" y="1338"/>
         </scene>
         <!--Edit Event View Controller-->
         <scene sceneID="h0l-vA-4AP">
@@ -1084,6 +1091,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventLocationMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventLocationMapViewController.h"/>
             <relationships>
+                <relationship kind="action" name="btnShowMyLocationPressed:"/>
+                <relationship kind="action" name="btnShowTargetLocationPressed:"/>
                 <relationship kind="outlet" name="mapEventLocation" candidateClass="MKMapView"/>
             </relationships>
         </class>

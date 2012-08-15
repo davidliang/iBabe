@@ -177,7 +177,6 @@
 		63A8FBF415C392BD001DA048 /* button-green-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF015C392BD001DA048 /* button-green-down@2x.png */; };
 		63A8FBF515C392BD001DA048 /* button-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF115C392BD001DA048 /* button-green.png */; };
 		63A8FBF615C392BD001DA048 /* button-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF215C392BD001DA048 /* button-green@2x.png */; };
-		63B9DF3215DB657000DF30C5 /* IBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9DF3115DB657000DF30C5 /* IBSettingViewController.m */; };
 		63BB567415A99753002B16B0 /* TDGeneralPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BB567215A99753002B16B0 /* TDGeneralPickerController.m */; };
 		63BB567515A99753002B16B0 /* TDGeneralPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */; };
 		63E3FE7115A30222006CA462 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E3FE7015A30222006CA462 /* icon.png */; };
@@ -426,8 +425,6 @@
 		63A8FBF015C392BD001DA048 /* button-green-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green-down@2x.png"; sourceTree = "<group>"; };
 		63A8FBF115C392BD001DA048 /* button-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green.png"; sourceTree = "<group>"; };
 		63A8FBF215C392BD001DA048 /* button-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green@2x.png"; sourceTree = "<group>"; };
-		63B9DF3015DB657000DF30C5 /* IBSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBSettingViewController.h; sourceTree = "<group>"; };
-		63B9DF3115DB657000DF30C5 /* IBSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBSettingViewController.m; sourceTree = "<group>"; };
 		63BB567115A99753002B16B0 /* TDGeneralPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGeneralPickerController.h; sourceTree = "<group>"; };
 		63BB567215A99753002B16B0 /* TDGeneralPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGeneralPickerController.m; sourceTree = "<group>"; };
 		63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDGeneralPickerController.xib; sourceTree = "<group>"; };
@@ -796,8 +793,6 @@
 				634DCA2415A6F3BC00653D2C /* IBUITextField.m */,
 				630FAF4C15D4F5B100EE6661 /* IBEventCellViewController.h */,
 				630FAF4D15D4F5B100EE6661 /* IBEventCellViewController.m */,
-				63B9DF3015DB657000DF30C5 /* IBSettingViewController.h */,
-				63B9DF3115DB657000DF30C5 /* IBSettingViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1170,7 +1165,6 @@
 				6301572A15BEA84600A4D716 /* SMStringUtil.m in Sources */,
 				63FF8B1315CD681B008F6835 /* MBProgressHUD.m in Sources */,
 				630FAF4E15D4F5B200EE6661 /* IBEventCellViewController.m in Sources */,
-				63B9DF3215DB657000DF30C5 /* IBSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

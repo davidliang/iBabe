@@ -55,6 +55,12 @@
 - (IBAction)stpRecentRemindersStepperValueChanged:(id)sender {
 	
 	[tbNumberOfRecentReminders setText:[NSString stringWithFormat:@"%0.f",[stpRecentReminders value]]];
+	
+	
+
+	
+	
+	[IBBCommon saveNoOfRecentRemindersToPlist:[NSNumber numberWithDouble:[stpRecentReminders value]]];
 }
 
 

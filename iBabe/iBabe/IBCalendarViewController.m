@@ -36,13 +36,12 @@ static int calendarShadowOffset = (int)-20;
 {
     static NSString *CellIdentifier = @"CalendarEventCell";
 
-	
     IBEventCellViewController *cell = (IBEventCellViewController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	
+
     if (cell == nil)
     {
         NSArray *topLvObjs = [[NSBundle mainBundle] loadNibNamed:@"CalendarEventCell" owner:nil options:nil];
-		
+
         for (id currentObj in topLvObjs) {
             if ([currentObj isKindOfClass:[UITableViewCell class]])
             {
@@ -51,7 +50,6 @@ static int calendarShadowOffset = (int)-20;
             }
         }
     }
-
 
     [cell.lbTitle setText:[[eventsForCurrentDate objectAtIndex:[indexPath row]] title]];
 
@@ -140,6 +138,10 @@ static int calendarShadowOffset = (int)-20;
     NSArray *btnsetRight = [[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil];
 
     [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
+
+    UIBarButtonItem *btnToggleCal = [[UIBarButtonItem alloc] initWithTitle:@"Cal" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleCalendar)];
+
+    [[self navigationItem] setLeftBarButtonItem:btnToggleCal];
 
     eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
 
