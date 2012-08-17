@@ -20,6 +20,7 @@
 		632AEA4E15D7819900E566A2 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 632AEA4D15D7819900E566A2 /* transparent.png */; };
 		632AEA5015D7826400E566A2 /* segment-divider.png in Resources */ = {isa = PBXBuildFile; fileRef = 632AEA4F15D7826400E566A2 /* segment-divider.png */; };
 		632AEA5215D8E21200E566A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632AEA5115D8E21200E566A2 /* CoreLocation.framework */; };
+		63367C8915DE15810058F2E7 /* toggle-handler.png in Resources */ = {isa = PBXBuildFile; fileRef = 63367C8815DE15810058F2E7 /* toggle-handler.png */; };
 		63482021159984BC003594AF /* IBEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63482020159984BC003594AF /* IBEventDetailsViewController.m */; };
 		63482030159AECDC003594AF /* SMColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348202F159AECDC003594AF /* SMColorUtil.m */; };
 		6348203B159BE805003594AF /* IBEventLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348203A159BE805003594AF /* IBEventLocationMapViewController.m */; };
@@ -177,6 +178,8 @@
 		63A8FBF415C392BD001DA048 /* button-green-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF015C392BD001DA048 /* button-green-down@2x.png */; };
 		63A8FBF515C392BD001DA048 /* button-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF115C392BD001DA048 /* button-green.png */; };
 		63A8FBF615C392BD001DA048 /* button-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A8FBF215C392BD001DA048 /* button-green@2x.png */; };
+		63B3B4CF15DE0AD200577F25 /* swipe-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B3B4CD15DE0AD200577F25 /* swipe-down.png */; };
+		63B3B4D015DE0AD200577F25 /* swipe-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B3B4CE15DE0AD200577F25 /* swipe-up.png */; };
 		63BB567415A99753002B16B0 /* TDGeneralPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BB567215A99753002B16B0 /* TDGeneralPickerController.m */; };
 		63BB567515A99753002B16B0 /* TDGeneralPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */; };
 		63E3FE7115A30222006CA462 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E3FE7015A30222006CA462 /* icon.png */; };
@@ -234,6 +237,7 @@
 		632AEA4D15D7819900E566A2 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
 		632AEA4F15D7826400E566A2 /* segment-divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segment-divider.png"; sourceTree = "<group>"; };
 		632AEA5115D8E21200E566A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		63367C8815DE15810058F2E7 /* toggle-handler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle-handler.png"; sourceTree = "<group>"; };
 		6348201F159984BC003594AF /* IBEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEventDetailsViewController.h; sourceTree = "<group>"; };
 		63482020159984BC003594AF /* IBEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEventDetailsViewController.m; sourceTree = "<group>"; };
 		6348202E159AECDC003594AF /* SMColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMColorUtil.h; path = Utils/SMColorUtil.h; sourceTree = "<group>"; };
@@ -425,6 +429,8 @@
 		63A8FBF015C392BD001DA048 /* button-green-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green-down@2x.png"; sourceTree = "<group>"; };
 		63A8FBF115C392BD001DA048 /* button-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green.png"; sourceTree = "<group>"; };
 		63A8FBF215C392BD001DA048 /* button-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-green@2x.png"; sourceTree = "<group>"; };
+		63B3B4CD15DE0AD200577F25 /* swipe-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipe-down.png"; sourceTree = "<group>"; };
+		63B3B4CE15DE0AD200577F25 /* swipe-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swipe-up.png"; sourceTree = "<group>"; };
 		63BB567115A99753002B16B0 /* TDGeneralPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGeneralPickerController.h; sourceTree = "<group>"; };
 		63BB567215A99753002B16B0 /* TDGeneralPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGeneralPickerController.m; sourceTree = "<group>"; };
 		63BB567315A99753002B16B0 /* TDGeneralPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDGeneralPickerController.xib; sourceTree = "<group>"; };
@@ -501,6 +507,9 @@
 		634F98A515A303C600228957 /* system_img */ = {
 			isa = PBXGroup;
 			children = (
+				63B3B4CD15DE0AD200577F25 /* swipe-down.png */,
+				63B3B4CE15DE0AD200577F25 /* swipe-up.png */,
+				63367C8815DE15810058F2E7 /* toggle-handler.png */,
 				632AEA4F15D7826400E566A2 /* segment-divider.png */,
 				632AEA4D15D7819900E566A2 /* transparent.png */,
 				63106AAF15D6497000D5B164 /* bullet_red.png */,
@@ -1094,6 +1103,9 @@
 				63106AB415D6497000D5B164 /* bullet_blue.png in Resources */,
 				632AEA4E15D7819900E566A2 /* transparent.png in Resources */,
 				632AEA5015D7826400E566A2 /* segment-divider.png in Resources */,
+				63B3B4CF15DE0AD200577F25 /* swipe-down.png in Resources */,
+				63B3B4D015DE0AD200577F25 /* swipe-up.png in Resources */,
+				63367C8915DE15810058F2E7 /* toggle-handler.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

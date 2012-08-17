@@ -7,7 +7,7 @@
 //
 
 #import "IBCalendarViewController.h"
-static int calendarShadowOffset = (int)-20;
+static int calendarShadowOffset = (int)-5;
 
 @implementation IBCalendarViewController
 
@@ -129,23 +129,27 @@ static int calendarShadowOffset = (int)-20;
 
     calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
 
-    UIBarButtonItem *btnAddEvent = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)];
+    UIBarButtonItem *btnAddEvent = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)]autorelease];
     //	[[self navigationItem] setRightBarButtonItem:btnAddEvent];
     [[self navigationItem] setTitle:@"iBabe Calendar"];
 
-    UIBarButtonItem *btnToday = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)];
+    UIBarButtonItem *btnToday = [[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)]autorelease];
 
-    NSArray *btnsetRight = [[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil];
+    NSArray *btnsetRight = [[[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil]autorelease];
 
     [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
 
-    UIBarButtonItem *btnToggleCal = [[UIBarButtonItem alloc] initWithTitle:@"Cal" style:UIBarButtonItemStyleBordered target:self action:@selector(toggleCalendar)];
+	
 
-    [[self navigationItem] setLeftBarButtonItem:btnToggleCal];
+    imgSwipeHandler = [[UIImageView alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
+    [imgSwipeHandler setImage:[UIImage imageNamed:@"toggle-handler.png"]];
+    [imgSwipeHandler setUserInteractionEnabled:YES];
+    [self.view addSubview:imgSwipeHandler];
 
-    eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
+    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
+
+    // eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
 
     eventTable.delegate = self;
     eventTable.dataSource = self;
@@ -188,6 +192,14 @@ static int calendarShadowOffset = (int)-20;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    swipeDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
+    swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+
+    swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
+    swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+
+    [imgSwipeHandler addGestureRecognizer:swipeUpRecognizer];
 }
 
 
@@ -195,23 +207,42 @@ static int calendarShadowOffset = (int)-20;
 // Show/Hide the calendar by sliding it down/up from the top of the device.
 - (void)toggleCalendar
 {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.75];
+
     // If calendar is off the screen, show it, else hide it (both with animations)
     if (calendar.frame.origin.y == -calendar.frame.size.height + calendarShadowOffset)
     {
         // Show
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:.75];
         calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
-        [UIView commitAnimations];
+
+        [imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+
+        [eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+
+        [imgSwipeHandler addGestureRecognizer:swipeUpRecognizer];
+        [imgSwipeHandler removeGestureRecognizer:swipeDownRecognizer];
     }
     else
     {
         // Hide
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:.75];
         calendar.frame = CGRectMake(0, -calendar.frame.size.height + calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
-        [UIView commitAnimations];
+        [imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y-calendarShadowOffset, self.view.frame.size.width, 40)];
+
+        [eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+		
+		[imgSwipeHandler addGestureRecognizer:swipeDownRecognizer];
+        [imgSwipeHandler removeGestureRecognizer:swipeUpRecognizer];
+		
     }
+
+    [UIView commitAnimations];
+}
+
+
+
+- (IBAction)handleNavSwipeDown:(UISwipeGestureRecognizer *)sender
+{
 }
 
 
@@ -257,7 +288,12 @@ static int calendarShadowOffset = (int)-20;
     // ---- reset the table postion to avoid the top part hidding behind the calendar.
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.75];
-    eventTable.frame = CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, eventTable.frame.size.width, eventTable.frame.size.height);
+
+	
+	[imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+	
+	[eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+	
     [UIView commitAnimations];
 
     [calendar selectDate:month];
@@ -367,6 +403,10 @@ static int calendarShadowOffset = (int)-20;
     [calendar release];
     [eventTable release];
     [selectedEvent release];
+	[swipeDownRecognizer release];
+	[swipeUpRecognizer release];
+	[imgSwipeHandler release];
+	
     [super dealloc];
 }
 
