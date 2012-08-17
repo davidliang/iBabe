@@ -3,7 +3,7 @@
 //  iBabe
 //
 //  Created by David Liang on 19/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Sigmapps Application Development. All rights reserved.
 //
 
 #import "IBCalendarViewController.h"

@@ -931,6 +931,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Sigmapps Application Development";
 			};
 			buildConfigurationList = 638F3205157B02340057AD60 /* Build configuration list for PBXProject "iBabe" */;
 			compatibilityVersion = "Xcode 3.2";
