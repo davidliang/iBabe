@@ -55,10 +55,10 @@
     [super viewDidLoad];
 
     [self.dueDatePicker setDate:[IBBCommon loadUserSelectedDateFromPlist]];
+    [self.dateType setSelectedSegmentIndex:[IBBCommon loadIsDateTypeLastPeriodFromPlist]];
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-            [self.dateType setSelectedSegmentIndex:[IBBCommon loadIsDateTypeLastPeriodFromPlist]];
-        });
+    alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Invalid \"Last Period \" value. Your last period should be earlier than today." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    [self.view addSubview:alert];
 }
 
 
@@ -102,6 +102,7 @@
 - (void)dealloc
 {
     [btnSaveDueDate release];
+    [alert release];
     [super dealloc];
 }
 
@@ -109,25 +110,59 @@
 
 - (IBAction)onSaveDueDateClicked:(id)sender
 {
-    NSInteger selectedTypeIdx = [self.dateType selectedSegmentIndex];
+    NSInteger   selectedTypeIdx = [self.dateType selectedSegmentIndex];
+    NSDate      *calDueDate = Nil;
 
-    if (selectedTypeIdx == 1)
-    {
-        [IBBCommon saveDueDateToPlist:[dueDatePicker date]];
+    BOOL validDate = YES;
+
+    switch (selectedTypeIdx) {
+        case 0:
+            // --- Selected the "Last Period" Option.
+            calDueDate = [IBDateHelper calculateDueDateBy:[dueDatePicker date]];
+
+            // --- Check if the selected last period date is earlier than today.
+            if ([[dueDatePicker date] compare:[NSDate date]] == NSOrderedDescending)
+            {
+                validDate = NO;
+
+                [alert setMessage:@"Invalid \"Last Period \" value. Your last period should be earlier than today. Please try again."];
+
+                [alert show];
+            }
+            // --- Check if calulated due date which based on the last period date value
+            // --- Validate or not. If due date earlier than today = Invalid.
+            else if ([calDueDate compare:[NSDate date]] == NSOrderedAscending)
+            {
+                validDate = NO;
+                [alert setMessage:@"Invalid \"Last Period \" value. Based on your last period, your baby should had been born. Please try again."];
+                [alert show];
+            }
+            else
+            {
+                [IBBCommon saveDueDateToPlist:calDueDate];
+            }
+
+            break;
+
+        case 1:
+            // --- Selected the "Due Date" option.
+            [IBBCommon saveDueDateToPlist:[dueDatePicker date]];
+            break;
+
+        default:
+            break;
     }
-    else
+
+    if (validDate)
     {
-        NSDate *calDueDate = [IBDateHelper calculateDueDateBy:[dueDatePicker date]];
-        [IBBCommon saveDueDateToPlist:calDueDate];
+        // --- Save date type.
+        [IBBCommon saveIsDateTypeLastPeriodToPlist:selectedTypeIdx];
+
+        // --- Save user picked date.
+        [IBBCommon saveUserSelectedDateToPlist:[dueDatePicker date]];
+
+        [btnSaveDueDate setEnabled:NO];
     }
-
-    // --- Save date type.
-    [IBBCommon saveIsDateTypeLastPeriodToPlist:selectedTypeIdx];
-
-    // --- Save user picked date.
-    [IBBCommon saveUserSelectedDateToPlist:[dueDatePicker date]];
-
-    [btnSaveDueDate setEnabled:NO];
 }
 
 

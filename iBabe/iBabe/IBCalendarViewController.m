@@ -129,25 +129,26 @@ static int calendarShadowOffset = (int)-5;
 
     calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
 
-    UIBarButtonItem *btnAddEvent = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)]autorelease];
+    UIBarButtonItem *btnAddEvent = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)] autorelease];
     //	[[self navigationItem] setRightBarButtonItem:btnAddEvent];
     [[self navigationItem] setTitle:@"iBabe Calendar"];
 
-    UIBarButtonItem *btnToday = [[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)]autorelease];
+    UIBarButtonItem *btnToday = [[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)] autorelease];
 
-    NSArray *btnsetRight = [[[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil]autorelease];
+    NSArray *btnsetRight = [[[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil] autorelease];
 
     [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
 
-	
 
-    imgSwipeHandler = [[UIImageView alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-    [imgSwipeHandler setImage:[UIImage imageNamed:@"toggle-handler.png"]];
-    [imgSwipeHandler setUserInteractionEnabled:YES];
-    [self.view addSubview:imgSwipeHandler];
+    btnSpliter = [[UIButton alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler.png"] forState:UIControlStateNormal];
+    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
 
-    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
+    [self.view addSubview:btnSpliter];
+
+
+    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
 
     // eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
 
@@ -199,7 +200,14 @@ static int calendarShadowOffset = (int)-5;
     swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
     swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
 
-    [imgSwipeHandler addGestureRecognizer:swipeUpRecognizer];
+
+    [btnSpliter addGestureRecognizer:swipeUpRecognizer];
+}
+
+
+
+- (void)tapOnSplitBar
+{
 }
 
 
@@ -215,25 +223,26 @@ static int calendarShadowOffset = (int)-5;
     {
         // Show
         calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
+        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-        [imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
 
-        [eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
-
-        [imgSwipeHandler addGestureRecognizer:swipeUpRecognizer];
-        [imgSwipeHandler removeGestureRecognizer:swipeDownRecognizer];
+        [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
+        [btnSpliter addGestureRecognizer:swipeUpRecognizer];
+        [btnSpliter removeGestureRecognizer:swipeDownRecognizer];
     }
     else
     {
         // Hide
         calendar.frame = CGRectMake(0, -calendar.frame.size.height + calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
-        [imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y-calendarShadowOffset, self.view.frame.size.width, 40)];
+   
+        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y - calendarShadowOffset, self.view.frame.size.width, 40)];
 
-        [eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
-		
-		[imgSwipeHandler addGestureRecognizer:swipeDownRecognizer];
-        [imgSwipeHandler removeGestureRecognizer:swipeUpRecognizer];
-		
+        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+
+        [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-down.png"] forState:UIControlStateHighlighted];
+        [btnSpliter addGestureRecognizer:swipeDownRecognizer];
+        [btnSpliter removeGestureRecognizer:swipeUpRecognizer];
     }
 
     [UIView commitAnimations];
@@ -289,11 +298,10 @@ static int calendarShadowOffset = (int)-5;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.75];
 
-	
-	[imgSwipeHandler setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
-	
-	[eventTable setFrame:CGRectMake(0, imgSwipeHandler.frame.size.height + imgSwipeHandler.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
-	
+    [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+
+    [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+
     [UIView commitAnimations];
 
     [calendar selectDate:month];
@@ -403,10 +411,9 @@ static int calendarShadowOffset = (int)-5;
     [calendar release];
     [eventTable release];
     [selectedEvent release];
-	[swipeDownRecognizer release];
-	[swipeUpRecognizer release];
-	[imgSwipeHandler release];
-	
+    [swipeDownRecognizer release];
+    [swipeUpRecognizer release];
+    [btnSpliter release];
     [super dealloc];
 }
 

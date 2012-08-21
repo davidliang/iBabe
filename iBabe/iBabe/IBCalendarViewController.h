@@ -23,9 +23,11 @@
     NSMutableArray              *eventsForCurrentDate;
     NSDate                      *selectedDate;
     EKEvent                     *selectedEvent;
-    UIImageView                 *imgSwipeHandler;
+
     UISwipeGestureRecognizer    *swipeDownRecognizer;
     UISwipeGestureRecognizer    *swipeUpRecognizer;
+	
+	UIButton* btnSpliter;
 }
 
 - (void)toggleCalendar;

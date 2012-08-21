@@ -96,6 +96,10 @@
 		634F992215A303C600228957 /* weeks-title.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98E315A303C600228957 /* weeks-title.png */; };
 		634F992315A303C600228957 /* weeks.png in Resources */ = {isa = PBXBuildFile; fileRef = 634F98E415A303C600228957 /* weeks.png */; };
 		634F992915A3093200228957 /* IBEditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634F992815A3093200228957 /* IBEditEventViewController.m */; };
+		635011EC15E226A40097B1EF /* toggle-handler-tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 635011EB15E226A40097B1EF /* toggle-handler-tap.png */; };
+		635011EE15E2290B0097B1EF /* loc_pin_destination.png in Resources */ = {isa = PBXBuildFile; fileRef = 635011ED15E2290B0097B1EF /* loc_pin_destination.png */; };
+		635011F215E229220097B1EF /* toggle-handler-tap-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 635011F015E229220097B1EF /* toggle-handler-tap-up.png */; };
+		635011F415E22A620097B1EF /* toggle-handler-tap-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 635011F315E22A620097B1EF /* toggle-handler-tap-down.png */; };
 		63526E32158CD0140089916D /* iBBSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63526DF6158CD0140089916D /* iBBSettings.plist */; };
 		63526E33158CD0140089916D /* b-0-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 63526DF8158CD0140089916D /* b-0-down.png */; };
 		63526E34158CD0140089916D /* b-0-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 63526DF9158CD0140089916D /* b-0-up.png */; };
@@ -325,6 +329,10 @@
 		634F98E415A303C600228957 /* weeks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weeks.png; sourceTree = "<group>"; };
 		634F992715A3093200228957 /* IBEditEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEditEventViewController.h; sourceTree = "<group>"; };
 		634F992815A3093200228957 /* IBEditEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEditEventViewController.m; sourceTree = "<group>"; };
+		635011EB15E226A40097B1EF /* toggle-handler-tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle-handler-tap.png"; sourceTree = "<group>"; };
+		635011ED15E2290B0097B1EF /* loc_pin_destination.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loc_pin_destination.png; sourceTree = "<group>"; };
+		635011F015E229220097B1EF /* toggle-handler-tap-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle-handler-tap-up.png"; sourceTree = "<group>"; };
+		635011F315E22A620097B1EF /* toggle-handler-tap-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle-handler-tap-down.png"; sourceTree = "<group>"; };
 		63526DF6158CD0140089916D /* iBBSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBBSettings.plist; sourceTree = "<group>"; };
 		63526DF8158CD0140089916D /* b-0-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b-0-down.png"; sourceTree = "<group>"; };
 		63526DF9158CD0140089916D /* b-0-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b-0-up.png"; sourceTree = "<group>"; };
@@ -507,6 +515,10 @@
 		634F98A515A303C600228957 /* system_img */ = {
 			isa = PBXGroup;
 			children = (
+				635011EB15E226A40097B1EF /* toggle-handler-tap.png */,
+				635011F015E229220097B1EF /* toggle-handler-tap-up.png */,
+				635011F315E22A620097B1EF /* toggle-handler-tap-down.png */,
+				635011ED15E2290B0097B1EF /* loc_pin_destination.png */,
 				63B3B4CD15DE0AD200577F25 /* swipe-down.png */,
 				63B3B4CE15DE0AD200577F25 /* swipe-up.png */,
 				63367C8815DE15810058F2E7 /* toggle-handler.png */,
@@ -1107,6 +1119,10 @@
 				63B3B4CF15DE0AD200577F25 /* swipe-down.png in Resources */,
 				63B3B4D015DE0AD200577F25 /* swipe-up.png in Resources */,
 				63367C8915DE15810058F2E7 /* toggle-handler.png in Resources */,
+				635011EC15E226A40097B1EF /* toggle-handler-tap.png in Resources */,
+				635011EE15E2290B0097B1EF /* loc_pin_destination.png in Resources */,
+				635011F215E229220097B1EF /* toggle-handler-tap-up.png in Resources */,
+				635011F415E22A620097B1EF /* toggle-handler-tap-down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingDetailsViewController : UIViewController<UIPickerViewDelegate>
+{
+	UIAlertView* alert;
+}
 
 @property(atomic,retain) IBOutlet UIDatePicker *dueDatePicker;
 @property(atomic,retain) IBOutlet UISegmentedControl *dateType;

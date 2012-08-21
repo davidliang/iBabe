@@ -7,7 +7,7 @@
 //
 
 #import "IBEventLocationMapViewController.h"
-//#import "IBEventDetailsViewController.h"
+// #import "IBEventDetailsViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -23,7 +23,7 @@
 {
     UIBarButtonItem *btnShowMe = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:100 target:self action:@selector(btnShowMyLocationPressed:)];
 
-    UIBarButtonItem *btnShowTarget = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(btnShowTargetLocationPressed:)];
+    UIBarButtonItem *btnShowTarget = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"target-location.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(btnShowTargetLocationPressed:)];
 
     NSMutableArray *rightBtns = [[NSMutableArray alloc] initWithCapacity:2];
 
@@ -55,21 +55,18 @@
 
 #pragma mark- MKMap Delegate
 
--(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-//	MKAnnotationView *annotationView = [views objectAtIndex:0];
-//	id mp = [annotationView annotation];
-//	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate] ,250,250);
-//	[mapEventLocation setRegion:region animated:YES];
-
+    //	MKAnnotationView *annotationView = [views objectAtIndex:0];
+    //	id mp = [annotationView annotation];
+    //	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate] ,250,250);
+    //	[mapEventLocation setRegion:region animated:YES];
 }
+
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([mapEventLocation showsUserLocation])
-    {
-    }
 }
 
 
@@ -88,14 +85,14 @@
 
 - (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
 {
-    [progressHUD show:YES];
+	//   [progressHUD show:YES];
 }
 
 
 
 - (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
 {
-    [progressHUD hide:YES];
+    //	[progressHUD hide:YES];
 }
 
 
@@ -106,7 +103,8 @@
 
     MKAnnotationView    *annView = nil;
     static NSString     *defaultPinID = @"com.sigmapps.iBabe.defPin";
-    static NSString     *userLocationPinID = @"com.sigmapps.iBabe.userLocPin";
+
+    //    static NSString     *userLocationPinID = @"com.sigmapps.iBabe.userLocPin";
 
     if (annotation != mapEventLocation.userLocation)
     {
@@ -125,16 +123,17 @@
     }
     else
     {
-        annView = (MKPinAnnotationView *)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:userLocationPinID];
+        //        annView = (MKPinAnnotationView *)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:userLocationPinID];
+        //
+        //        if (annView == nil)
+        //        {
+        //            annView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationPinID];
+        //        }
+        //
+        //        // --- Add a right arrown icon on the title box for clicking.
+        //        annView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
 
-        if (annView == nil)
-        {
-            annView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationPinID];
-        }
-
-        // --- Add a right arrown icon on the title box for clicking.
-        annView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        annView.image = [UIImage imageNamed:@"pin-green.png"];
+        // annView.image = [UIImage imageNamed:@"pin-green.png"];
         [mapEventLocation.userLocation setTitle:@"Your're Here."];
     }
 
@@ -177,9 +176,10 @@
     }
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
 
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
 }
 
 
@@ -214,7 +214,7 @@
     // ---OLD
     // [mapEventLocation.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
     mapEventLocation.showsUserLocation = YES;
-    [mapEventLocation setUserTrackingMode:MKUserTrackingModeFollow];
+    [mapEventLocation setUserTrackingMode:MKUserTrackingModeNone];
 
     progressHUD = [[MBProgressHUD alloc] initWithView:[self.navigationController view]];
     [progressHUD setLabelText:@"Loading..."];
@@ -266,8 +266,7 @@
 
 - (void)dealloc
 {
-	
-	[locationManager release];
+    [locationManager release];
     [mapEventLocation release];
     [super dealloc];
 }
