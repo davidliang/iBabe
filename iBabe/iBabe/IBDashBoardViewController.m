@@ -135,13 +135,13 @@
     }
 
     // Add shadow for last row
-    if (indexPath.row == 3)
+    if (indexPath.row == [currentEvents count]-1)
     {
         CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = CGRectMake(0, 81, 320, 5);
+        gradient.frame = CGRectMake(0, 75, 320, 10);
 
         UIColor *lightColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
-        UIColor *darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        UIColor *darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
 
         gradient.colors = [NSArray arrayWithObjects:(id)darkColor.CGColor, (id)lightColor.CGColor, nil];
         [cell.layer insertSublayer:gradient atIndex:0];
@@ -294,6 +294,8 @@
 
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
+
+	
 }
 
 

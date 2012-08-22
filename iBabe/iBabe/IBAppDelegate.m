@@ -31,6 +31,7 @@
     [SMUICustomiseUtil customiseNavigationBar];
     [SMUICustomiseUtil  customiseUISegmentedControlAndSwitch];
     [SMUICustomiseUtil customiseTableView];
+	
 
     // --- Create ibabe calendar on the
     // [IBEKCalendarHelper createIBabeCalendar];

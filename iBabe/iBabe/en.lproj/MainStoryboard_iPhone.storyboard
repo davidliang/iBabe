@@ -1021,6 +1021,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <classes>
         <class className="IBCalendarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleNavSwipeDown:" candidateClass="UISwipeGestureRecognizer"/>
+            </relationships>
         </class>
         <class className="IBDashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBDashBoardViewController.h"/>

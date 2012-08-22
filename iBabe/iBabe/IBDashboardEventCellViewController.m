@@ -21,14 +21,26 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+
+    if (self)
+    {
         // Initialization code
     }
+
     return self;
 }
 
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
+    if (selected)
+    {
+    }
+    else
+    {
+    }
+
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
@@ -36,7 +48,8 @@
 
 
 
-- (void)dealloc {
+- (void)dealloc
+{
     [lbMonth release];
     [lbDay release];
     [lbEventTitle release];
@@ -45,6 +58,10 @@
     [lbLocation release];
     [imgArrow release];
     [imgBackground release];
+
     [super dealloc];
 }
+
+
+
 @end

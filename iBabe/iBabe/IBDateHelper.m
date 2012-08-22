@@ -59,13 +59,22 @@ static NSString* appFlag = @"[iBabe]";
     NSInteger remainWeeks = [self countDownGetRemainDayPartWith:dueDate ReturnWeekPart:YES];
     NSInteger remainDays = [self countDownGetRemainDayPartWith:dueDate ReturnWeekPart:NO];
     
-    
+
     
     NSInteger result = 39 - remainWeeks;
     
+	if (7-remainDays ==7)
+		result ++;
+	
     if (!isReturnWeekPart)
+	{
         result = 7 - remainDays;
-    
+		
+		if (result == 7)
+			result =0;
+		
+	}
+	
     
     return result;
 }

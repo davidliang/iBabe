@@ -19,10 +19,23 @@
 
     EKCalendar      *ibbCal = [IBEKCalendarHelper getIBabeCalendar];
     NSMutableArray  *cals = [[NSMutableArray alloc] initWithObjects:ibbCal, nil];
-
+    
+	
+	
+	if ([cals count]<1)
+	{
+		[cals release];
+		[currentEventStore release];
+		
+		return nil;
+	}
+	
     predicate = [currentEventStore predicateForEventsWithStartDate:start endDate:to calendars:cals];
     matchedEvents = [currentEventStore eventsMatchingPredicate:predicate];
 
+	
+//	[cals release];
+//	[currentEventStore release];
     return matchedEvents;
 }
 
@@ -50,23 +63,26 @@
     EKCalendar      *ibbCal = [IBEKCalendarHelper getIBabeCalendar];
     NSMutableArray  *cals = [[NSMutableArray alloc] initWithObjects:ibbCal, nil];
 
-    for (int currentLoop = 0; !enoughEvent && currentLoop < maxLoopCount; currentLoop++) {
-        predicate = [currentEventStore predicateForEventsWithStartDate:fromDate endDate:toDate calendars:cals];
-        matchedEvents = [currentEventStore eventsMatchingPredicate:predicate];
+    if ([cals count] > 0)
+    {
+        for (int currentLoop = 0; !enoughEvent && currentLoop < maxLoopCount; currentLoop++) {
+            predicate = [currentEventStore predicateForEventsWithStartDate:fromDate endDate:toDate calendars:cals];
+            matchedEvents = [currentEventStore eventsMatchingPredicate:predicate];
 
-        for (EKEvent *anEvent in matchedEvents) {
-            if (eventCount == numberOfEvents)
-            {
-                enoughEvent = YES;
-                break;
+            for (EKEvent *anEvent in matchedEvents) {
+                if (eventCount == numberOfEvents)
+                {
+                    enoughEvent = YES;
+                    break;
+                }
+
+                [currentEvents addObject:anEvent];
+                eventCount++;
             }
 
-            [currentEvents addObject:anEvent];
-            eventCount++;
+            fromDate = toDate;
+            toDate = [toDate dateByAddingTimeInterval:daysInSecond * 30];
         }
-
-        fromDate = toDate;
-        toDate = [toDate dateByAddingTimeInterval:daysInSecond * 30];
     }
 
     return currentEvents;
@@ -98,9 +114,11 @@
     BOOL ibbCalExist = NO;
 
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+	NSString *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
 
-    NSString *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
-
+	
+	// --- Cal ID has already been set to the user settings.
+	// --- That means app had been ran before and Cal has been created.
     if (calID != Nil)
     {
         for (EKCalendar *aCal in eventStore.calendars) {
@@ -117,6 +135,30 @@
             }
         }
     }
+	else
+	{
+		//--->>Cal ID hasn't been set to the user settings.
+		//--- That can be either 1st time user of the app OR the app has been
+		//--- installed but removed and the user reinstall again. In this case,
+		//--- the app will check if there is any iBabe Calendar existing, if yes
+		//--- the app will pick up the exiting Calendar ID and add to the user settings.
+		//--- If not, then add a new one.
+		
+		for (EKCalendar *aCal in eventStore.calendars) {
+            if ([aCal.title isEqualToString:CALENDAR_NAME])
+            {
+                ibbCalExist = YES;
+				
+				// -- Add the existing calender identifier to the user defaults.
+				[userDefault setObject:aCal.calendarIdentifier forKey:USER_DEFAULT_CALENDAR_NAME];
+
+                break;
+            }
+        }
+		
+		
+	}
+	
 
     if (!ibbCalExist)
     {
