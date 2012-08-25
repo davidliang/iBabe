@@ -123,6 +123,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	
+	//--- Add the Add New Reminder button to the table view when there are NO coming up reminder.
+
     if (([currentEvents count] == 0) && (indexPath.row == 0))
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -131,16 +134,41 @@
         {
             cell = [[[UITableViewCell alloc]    initWithStyle   :UITableViewCellStyleSubtitle
                                                 reuseIdentifier :@"cell"] autorelease];
-            cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-        }
+			cell.selectionStyle = UITableViewCellSelectionStyleGray;
+			
+//            cell.textLabel.textAlignment = UITextAlignmentRight;
+//			cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.00f];
+//			cell.textLabel.text = @"Add new reminder";
+//			cell.textLabel.textColor = [UIColor lightGrayColor];
+			
+			
+			//--- Add the "add" img.
+			UIImage* addNew = [UIImage imageNamed:@"add.png"];
+			UIImageView* imgViewAddNew = [[UIImageView alloc]initWithFrame:CGRectMake(13, cell.frame.origin.y+cell.frame.size.height/2+7, 27, 27)];
+			[imgViewAddNew setImage:addNew];
+			[cell addSubview:imgViewAddNew];
+			
+			//--- Add the "Add new reminder" label.
+			UILabel* lbAddNew = [[UILabel alloc]init];
+			[lbAddNew setText:@"Add new reminder"];
+			[lbAddNew setTextColor:[UIColor lightGrayColor]];
+			[lbAddNew setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
+			[lbAddNew setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:20.00f]];
+			[lbAddNew setFrame:CGRectMake(imgViewAddNew.frame.size.width+imgViewAddNew.frame.origin.x+13,0, 240, 82)];
+			
+			[cell addSubview:lbAddNew];
+			
+			
 
-        cell.detailTextLabel.text = @"No reminder records.";
+
+
+        }
 
         return cell;
     }
 
+	
+	//--- If there ARE coming reminders, add the items to the table. 
     static NSString *CellIdentifier = @"EventCell";
 
     IBDashboardEventCellViewController *cell = (IBDashboardEventCellViewController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -163,10 +191,10 @@
     {
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = CGRectMake(0, 75, 320, 10);
-
+		
         UIColor *lightColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
         UIColor *darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-
+		
         gradient.colors = [NSArray arrayWithObjects:(id)darkColor.CGColor, (id)lightColor.CGColor, nil];
         [cell.layer insertSublayer:gradient atIndex:0];
     }
@@ -215,6 +243,11 @@
 
         [[self navigationController] pushViewController:eventView animated:YES];
     }
+	
+	if([currentEvents count]==0 && indexPath.row==0)
+	{
+		NSLog(@"tap");
+	}
 }
 
 
