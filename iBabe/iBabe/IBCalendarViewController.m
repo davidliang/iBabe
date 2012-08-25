@@ -139,14 +139,11 @@ static int calendarShadowOffset = (int)-5;
 
     [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
 
-
-
     btnSpliter = [[UIButton alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
     [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler.png"] forState:UIControlStateNormal];
     [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
 
     [self.view addSubview:btnSpliter];
-
 
     eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
 
@@ -200,7 +197,6 @@ static int calendarShadowOffset = (int)-5;
     swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
     swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
 
-
     [btnSpliter addGestureRecognizer:swipeUpRecognizer];
 }
 
@@ -235,7 +231,7 @@ static int calendarShadowOffset = (int)-5;
     {
         // Hide
         calendar.frame = CGRectMake(0, -calendar.frame.size.height + calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
-   
+
         [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y - calendarShadowOffset, self.view.frame.size.width, 40)];
 
         [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
@@ -356,7 +352,8 @@ static int calendarShadowOffset = (int)-5;
         }
 
         // If the date is in the data array, add it to the marks array, else don't
-        if ([data containsObject:[d description]])
+        // if ([data containsObject:[d description]])
+        if ([data containsObject:[SMDateConvertUtil getFormatedDateStringForCalendarControllerFromNSDate:d]])
         {
             [marks addObject:[NSNumber numberWithBool:YES]];
         }

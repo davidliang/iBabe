@@ -19,23 +19,20 @@
 
     EKCalendar      *ibbCal = [IBEKCalendarHelper getIBabeCalendar];
     NSMutableArray  *cals = [[NSMutableArray alloc] initWithObjects:ibbCal, nil];
-    
-	
-	
-	if ([cals count]<1)
-	{
-		[cals release];
-		[currentEventStore release];
-		
-		return nil;
-	}
-	
+
+    if ([cals count] < 1)
+    {
+        [cals release];
+        [currentEventStore release];
+
+        return nil;
+    }
+
     predicate = [currentEventStore predicateForEventsWithStartDate:start endDate:to calendars:cals];
     matchedEvents = [currentEventStore eventsMatchingPredicate:predicate];
 
-	
-//	[cals release];
-//	[currentEventStore release];
+    //	[cals release];
+    //	[currentEventStore release];
     return matchedEvents;
 }
 
@@ -45,8 +42,8 @@
 {
     // --- The maximun months that the logic will go through get the events.
     // --- This is to avoid the logic keep looping through the whole calendar unlimitly.
-    // --- TODO: this should be able to setup from the config page.
-    NSInteger maxLoopCount = 11;
+	// --- Default value is to go through 12 months. 
+    NSInteger maxLoopCount = 12;
 
     NSMutableArray  *currentEvents = [[NSMutableArray alloc] init];
     EKEventStore    *currentEventStore = [[EKEventStore alloc] init];
@@ -85,6 +82,8 @@
         }
     }
 
+	
+
     return currentEvents;
 }
 
@@ -102,6 +101,8 @@
             locSource = aSource;
             break;
         }
+		
+		
     }
 
     // --- If local source not available then return nil.
@@ -113,12 +114,11 @@
     // --- Check if the iBabe Calendar exist or not.
     BOOL ibbCalExist = NO;
 
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-	NSString *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
+    NSUserDefaults  *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString        *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
 
-	
-	// --- Cal ID has already been set to the user settings.
-	// --- That means app had been ran before and Cal has been created.
+    // --- Cal ID has already been set to the user settings.
+    // --- That means app had been ran before and Cal has been created.
     if (calID != Nil)
     {
         for (EKCalendar *aCal in eventStore.calendars) {
@@ -135,30 +135,27 @@
             }
         }
     }
-	else
-	{
-		//--->>Cal ID hasn't been set to the user settings.
-		//--- That can be either 1st time user of the app OR the app has been
-		//--- installed but removed and the user reinstall again. In this case,
-		//--- the app will check if there is any iBabe Calendar existing, if yes
-		//--- the app will pick up the exiting Calendar ID and add to the user settings.
-		//--- If not, then add a new one.
-		
-		for (EKCalendar *aCal in eventStore.calendars) {
+    else
+    {
+        // --->>Cal ID hasn't been set to the user settings.
+        // --- That can be either 1st time user of the app OR the app has been
+        // --- installed but removed and the user reinstall again. In this case,
+        // --- the app will check if there is any iBabe Calendar existing, if yes
+        // --- the app will pick up the exiting Calendar ID and add to the user settings.
+        // --- If not, then add a new one.
+
+        for (EKCalendar *aCal in eventStore.calendars) {
             if ([aCal.title isEqualToString:CALENDAR_NAME])
             {
                 ibbCalExist = YES;
-				
-				// -- Add the existing calender identifier to the user defaults.
-				[userDefault setObject:aCal.calendarIdentifier forKey:USER_DEFAULT_CALENDAR_NAME];
+
+                // -- Add the existing calender identifier to the user defaults.
+                [userDefault setObject:aCal.calendarIdentifier forKey:USER_DEFAULT_CALENDAR_NAME];
 
                 break;
             }
         }
-		
-		
-	}
-	
+    }
 
     if (!ibbCalExist)
     {
@@ -204,11 +201,13 @@
 
     [eventStore removeEvent:event span:EKSpanThisEvent commit:YES error:&err];
 
+		[eventStore release];
     if (err != noErr)
     {
         NSLog(@"##ERROR: deleteEvent Err - %@", err);
         return NO;
     }
+
 
     return YES;
 }
@@ -246,11 +245,11 @@
     {
         EKEventStore    *eventStore = [[EKEventStore alloc] init];
         NSString        *calID = [[NSUserDefaults new] objectForKey:USER_DEFAULT_CALENDAR_NAME];
-
+		
         EKCalendar *ibbCal = [eventStore calendarWithIdentifier:calID];
 
         [eventStore release];
-        return [ibbCal autorelease];
+        return ibbCal;
     }
 
     return Nil;

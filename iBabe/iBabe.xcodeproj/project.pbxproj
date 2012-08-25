@@ -144,10 +144,13 @@
 		635FBE5F15983ED5002B9656 /* SMDateConvertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 635FBE5E15983ED5002B9656 /* SMDateConvertUtil.m */; };
 		63636A9D15E4B62E002DF7E5 /* table-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63636A9B15E4B62E002DF7E5 /* table-bg.png */; };
 		63636A9E15E4B62E002DF7E5 /* table-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63636A9C15E4B62E002DF7E5 /* table-bg@2x.png */; };
+		63636AB015E52292002DF7E5 /* tab-bar-icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 63636AAF15E52291002DF7E5 /* tab-bar-icon-settings.png */; };
+		63636AB215E5236D002DF7E5 /* tab-bar-icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 63636AB115E5236D002DF7E5 /* tab-bar-icon-home.png */; };
 		6367F9D115809FEA00B96330 /* IBDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367F9D015809FEA00B96330 /* IBDateHelper.m */; };
 		636CDCA6158DA7CE001AAD06 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA5158DA7CE001AAD06 /* EventKit.framework */; };
 		636CDCA8158DA80D001AAD06 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA7158DA80D001AAD06 /* EventKitUI.framework */; };
 		6383E987157B119C00EB163E /* IBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6383E986157B119C00EB163E /* IBSettingsViewController.m */; };
+		638C973915E729D9001A55FD /* IBAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638C973815E729D9001A55FD /* IBAboutViewController.m */; };
 		638F3210157B02350057AD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F320F157B02350057AD60 /* UIKit.framework */; };
 		638F3212157B02350057AD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F3211157B02350057AD60 /* Foundation.framework */; };
 		638F3214157B02350057AD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F3213157B02350057AD60 /* CoreGraphics.framework */; };
@@ -392,12 +395,16 @@
 		635FBE5E15983ED5002B9656 /* SMDateConvertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDateConvertUtil.m; path = Utils/SMDateConvertUtil.m; sourceTree = "<group>"; };
 		63636A9B15E4B62E002DF7E5 /* table-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-bg.png"; sourceTree = "<group>"; };
 		63636A9C15E4B62E002DF7E5 /* table-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-bg@2x.png"; sourceTree = "<group>"; };
+		63636AAF15E52291002DF7E5 /* tab-bar-icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-bar-icon-settings.png"; sourceTree = "<group>"; };
+		63636AB115E5236D002DF7E5 /* tab-bar-icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-bar-icon-home.png"; sourceTree = "<group>"; };
 		6367F9CF15809FEA00B96330 /* IBDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDateHelper.h; sourceTree = "<group>"; };
 		6367F9D015809FEA00B96330 /* IBDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDateHelper.m; sourceTree = "<group>"; };
 		636CDCA5158DA7CE001AAD06 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		636CDCA7158DA80D001AAD06 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		6383E985157B119C00EB163E /* IBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBSettingsViewController.h; sourceTree = "<group>"; };
 		6383E986157B119C00EB163E /* IBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBSettingsViewController.m; sourceTree = "<group>"; };
+		638C973715E729D8001A55FD /* IBAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAboutViewController.h; sourceTree = "<group>"; };
+		638C973815E729D9001A55FD /* IBAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAboutViewController.m; sourceTree = "<group>"; };
 		638F320B157B02350057AD60 /* iBabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638F320F157B02350057AD60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		638F3211157B02350057AD60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -546,6 +553,7 @@
 				63D35CBC15E4959900F0C459 /* table-list-item-bg-selected.png */,
 				63D35CBD15E4959A00F0C459 /* table-list-item-bg-selected@2x.png */,
 				63D35CBE15E4959A00F0C459 /* table-list-item-bg.png */,
+				63636AAF15E52291002DF7E5 /* tab-bar-icon-settings.png */,
 				63D35CBF15E4959B00F0C459 /* table-list-item-bg@2x.png */,
 				63D35CA815E48E3000F0C459 /* list-arrow-darkblue-selected.png */,
 				63D35CA915E48E3000F0C459 /* list-arrow-darkblue-selected@2x.png */,
@@ -590,6 +598,7 @@
 				634F98B415A303C600228957 /* countdown-bg-blue.png */,
 				634F98B515A303C600228957 /* countdown-bg-pink.png */,
 				634F98B615A303C600228957 /* countdown-bg-red.png */,
+				63636AB115E5236D002DF7E5 /* tab-bar-icon-home.png */,
 				634F98B815A303C600228957 /* countdown-title.png */,
 				634F98B915A303C600228957 /* days-title.png */,
 				634F98BA15A303C600228957 /* event-details-view-top-bg.png */,
@@ -856,6 +865,8 @@
 				634DCA2415A6F3BC00653D2C /* IBUITextField.m */,
 				630FAF4C15D4F5B100EE6661 /* IBEventCellViewController.h */,
 				630FAF4D15D4F5B100EE6661 /* IBEventCellViewController.m */,
+				638C973715E729D8001A55FD /* IBAboutViewController.h */,
+				638C973815E729D9001A55FD /* IBAboutViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1179,6 +1190,8 @@
 				63D35CC315E4959B00F0C459 /* table-list-item-bg@2x.png in Resources */,
 				63636A9D15E4B62E002DF7E5 /* table-bg.png in Resources */,
 				63636A9E15E4B62E002DF7E5 /* table-bg@2x.png in Resources */,
+				63636AB015E52292002DF7E5 /* tab-bar-icon-settings.png in Resources */,
+				63636AB215E5236D002DF7E5 /* tab-bar-icon-home.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,6 +1263,7 @@
 				6301572A15BEA84600A4D716 /* SMStringUtil.m in Sources */,
 				63FF8B1315CD681B008F6835 /* MBProgressHUD.m in Sources */,
 				630FAF4E15D4F5B200EE6661 /* IBEventCellViewController.m in Sources */,
+				638C973915E729D9001A55FD /* IBAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

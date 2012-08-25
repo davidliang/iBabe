@@ -110,6 +110,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+
+    if ([currentEvents count] == 0)
+    {
+        return 1;
+    }
+
     return [currentEvents count];
 }
 
@@ -117,6 +123,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (([currentEvents count] == 0) && (indexPath.row == 0))
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
+        if (cell == nil)
+        {
+            cell = [[[UITableViewCell alloc]    initWithStyle   :UITableViewCellStyleSubtitle
+                                                reuseIdentifier :@"cell"] autorelease];
+            cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		
+        }
+
+        cell.detailTextLabel.text = @"No reminder records.";
+
+        return cell;
+    }
+
     static NSString *CellIdentifier = @"EventCell";
 
     IBDashboardEventCellViewController *cell = (IBDashboardEventCellViewController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -135,7 +159,7 @@
     }
 
     // Add shadow for last row
-    if (indexPath.row == [currentEvents count]-1)
+    if (indexPath.row == [currentEvents count] - 1)
     {
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = CGRectMake(0, 75, 320, 10);
@@ -182,12 +206,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
+    if ([currentEvents count] > 0)
+    {
+        UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
 
-    [eventView setCurrentEvent:(EKEvent *)[currentEvents objectAtIndex:[indexPath row]]];
+        [eventView setCurrentEvent:(EKEvent *)[currentEvents objectAtIndex:[indexPath row]]];
 
-    [[self navigationController] pushViewController:eventView animated:YES];
+        [[self navigationController] pushViewController:eventView animated:YES];
+    }
 }
 
 
@@ -273,7 +300,7 @@
 
 - (void)initRemindersList
 {
-    currentEvents = [IBEKCalendarHelper getCurrentEventsWithTopEventNumber:10];
+    currentEvents = [IBEKCalendarHelper getCurrentEventsWithTopEventNumber:[[IBBCommon loadNoOfRecentRemindersFromPlist] integerValue]];
     [eventsList reloadData];
 }
 
@@ -294,8 +321,6 @@
 
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
-
-	
 }
 
 
