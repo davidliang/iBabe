@@ -355,6 +355,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	[self createSavableImage];
 
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
@@ -467,6 +469,77 @@
     [topScrollView release];
     [super dealloc];
 }
+
+
+
+#pragma mark-
+#pragma mark Methods For This View Only
+
+
+- (UIImage *)createSavableImage
+{
+
+    UIImage *snapshot;
+    CGImageRef cgScreen = UIGetScreenImage();
+    if (cgScreen) {
+        snapshot = [UIImage imageWithCGImage:cgScreen];
+        CGImageRelease(cgScreen);
+    }
+    
+    
+    CGRect rect = CGRectMake(0,125, 640, 750);//创建要剪切的矩形框 这里你可以自己修改
+
+	UIImage *imgScreenshot = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([snapshot CGImage], rect)];
+
+	
+	[self saveThread:imgScreenshot];
+	
+}
+
+-(void)ScreenShots
+{
+    [self unschedule:@selector(ScreenShots)];
+    
+    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+    if (NULL != UIGraphicsBeginImageContextWithOptions) {
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    }
+    else
+    {
+        UIGraphicsBeginImageContext(imageSize);
+    }
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    for (UIWindow * window in [[UIApplication sharedApplication] windows]) {
+        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen]) {
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, [window center].x, [window center].y);
+            CGContextConcatCTM(context, [window transform]);
+            CGContextTranslateCTM(context, -[window bounds].size.width*[[window layer] anchorPoint].x, -[window bounds].size.height*[[window layer] anchorPoint].y);
+            [[window layer] renderInContext:context];
+            
+            CGContextRestoreGState(context);
+        }
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    NSThread *thread=[[NSThread alloc] initWithTarget:self selector:@selector(saveThread:) object:image];
+    [thread start];
+    [thread release];
+	
+    NSLog(@"Suceeded!");
+}
+
+-(void)saveThread:(UIImage*)image
+{
+    NSAutoreleasePool *pool=[[NSAutoreleasePool alloc]init];
+    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    [pool release];
+}
+
 
 
 
