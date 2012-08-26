@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *tbNumberOfRecentReminders;
 @property (retain, nonatomic) IBOutlet UITableViewCell *cellDueDate;
 @property (retain, nonatomic) IBOutlet UIStepper *stpRecentReminders;
+@property (retain, nonatomic) IBOutlet UITableViewCell *cellAbout;
 
 - (void) loadSettingsFromPlist;
 - (IBAction)dismissRecentReminderKeyboard:(id)sender;

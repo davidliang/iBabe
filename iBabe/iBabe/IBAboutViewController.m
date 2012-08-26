@@ -53,7 +53,7 @@
 
 -(void) browseUrl
 {
-	NSURL* url =[NSURL URLWithString:@"http://www.theage.com.au"];
+	NSURL* url =[NSURL URLWithString:@"http://ibabe.sigmapps.com.au/mobile_site/"];
 	NSURLRequest* request = [NSURLRequest requestWithURL:url];
 	[self.webAbout loadRequest:request];
 }
@@ -65,7 +65,7 @@
 
 	progress = [[MBProgressHUD alloc]initWithView:self.navigationController.view];
 	[progress setAnimationType:MBProgressHUDAnimationFade];
-	[progress setMode:MBProgressHUDModeAnnularDeterminate];
+	[progress setMode:MBProgressHUDModeIndeterminate];
 	[progress setLabelText:@"Loading..."];
 
 	[self.navigationController.view addSubview:progress];

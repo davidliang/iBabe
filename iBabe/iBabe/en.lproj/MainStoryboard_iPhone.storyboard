@@ -517,6 +517,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="2B3-uE-bgH"/>
                     <connections>
+                        <outlet property="cellAbout" destination="acB-FO-Rtd" id="xic-wG-5QQ"/>
                         <outlet property="cellDueDate" destination="SQr-NS-GZ7" id="idQ-dk-1Cm"/>
                         <outlet property="stpRecentReminders" destination="PU6-c3-yKk" id="0gW-or-O7c"/>
                         <outlet property="tbNumberOfRecentReminders" destination="0o8-1R-lxS" id="nl8-wF-Le4"/>
@@ -535,7 +536,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="bgy-Kc-3Hy">
-                                <rect key="frame" x="0.0" y="-9" width="320" height="376"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -557,7 +558,7 @@
         <scene sceneID="h0l-vA-4AP">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-sD-ISA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="NmK-Fm-puo" customClass="IBEditEventViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IBEditEventView" id="NmK-Fm-puo" customClass="IBEditEventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PhT-ce-bf3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1119,6 +1120,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <relationships>
                 <relationship kind="action" name="dismissRecentReminderKeyboard:"/>
                 <relationship kind="action" name="stpRecentRemindersStepperValueChanged:"/>
+                <relationship kind="outlet" name="cellAbout" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="cellDueDate" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="settingsView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="stpRecentReminders" candidateClass="UIStepper"/>

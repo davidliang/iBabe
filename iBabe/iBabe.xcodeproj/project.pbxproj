@@ -155,6 +155,8 @@
 		638C974215E86237001A55FD /* IBDashboardEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 638C974115E86237001A55FD /* IBDashboardEmptyCell.m */; };
 		638C974515E865E8001A55FD /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 638C974315E865E8001A55FD /* add.png */; };
 		638C974615E865E8001A55FD /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 638C974415E865E8001A55FD /* add@2x.png */; };
+		638C974815E9207A001A55FD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 638C974715E92079001A55FD /* Default@2x.png */; };
+		638C974A15E9207C001A55FD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 638C974915E9207C001A55FD /* Default.png */; };
 		638F3210157B02350057AD60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F320F157B02350057AD60 /* UIKit.framework */; };
 		638F3212157B02350057AD60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F3211157B02350057AD60 /* Foundation.framework */; };
 		638F3214157B02350057AD60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638F3213157B02350057AD60 /* CoreGraphics.framework */; };
@@ -414,6 +416,8 @@
 		638C974115E86237001A55FD /* IBDashboardEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDashboardEmptyCell.m; sourceTree = "<group>"; };
 		638C974315E865E8001A55FD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		638C974415E865E8001A55FD /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		638C974715E92079001A55FD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		638C974915E9207C001A55FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		638F320B157B02350057AD60 /* iBabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638F320F157B02350057AD60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		638F3211157B02350057AD60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -737,6 +741,8 @@
 		638F3200157B02340057AD60 = {
 			isa = PBXGroup;
 			children = (
+				638C974915E9207C001A55FD /* Default.png */,
+				638C974715E92079001A55FD /* Default@2x.png */,
 				638F3215157B02350057AD60 /* iBabe */,
 				638F3241157B02350057AD60 /* iBabeTests */,
 				638F320E157B02350057AD60 /* Frameworks */,
@@ -1209,6 +1215,8 @@
 				638C973F15E861BB001A55FD /* DashboardEmptyCell.xib in Resources */,
 				638C974515E865E8001A55FD /* add.png in Resources */,
 				638C974615E865E8001A55FD /* add@2x.png in Resources */,
+				638C974815E9207A001A55FD /* Default@2x.png in Resources */,
+				638C974A15E9207C001A55FD /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

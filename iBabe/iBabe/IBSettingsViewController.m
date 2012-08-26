@@ -16,6 +16,7 @@
 @synthesize tbNumberOfRecentReminders;
 @synthesize cellDueDate;
 @synthesize stpRecentReminders;
+@synthesize cellAbout;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -78,6 +79,12 @@
 }
 
 
+-(void)viewDidLoad
+{
+	[cellAbout.textLabel setText:@"About"];
+
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,6 +119,7 @@
 	[tbNumberOfRecentReminders release];
 	[cellDueDate release];
 	[stpRecentReminders release];
+	[cellAbout release];
     [super dealloc];
 }
 
@@ -122,6 +130,7 @@
 	[self setTbNumberOfRecentReminders:nil];
 	[self setCellDueDate:nil];
 	[self setStpRecentReminders:nil];
+	[self setCellAbout:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

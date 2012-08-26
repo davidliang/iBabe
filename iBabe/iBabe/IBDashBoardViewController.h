@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
 #import "IBAppDelegate.h"
+#import "IBEditEventViewController.h"
 
 @interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {

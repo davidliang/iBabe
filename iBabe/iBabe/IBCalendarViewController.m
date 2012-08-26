@@ -72,142 +72,6 @@ static int calendarShadowOffset = (int)-5;
 
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [calendar reload];
-
-    if (selectedDate == Nil)
-    {
-        [calendar selectDate:[NSDate date]];
-    }
-    else
-    {
-        [calendar selectDate:selectedDate];
-    }
-
-    [eventTable reloadData];
-}
-
-
-
-- (void)didTapGoToToday
-{
-    [calendar selectDate:[NSDate date]];
-    [self loadEventsForSelectedDate:[NSDate date]];
-}
-
-
-
-- (void)loadView
-{
-    eventsForCurrentMonth = [[NSMutableArray alloc] init];
-    eventsForCurrentDate = [[NSMutableArray alloc] init];
-
-    NSArray *startAndEndDate = [SMDateConvertUtil getBeginAndEndOfADate:[NSDate date]];
-
-    NSArray *initEventsTemp = [IBEKCalendarHelper getEventsFromDate:[startAndEndDate objectAtIndex:0] toDate:[startAndEndDate objectAtIndex:1]];
-
-    for (EKEvent *aEvent in initEventsTemp) {
-        [eventsForCurrentDate addObject:aEvent];
-    }
-
-    calendar = [[TKCalendarMonthView alloc] init];
-    calendar.delegate = self;
-    calendar.dataSource = self;
-
-    // Costruct the view because we aren't using a
-    int statusBarHeight = 20;
-
-    CGRect applicationFrame = (CGRect)[[UIScreen mainScreen] applicationFrame];
-    self.view = [[[UIView alloc] initWithFrame:CGRectMake(0, statusBarHeight, applicationFrame.size.width, applicationFrame.size.height)] autorelease];
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.view.backgroundColor = [UIColor grayColor];
-
-    // Back ground image
-    UIImage *bgImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"background" ofType:@"png"]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImg]];
-
-    calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
-
-    UIBarButtonItem *btnAddEvent = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)] autorelease];
-    //	[[self navigationItem] setRightBarButtonItem:btnAddEvent];
-    [[self navigationItem] setTitle:@"iBabe Calendar"];
-
-    UIBarButtonItem *btnToday = [[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)] autorelease];
-
-    NSArray *btnsetRight = [[[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil] autorelease];
-
-    [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
-
-    btnSpliter = [[UIButton alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
-    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler.png"] forState:UIControlStateNormal];
-    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
-
-    [self.view addSubview:btnSpliter];
-
-    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
-
-    // eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
-
-    eventTable.delegate = self;
-    eventTable.dataSource = self;
-    [self.view addSubview:eventTable];
-
-    // Ensure this is the last "addSubview" because the calendar must be the top most view layer
-    [self.view addSubview:calendar];
-}
-
-
-
-- (void)didTapAddEventButton
-{
-    [self performSegueWithIdentifier:@"showAddEventSegue" sender:self];
-}
-
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAddEventSegue"])
-    {
-        EKEventStore    *eventStore = [[[EKEventStore alloc] init] autorelease];
-        EKEvent         *newEvent = [EKEvent eventWithEventStore:eventStore];
-
-        EKCalendar *cal = [IBEKCalendarHelper getIBabeCalendar];
-        [newEvent setCalendar:cal];
-        [newEvent setStartDate:[calendar dateSelected]];
-        [newEvent setEndDate:[[calendar dateSelected] dateByAddingTimeInterval:60 * 5]];
-
-        IBEditEventViewController *editEventViewCtrl = [segue destinationViewController];
-        [editEventViewCtrl setCurrentEvent:newEvent];
-        [editEventViewCtrl setIsNewEvent:YES];
-    }
-}
-
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    swipeDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
-    swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-
-    swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
-    swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
-
-    [btnSpliter addGestureRecognizer:swipeUpRecognizer];
-}
-
-
-
-- (void)tapOnSplitBar
-{
-}
-
-
-
 // Show/Hide the calendar by sliding it down/up from the top of the device.
 - (void)toggleCalendar
 {
@@ -394,6 +258,8 @@ static int calendarShadowOffset = (int)-5;
 
 
 
+#pragma mark -
+#pragma mark View Life cycle
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -412,6 +278,132 @@ static int calendarShadowOffset = (int)-5;
     [swipeUpRecognizer release];
     [btnSpliter release];
     [super dealloc];
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	 [calendar reload];
+
+    if (selectedDate == Nil)
+    {
+        [calendar selectDate:[NSDate date]];
+        [self loadEventsForSelectedDate:[NSDate date]];
+    }
+    else
+    {
+        [calendar selectDate:selectedDate];
+        [self loadEventsForSelectedDate:selectedDate];
+    }
+
+    [eventTable reloadData];
+}
+
+
+
+- (void)didTapGoToToday
+{
+    [calendar selectDate:[NSDate date]];
+    [self loadEventsForSelectedDate:[NSDate date]];
+}
+
+
+
+- (void)didTapAddEventButton
+{
+    [self performSegueWithIdentifier:@"showAddEventSegue" sender:self];
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showAddEventSegue"])
+    {
+        EKEventStore    *eventStore = [[[EKEventStore alloc] init] autorelease];
+        EKEvent         *newEvent = [EKEvent eventWithEventStore:eventStore];
+
+        EKCalendar *cal = [IBEKCalendarHelper getIBabeCalendar];
+        [newEvent setCalendar:cal];
+        [newEvent setStartDate:[calendar dateSelected]];
+        [newEvent setEndDate:[[calendar dateSelected] dateByAddingTimeInterval:60 * 5]];
+
+        IBEditEventViewController *editEventViewCtrl = [segue destinationViewController];
+        [editEventViewCtrl setCurrentEvent:newEvent];
+        [editEventViewCtrl setIsNewEvent:YES];
+    }
+}
+
+
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    eventsForCurrentMonth = [[NSMutableArray alloc] init];
+    eventsForCurrentDate = [[NSMutableArray alloc] init];
+
+    // ---- Init the events for the current date.
+    NSArray *startAndEndDate = [SMDateConvertUtil getBeginAndEndOfADate:[NSDate date]];
+    NSArray *initEventsTemp = [IBEKCalendarHelper getEventsFromDate:[startAndEndDate objectAtIndex:0] toDate:[startAndEndDate objectAtIndex:1]];
+
+    for (EKEvent *aEvent in initEventsTemp) {
+        [eventsForCurrentDate addObject:aEvent];
+    }
+
+    calendar = [[TKCalendarMonthView alloc] init];
+    calendar.delegate = self;
+    calendar.dataSource = self;
+
+    int statusBarHeight = 20;
+
+    CGRect applicationFrame = (CGRect)[[UIScreen mainScreen] applicationFrame];
+    self.view = [[[UIView alloc] initWithFrame:CGRectMake(0, statusBarHeight, applicationFrame.size.width, applicationFrame.size.height)] autorelease];
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view.backgroundColor = [UIColor grayColor];
+
+    // --- Back ground image
+    UIImage *bgImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"background" ofType:@"png"]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImg]];
+
+    calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
+
+    // --- Init buttons for the navigation bar.
+    UIBarButtonItem *btnAddEvent = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didTapAddEventButton)] autorelease];
+    [[self navigationItem] setTitle:@"iBabe Calendar"];
+
+    UIBarButtonItem *btnToday = [[[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStyleBordered target:self action:@selector(didTapGoToToday)] autorelease];
+    NSArray         *btnsetRight = [[[NSArray alloc] initWithObjects:btnAddEvent, btnToday, nil] autorelease];
+    [[self navigationItem] setRightBarButtonItems:btnsetRight animated:YES];
+
+    // --- Init the screen spliter button.
+    btnSpliter = [[UIButton alloc] initWithFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler.png"] forState:UIControlStateNormal];
+    [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
+
+    swipeDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
+    swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+
+    swipeUpRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
+    swipeUpRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+
+    [btnSpliter addGestureRecognizer:swipeUpRecognizer];
+
+    [self.view addSubview:btnSpliter];
+
+    // --- Init events table.
+    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
+
+    // eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
+
+    eventTable.delegate = self;
+    eventTable.dataSource = self;
+    [self.view addSubview:eventTable];
+
+    // Ensure this is the last "addSubview" because the calendar must be the top most view layer
+    [self.view addSubview:calendar];
 }
 
 
