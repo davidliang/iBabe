@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface SMImageUtl : NSObject
 {
 }
 
-
-+ (void) takeScreenShot;
++ (UIImage *)screenshotFromView:(UIView *)theView;
++ (UIImage *)screenshotFromView:(UIView *)theView atTargetAreaFrame:(CGRect)r;
++ (void)saveImageToIPhonePhotoAlbum:(UIImage *)image;
 
 @end

@@ -10,6 +10,8 @@
 #import <EventKit/EventKit.h>
 #import "IBAppDelegate.h"
 #import "IBEditEventViewController.h"
+#import "SMImageUtl.h"
+
 
 @interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {
