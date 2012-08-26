@@ -416,8 +416,8 @@
 		638C974115E86237001A55FD /* IBDashboardEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDashboardEmptyCell.m; sourceTree = "<group>"; };
 		638C974315E865E8001A55FD /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		638C974415E865E8001A55FD /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
-		638C974715E92079001A55FD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		638C974915E9207C001A55FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		638C974715E92079001A55FD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
+		638C974915E9207C001A55FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
 		638F320B157B02350057AD60 /* iBabe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBabe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638F320F157B02350057AD60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		638F3211157B02350057AD60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -661,6 +661,8 @@
 		63526DF5158CD0140089916D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				638C974915E9207C001A55FD /* Default.png */,
+				638C974715E92079001A55FD /* Default@2x.png */,
 				63E3FE7215A30225006CA462 /* icon@2x.png */,
 				63E3FE7015A30222006CA462 /* icon.png */,
 				63526DF6158CD0140089916D /* iBBSettings.plist */,
@@ -741,8 +743,6 @@
 		638F3200157B02340057AD60 = {
 			isa = PBXGroup;
 			children = (
-				638C974915E9207C001A55FD /* Default.png */,
-				638C974715E92079001A55FD /* Default@2x.png */,
 				638F3215157B02350057AD60 /* iBabe */,
 				638F3241157B02350057AD60 /* iBabeTests */,
 				638F320E157B02350057AD60 /* Frameworks */,

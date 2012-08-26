@@ -92,7 +92,7 @@
 + (BOOL)createIBabeCalendar
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
-    EKSource        *locSource;
+    EKSource        *locSource = Nil;
 
     // ---- Check if there is a local event source.
     for (EKSource *aSource in eventStore.sources) {
@@ -108,6 +108,7 @@
     // --- If local source not available then return nil.
     if (locSource == nil)
     {
+		[eventStore release];
         return NO;
     }
 
