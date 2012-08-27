@@ -16,6 +16,7 @@
 @interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *currentEvents;
+	UIView* sharePopView;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsList;

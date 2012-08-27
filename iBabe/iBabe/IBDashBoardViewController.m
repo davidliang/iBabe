@@ -48,18 +48,21 @@
     self.topViewPageControl.currentPage = page;
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
 
-	[self.btnShare setHidden:YES];
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+	// [self.btnShare setHidden:YES];
 }
 
 
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-	[self.btnShare setHidden:NO];
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	// [self.btnShare setHidden:NO];
 }
+
+
 
 - (IBAction)onTopViewChanged:(id)sender
 {
@@ -368,7 +371,6 @@
 {
     [super viewDidLoad];
 
-
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
 }
@@ -394,7 +396,7 @@
     [self setDayIdxBottomPregnant:nil];
     [self setEventsList:nil];
     [self setTopScrollView:nil];
-	[self setBtnShare:nil];
+    [self setBtnShare:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -479,7 +481,8 @@
     [dayIdxBottomPregnant release];
     [eventsList release];
     [topScrollView release];
-	[btnShare release];
+    [btnShare release];
+    [sharePopView release];
     [super dealloc];
 }
 
@@ -487,22 +490,102 @@
 
 #pragma mark-
 #pragma mark Methods For This View Only
--(void) takeScreenshotForPragnencyInfoView
+- (void)takeScreenshotForPragnencyInfoView
 {
-	UIImage *img = Nil;
-	if ( self.topViewPageControl.currentPage==0)
-	{
-    img = [SMImageUtl screenshotFromView:self.pregnantDaysSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
-	}
-	else
-	{
-		img = [SMImageUtl screenshotFromView:self.dueDateCountDownSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
-		
-	}
+    UIImage *img = Nil;
+
+    if (self.topViewPageControl.currentPage == 0)
+    {
+        img = [SMImageUtl screenshotFromView:self.pregnantDaysSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
+    }
+    else
+    {
+        img = [SMImageUtl screenshotFromView:self.dueDateCountDownSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
+    }
+
     [SMImageUtl saveImageToIPhonePhotoAlbum:img];
 }
 
-- (IBAction)didTapShareBtn:(id)sender {
+
+
+- (IBAction)didTapShareBtn:(id)sender
+{
+	[self renderSharePopView];
+    [sharePopView setHidden:NO];
+}
+
+
+
+
+
+
+-(void) renderSharePopView
+{
+    if (sharePopView == Nil)
+    {
+		// ---- pop share view.
+        sharePopView = [[UIView alloc] initWithFrame:CGRectMake(self.btnShare.frame.origin.x-200,self.btnShare.frame.origin.y + self.btnShare.frame.size.height + 5, 190, 270)];
+        [sharePopView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"share-pop-bg.png"]]];
+		
+		
+		// ---- Share title
+		UILabel* shareTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 170, 30)];
+		[shareTitle setText:@"Share to... "];
+		[shareTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+		[shareTitle setTextColor:[UIColor whiteColor]];
+		[shareTitle setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
+		[sharePopView addSubview:shareTitle];
+		
+		
+		
+		// ---- Button share to Weibo
+        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 44, 44)];
+		[btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
+        [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
+		[sharePopView addSubview:btnShare2Weibo];
+
+		
+		// ---- Button share to Facebook
+        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width+btnShare2Weibo.frame.origin.x+10, btnShare2Weibo.frame.origin.y, 44, 44)];
+		[btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
+        [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
+		[sharePopView addSubview:btnShare2Facebook];
+		
+		// ---- Button share to Facebook
+        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width+btnShare2Facebook.frame.origin.x+10, btnShare2Facebook.frame.origin.y, 44, 44)];
+		[btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
+        [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
+		[sharePopView addSubview:btnShare2Twitter];
+		
+		
+		// ---- add this to
+		[self.view addSubview:sharePopView];
+    }
+
+}
+
+
+- (void)didTapShare2Weibo:(UIButton *)btn
+{
+	NSLog(@"shared-wb");
+    [sharePopView setHidden:YES];
 	[self takeScreenshotForPragnencyInfoView];
 }
+
+
+
+- (void)didTapShare2Facebook:(UIButton *)btn
+{
+	NSLog(@"shared-fb");
+    [sharePopView setHidden:YES];
+	[self takeScreenshotForPragnencyInfoView];
+}
+
+- (void)didTapShare2Twitter:(UIButton *)btn
+{
+	NSLog(@"shared-fb");
+    [sharePopView setHidden:YES];
+	[self takeScreenshotForPragnencyInfoView];
+}
+
 @end

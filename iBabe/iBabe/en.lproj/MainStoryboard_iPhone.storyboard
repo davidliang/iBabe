@@ -142,11 +142,11 @@
                                             <outlet property="delegate" destination="2" id="izf-d6-NKd"/>
                                         </connections>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9XN-iP-fXz">
-                                        <rect key="frame" x="280" y="10" width="33" height="37"/>
+                                    <button opaque="NO" alpha="0.50000000000000011" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9XN-iP-fXz">
+                                        <rect key="frame" x="279" y="11" width="33" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="icon_post.png">
+                                        <state key="normal" image="button-share.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1022,6 +1022,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="button-green.png" width="285" height="47"/>
         <image name="button-pink-down.png" width="285" height="47"/>
         <image name="button-pink.png" width="285" height="47"/>
+        <image name="button-share.png" width="30" height="30"/>
         <image name="countdown-bg-pink.png" width="640" height="304"/>
         <image name="countdown-bg-red.png" width="640" height="304"/>
         <image name="countdown-title.png" width="71" height="15"/>
@@ -1030,7 +1031,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="gray-alarm-icon.png" width="22" height="27"/>
         <image name="gray-calendar-icon.png" width="22" height="27"/>
         <image name="gray-clock-icon.png" width="26" height="27"/>
-        <image name="icon_post.png" width="30" height="30"/>
         <image name="placesign.png" width="17" height="22"/>
         <image name="prenancy_days_title.png" width="101" height="15"/>
         <image name="profile-bar.png" width="320" height="2"/>
@@ -1127,6 +1127,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventLocationMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventLocationMapViewController.h"/>
             <relationships>
+                <relationship kind="action" name="btnShowMyLocationPressed:"/>
+                <relationship kind="action" name="btnShowTargetLocationPressed:"/>
                 <relationship kind="outlet" name="mapEventLocation" candidateClass="MKMapView"/>
             </relationships>
         </class>
