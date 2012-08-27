@@ -20,6 +20,7 @@
 
 @implementation IBDashBoardViewController
 @synthesize eventsList;
+@synthesize btnShare;
 @synthesize topViewPageControl;
 @synthesize topScrollView;
 @synthesize weekIdxTopLeftPregnant;
@@ -47,7 +48,18 @@
     self.topViewPageControl.currentPage = page;
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
 
+	[self.btnShare setHidden:YES];
+}
+
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[self.btnShare setHidden:NO];
+
+}
 
 - (IBAction)onTopViewChanged:(id)sender
 {
@@ -382,6 +394,7 @@
     [self setDayIdxBottomPregnant:nil];
     [self setEventsList:nil];
     [self setTopScrollView:nil];
+	[self setBtnShare:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -466,6 +479,7 @@
     [dayIdxBottomPregnant release];
     [eventsList release];
     [topScrollView release];
+	[btnShare release];
     [super dealloc];
 }
 
@@ -475,8 +489,20 @@
 #pragma mark Methods For This View Only
 -(void) takeScreenshotForPragnencyInfoView
 {
-    UIImage *img = [SMImageUtl screenshotFromView:self.topScrollView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
+	UIImage *img = Nil;
+	if ( self.topViewPageControl.currentPage==0)
+	{
+    img = [SMImageUtl screenshotFromView:self.pregnantDaysSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
+	}
+	else
+	{
+		img = [SMImageUtl screenshotFromView:self.dueDateCountDownSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
+		
+	}
     [SMImageUtl saveImageToIPhonePhotoAlbum:img];
 }
 
+- (IBAction)didTapShareBtn:(id)sender {
+	[self takeScreenshotForPragnencyInfoView];
+}
 @end

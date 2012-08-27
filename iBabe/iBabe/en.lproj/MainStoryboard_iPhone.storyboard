@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -143,6 +142,21 @@
                                             <outlet property="delegate" destination="2" id="izf-d6-NKd"/>
                                         </connections>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9XN-iP-fXz">
+                                        <rect key="frame" x="280" y="10" width="33" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="icon_post.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapShareBtn:" destination="2" eventType="touchUpInside" id="baZ-V1-MWO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -167,6 +181,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="B6K-CK-ksx"/>
                     <connections>
+                        <outlet property="btnShare" destination="9XN-iP-fXz" id="adp-p3-vBw"/>
                         <outlet property="dayIdxBottom" destination="cx2-w1-Tw5" id="fuB-op-QO9"/>
                         <outlet property="dayIdxBottomPregnant" destination="83R-LJ-JT2" id="kJY-vk-B2D"/>
                         <outlet property="dayIdxTop" destination="l2x-gk-I4S" id="C8u-3I-Ozw"/>
@@ -1015,6 +1030,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="gray-alarm-icon.png" width="22" height="27"/>
         <image name="gray-calendar-icon.png" width="22" height="27"/>
         <image name="gray-clock-icon.png" width="26" height="27"/>
+        <image name="icon_post.png" width="30" height="30"/>
         <image name="placesign.png" width="17" height="22"/>
         <image name="prenancy_days_title.png" width="101" height="15"/>
         <image name="profile-bar.png" width="320" height="2"/>
@@ -1042,7 +1058,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBDashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBDashBoardViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didTapShareBtn:"/>
                 <relationship kind="action" name="onTopViewChanged:"/>
+                <relationship kind="outlet" name="btnShare" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dayIdxBottom" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="dayIdxBottomPregnant" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="dayIdxTop" candidateClass="UIImageView"/>

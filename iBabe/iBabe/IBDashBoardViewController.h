@@ -19,6 +19,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsList;
+@property (retain, nonatomic) IBOutlet UIButton *btnShare;
 
 // ---- For the count down days view
 @property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopLeft;
@@ -27,6 +28,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView  *weekIdxBottomRight;
 @property (retain, nonatomic) IBOutlet UIImageView  *dayIdxTop;
 @property (retain, nonatomic) IBOutlet UIImageView  *dayIdxBottom;
+- (IBAction)didTapShareBtn:(id)sender;
 
 // ---- For the post pregnant days view
 @property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopLeftPregnant;

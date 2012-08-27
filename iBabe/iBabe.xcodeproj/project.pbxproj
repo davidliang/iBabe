@@ -54,6 +54,7 @@
 		6341575B15EA17070032F9AA /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6341573115EA17070032F9AA /* WBSendView.m */; };
 		6341575C15EA17070032F9AA /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6341573315EA17070032F9AA /* WBUtil.m */; };
 		6341575D15EA17070032F9AA /* SinaWeiBoSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 6341573815EA17070032F9AA /* SinaWeiBoSDK.m */; };
+		6341576615EA8AE90032F9AA /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 6341576515EA8AE90032F9AA /* icon_post.png */; };
 		63482021159984BC003594AF /* IBEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63482020159984BC003594AF /* IBEventDetailsViewController.m */; };
 		63482030159AECDC003594AF /* SMColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348202F159AECDC003594AF /* SMColorUtil.m */; };
 		6348203B159BE805003594AF /* IBEventLocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6348203A159BE805003594AF /* IBEventLocationMapViewController.m */; };
@@ -362,6 +363,7 @@
 		6341573715EA17070032F9AA /* SinaWeiBoSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiBoSDK.h; sourceTree = "<group>"; };
 		6341573815EA17070032F9AA /* SinaWeiBoSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiBoSDK.m; sourceTree = "<group>"; };
 		6341573915EA17070032F9AA /* SinaWeiBoSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SinaWeiBoSDK.xcodeproj; sourceTree = "<group>"; };
+		6341576515EA8AE90032F9AA /* icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_post.png; path = ../../../../../../../../Users/David/Desktop/iPhone_Temp/Fixed2/icon_post.png; sourceTree = "<group>"; };
 		6348201F159984BC003594AF /* IBEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEventDetailsViewController.h; sourceTree = "<group>"; };
 		63482020159984BC003594AF /* IBEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEventDetailsViewController.m; sourceTree = "<group>"; };
 		6348202E159AECDC003594AF /* SMColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMColorUtil.h; path = Utils/SMColorUtil.h; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				63D35CBC15E4959900F0C459 /* table-list-item-bg-selected.png */,
+				6341576515EA8AE90032F9AA /* icon_post.png */,
 				638C974315E865E8001A55FD /* add.png */,
 				638C974415E865E8001A55FD /* add@2x.png */,
 				63D35CBD15E4959A00F0C459 /* table-list-item-bg-selected@2x.png */,
@@ -1471,6 +1474,7 @@
 				6341574C15EA17070032F9AA /* delete@2x.png in Resources */,
 				6341574D15EA17070032F9AA /* logo.png in Resources */,
 				6341574E15EA17070032F9AA /* logo@2x.png in Resources */,
+				6341576615EA8AE90032F9AA /* icon_post.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
