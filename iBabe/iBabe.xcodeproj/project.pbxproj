@@ -261,6 +261,8 @@
 		63F3445415ECFCFD0029BCB9 /* IBTutorialDashboardViewControaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F3445315ECFCFD0029BCB9 /* IBTutorialDashboardViewControaller.m */; };
 		63F3445715ED0C590029BCB9 /* tutorial-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3445615ED0C590029BCB9 /* tutorial-dashboard.png */; };
 		63F3445915ED0CE20029BCB9 /* btn-close-tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3445815ED0CE20029BCB9 /* btn-close-tutorial.png */; };
+		63F3445B15EDE9810029BCB9 /* button-tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3445A15EDE9810029BCB9 /* button-tutorial.png */; };
+		63F3445D15EDF76C0029BCB9 /* tutorial-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3445C15EDF76C0029BCB9 /* tutorial-calendar.png */; };
 		63FF8B1315CD681B008F6835 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FF8B1215CD681B008F6835 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -624,6 +626,8 @@
 		63F3445315ECFCFD0029BCB9 /* IBTutorialDashboardViewControaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTutorialDashboardViewControaller.m; sourceTree = "<group>"; };
 		63F3445615ED0C590029BCB9 /* tutorial-dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial-dashboard.png"; sourceTree = "<group>"; };
 		63F3445815ED0CE20029BCB9 /* btn-close-tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-close-tutorial.png"; sourceTree = "<group>"; };
+		63F3445A15EDE9810029BCB9 /* button-tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-tutorial.png"; sourceTree = "<group>"; };
+		63F3445C15EDF76C0029BCB9 /* tutorial-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial-calendar.png"; sourceTree = "<group>"; };
 		63FF8B1115CD681B008F6835 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		63FF8B1215CD681B008F6835 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -832,6 +836,7 @@
 				63F3444E15ECCC2F0029BCB9 /* loading-animation-2.gif */,
 				63D35CBC15E4959900F0C459 /* table-list-item-bg-selected.png */,
 				6341576515EA8AE90032F9AA /* icon_post.png */,
+				63F3445A15EDE9810029BCB9 /* button-tutorial.png */,
 				638C974315E865E8001A55FD /* add.png */,
 				638C974415E865E8001A55FD /* add@2x.png */,
 				63D35CBD15E4959A00F0C459 /* table-list-item-bg-selected@2x.png */,
@@ -1247,6 +1252,7 @@
 			isa = PBXGroup;
 			children = (
 				63F3445815ED0CE20029BCB9 /* btn-close-tutorial.png */,
+				63F3445C15EDF76C0029BCB9 /* tutorial-calendar.png */,
 				63F3445615ED0C590029BCB9 /* tutorial-dashboard.png */,
 			);
 			path = tutorial_imgs;
@@ -1552,6 +1558,8 @@
 				63F3445115ECFC2F0029BCB9 /* DashboardTutorialView.xib in Resources */,
 				63F3445715ED0C590029BCB9 /* tutorial-dashboard.png in Resources */,
 				63F3445915ED0CE20029BCB9 /* btn-close-tutorial.png in Resources */,
+				63F3445B15EDE9810029BCB9 /* button-tutorial.png in Resources */,
+				63F3445D15EDF76C0029BCB9 /* tutorial-calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

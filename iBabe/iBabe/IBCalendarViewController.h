@@ -14,6 +14,8 @@
 #import "IBEventDetailsViewController.h"
 #import "IBEKCalendarHelper.h"
 #import "IBEventCellViewController.h"
+#import "IBTutorialDashboardViewControaller.h"
+#import "IBAppDelegate.h"
 
 @interface IBCalendarViewController : UIViewController <TKCalendarMonthViewDelegate, TKCalendarMonthViewDataSource, UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate>
 {

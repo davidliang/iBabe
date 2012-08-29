@@ -7,8 +7,8 @@
 //
 
 #import "IBCalendarViewController.h"
-//static int  calendarShadowOffset = (int)-5;
-static int  statusBarHeight = (int)20;
+// static int  calendarShadowOffset = (int)-5;
+static int statusBarHeight = (int)20;
 
 @implementation IBCalendarViewController
 
@@ -47,7 +47,7 @@ static int  statusBarHeight = (int)20;
             if ([currentObj isKindOfClass:[UITableViewCell class]])
             {
                 cell = (IBEventCellViewController *)currentObj;
-				[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
                 break;
             }
         }
@@ -164,8 +164,7 @@ static int  statusBarHeight = (int)20;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.75];
 
-	
-	[calendar setFrame:CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height)];
+    [calendar setFrame:CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height)];
     [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
     [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
@@ -402,7 +401,7 @@ static int  statusBarHeight = (int)20;
     [self.view addSubview:btnSpliter];
 
     // --- Init events table.
-    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height- btnSpliter.frame.size.height-btnSpliter.frame.origin.y)];
+    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
     eventTable.delegate = self;
     eventTable.dataSource = self;
@@ -410,6 +409,31 @@ static int  statusBarHeight = (int)20;
 
     // Ensure this is the last "addSubview" because the calendar must be the top most view layer
     [self.view addSubview:calendar];
+
+    if ([self showTutorial])
+    {
+		CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+		
+        NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
+        IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
+        [tutorialView setFrame:CGRectMake(0, statusBarFrame.origin.y+statusBarFrame.size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+        [tutorialView setTutorialWithParentViewName:IBParentViewNameCalendarView];
+
+		IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+		[[appDelegate window] addSubview:tutorialView];
+
+    }
+}
+
+
+
+- (BOOL)showTutorial
+{
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+
+    BOOL shown = [userDef boolForKey:@"shownTutorial2"];
+
+    return !shown;
 }
 
 

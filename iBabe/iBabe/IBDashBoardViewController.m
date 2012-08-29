@@ -131,7 +131,8 @@
         return 1;
     }
 
-    return [currentEvents count];
+    // ---Plus 1 is to add the "Add new reminder" row.
+    return [currentEvents count] + 1;
 }
 
 
@@ -139,8 +140,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // --- Add the Add New Reminder button to the table view when there are NO coming up reminder.
-
-    if (([currentEvents count] == 0) && (indexPath.row == 0))
+    if ((([currentEvents count] == 0) && (indexPath.row == 0)) || ([currentEvents count] == indexPath.row))
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
@@ -191,19 +191,19 @@
                 break;
             }
         }
-    }
 
-    // Add shadow for last row
-    if (indexPath.row == [currentEvents count] - 1)
-    {
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = CGRectMake(0, 75, 320, 10);
+        // Add shadow for last row
+        if ([currentEvents count] == indexPath.row + 1)
+        {
+            CAGradientLayer *gradient = [CAGradientLayer layer];
+            gradient.frame = CGRectMake(0, 75, 320, 20);
 
-        UIColor *lightColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
-        UIColor *darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+            UIColor *lightColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
+            UIColor *darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
 
-        gradient.colors = [NSArray arrayWithObjects:(id)darkColor.CGColor, (id)lightColor.CGColor, nil];
-        [cell.layer insertSublayer:gradient atIndex:0];
+            gradient.colors = [NSArray arrayWithObjects:(id)darkColor.CGColor, (id)lightColor.CGColor, nil];
+            [cell.layer insertSublayer:gradient atIndex:0];
+        }
     }
 
     EKEvent *cellEvent = [currentEvents objectAtIndex:[indexPath row]];
@@ -241,17 +241,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([currentEvents count] > 0)
-    {
-        UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-        IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
-
-        [eventView setCurrentEvent:(EKEvent *)[currentEvents objectAtIndex:[indexPath row]]];
-
-        [[self navigationController] pushViewController:eventView animated:YES];
-    }
-
-    if (([currentEvents count] == 0) && (indexPath.row == 0))
+    if ((([currentEvents count] == 0) && (indexPath.row == 0)) || ([currentEvents count] == indexPath.row))
     {
         EKEventStore    *eventStore = [[[EKEventStore alloc] init] autorelease];
         EKEvent         *newEvent = [EKEvent eventWithEventStore:eventStore];
@@ -266,6 +256,19 @@
         [editEventViewCtrl setCurrentEvent:newEvent];
         [editEventViewCtrl setIsNewEvent:YES];
         [self.navigationController pushViewController:editEventViewCtrl animated:YES];
+        return;
+    }
+
+    if ([currentEvents count] > 0)
+    {
+        UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
+
+        [eventView setCurrentEvent:(EKEvent *)[currentEvents objectAtIndex:[indexPath row]]];
+
+        [[self navigationController] pushViewController:eventView animated:YES];
+
+        return;
     }
 }
 
@@ -376,14 +379,15 @@
 
     if ([self showTutorial])
     {
+        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+
         NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
-        IBTutorialDashboardViewControaller  *view = [xibContents lastObject];
-        [view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
+        [tutorialView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+        [tutorialView setTutorialWithParentViewName:IBParentViewNameDashboardView];
 
-        [self.view addSubview:view];
-
-        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-        [userDef setBool:YES forKey:@"shownTutorial1"];
+        IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [[appDelegate window] addSubview:tutorialView];
     }
 }
 

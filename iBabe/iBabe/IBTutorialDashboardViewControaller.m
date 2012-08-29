@@ -7,34 +7,52 @@
 //
 
 #import "IBTutorialDashboardViewControaller.h"
-
 @implementation IBTutorialDashboardViewControaller
 @synthesize btnClose;
 @synthesize imgTutorial;
 
 
-
-- (id)initWithFrame:(CGRect)frame
+-(void)setTutorialWithParentViewName:(ParentViewName)pViewName
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
 	
+	currentParentViewName = pViewName;
 	
-	
-    return self;
+	switch (pViewName) {
+		case IBParentViewNameCalendarView:
+			[imgTutorial setImage:[UIImage imageNamed:@"tutorial-calendar.png"]];
+			break;
+		case IBParentViewNameDashboardView:
+			[imgTutorial setImage:[UIImage imageNamed:@"tutorial-dashboard.png"]];
+			break;
+			
+		default:
+			break;
+	}
 }
 
 
 - (void)dealloc {
 	[btnClose release];
-
 	[imgTutorial release];
     [super dealloc];
 }
 
 - (IBAction)didTapCloseTutorial:(id)sender {
 	[self setHidden:YES];
+	
+//	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+//	
+//	switch (currentParentViewName) {
+//		case IBParentViewNameDashboardView:
+//			[userDef setBool:YES forKey:@"shownTutorial1"];
+//			break;
+//			
+//		case IBParentViewNameCalendarView:
+//			[userDef setBool:YES forKey:@"shownTutorial2"];
+//			break;
+//		default:
+//			break;
+//	}
+	
 }
 @end
