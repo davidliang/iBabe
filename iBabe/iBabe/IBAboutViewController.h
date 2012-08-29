@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD/MBProgressHUD.h"
 
-@interface IBAboutViewController : UIViewController<UIWebViewDelegate, MBProgressHUDDelegate>
+@interface IBAboutViewController : UIViewController <UIWebViewDelegate, MBProgressHUDDelegate>
 {
-    MBProgressHUD *progress;
+    MBProgressHUD   *progress;
+    UIImageView     *imgAbout;
 }
 @property (retain, nonatomic) IBOutlet UIWebView *webAbout;
 

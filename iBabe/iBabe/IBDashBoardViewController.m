@@ -52,14 +52,14 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-	// [self.btnShare setHidden:YES];
+    // [self.btnShare setHidden:YES];
 }
 
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-	// [self.btnShare setHidden:NO];
+    // [self.btnShare setHidden:NO];
 }
 
 
@@ -373,6 +373,29 @@
 
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
+
+    if ([self showTutorial])
+    {
+        NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
+        IBTutorialDashboardViewControaller  *view = [xibContents lastObject];
+        [view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+        [self.view addSubview:view];
+
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        [userDef setBool:YES forKey:@"shownTutorial1"];
+    }
+}
+
+
+
+- (BOOL)showTutorial
+{
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+
+    BOOL shown = [userDef boolForKey:@"shownTutorial1"];
+
+    return !shown;
 }
 
 
@@ -510,82 +533,82 @@
 
 - (IBAction)didTapShareBtn:(id)sender
 {
-	[self renderSharePopView];
+    [self renderSharePopView];
     [sharePopView setHidden:NO];
 }
 
 
 
-
-
-
--(void) renderSharePopView
+- (void)renderSharePopView
 {
     if (sharePopView == Nil)
     {
-		// ---- pop share view.
-        sharePopView = [[UIView alloc] initWithFrame:CGRectMake(self.btnShare.frame.origin.x-200,self.btnShare.frame.origin.y + self.btnShare.frame.size.height + 5, 190, 270)];
-        [sharePopView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"share-pop-bg.png"]]];
-		
-		
-		// ---- Share title
-		UILabel* shareTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 170, 30)];
-		[shareTitle setText:@"Share to... "];
-		[shareTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
-		[shareTitle setTextColor:[UIColor whiteColor]];
-		[shareTitle setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
-		[sharePopView addSubview:shareTitle];
-		
-		
-		
-		// ---- Button share to Weibo
+        // ---- pop share view.
+        sharePopView = [[UIView alloc] initWithFrame:CGRectMake(self.btnShare.frame.origin.x - 200, self.btnShare.frame.origin.y + self.btnShare.frame.size.height + 5, 190, 270)];
+
+        UIImage     *imgPopBg = [[UIImage imageNamed:@"popup-bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+        UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+        [imgViewBg setImage:imgPopBg];
+        [sharePopView addSubview:imgViewBg];
+
+        // ---- Share title
+        UILabel *shareTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 170, 30)];
+        [shareTitle setText:@"Share to... "];
+        [shareTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+        [shareTitle setTextColor:[UIColor whiteColor]];
+        [shareTitle setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
+        [sharePopView addSubview:shareTitle];
+
+        // ---- Button share to Weibo
         UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 44, 44)];
-		[btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
+        [btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
         [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
-		[sharePopView addSubview:btnShare2Weibo];
+        [sharePopView addSubview:btnShare2Weibo];
 
-		
-		// ---- Button share to Facebook
-        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width+btnShare2Weibo.frame.origin.x+10, btnShare2Weibo.frame.origin.y, 44, 44)];
-		[btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
+        // ---- Button share to Facebook
+        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 10, btnShare2Weibo.frame.origin.y, 44, 44)];
+        [btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
-		[sharePopView addSubview:btnShare2Facebook];
-		
-		// ---- Button share to Facebook
-        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width+btnShare2Facebook.frame.origin.x+10, btnShare2Facebook.frame.origin.y, 44, 44)];
-		[btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
-        [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
-		[sharePopView addSubview:btnShare2Twitter];
-		
-		
-		// ---- add this to
-		[self.view addSubview:sharePopView];
-    }
+        [sharePopView addSubview:btnShare2Facebook];
 
+        // ---- Button share to Facebook
+        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 10, btnShare2Facebook.frame.origin.y, 44, 44)];
+        [btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
+        [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
+        [sharePopView addSubview:btnShare2Twitter];
+
+        // ---- add this to
+        [self.view addSubview:sharePopView];
+    }
 }
+
 
 
 - (void)didTapShare2Weibo:(UIButton *)btn
 {
-	NSLog(@"shared-wb");
+    NSLog(@"shared-wb");
     [sharePopView setHidden:YES];
-	[self takeScreenshotForPragnencyInfoView];
+    [self takeScreenshotForPragnencyInfoView];
 }
 
 
 
 - (void)didTapShare2Facebook:(UIButton *)btn
 {
-	NSLog(@"shared-fb");
+    NSLog(@"shared-fb");
     [sharePopView setHidden:YES];
-	[self takeScreenshotForPragnencyInfoView];
+    [self takeScreenshotForPragnencyInfoView];
 }
+
+
 
 - (void)didTapShare2Twitter:(UIButton *)btn
 {
-	NSLog(@"shared-fb");
+    NSLog(@"shared-fb");
     [sharePopView setHidden:YES];
-	[self takeScreenshotForPragnencyInfoView];
+    [self takeScreenshotForPragnencyInfoView];
 }
+
+
 
 @end

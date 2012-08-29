@@ -12,6 +12,7 @@
 #import "IBEditEventViewController.h"
 #import "SMImageUtl.h"
 
+#import "IBTutorialDashboardViewControaller.h"
 
 @interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 {

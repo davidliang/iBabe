@@ -7,7 +7,8 @@
 //
 
 #import "IBCalendarViewController.h"
-static int calendarShadowOffset = (int)-5;
+//static int  calendarShadowOffset = (int)-5;
+static int  statusBarHeight = (int)20;
 
 @implementation IBCalendarViewController
 
@@ -46,6 +47,7 @@ static int calendarShadowOffset = (int)-5;
             if ([currentObj isKindOfClass:[UITableViewCell class]])
             {
                 cell = (IBEventCellViewController *)currentObj;
+				[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
                 break;
             }
         }
@@ -79,30 +81,34 @@ static int calendarShadowOffset = (int)-5;
     [UIView setAnimationDuration:.75];
 
     // If calendar is off the screen, show it, else hide it (both with animations)
-    if (calendar.frame.origin.y == -calendar.frame.size.height + calendarShadowOffset)
+    if (calendar.frame.origin.y == -calendar.frame.size.height)
     {
         // Show
         calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
         [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
         [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
         [btnSpliter addGestureRecognizer:swipeUpRecognizer];
         [btnSpliter removeGestureRecognizer:swipeDownRecognizer];
+
+        NSLog(@"Show>>> calendar:%@  >>>  btnSpliter:%@    >>>  eventTable:%@", calendar, btnSpliter, eventTable, nil);
     }
     else
     {
         // Hide
-        calendar.frame = CGRectMake(0, -calendar.frame.size.height + calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
+        calendar.frame = CGRectMake(0, -calendar.frame.size.height, calendar.frame.size.width, calendar.frame.size.height);
 
-        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y - calendarShadowOffset, self.view.frame.size.width, 40)];
+        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 40)];
 
-        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
         [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-down.png"] forState:UIControlStateHighlighted];
         [btnSpliter addGestureRecognizer:swipeDownRecognizer];
         [btnSpliter removeGestureRecognizer:swipeUpRecognizer];
+
+        NSLog(@"Hide>>> calendar:%@  >>>  btnSpliter:%@    >>>  eventTable:%@", calendar, btnSpliter, eventTable, nil);
     }
 
     [UIView commitAnimations];
@@ -158,9 +164,11 @@ static int calendarShadowOffset = (int)-5;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.75];
 
+	
+	[calendar setFrame:CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height)];
     [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-    [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - calendar.frame.size.height - calendar.frame.origin.y)];
+    [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
     [UIView commitAnimations];
 
@@ -284,7 +292,7 @@ static int calendarShadowOffset = (int)-5;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	 [calendar reload];
+    [calendar reload];
 
     if (selectedDate == Nil)
     {
@@ -357,8 +365,6 @@ static int calendarShadowOffset = (int)-5;
     calendar.delegate = self;
     calendar.dataSource = self;
 
-    int statusBarHeight = 20;
-
     CGRect applicationFrame = (CGRect)[[UIScreen mainScreen] applicationFrame];
     self.view = [[[UIView alloc] initWithFrame:CGRectMake(0, statusBarHeight, applicationFrame.size.width, applicationFrame.size.height)] autorelease];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -383,6 +389,8 @@ static int calendarShadowOffset = (int)-5;
     [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler.png"] forState:UIControlStateNormal];
     [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
 
+    [btnSpliter addTarget:self action:@selector(toggleCalendar) forControlEvents:UIControlEventTouchUpInside];
+
     swipeDownRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleCalendar)];
     swipeDownRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
 
@@ -394,9 +402,7 @@ static int calendarShadowOffset = (int)-5;
     [self.view addSubview:btnSpliter];
 
     // --- Init events table.
-    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, applicationFrame.size.width, applicationFrame.size.height - calendar.frame.size.height)];
-
-    // eventTable.autoresizingMask &= ~UIViewAutoresizingFlexibleBottomMargin;
+    eventTable = [[UITableView alloc] initWithFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height- btnSpliter.frame.size.height-btnSpliter.frame.origin.y)];
 
     eventTable.delegate = self;
     eventTable.dataSource = self;
