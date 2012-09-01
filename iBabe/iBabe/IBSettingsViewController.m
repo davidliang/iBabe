@@ -27,7 +27,7 @@
         [userDef setBool:NO forKey:@"shownTutorial1"];
         [userDef setBool:NO forKey:@"shownTutorial2"];
         UIAlertView *alert = [[UIAlertView alloc] init];
-        [alert setMessage:@"Hints views has been re actived."];
+        [alert setMessage:@"Hints views will be shown when you reboot the iBabe."];
 		[alert addButtonWithTitle:@"OK"];
         [alert show];
         [alert release];
