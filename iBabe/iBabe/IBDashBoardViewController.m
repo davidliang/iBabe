@@ -38,6 +38,9 @@
 @synthesize dueDateCountDownSubView;
 @synthesize pregnantDaysSubView;
 
+#define weiboAppKey     @"2138511570"
+#define weiboAppSecret  @"21504d480f9ee4a8f93ba266d577c765"
+
 #pragma mark- Top scroll view
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -374,6 +377,13 @@
 {
     [super viewDidLoad];
 
+    if (msgCenterView == Nil)
+    {
+        msgCenterView = [[UIAlertView alloc] init];
+        [msgCenterView addButtonWithTitle:@"OK"];
+        [self.view addSubview:msgCenterView];
+    }
+
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
 
@@ -424,6 +434,7 @@
     [self setEventsList:nil];
     [self setTopScrollView:nil];
     [self setBtnShare:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -510,6 +521,8 @@
     [topScrollView release];
     [btnShare release];
     [sharePopView release];
+    [msgCenterView release];
+    [weiboEngine release];
     [super dealloc];
 }
 
@@ -517,7 +530,7 @@
 
 #pragma mark-
 #pragma mark Methods For This View Only
-- (void)takeScreenshotForPragnencyInfoView
+- (UIImage *)takeScreenshotForPragnencyInfoView
 {
     UIImage *img = Nil;
 
@@ -530,7 +543,10 @@
         img = [SMImageUtl screenshotFromView:self.dueDateCountDownSubView atTargetAreaFrame:CGRectMake(0, 0, topScrollView.frame.size.width, topScrollView.frame.size.height)];
     }
 
-    [SMImageUtl saveImageToIPhonePhotoAlbum:img];
+    // Save to the iPHone Photo Album
+    // [SMImageUtl saveImageToIPhonePhotoAlbum:[SMImageUtl addWaterMarkToImage:img]];
+
+    return img;
 }
 
 
@@ -538,68 +554,172 @@
 - (IBAction)didTapShareBtn:(id)sender
 {
     [self renderSharePopView];
-    [sharePopView setHidden:NO];
+
+    if (sharePopView.isHidden)
+    {
+        float originalY = sharePopView.frame.origin.y;
+        [sharePopView setFrame:CGRectMake(sharePopView.frame.origin.x, originalY - 10, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+        [sharePopView setHidden:NO];
+
+        [UIView animateWithDuration:.4 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+			[sharePopView setFrame:CGRectMake (sharePopView.frame.origin.x, originalY, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+			[sharePopView setAlpha:1];
+            } completion:^(BOOL finished) {
+            }];
+    }
 }
-
-
 
 - (void)renderSharePopView
 {
     if (sharePopView == Nil)
     {
         // ---- pop share view.
-        sharePopView = [[UIView alloc] initWithFrame:CGRectMake(self.btnShare.frame.origin.x - 200, self.btnShare.frame.origin.y + self.btnShare.frame.size.height + 5, 190, 270)];
+        sharePopView = [[UIView alloc] initWithFrame:CGRectMake(self.btnShare.frame.origin.x - 240, self.btnShare.frame.origin.y + 10, 233, 178)];
 
-        UIImage     *imgPopBg = [[UIImage imageNamed:@"popup-bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+        UIImage     *imgPopBg = [[UIImage imageNamed:@"share-popup-bg-white.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
         UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, sharePopView.frame.size.width, sharePopView.frame.size.height)];
         [imgViewBg setImage:imgPopBg];
         [sharePopView addSubview:imgViewBg];
 
+        [imgViewBg release];
+
         // ---- Share title
-        UILabel *shareTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 170, 30)];
+        UILabel *shareTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 170, 10)];
         [shareTitle setText:@"Share to... "];
         [shareTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
-        [shareTitle setTextColor:[UIColor whiteColor]];
+        [shareTitle setTextColor:[UIColor blackColor]];
         [shareTitle setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
         [sharePopView addSubview:shareTitle];
 
+        [shareTitle release];
+
         // ---- Button share to Weibo
-        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 44, 44)];
+        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(30, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
         [btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
         [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Weibo];
 
+        [btnShare2Weibo release];
+
         // ---- Button share to Facebook
-        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 10, btnShare2Weibo.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 15, btnShare2Weibo.frame.origin.y, 44, 44)];
         [btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Facebook];
 
+        [btnShare2Facebook release];
+
         // ---- Button share to Facebook
-        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 10, btnShare2Facebook.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 15, btnShare2Facebook.frame.origin.y, 44, 44)];
         [btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
         [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Twitter];
 
-        // ---- add this to
+        [btnShare2Twitter release];
+
+        // ---- Button close
+        UIButton *btnClosePopup = [[UIButton alloc] initWithFrame:CGRectMake(sharePopView.frame.size.width - 60, sharePopView.frame.size.height - 45, 60, 30)];
+        [btnClosePopup setTitle:@"Close" forState:UIControlStateNormal];
+        [btnClosePopup setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btnClosePopup.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
+        [btnClosePopup addTarget:self action:@selector(didTapCloseSharePopup) forControlEvents:UIControlEventTouchUpInside];
+        [sharePopView addSubview:btnClosePopup];
+
+        [btnClosePopup release];
+
         [self.view addSubview:sharePopView];
     }
 }
 
 
 
+- (void)didTapCloseSharePopup
+{
+    float originalY = sharePopView.frame.origin.y;
+
+    [UIView animateWithDuration:.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [sharePopView setFrame:CGRectMake (sharePopView.frame.origin.x, sharePopView.frame.origin.y - 10, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+            [sharePopView setAlpha:0.3];
+        } completion:^(BOOL finished) {
+            [sharePopView setHidden:YES];
+            [sharePopView setFrame:CGRectMake (sharePopView.frame.origin.x, originalY, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+        }];
+}
+
 - (void)didTapShare2Weibo:(UIButton *)btn
 {
-    NSLog(@"shared-wb");
-    [sharePopView setHidden:YES];
-    [self takeScreenshotForPragnencyInfoView];
+    if (weiboEngine == Nil)
+    {
+        weiboEngine = [[WBEngine alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret];
+        [weiboEngine setDelegate:self];
+        [weiboEngine setRootViewController:self];
+    }
+
+    if (![weiboEngine isLoggedIn])
+    {
+        [weiboEngine logIn];
+    }
+    else
+    {
+        WBSendView *sendView = [[WBSendView alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret text:[self generateSocialMediaDefaultMessage:YES] image:[self takeScreenshotForPragnencyInfoView]];
+        [sendView setDelegate:self];
+
+        [sendView show:YES];
+        [sendView release];
+    }
+}
+
+
+
+- (NSString *)generateSocialMediaDefaultMessage:(BOOL)isWeiBo
+{
+    NSString *msg = @"";
+
+    NSDate      *due = [IBBCommon loadDueDateFromPlist];
+    NSInteger   weeksRemain = [IBDateHelper countDownGetRemainDayPartWith:due ReturnWeekPart:YES];
+    NSInteger   daysRemain = [IBDateHelper countDownGetRemainDayPartWith:due ReturnWeekPart:NO];
+
+    NSInteger   weeks = [IBDateHelper countPregnancyDayPartWith:due ReturnWeekPart:YES];
+    NSInteger   days = [IBDateHelper countPregnancyDayPartWith:due ReturnWeekPart:NO];
+
+    if (isWeiBo)
+    {
+        switch (self.topViewPageControl.currentPage) {
+            case 0:
+                msg = [NSString stringWithFormat:@"BB孕周: %d周 + %d天 - by the #iBabe#", weeks, days];
+                break;
+
+            case 1:
+                msg = [NSString stringWithFormat:@"离BB出生还剩下: %d周 + %d天 - by the #iBabe#", weeksRemain, daysRemain];
+                break;
+
+            default:
+                break;
+        }
+    }
+    else
+    {
+        switch (self.topViewPageControl.currentPage) {
+            case 0:
+                msg = [NSString stringWithFormat:@"%d Weeks + %d Days - by the #iBabe#", weeks, days];
+                break;
+
+            case 1:
+                msg = [NSString stringWithFormat:@"%d Weeks + %d Days - by the #iBabe#", weeksRemain, daysRemain];
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return msg;
 }
 
 
 
 - (void)didTapShare2Facebook:(UIButton *)btn
 {
-    NSLog(@"shared-fb");
     [sharePopView setHidden:YES];
     [self takeScreenshotForPragnencyInfoView];
 }
@@ -611,6 +731,116 @@
     NSLog(@"shared-fb");
     [sharePopView setHidden:YES];
     [self takeScreenshotForPragnencyInfoView];
+}
+
+
+
+#pragma mark -
+#pragma mark WBEngineDelegate
+
+- (void)engineDidLogIn:(WBEngine *)engine
+{
+    WBSendView *sendView = [[WBSendView alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret text:[self generateSocialMediaDefaultMessage:YES] image:[self takeScreenshotForPragnencyInfoView]];
+
+    [sendView setDelegate:self];
+
+    [sendView show:YES];
+    [sendView release];
+}
+
+
+
+- (void)engineDidLogOut:(WBEngine *)engine
+{
+    [msgCenterView setMessage:@"你已经成功注销了本次新浪微博登陆。"];
+    [msgCenterView show];
+}
+
+
+
+- (void)engine:(WBEngine *)engine didFailToLogInWithError:(NSError *)error
+{
+    [msgCenterView setMessage:[NSString stringWithFormat:@"新浪微博登陆失败 - %@", error]];
+    [msgCenterView show];
+}
+
+
+
+- (void)engine:(WBEngine *)engine requestDidFailWithError:(NSError *)error
+{
+    [msgCenterView setMessage:[NSString stringWithFormat:@"微博发布失败 - %@", error]];
+    [msgCenterView show];
+}
+
+
+
+#pragma mark -
+#pragma mark WBSendDelegate
+- (void)sendView:(WBSendView *)view didFailWithError:(NSError *)error
+{
+    switch (error.code) {
+        case 100:
+            [msgCenterView setMessage:@"请不要在短时间内发两次相同的内容"];
+            break;
+
+        default:
+            [msgCenterView setMessage:[error description]];
+            break;
+    }
+
+    [msgCenterView show];
+}
+
+
+
+- (void)sendViewAuthorizeExpired:(WBSendView *)view
+{
+    [msgCenterView setMessage:@"上次登陆已经被注销，请重新登陆。"];
+    [msgCenterView show];
+
+    if (weiboEngine == Nil)
+    {
+        weiboEngine = [[WBEngine alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret];
+        [weiboEngine setDelegate:self];
+        [weiboEngine setRootViewController:self];
+    }
+
+    [weiboEngine logIn];
+}
+
+
+
+- (void)sendViewDidFinishSending:(WBSendView *)view
+{
+    [view hide:YES];
+    [msgCenterView setMessage:@"微博发布成功！"];
+    [msgCenterView show];
+    [sharePopView setHidden:YES];
+}
+
+
+
+- (void)sendViewNotAuthorized:(WBSendView *)view
+{
+    [msgCenterView setMessage:@"登陆授权出错，请重新登陆。"];
+    [msgCenterView show];
+
+    if (weiboEngine == Nil)
+    {
+        weiboEngine = [[WBEngine alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret];
+        [weiboEngine setDelegate:self];
+        [weiboEngine setRootViewController:self];
+    }
+
+    [weiboEngine logIn];
+}
+
+
+
+#pragma mark -
+#pragma mark WBLogInAlertViewDelegate
+- (void)logInAlertView:(WBLogInAlertView *)alertView logInWithUserID:(NSString *)userID password:(NSString *)password
+{
 }
 
 

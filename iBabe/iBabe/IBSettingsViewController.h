@@ -17,11 +17,13 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *cellDueDate;
 @property (retain, nonatomic) IBOutlet UIStepper *stpRecentReminders;
 @property (retain, nonatomic) IBOutlet UITableViewCell *cellAbout;
+@property (retain, nonatomic) IBOutlet UITableViewCell *cellHintScreen;
 
 - (void) loadSettingsFromPlist;
 - (IBAction)dismissRecentReminderKeyboard:(id)sender;
 
 - (IBAction)stpRecentRemindersStepperValueChanged:(id)sender;
+
 
 
 @end

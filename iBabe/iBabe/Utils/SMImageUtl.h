@@ -16,5 +16,6 @@
 + (UIImage *)screenshotFromView:(UIView *)theView;
 + (UIImage *)screenshotFromView:(UIView *)theView atTargetAreaFrame:(CGRect)r;
 + (void)saveImageToIPhonePhotoAlbum:(UIImage *)image;
++ (UIImage *)addWaterMarkToImage:(UIImage *)rawImg;
 
 @end

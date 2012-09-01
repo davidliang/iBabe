@@ -11,17 +11,23 @@
 #import "IBAppDelegate.h"
 #import "IBEditEventViewController.h"
 #import "SMImageUtl.h"
+#import "WBEngine.h"
+#import "WBSendView.h"
+#import "WBLogInAlertView.h"
 
 #import "IBTutorialDashboardViewControaller.h"
 
-@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate>
 {
-    NSMutableArray *currentEvents;
-	UIView* sharePopView;
+    NSMutableArray  *currentEvents;
+    UIView          *sharePopView;
+    WBEngine        *weiboEngine;
+
+    UIAlertView		*msgCenterView;
 }
 
-@property (retain, nonatomic) IBOutlet UITableView *eventsList;
-@property (retain, nonatomic) IBOutlet UIButton *btnShare;
+@property (retain, nonatomic) IBOutlet UITableView  *eventsList;
+@property (retain, nonatomic) IBOutlet UIButton     *btnShare;
 
 // ---- For the count down days view
 @property (retain, nonatomic) IBOutlet UIImageView  *weekIdxTopLeft;

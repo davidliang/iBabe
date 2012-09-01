@@ -89,7 +89,7 @@ static BOOL WBIsDeviceIPad()
 		[closeButton setFrame:CGRectMake(15, 13, 48, 30)];
 		[closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 		[closeButton setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
-		[closeButton setTitle:NSLocalizedString(@"关闭", nil) forState:UIControlStateNormal];
+		[closeButton setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
 		[closeButton.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
 		[closeButton addTarget:self action:@selector(onCloseButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
 		[panelView addSubview:closeButton];
@@ -110,7 +110,7 @@ static BOOL WBIsDeviceIPad()
 		[sendButton setFrame:CGRectMake(288 - 15 - 48, 13, 48, 30)];
 		[sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 		[sendButton setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
-		[sendButton setTitle: NSLocalizedString(@"发送", nil) forState:UIControlStateNormal];
+		[sendButton setTitle: NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
 		[sendButton.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
 		[sendButton addTarget:self action:@selector(onSendButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
 		[panelView addSubview:sendButton];

@@ -40,19 +40,19 @@
 - (IBAction)didTapCloseTutorial:(id)sender {
 	[self setHidden:YES];
 	
-//	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-//	
-//	switch (currentParentViewName) {
-//		case IBParentViewNameDashboardView:
-//			[userDef setBool:YES forKey:@"shownTutorial1"];
-//			break;
-//			
-//		case IBParentViewNameCalendarView:
-//			[userDef setBool:YES forKey:@"shownTutorial2"];
-//			break;
-//		default:
-//			break;
-//	}
+	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+	
+	switch (currentParentViewName) {
+		case IBParentViewNameDashboardView:
+			[userDef setBool:YES forKey:@"shownTutorial1"];
+			break;
+			
+		case IBParentViewNameCalendarView:
+			[userDef setBool:YES forKey:@"shownTutorial2"];
+			break;
+		default:
+			break;
+	}
 	
 }
 @end

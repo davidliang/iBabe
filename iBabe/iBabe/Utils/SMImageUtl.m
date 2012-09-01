@@ -53,4 +53,22 @@
 
 
 
+// --- Add water mark to image. !!! NOT WORKING!!!
++ (UIImage *)addWaterMarkToImage:(UIImage *)rawImg
+{
+    NSString    *myWatermarkText = @"by the iBabe";
+    UIImage     *watermarkedImage = nil;
+	
+    UIGraphicsBeginImageContext(rawImg.size);
+    [rawImg drawAtPoint:CGPointZero];
+	
+    [myWatermarkText drawAtPoint:CGPointMake(rawImg.size.width / 2, rawImg.size.height / 2) withFont:[UIFont systemFontOfSize:12]];
+    watermarkedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+	
+    return rawImg;
+}
+
+
+
 @end

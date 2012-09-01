@@ -17,21 +17,33 @@
 @synthesize cellDueDate;
 @synthesize stpRecentReminders;
 @synthesize cellAbout;
+@synthesize cellHintScreen;
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath section] == 2)
+    {
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        [userDef setBool:NO forKey:@"shownTutorial1"];
+        [userDef setBool:NO forKey:@"shownTutorial2"];
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        [alert setMessage:@"Hints views has been re actived."];
+		[alert addButtonWithTitle:@"OK"];
+        [alert show];
+        [alert release];
+    }
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self loadSettingsFromPlist];
     [settingsView reloadData];
-	
-	
 
-	[cellDueDate.textLabel setText:[settings objectAtIndex:0]];
-	[tbNumberOfRecentReminders setText:[settings objectAtIndex:1]];
-	
-
-	
-	[stpRecentReminders setValue:[[settings objectAtIndex:1] doubleValue]];
-	
+    [cellDueDate.textLabel setText:[settings objectAtIndex:0]];
+    [tbNumberOfRecentReminders setText:[settings objectAtIndex:1]];
+    [stpRecentReminders setValue:[[settings objectAtIndex:1] doubleValue]];
 }
 
 
@@ -49,19 +61,19 @@
     self.settings = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"%@", [dateFormat stringFromDate:date]], [NSString stringWithFormat:@"%@", amountOfReminders], nil];
 }
 
-- (IBAction)dismissRecentReminderKeyboard:(id)sender {
-	[tbNumberOfRecentReminders resignFirstResponder];
+
+
+- (IBAction)dismissRecentReminderKeyboard:(id)sender
+{
+    [tbNumberOfRecentReminders resignFirstResponder];
 }
 
-- (IBAction)stpRecentRemindersStepperValueChanged:(id)sender {
-	
-	[tbNumberOfRecentReminders setText:[NSString stringWithFormat:@"%0.f",[stpRecentReminders value]]];
-	
-	
 
-	
-	
-	[IBBCommon saveNoOfRecentRemindersToPlist:[NSNumber numberWithDouble:[stpRecentReminders value]]];
+
+- (IBAction)stpRecentRemindersStepperValueChanged:(id)sender
+{
+    [tbNumberOfRecentReminders setText:[NSString stringWithFormat:@"%0.f", [stpRecentReminders value]]];
+    [IBBCommon saveNoOfRecentRemindersToPlist:[NSNumber numberWithDouble:[stpRecentReminders value]]];
 }
 
 
@@ -79,11 +91,13 @@
 }
 
 
--(void)viewDidLoad
-{
-	[cellAbout.textLabel setText:@"About"];
 
+- (void)viewDidLoad
+{
+    [cellAbout.textLabel setText:@"About"];
+    [cellHintScreen.textLabel setText:@"Rest"];
 }
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -116,10 +130,11 @@
 {
     [settings release];
     [settingsView release];
-	[tbNumberOfRecentReminders release];
-	[cellDueDate release];
-	[stpRecentReminders release];
-	[cellAbout release];
+    [tbNumberOfRecentReminders release];
+    [cellDueDate release];
+    [stpRecentReminders release];
+    [cellAbout release];
+    [cellHintScreen release];
     [super dealloc];
 }
 
@@ -127,10 +142,11 @@
 
 - (void)viewDidUnload
 {
-	[self setTbNumberOfRecentReminders:nil];
-	[self setCellDueDate:nil];
-	[self setStpRecentReminders:nil];
-	[self setCellAbout:nil];
+    [self setTbNumberOfRecentReminders:nil];
+    [self setCellDueDate:nil];
+    [self setStpRecentReminders:nil];
+    [self setCellAbout:nil];
+    [self setCellHintScreen:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -143,6 +159,5 @@
 //    // Return YES for supported orientations
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 // }
-
 
 @end

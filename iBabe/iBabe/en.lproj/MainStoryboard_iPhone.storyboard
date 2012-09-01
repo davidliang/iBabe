@@ -510,10 +510,24 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Hints screen" id="PlX-LI-iQa">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="GeD-dl-BIl">
+                                        <rect key="frame" x="0.0" y="228" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="About" id="Xnc-Rs-nf2">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="acB-FO-Rtd">
-                                        <rect key="frame" x="0.0" y="228" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="319" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -537,6 +551,7 @@
                     <connections>
                         <outlet property="cellAbout" destination="acB-FO-Rtd" id="xic-wG-5QQ"/>
                         <outlet property="cellDueDate" destination="SQr-NS-GZ7" id="idQ-dk-1Cm"/>
+                        <outlet property="cellHintScreen" destination="GeD-dl-BIl" id="vWE-cI-yck"/>
                         <outlet property="stpRecentReminders" destination="PU6-c3-yKk" id="0gW-or-O7c"/>
                         <outlet property="tbNumberOfRecentReminders" destination="0o8-1R-lxS" id="nl8-wF-Le4"/>
                     </connections>
@@ -1055,6 +1070,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="IBCalendarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleNavSwipeDown:" candidateClass="UISwipeGestureRecognizer"/>
+            </relationships>
         </class>
         <class className="IBDashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBDashBoardViewController.h"/>
@@ -1143,6 +1161,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="stpRecentRemindersStepperValueChanged:"/>
                 <relationship kind="outlet" name="cellAbout" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="cellDueDate" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="cellHintScreen" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="didTapHintScreenRest" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="settingsView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="stpRecentReminders" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="tbNumberOfRecentReminders" candidateClass="UITextField"/>

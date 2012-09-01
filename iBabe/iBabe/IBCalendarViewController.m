@@ -28,6 +28,11 @@ static int statusBarHeight = (int)20;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if ([eventsForCurrentDate count] < 1)
+    {
+        return 1;
+    }
+
     return [eventsForCurrentDate count];
 }
 
@@ -35,41 +40,63 @@ static int statusBarHeight = (int)20;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CalendarEventCell";
-
-    IBEventCellViewController *cell = (IBEventCellViewController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (cell == nil)
+    if ([eventsForCurrentDate count] > indexPath.row)
     {
-        NSArray *topLvObjs = [[NSBundle mainBundle] loadNibNamed:@"CalendarEventCell" owner:nil options:nil];
+        static NSString *CellIdentifier = @"CalendarEventCell";
 
-        for (id currentObj in topLvObjs) {
-            if ([currentObj isKindOfClass:[UITableViewCell class]])
-            {
-                cell = (IBEventCellViewController *)currentObj;
-                [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-                break;
+        IBEventCellViewController *cell = (IBEventCellViewController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+        if (cell == nil)
+        {
+            NSArray *topLvObjs = [[NSBundle mainBundle] loadNibNamed:@"CalendarEventCell" owner:nil options:nil];
+
+            for (id currentObj in topLvObjs) {
+                if ([currentObj isKindOfClass:[UITableViewCell class]])
+                {
+                    cell = (IBEventCellViewController *)currentObj;
+                    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+                    break;
+                }
             }
         }
+
+        [cell.lbTitle setText:[[eventsForCurrentDate objectAtIndex:[indexPath row]] title]];
+
+        return cell;
     }
+    else
+    {
+        static NSString *CellIdAddNew = @"AddNewEventCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdAddNew];
 
-    [cell.lbTitle setText:[[eventsForCurrentDate objectAtIndex:[indexPath row]] title]];
+        if (cell == Nil)
+        {
+            cell = [[[UITableViewCell alloc]    initWithStyle   :UITableViewCellStyleSubtitle
+                                                reuseIdentifier :CellIdAddNew] autorelease];
+            [cell.textLabel setTextColor:[UIColor lightGrayColor]];
+            [cell.textLabel setText:@"No Event"];
+            [cell setUserInteractionEnabled:NO];
+        }
 
-    return cell;
+        return cell;
+    }
 }
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectedEvent = [eventsForCurrentDate objectAtIndex:[indexPath row]];
+    if ([eventsForCurrentDate count] > indexPath.row)
+    {
+        selectedEvent = [eventsForCurrentDate objectAtIndex:[indexPath row]];
 
-    UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
+        UIStoryboard                    *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+        IBEventDetailsViewController    *eventView = [sb instantiateViewControllerWithIdentifier:@"IBEventDetailsViewController"];
 
-    [eventView setCurrentEvent:selectedEvent];
+        [eventView setCurrentEvent:selectedEvent];
 
-    [[self navigationController] pushViewController:eventView animated:YES];
+        [[self navigationController] pushViewController:eventView animated:YES];
+    }
 }
 
 
@@ -77,44 +104,36 @@ static int statusBarHeight = (int)20;
 // Show/Hide the calendar by sliding it down/up from the top of the device.
 - (void)toggleCalendar
 {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:.75];
+    [UIView animateWithDuration:.6 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            // If calendar is off the screen, show it, else hide it (both with animations)
+            if (calendar.frame.origin.y == -calendar.frame.size.height)
+            {
+                // Show
+                calendar.frame = CGRectMake (0, 0, calendar.frame.size.width, calendar.frame.size.height);
+                [btnSpliter setFrame:CGRectMake (0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
 
-    // If calendar is off the screen, show it, else hide it (both with animations)
-    if (calendar.frame.origin.y == -calendar.frame.size.height)
-    {
-        // Show
-        calendar.frame = CGRectMake(0, 0, calendar.frame.size.width, calendar.frame.size.height);
-        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 20)];
+                [eventTable setFrame:CGRectMake (0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
-        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
+                [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
+                [btnSpliter addGestureRecognizer:swipeUpRecognizer];
+                [btnSpliter removeGestureRecognizer:swipeDownRecognizer];
+            }
+            else
+            {
+                // Hide
+                calendar.frame = CGRectMake (0, -calendar.frame.size.height, calendar.frame.size.width, calendar.frame.size.height);
 
-        [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-up.png"] forState:UIControlStateHighlighted];
-        [btnSpliter addGestureRecognizer:swipeUpRecognizer];
-        [btnSpliter removeGestureRecognizer:swipeDownRecognizer];
+                [btnSpliter setFrame:CGRectMake (0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 40)];
 
-        NSLog(@"Show>>> calendar:%@  >>>  btnSpliter:%@    >>>  eventTable:%@", calendar, btnSpliter, eventTable, nil);
-    }
-    else
-    {
-        // Hide
-        calendar.frame = CGRectMake(0, -calendar.frame.size.height, calendar.frame.size.width, calendar.frame.size.height);
+                [eventTable setFrame:CGRectMake (0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
 
-        [btnSpliter setFrame:CGRectMake(0, calendar.frame.size.height + calendar.frame.origin.y, self.view.frame.size.width, 40)];
-
-        [eventTable setFrame:CGRectMake(0, btnSpliter.frame.size.height + btnSpliter.frame.origin.y, eventTable.frame.size.width, self.view.frame.size.height - btnSpliter.frame.size.height - btnSpliter.frame.origin.y)];
-
-        [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-down.png"] forState:UIControlStateHighlighted];
-        [btnSpliter addGestureRecognizer:swipeDownRecognizer];
-        [btnSpliter removeGestureRecognizer:swipeUpRecognizer];
-
-        NSLog(@"Hide>>> calendar:%@  >>>  btnSpliter:%@    >>>  eventTable:%@", calendar, btnSpliter, eventTable, nil);
-    }
-
-    [UIView commitAnimations];
+                [btnSpliter setImage:[UIImage imageNamed:@"toggle-handler-tap-down.png"] forState:UIControlStateHighlighted];
+                [btnSpliter addGestureRecognizer:swipeDownRecognizer];
+                [btnSpliter removeGestureRecognizer:swipeUpRecognizer];
+            }
+        } completion:^(BOOL finished) {
+        }];
 }
-
-
 
 - (IBAction)handleNavSwipeDown:(UISwipeGestureRecognizer *)sender
 {
@@ -311,11 +330,12 @@ static int statusBarHeight = (int)20;
 
 - (void)didTapGoToToday
 {
-    [calendar selectDate:[NSDate date]];
-    [self loadEventsForSelectedDate:[NSDate date]];
+    [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [calendar selectDate:[NSDate date]];
+        } completion:^(BOOL finished) {
+            [self loadEventsForSelectedDate:[NSDate date]];
+        }];
 }
-
-
 
 - (void)didTapAddEventButton
 {
@@ -412,16 +432,15 @@ static int statusBarHeight = (int)20;
 
     if ([self showTutorial])
     {
-		CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-		
+        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+
         NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
         IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
-        [tutorialView setFrame:CGRectMake(0, statusBarFrame.origin.y+statusBarFrame.size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+        [tutorialView setFrame:CGRectMake(0, statusBarFrame.origin.y + statusBarFrame.size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
         [tutorialView setTutorialWithParentViewName:IBParentViewNameCalendarView];
 
-		IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
-		[[appDelegate window] addSubview:tutorialView];
-
+        IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [[appDelegate window] addSubview:tutorialView];
     }
 }
 
