@@ -23,9 +23,12 @@
 {
     if ([indexPath section] == 2)
     {
+		// --- Reset the hints value.
         NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
         [userDef setBool:NO forKey:@"shownTutorial1"];
         [userDef setBool:NO forKey:@"shownTutorial2"];
+		
+		// ---show the msg view.
         UIAlertView *alert = [[UIAlertView alloc] init];
         [alert setMessage:@"Hints views will be shown when you reboot the iBabe."];
 		[alert addButtonWithTitle:@"OK"];

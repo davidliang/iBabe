@@ -63,7 +63,7 @@
 
 - (void)browseUrl
 {
-    NSURL           *url = [NSURL URLWithString:@"http://ibabe.sigmapps.com.au/mobile_site/"];
+    NSURL           *url = [NSURL URLWithString:@"http://ibabe.sigmapps.com.au/app_about/"];
     NSURLRequest    *request = [NSURLRequest requestWithURL:url];
 
     [self.webAbout loadRequest:request];
