@@ -409,7 +409,7 @@ enum GeneralPickerType  genPType;
 
 - (IBAction)didTapDelete:(id)sender
 {
-    UIAlertView *confirmView = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to delete this reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", Nil];
+    UIAlertView *confirmView = [[[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to delete this reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", Nil]autorelease];
 
     confirmView.tag = ALERTVIEW_TAG_CONFIRM_DELETE_EVENT;
 

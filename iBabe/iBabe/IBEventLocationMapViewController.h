@@ -20,7 +20,11 @@
     CLLocationManager       *locationManager;
 	CLLocation				*locationTmpNew;
 	CLLocation				*locationTmpOld;
-
+	MKPolyline				*connectionLine;
+	MKPolylineView			*connectionLineView;
+	MKMapPoint				*pinLocations;
+	
+	NSMutableArray			*points;
     MBProgressHUD *progressHUD;
 }
 

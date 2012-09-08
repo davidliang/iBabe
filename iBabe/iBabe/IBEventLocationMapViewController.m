@@ -41,6 +41,18 @@
 
 - (IBAction)btnShowMyLocationPressed:(id)sender
 {
+    CLLocationCoordinate2D coords[2];
+
+    coords[0] = locationCoord;
+    coords[1] = mapEventLocation.userLocation.coordinate;
+
+    connectionLine = [MKPolyline polylineWithCoordinates:coords count:2];
+
+    if (Nil != connectionLine)
+    {
+        [mapEventLocation addOverlay:connectionLine];
+    }
+
     [mapEventLocation setCenterCoordinate:mapEventLocation.userLocation.coordinate animated:YES];
 }
 
@@ -85,7 +97,7 @@
 
 - (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
 {
-	//   [progressHUD show:YES];
+
 }
 
 
@@ -152,6 +164,31 @@
 
 
 
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    MKOverlayView *overlayView = nil;
+
+    if (overlay == connectionLine)
+    {
+        // if we have not yet created an overlay view for this overlay, create it now.
+        if (nil == connectionLineView)
+        {
+            connectionLineView = [[[MKPolylineView alloc] initWithPolyline:connectionLine] autorelease];
+            connectionLineView.fillColor = [[UIColor blueColor] colorWithAlphaComponent:0.5f];
+			connectionLineView.strokeColor = [[UIColor redColor] colorWithAlphaComponent:0.5f];
+			connectionLineView.lineCap = kCGLineCapButt;
+			connectionLineView.lineJoin = kCGLineJoinBevel;
+            connectionLineView.lineWidth = 5;
+        }
+
+        overlayView = connectionLineView;
+    }
+
+    return overlayView;
+}
+
+
+
 #pragma mark-
 #pragma MBProgresHUD Delegate
 - (void)hudWasHidden:(MBProgressHUD *)hud
@@ -207,12 +244,7 @@
     locationManager.delegate = self;
     locationManager.desiredAccuracy = 6.0;
     locationManager.distanceFilter = 6.0;
-    [locationManager startUpdatingLocation];
-
     mapEventLocation.delegate = self;
-
-    // ---OLD
-    // [mapEventLocation.userLocation addObserver:self forKeyPath:@"location" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
     mapEventLocation.showsUserLocation = YES;
     [mapEventLocation setUserTrackingMode:MKUserTrackingModeNone];
 
@@ -232,6 +264,8 @@
 
     if (![location isEqualToString:@""])
     {
+        [locationManager startUpdatingLocation];
+
         locationCoord = [SMMapUtil getLocationFromAddressString:location];
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(locationCoord, METERS_PER_MILE, METERS_PER_MILE);
 
@@ -253,6 +287,8 @@
 - (void)viewDidUnload
 {
     [self setMapEventLocation:nil];
+    [locationManager stopUpdatingLocation];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -270,7 +306,5 @@
     [mapEventLocation release];
     [super dealloc];
 }
-
-
 
 @end

@@ -11,6 +11,8 @@
 		0AF165F2157F7EEC00AEE88C /* IBBCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF165F1157F7EEC00AEE88C /* IBBCommon.m */; };
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		6301572A15BEA84600A4D716 /* SMStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6301572915BEA84600A4D716 /* SMStringUtil.m */; };
+		6301D8CA15F8FF530087D86A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6301D8C915F8FF530087D86A /* Twitter.framework */; };
+		6301D8CC15F8FF590087D86A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6301D8CB15F8FF590087D86A /* Accounts.framework */; };
 		6302A46E158442F200DC1B4C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6302A46D158442F200DC1B4C /* MapKit.framework */; };
 		630FAF4E15D4F5B200EE6661 /* IBEventCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630FAF4D15D4F5B100EE6661 /* IBEventCellViewController.m */; };
 		630FAF5015D4F67B00EE6661 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630FAF4F15D4F67800EE6661 /* CalendarEventCell.xib */; };
@@ -190,6 +192,7 @@
 		6367F9D115809FEA00B96330 /* IBDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367F9D015809FEA00B96330 /* IBDateHelper.m */; };
 		636CDCA6158DA7CE001AAD06 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA5158DA7CE001AAD06 /* EventKit.framework */; };
 		636CDCA8158DA80D001AAD06 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 636CDCA7158DA80D001AAD06 /* EventKitUI.framework */; };
+		636DB7B715F3A19900907796 /* qq_weibo.png in Resources */ = {isa = PBXBuildFile; fileRef = 636DB7B615F3A19900907796 /* qq_weibo.png */; };
 		6383E987157B119C00EB163E /* IBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6383E986157B119C00EB163E /* IBSettingsViewController.m */; };
 		638C973915E729D9001A55FD /* IBAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638C973815E729D9001A55FD /* IBAboutViewController.m */; };
 		638C973F15E861BB001A55FD /* DashboardEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638C973E15E861BB001A55FD /* DashboardEmptyCell.xib */; };
@@ -313,6 +316,8 @@
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.frameworks; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6301572815BEA84600A4D716 /* SMStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMStringUtil.h; path = Utils/SMStringUtil.h; sourceTree = "<group>"; };
 		6301572915BEA84600A4D716 /* SMStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMStringUtil.m; path = Utils/SMStringUtil.m; sourceTree = "<group>"; };
+		6301D8C915F8FF530087D86A /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		6301D8CB15F8FF590087D86A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		6302A46D158442F200DC1B4C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		630FAF4C15D4F5B100EE6661 /* IBEventCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEventCellViewController.h; sourceTree = "<group>"; };
 		630FAF4D15D4F5B100EE6661 /* IBEventCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEventCellViewController.m; sourceTree = "<group>"; };
@@ -531,6 +536,7 @@
 		6367F9D015809FEA00B96330 /* IBDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDateHelper.m; sourceTree = "<group>"; };
 		636CDCA5158DA7CE001AAD06 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		636CDCA7158DA80D001AAD06 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		636DB7B615F3A19900907796 /* qq_weibo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq_weibo.png; sourceTree = "<group>"; };
 		6383E985157B119C00EB163E /* IBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBSettingsViewController.h; sourceTree = "<group>"; };
 		6383E986157B119C00EB163E /* IBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBSettingsViewController.m; sourceTree = "<group>"; };
 		638C973715E729D8001A55FD /* IBAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAboutViewController.h; sourceTree = "<group>"; };
@@ -639,6 +645,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6301D8CC15F8FF590087D86A /* Accounts.framework in Frameworks */,
+				6301D8CA15F8FF530087D86A /* Twitter.framework in Frameworks */,
 				634156F715EA14F90032F9AA /* Security.framework in Frameworks */,
 				632AEA5215D8E21200E566A2 /* CoreLocation.framework in Frameworks */,
 				63A69B691590BAC100ABB416 /* libTapkuLibrary.a in Frameworks */,
@@ -793,6 +801,7 @@
 			isa = PBXGroup;
 			children = (
 				6341576E15EB626C0032F9AA /* facebook.png */,
+				636DB7B615F3A19900907796 /* qq_weibo.png */,
 				6341576F15EB626C0032F9AA /* google-plus.png */,
 				6341577115EB626C0032F9AA /* twitter.png */,
 				6341577215EB626C0032F9AA /* Weibo.png */,
@@ -1047,6 +1056,8 @@
 		638F320E157B02350057AD60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6301D8CB15F8FF590087D86A /* Accounts.framework */,
+				6301D8C915F8FF530087D86A /* Twitter.framework */,
 				634156F615EA14F90032F9AA /* Security.framework */,
 				632AEA5115D8E21200E566A2 /* CoreLocation.framework */,
 				636CDCA7158DA80D001AAD06 /* EventKitUI.framework */,
@@ -1564,6 +1575,7 @@
 				63F3445B15EDE9810029BCB9 /* button-tutorial.png in Resources */,
 				63F3445D15EDF76C0029BCB9 /* tutorial-calendar.png in Resources */,
 				633D546115F09DF400701587 /* share-popup-bg-white.png in Resources */,
+				636DB7B715F3A19900907796 /* qq_weibo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,7 +1763,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Debug;
 		};
@@ -1772,26 +1785,26 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Release;
 		};
 		638F324D157B02350057AD60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBabe/iBabe-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"../3rd-party/Kal/src/**",
-					"$(SRCROOT)/iBabe/Library/tapku/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/iBabe/Library/tapku/**";
 				INFOPLIST_FILE = "iBabe/iBabe-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1800,18 +1813,17 @@
 		638F324E157B02350057AD60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBabe/iBabe-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"../3rd-party/Kal/src/**",
-					"$(SRCROOT)/iBabe/Library/tapku/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/iBabe/Library/tapku/**";
 				INFOPLIST_FILE = "iBabe/iBabe-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1863,7 +1875,7 @@
 				638F324B157B02350057AD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		638F324C157B02350057AD60 /* Build configuration list for PBXNativeTarget "iBabe" */ = {
 			isa = XCConfigurationList;
@@ -1872,7 +1884,7 @@
 				638F324E157B02350057AD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		638F324F157B02350057AD60 /* Build configuration list for PBXNativeTarget "iBabeTests" */ = {
 			isa = XCConfigurationList;
@@ -1881,7 +1893,7 @@
 				638F3251157B02350057AD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

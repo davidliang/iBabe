@@ -59,8 +59,32 @@
 
     alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Invalid \"Last Period \" value. Your last period should be earlier than today." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [self.view addSubview:alert];
+	
+	[self	customiseSegmentControl];
 }
 
+
+-(void) customiseSegmentControl
+{
+	// --- Prepare images for the different parts of the Segment Control.
+    UIImage *imgSelected = [[UIImage imageNamed:@"segments-selected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0f, 0, 20.0f)];
+    UIImage *imgUnselected = [[UIImage imageNamed:@"segments-unselected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0f, 0, 20.0f)];
+	
+    UIImage *imgSelectedUnSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *imgUnSelectedUnSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *imgUnSelectedSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+	
+    // --- set the selected and unselected image.
+    [dateType setBackgroundImage:imgUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [dateType setBackgroundImage:imgSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+	
+    // --- Divider
+    [dateType setDividerImage:imgSelectedUnSelected forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [dateType setDividerImage:imgUnSelectedUnSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [dateType setDividerImage:imgUnSelectedSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+	
+
+}
 
 
 - (void)loadView

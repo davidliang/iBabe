@@ -11,18 +11,41 @@
 #import "IBAppDelegate.h"
 #import "IBEditEventViewController.h"
 #import "SMImageUtl.h"
+
+//---Sina Weibo SDK
 #import "WBEngine.h"
 #import "WBSendView.h"
 #import "WBLogInAlertView.h"
 
+//--- QQ Weibo SDK
+
+//--- Facebook SDK
+
+
+
+//---- Twitter SDK
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
+
+
 #import "IBTutorialDashboardViewControaller.h"
 
-@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate>
+@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate,UIWebViewDelegate>
 {
     NSMutableArray  *currentEvents;
     UIView          *sharePopView;
+	
+	//---Sina Weibo
     WBEngine        *weiboEngine;
-
+	
+	//---QQ
+	
+	//--- Facebook
+	
+	
+	
+	UIWebView		*qqWBWebContainer;
+	
     UIAlertView		*msgCenterView;
 }
 

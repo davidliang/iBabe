@@ -38,8 +38,11 @@
 @synthesize dueDateCountDownSubView;
 @synthesize pregnantDaysSubView;
 
-#define weiboAppKey     @"2138511570"
-#define weiboAppSecret  @"21504d480f9ee4a8f93ba266d577c765"
+//--- For Sina Weibo
+#define weiboAppKey             @"2138511570"
+#define weiboAppSecret          @"21504d480f9ee4a8f93ba266d577c765"
+
+
 
 #pragma mark- Top scroll view
 
@@ -163,6 +166,7 @@
             UIImageView *imgViewAddNew = [[UIImageView alloc] initWithFrame:CGRectMake(13, cell.frame.origin.y + cell.frame.size.height / 2 + 7, 27, 27)];
             [imgViewAddNew setImage:addNew];
             [cell addSubview:imgViewAddNew];
+			[imgViewAddNew	release];
 
             // --- Add the "Add new reminder" label.
             UILabel *lbAddNew = [[UILabel alloc] init];
@@ -173,6 +177,7 @@
             [lbAddNew setFrame:CGRectMake(imgViewAddNew.frame.size.width + imgViewAddNew.frame.origin.x + 13, 0, 240, 82)];
 
             [cell addSubview:lbAddNew];
+			[lbAddNew release];
         }
 
         return cell;
@@ -380,7 +385,7 @@
     if (msgCenterView == Nil)
     {
         msgCenterView = [[UIAlertView alloc] init];
-        [msgCenterView addButtonWithTitle:@"OK"];
+        [msgCenterView addButtonWithTitle:@"Dismiss"];
         [self.view addSubview:msgCenterView];
     }
 
@@ -523,6 +528,9 @@
     [sharePopView release];
     [msgCenterView release];
     [weiboEngine release];
+
+    [qqWBWebContainer release];
+
     [super dealloc];
 }
 
@@ -562,8 +570,8 @@
         [sharePopView setHidden:NO];
 
         [UIView animateWithDuration:.4 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-			[sharePopView setFrame:CGRectMake (sharePopView.frame.origin.x, originalY, sharePopView.frame.size.width, sharePopView.frame.size.height)];
-			[sharePopView setAlpha:1];
+                [sharePopView setFrame:CGRectMake (sharePopView.frame.origin.x, originalY, sharePopView.frame.size.width, sharePopView.frame.size.height)];
+                [sharePopView setAlpha:1];
             } completion:^(BOOL finished) {
             }];
     }
@@ -594,7 +602,7 @@
         [shareTitle release];
 
         // ---- Button share to Weibo
-        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(30, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
+        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(10, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
         [btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
         [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Weibo];
@@ -602,7 +610,7 @@
         [btnShare2Weibo release];
 
         // ---- Button share to Facebook
-        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 15, btnShare2Weibo.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 10, btnShare2Weibo.frame.origin.y, 44, 44)];
         [btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Facebook];
@@ -610,12 +618,20 @@
         [btnShare2Facebook release];
 
         // ---- Button share to Facebook
-        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 15, btnShare2Facebook.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 10, btnShare2Facebook.frame.origin.y, 44, 44)];
         [btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
         [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Twitter];
 
         [btnShare2Twitter release];
+
+        UIButton *btnShare2QQ = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Twitter.frame.size.width + btnShare2Twitter.frame.origin.x + 10, btnShare2Twitter.frame.origin.y, 44, 44)];
+        [btnShare2QQ setImage:[UIImage imageNamed:@"qq_weibo.png"] forState:UIControlStateNormal];
+        [btnShare2QQ addTarget:self action:@selector(didTapShare2QQ:) forControlEvents:UIControlEventTouchUpInside];
+        [btnShare2QQ setHidden:YES];
+        [sharePopView addSubview:btnShare2QQ];
+
+        [btnShare2QQ release];
 
         // ---- Button close
         UIButton *btnClosePopup = [[UIButton alloc] initWithFrame:CGRectMake(sharePopView.frame.size.width - 60, sharePopView.frame.size.height - 45, 60, 30)];
@@ -655,7 +671,7 @@
         [weiboEngine setRootViewController:self];
     }
 
-    if (![weiboEngine isLoggedIn])
+    if ([weiboEngine isAuthorizeExpired] || ![weiboEngine isLoggedIn])
     {
         [weiboEngine logIn];
     }
@@ -718,22 +734,52 @@
 
 
 
-- (void)didTapShare2Facebook:(UIButton *)btn
+- (void)didTapShare2QQ:(UIButton *)btn
 {
     [sharePopView setHidden:YES];
-    [self takeScreenshotForPragnencyInfoView];
+    //    [self takeScreenshotForPragnencyInfoView];
+}
+
+
+
+- (void)didTapShare2Facebook:(UIButton *)btn
+{
+    //    [sharePopView setHidden:YES];
+    // [self takeScreenshotForPragnencyInfoView];
 }
 
 
 
 - (void)didTapShare2Twitter:(UIButton *)btn
 {
-    NSLog(@"shared-fb");
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+
+    [twitter setInitialText:[self generateSocialMediaDefaultMessage:NO]];
+    [twitter addImage:[self takeScreenshotForPragnencyInfoView]];
+
+    [self presentViewController:twitter animated:YES completion:nil];
+	
+
+
+    twitter.completionHandler =^(TWTweetComposeViewControllerResult res) {
+        if (res == TWTweetComposeViewControllerResultDone)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"The Tweet was posted successfully." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            [alert show];
+        }
+
+        if (res == TWTweetComposeViewControllerResultCancelled)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancelled" message:@"You Cancelled posting the Tweet." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+
+            [alert show];
+        }
+
+        [self dismissModalViewControllerAnimated:YES];
+    };
+
     [sharePopView setHidden:YES];
-    [self takeScreenshotForPragnencyInfoView];
 }
-
-
 
 #pragma mark -
 #pragma mark WBEngineDelegate
