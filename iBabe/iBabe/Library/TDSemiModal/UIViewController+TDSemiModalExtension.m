@@ -22,22 +22,23 @@
 	CGPoint middleCenter = self.view.center;
 	CGSize offSize = [UIScreen mainScreen].bounds.size;
 
-	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+//	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
 
 	CGPoint offScreenCenter = CGPointZero;
 
-	if(orientation == UIInterfaceOrientationLandscapeLeft ||
-	   orientation == UIInterfaceOrientationLandscapeRight) {
-		
-		offScreenCenter = CGPointMake(offSize.height / 2.0, offSize.width * 1.2);
-		middleCenter = CGPointMake(middleCenter.y, middleCenter.x);
-		[modalView setBounds:CGRectMake(0, 0, 480, 300)];
-	}
-	else {
+//	if(orientation == UIInterfaceOrientationLandscapeLeft ||
+//	   orientation == UIInterfaceOrientationLandscapeRight) {
+//		
+//		offScreenCenter = CGPointMake(offSize.height / 2.0, offSize.width * 1.2);
+//		middleCenter = CGPointMake(middleCenter.y, middleCenter.x);
+//		[modalView setBounds:CGRectMake(0, 0, 480, 300)];
+//	}
+//	else {
+	
 		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.2);
 		[modalView setBounds:CGRectMake(0, 0, 320, 460)];
 		[coverView setFrame:CGRectMake(0, 0, 320, 460)];
-	}
+//	}
 	
 	// we start off-screen
 	modalView.center = offScreenCenter;

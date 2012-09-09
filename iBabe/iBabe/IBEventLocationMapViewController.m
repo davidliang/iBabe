@@ -178,7 +178,7 @@
 			connectionLineView.strokeColor = [[UIColor redColor] colorWithAlphaComponent:0.5f];
 			connectionLineView.lineCap = kCGLineCapButt;
 			connectionLineView.lineJoin = kCGLineJoinBevel;
-            connectionLineView.lineWidth = 5;
+            connectionLineView.lineWidth = 3;
         }
 
         overlayView = connectionLineView;
