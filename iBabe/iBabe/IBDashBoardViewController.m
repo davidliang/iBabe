@@ -38,11 +38,14 @@
 @synthesize dueDateCountDownSubView;
 @synthesize pregnantDaysSubView;
 
-//--- For Sina Weibo
-#define weiboAppKey             @"2138511570"
-#define weiboAppSecret          @"21504d480f9ee4a8f93ba266d577c765"
+// --- For Sina Weibo
+#define weiboAppKey     @"2138511570"
+#define weiboAppSecret  @"21504d480f9ee4a8f93ba266d577c765"
 
+// --- For Facebook
 
+#define fbAppId     @"362114410536574"
+#define fbAppSecret @"80294c61593a2d49e90fbd9fb60f2c70"
 
 #pragma mark- Top scroll view
 
@@ -166,7 +169,7 @@
             UIImageView *imgViewAddNew = [[UIImageView alloc] initWithFrame:CGRectMake(13, cell.frame.origin.y + cell.frame.size.height / 2 + 7, 27, 27)];
             [imgViewAddNew setImage:addNew];
             [cell addSubview:imgViewAddNew];
-			[imgViewAddNew	release];
+            [imgViewAddNew  release];
 
             // --- Add the "Add new reminder" label.
             UILabel *lbAddNew = [[UILabel alloc] init];
@@ -177,7 +180,7 @@
             [lbAddNew setFrame:CGRectMake(imgViewAddNew.frame.size.width + imgViewAddNew.frame.origin.x + 13, 0, 240, 82)];
 
             [cell addSubview:lbAddNew];
-			[lbAddNew release];
+            [lbAddNew release];
         }
 
         return cell;
@@ -758,8 +761,6 @@
     [twitter addImage:[self takeScreenshotForPragnencyInfoView]];
 
     [self presentViewController:twitter animated:YES completion:nil];
-	
-
 
     twitter.completionHandler =^(TWTweetComposeViewControllerResult res) {
         if (res == TWTweetComposeViewControllerResultDone)
