@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Dash Board View Controller - First-->
         <scene sceneID="11">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController title="First" id="2" customClass="IBDashBoardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -202,13 +201,13 @@
                         <outlet property="weekIdxTopRightPregnant" destination="N8W-YF-OiR" id="RWv-Rf-A2Q"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="439" y="-208"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="GMN-Ma-j3N">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CAB-an-ecM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="IBEventDetailsViewController" id="PWw-5m-7fH" customClass="IBEventDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FcJ-Wj-5T2">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -388,13 +387,13 @@
                         <segue destination="NmK-Fm-puo" kind="push" identifier="segueEditEvent" id="tVn-7v-KQd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAB-an-ecM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976" y="-208"/>
         </scene>
         <!--Event Location Map View Controller-->
         <scene sceneID="NaT-D2-5vF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JTd-Oo-o6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Q1B-LZ-3Bm" customClass="IBEventLocationMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4kL-TS-edd">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -403,6 +402,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="3CS-CX-TNS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Q1B-LZ-3Bm" id="VDb-Kf-Pv8"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -410,15 +412,44 @@
                     <navigationItem key="navigationItem" id="cFc-EC-jAK"/>
                     <connections>
                         <outlet property="mapEventLocation" destination="3CS-CX-TNS" id="rmK-EH-CVf"/>
+                        <segue destination="O6y-dV-sVl" kind="push" identifier="segueWebForLocation" id="mXw-YQ-q6s"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTd-Oo-o6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962" y="-208"/>
+        </scene>
+        <!--Location Web Browser View Controller-->
+        <scene sceneID="ptA-d1-i8U">
+            <objects>
+                <viewController storyboardIdentifier="IBLocationWebBrowserView" id="O6y-dV-sVl" customClass="IBLocationWebBrowserViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VSS-WT-KaG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="OwW-eE-Na6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O6y-dV-sVl" id="ghc-Yz-Ova"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Re6-Qx-3go"/>
+                    <connections>
+                        <outlet property="webView" destination="OwW-eE-Na6" id="Cj9-jF-drK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnp-Zk-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2511" y="-208"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="Ika-vS-dmF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PXT-P2-VhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="WgO-Wg-0vp" customClass="IBCalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7EP-4r-JjH">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -431,13 +462,13 @@
                         <segue destination="NmK-Fm-puo" kind="push" identifier="showAddEventSegue" id="3rP-V6-tg0"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXT-P2-VhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="439" y="374"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
                 <tabBarController id="4" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -452,13 +483,13 @@
                         <segue destination="5Ar-nk-yz5" kind="relationship" relationship="viewControllers" id="Fpg-Lr-U85"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-626" y="374"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Nu2-5m-ilQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B87-3W-SDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="T3N-Hr-Mnt" customClass="IBSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="exK-Cu-VJI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -556,13 +587,13 @@
                         <outlet property="tbNumberOfRecentReminders" destination="0o8-1R-lxS" id="nl8-wF-Le4"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B87-3W-SDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="490" y="1019"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="JJU-kV-SMB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MSx-4E-qBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="KXF-Rh-R65" customClass="IBAboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4c-vo-ifC">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -584,13 +615,13 @@
                         <outlet property="webAbout" destination="bgy-Kc-3Hy" id="wTA-Zb-vhf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSx-4E-qBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038" y="1338"/>
         </scene>
         <!--Edit Event View Controller-->
         <scene sceneID="h0l-vA-4AP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-sD-ISA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="IBEditEventView" id="NmK-Fm-puo" customClass="IBEditEventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PhT-ce-bf3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -872,6 +903,7 @@
                         <outlet property="tvNote" destination="7A7-mt-Zt2" id="dAP-Ps-wZG"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdd-sD-ISA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer cancelsTouchesInView="NO" id="QVt-PV-s6I">
                     <connections>
                         <action selector="tapToCloseKeyboard:" destination="NmK-Fm-puo" id="n1u-Rt-dey"/>
@@ -889,7 +921,6 @@
         <!--Setting Details View Controller-->
         <scene sceneID="UPt-mH-s2D">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hC1-r7-Tde" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="toSetDueDate" id="D15-4f-ISn" customClass="SettingDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gkj-B2-JbD">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -971,15 +1002,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="dueDatePicker" destination="7df-gy-TPw" id="yFU-ZC-bCq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hC1-r7-Tde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038" y="741"/>
         </scene>
         <!--Settings Nav View Controller - Settings-->
         <scene sceneID="5oI-Nb-Ccj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oas-RG-FqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="5Ar-nk-yz5" customClass="IBSettingsNavViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="tab-bar-icon-settings.png" id="8wM-7x-AV2"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="ico_settings.png" id="8wM-7x-AV2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="x6p-Ig-KJG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -990,15 +1021,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="T3N-Hr-Mnt" kind="relationship" relationship="rootViewController" id="yKZ-x8-uKI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oas-RG-FqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87" y="1019"/>
         </scene>
         <!--Navigation Controller - DashBoard-->
         <scene sceneID="zX2-i3-qEp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zga-yX-7G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="9Mm-9z-vfY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="DashBoard" image="tab-bar-icon-home.png" id="7"/>
+                    <tabBarItem key="tabBarItem" title="DashBoard" image="ico_dashboard.png" id="7"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="P8W-K3-VMR">
@@ -1010,13 +1041,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="JNH-EO-XxL"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zga-yX-7G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87" y="-208"/>
         </scene>
         <!--Navigation Controller - Reminder-->
         <scene sceneID="AYN-yz-6EG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ft7-Yt-XIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="I2F-eL-zLb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Reminder" image="tab-bar-calendar-icon.png" id="BqY-Qg-rKf"/>
                     <toolbarItems/>
@@ -1029,6 +1060,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="WgO-Wg-0vp" kind="relationship" relationship="rootViewController" id="a1a-nP-K1s"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ft7-Yt-XIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-87" y="374"/>
         </scene>
@@ -1050,12 +1082,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="gray-alarm-icon.png" width="22" height="27"/>
         <image name="gray-calendar-icon.png" width="22" height="27"/>
         <image name="gray-clock-icon.png" width="26" height="27"/>
+        <image name="ico_dashboard.png" width="33" height="33"/>
+        <image name="ico_settings.png" width="33" height="33"/>
         <image name="placesign.png" width="17" height="22"/>
         <image name="prenancy_days_title.png" width="101" height="15"/>
         <image name="profile-bar.png" width="320" height="2"/>
         <image name="tab-bar-calendar-icon.png" width="38" height="37"/>
-        <image name="tab-bar-icon-home.png" width="33" height="33"/>
-        <image name="tab-bar-icon-settings.png" width="30" height="30"/>
         <image name="table-bg.png" width="320" height="480"/>
         <image name="w-0-down.png" width="104" height="80"/>
         <image name="w-0-up.png" width="104" height="81"/>
@@ -1070,9 +1102,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="IBCalendarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBCalendarViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleNavSwipeDown:" candidateClass="UISwipeGestureRecognizer"/>
-            </relationships>
         </class>
         <class className="IBDashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBDashBoardViewController.h"/>
@@ -1146,9 +1175,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventLocationMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventLocationMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="btnShowMyLocationPressed:"/>
-                <relationship kind="action" name="btnShowTargetLocationPressed:"/>
                 <relationship kind="outlet" name="mapEventLocation" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="IBLocationWebBrowserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IBLocationWebBrowserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="IBSettingsNavViewController" superclassName="UINavigationController">
@@ -1162,7 +1195,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="cellAbout" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="cellDueDate" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="cellHintScreen" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="didTapHintScreenRest" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="settingsView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="stpRecentReminders" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="tbNumberOfRecentReminders" candidateClass="UITextField"/>

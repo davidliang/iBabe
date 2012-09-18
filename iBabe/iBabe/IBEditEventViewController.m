@@ -82,9 +82,12 @@ enum GeneralPickerType  genPType;
         (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
     CGFloat heightFraction = numerator / denominator;
 
-    if (heightFraction < 0.0) {
+    if (heightFraction < 0.0)
+    {
         heightFraction = 0.0;
-    } else if (heightFraction > 1.0) {
+    }
+    else if (heightFraction > 1.0)
+    {
         heightFraction = 1.0;
     }
 
@@ -92,9 +95,12 @@ enum GeneralPickerType  genPType;
         [[UIApplication sharedApplication] statusBarOrientation];
 
     if ((orientation == UIInterfaceOrientationPortrait) ||
-        (orientation == UIInterfaceOrientationPortraitUpsideDown)) {
+        (orientation == UIInterfaceOrientationPortraitUpsideDown))
+    {
         animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
-    } else {
+    }
+    else
+    {
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
 
@@ -112,6 +118,8 @@ enum GeneralPickerType  genPType;
     return YES;
 }
 
+
+
 - (void)resetViewPositionAfterKeyboardDissmised
 {
     CGRect viewFrame = self.view.frame;
@@ -126,22 +134,29 @@ enum GeneralPickerType  genPType;
     [UIView commitAnimations];
 }
 
+
+
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     [textView resignFirstResponder];
 }
+
+
 
 #pragma mark- View Life cycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
 
     return self;
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -149,19 +164,23 @@ enum GeneralPickerType  genPType;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self customiseUI];
 
-    if (currentEvent == Nil) {
+    if (currentEvent == Nil)
+    {
         EKEventStore *eventStore = [[EKEventStore alloc] init];
         currentEvent = [EKEvent eventWithEventStore:eventStore];
         currentEvent.title = @"";
         [eventStore release];
     }
 
-    if (isNewEvent) {
+    if (isNewEvent)
+    {
         [btnDelete setHidden:YES];
     }
 
@@ -171,6 +190,8 @@ enum GeneralPickerType  genPType;
 
     [self boundData];
 }
+
+
 
 - (void)boundData
 {
@@ -189,20 +210,25 @@ enum GeneralPickerType  genPType;
     NSString    *alarmTitle1 = ALARM_NOT_SET;
     NSString    *alarmTitle2 = ALARM_NOT_SET;
 
-    if (currentEvent.alarms != Nil) {
-        if ([currentEvent.alarms count] > 0) {
+    if (currentEvent.alarms != Nil)
+    {
+        if ([currentEvent.alarms count] > 0)
+        {
             EKAlarm *alarm1 = [currentEvent.alarms objectAtIndex:0];
 
-            if (alarm1 != Nil) {
+            if (alarm1 != Nil)
+            {
                 NSInteger alarm1Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm1.relativeOffset]];
                 alarmTitle1 = [alarmTitles objectAtIndex:alarm1Row];
             }
         }
 
-        if ([currentEvent.alarms count] > 1) {
+        if ([currentEvent.alarms count] > 1)
+        {
             EKAlarm *alarm2 = [currentEvent.alarms objectAtIndex:1];
 
-            if (alarm2 != Nil) {
+            if (alarm2 != Nil)
+            {
                 NSInteger alarm2Row = [alarmValues indexOfObject:[NSNumber numberWithInt:alarm2.relativeOffset]];
                 alarmTitle2 = [alarmTitles objectAtIndex:alarm2Row];
             }
@@ -212,6 +238,8 @@ enum GeneralPickerType  genPType;
     [self.btnAlarm1 setTitle:[NSString stringWithFormat:@"   %@", alarmTitle1] forState:UIControlStateNormal];
     [self.btnAlarm2 setTitle:[NSString stringWithFormat:@"   %@", alarmTitle2] forState:UIControlStateNormal];
 }
+
+
 
 - (void)customiseUI
 {
@@ -237,6 +265,8 @@ enum GeneralPickerType  genPType;
     [[self btnDateStart] setTintColor:[UIColor colorWithRed:0.925 green:0.784 blue:0.839 alpha:1]];
 }
 
+
+
 - (void)viewDidUnload
 {
     [self setTvNote:nil];
@@ -257,6 +287,8 @@ enum GeneralPickerType  genPType;
     // Release any retained subviews of the main view.
 }
 
+
+
 // - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 // {
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -268,7 +300,8 @@ enum GeneralPickerType  genPType;
 
 - (IBAction)didTapDateStart:(id)sender
 {
-    if (datePickerView == Nil) {
+    if (datePickerView == Nil)
+    {
         datePickerView = [[TDDatePickerController alloc]
             initWithNibName :@"TDDatePickerController"
             bundle          :nil];
@@ -287,11 +320,14 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:datePickerView];
 }
 
+
+
 - (IBAction)didTapTimeStart:(id)sender
 {
     pType = startTime;
 
-    if (datePickerView == Nil) {
+    if (datePickerView == Nil)
+    {
         datePickerView = [[TDDatePickerController alloc]
             initWithNibName :@"TDDatePickerController"
             bundle          :nil];
@@ -310,11 +346,14 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:datePickerView];
 }
 
+
+
 - (IBAction)didTapTimeEnd:(id)sender
 {
     pType = endTime;
 
-    if (datePickerView == Nil) {
+    if (datePickerView == Nil)
+    {
         datePickerView = [[TDDatePickerController alloc]
             initWithNibName :@"TDDatePickerController"
             bundle          :nil];
@@ -338,11 +377,14 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:datePickerView];
 }
 
+
+
 - (IBAction)didTapDateEnd:(id)sender
 {
     pType = endDate;
 
-    if (datePickerView == Nil) {
+    if (datePickerView == Nil)
+    {
         datePickerView = [[TDDatePickerController alloc]
             initWithNibName :@"TDDatePickerController"
             bundle          :nil];
@@ -353,9 +395,12 @@ enum GeneralPickerType  genPType;
 
     NSDate *currentStartDate = [SMDateConvertUtil convertString2Date:self.btnDateStart.titleLabel.text withFormatterStyle:ddMMMyyyy];
 
-    if ([currentStartDate compare:currentEndDate] != NSOrderedDescending) {
+    if ([currentStartDate compare:currentEndDate] != NSOrderedDescending)
+    {
         [datePickerView setupPickerWithDatePickerMode:UIDatePickerModeDate AndInitDatePickerValue:currentEndDate];
-    } else {
+    }
+    else
+    {
         [datePickerView setupPickerWithDatePickerMode:UIDatePickerModeDate AndInitDatePickerValue:currentStartDate];
     }
 
@@ -363,9 +408,12 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:datePickerView];
 }
 
+
+
 - (IBAction)didTapAlarm1:(id)sender
 {
-    if (genPickerView == Nil) {
+    if (genPickerView == Nil)
+    {
         genPickerView = [[TDGeneralPickerController alloc]
             initWithNibName :@"TDGeneralPickerController"
             bundle          :nil];
@@ -378,7 +426,8 @@ enum GeneralPickerType  genPType;
 
     NSString *alarmTitle1 = [self.btnAlarm1.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-    if (![alarmTitle1 isEqualToString:@"Not set"]) {
+    if (![alarmTitle1 isEqualToString:@"Not set"])
+    {
         NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
         [genPickerView setSelectedIdx:titleIdx1];
     }
@@ -386,9 +435,12 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:genPickerView];
 }
 
+
+
 - (IBAction)didTapAlarm2:(id)sender
 {
-    if (genPickerView == Nil) {
+    if (genPickerView == Nil)
+    {
         genPickerView = [[TDGeneralPickerController alloc]
             initWithNibName :@"TDGeneralPickerController"
             bundle          :nil];
@@ -399,7 +451,8 @@ enum GeneralPickerType  genPType;
     genPType = alarm2;
     NSString *alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-    if (![alarmTitle2 isEqualToString:@"Not set"]) {
+    if (![alarmTitle2 isEqualToString:@"Not set"])
+    {
         NSInteger titleIdx2 = [alarmTitles indexOfObject:alarmTitle2];
         [genPickerView setSelectedIdx:titleIdx2];
     }
@@ -407,14 +460,18 @@ enum GeneralPickerType  genPType;
     [self presentSemiModalViewController:genPickerView];
 }
 
+
+
 - (IBAction)didTapDelete:(id)sender
 {
-    UIAlertView *confirmView = [[[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to delete this reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", Nil]autorelease];
+    UIAlertView *confirmView = [[[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure you want to delete this reminder?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", Nil] autorelease];
 
     confirmView.tag = ALERTVIEW_TAG_CONFIRM_DELETE_EVENT;
 
     [confirmView show];
 }
+
+
 
 #pragma mark -
 #pragma mark UIAlertViewDelegate
@@ -450,6 +507,8 @@ enum GeneralPickerType  genPType;
     }
 }
 
+
+
 #pragma mark -
 #pragma mark TDGeneralPickerController Delegate
 - (void)pickerSetValue:(TDGeneralPickerController *)viewController
@@ -471,10 +530,14 @@ enum GeneralPickerType  genPType;
     }
 }
 
+
+
 - (void)pickerCancel:(TDGeneralPickerController *)viewController
 {
     [self dismissSemiModalViewController:genPickerView];
 }
+
+
 
 - (void)pickerSetValueToNotSet:(TDGeneralPickerController *)viewController
 {
@@ -494,6 +557,8 @@ enum GeneralPickerType  genPType;
     [self dismissSemiModalViewController:genPickerView];
 }
 
+
+
 #pragma mark -
 #pragma mark TDDatePickerController Delegate
 - (void)datePickerSetDate:(TDDatePickerController *)viewController
@@ -510,13 +575,16 @@ enum GeneralPickerType  genPType;
 
             NSDate *newStartDate = viewController.datePicker.date;
 
-            if ([newStartDate compare:currentEndDate] == NSOrderedDescending) {
+            if ([newStartDate compare:currentEndDate] == NSOrderedDescending)
+            {
                 [self.btnDateEnd setTitle:self.btnDateStart.titleLabel.text forState:UIControlStateNormal];
             }
 
             // ---- fix up end time
-            if ([self compareCurrentStartTimeWithCurrentEndTime] != earlier) {
-                if ([self compareCurrentStartDateWithCurrentEndDate] == same) {
+            if ([self compareCurrentStartTimeWithCurrentEndTime] != earlier)
+            {
+                if ([self compareCurrentStartDateWithCurrentEndDate] == same)
+                {
                     // -- Pre set the end time and force it 5 min later than the start time.
                     presetEndDateTime = [[SMDateConvertUtil convertString2Date:self.btnStartTime.titleLabel.text withFormatterStyle:hhmmssa] dateByAddingTimeInterval:60 * 5];
 
@@ -529,7 +597,8 @@ enum GeneralPickerType  genPType;
         case startTime:
             [self.btnStartTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT, [SMDateConvertUtil getTimeFromNSDate:viewController.datePicker.date]] forState:UIControlStateNormal];
 
-            if ([self compareCurrentStartDateWithCurrentEndDate] == same) {
+            if ([self compareCurrentStartDateWithCurrentEndDate] == same)
+            {
                 // -- Pre set the end time and force it 5 min later than the start time.
                 presetEndDateTime = [viewController.datePicker.date dateByAddingTimeInterval:60 * 5];
                 [self.btnEndTime setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT, [SMDateConvertUtil getTimeFromNSDate:presetEndDateTime]] forState:UIControlStateNormal];
@@ -544,8 +613,10 @@ enum GeneralPickerType  genPType;
         case endDate:
             [self.btnDateEnd setTitle:[NSString stringWithFormat:BUTTON_STRING_FORMAT, [SMDateConvertUtil getDDMMYYYYFromNSDate:viewController.datePicker.date]] forState:UIControlStateNormal];
 
-            if ([self compareCurrentStartTimeWithCurrentEndTime] != earlier) {
-                if ([self compareCurrentStartDateWithCurrentEndDate] == same) {
+            if ([self compareCurrentStartTimeWithCurrentEndTime] != earlier)
+            {
+                if ([self compareCurrentStartDateWithCurrentEndDate] == same)
+                {
                     // -- Pre set the end time and force it 5 min later than the start time.
                     presetEndDateTime = [[SMDateConvertUtil convertString2Date:self.btnStartTime.titleLabel.text withFormatterStyle:hhmmssa] dateByAddingTimeInterval:60 * 5];
 
@@ -560,10 +631,14 @@ enum GeneralPickerType  genPType;
     }
 }
 
+
+
 - (void)datePickerCancel:(TDDatePickerController *)viewController
 {
     [self dismissSemiModalViewController:datePickerView];
 }
+
+
 
 - (BOOL)currentStartDateEarlierThanOrSameAsCurrentEndDate
 {
@@ -571,12 +646,17 @@ enum GeneralPickerType  genPType;
 
     NSDate *currentStartDate = [SMDateConvertUtil convertString2Date:self.btnDateStart.titleLabel.text withFormatterStyle:ddMMMyyyy];
 
-    if ([currentStartDate compare:currentEndDate] != NSOrderedDescending) {
+    if ([currentStartDate compare:currentEndDate] != NSOrderedDescending)
+    {
         return YES;
-    } else {
+    }
+    else
+    {
         return NO;
     }
 }
+
+
 
 - (dateTimeCompareResult)compareCurrentStartDateWithCurrentEndDate
 {
@@ -584,20 +664,25 @@ enum GeneralPickerType  genPType;
 
     NSDate *currentStartDate = [SMDateConvertUtil convertString2Date:self.btnDateStart.titleLabel.text withFormatterStyle:ddMMMyyyy];
 
-    if ([currentStartDate compare:currentEndDate] == NSOrderedAscending) {
+    if ([currentStartDate compare:currentEndDate] == NSOrderedAscending)
+    {
         return earlier;
     }
 
-    if ([currentStartDate compare:currentEndDate] == NSOrderedSame) {
+    if ([currentStartDate compare:currentEndDate] == NSOrderedSame)
+    {
         return same;
     }
 
-    if ([currentStartDate compare:currentEndDate] == NSOrderedDescending) {
+    if ([currentStartDate compare:currentEndDate] == NSOrderedDescending)
+    {
         return later;
     }
 
     return later;
 }
+
+
 
 - (dateTimeCompareResult)compareCurrentStartTimeWithCurrentEndTime
 {
@@ -605,20 +690,25 @@ enum GeneralPickerType  genPType;
 
     NSDate *currentStartTime = [SMDateConvertUtil convertString2Date:self.btnStartTime.titleLabel.text withFormatterStyle:hhmmssa];
 
-    if ([currentStartTime compare:currentEndTime] == NSOrderedAscending) {
+    if ([currentStartTime compare:currentEndTime] == NSOrderedAscending)
+    {
         return earlier;
     }
 
-    if ([currentStartTime compare:currentEndTime] == NSOrderedSame) {
+    if ([currentStartTime compare:currentEndTime] == NSOrderedSame)
+    {
         return same;
     }
 
-    if ([currentStartTime compare:currentEndTime] == NSOrderedDescending) {
+    if ([currentStartTime compare:currentEndTime] == NSOrderedDescending)
+    {
         return later;
     }
 
     return later;
 }
+
+
 
 #pragma mark -
 #pragma MBProgressHUD Delegate
@@ -630,11 +720,15 @@ enum GeneralPickerType  genPType;
     progressHud = nil;
 }
 
+
+
 #pragma mark- UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     return YES;
 }
+
+
 
 #pragma mark- Guesture functions
 
@@ -647,14 +741,19 @@ enum GeneralPickerType  genPType;
     [self resetViewPositionAfterKeyboardDissmised];
 }
 
+
+
 - (void)saveEvent
 {
-    if ([SMStringUtil isEmptyString:self.tbTitle.text]) {
+    if ([SMStringUtil isEmptyString:self.tbTitle.text])
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Title cannot be blank" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         alert.tag = ALERTVIEW_TAG_NORMAL;
         [alert show];
         [alert release];
-    } else {
+    }
+    else
+    {
         currentEvent.title = self.tbTitle.text;
         currentEvent.location = self.tvLocation.text;
         currentEvent.notes = self.tvNote.text;
@@ -686,7 +785,8 @@ enum GeneralPickerType  genPType;
                 break;
         }
 
-        if (![alarmTitle1 isEqualToString:ALARM_NOT_SET]) {
+        if (![alarmTitle1 isEqualToString:ALARM_NOT_SET])
+        {
             NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
 
             NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:titleIdx1];
@@ -700,7 +800,8 @@ enum GeneralPickerType  genPType;
 
         NSString *alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-        if (![alarmTitle2 isEqualToString:ALARM_NOT_SET]) {
+        if (![alarmTitle2 isEqualToString:ALARM_NOT_SET])
+        {
             NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:[alarmTitles indexOfObject:alarmTitle2]];
             EKAlarm     *alarm2 = [[EKAlarm alloc] init];
             alarm2.relativeOffset = [alarmSelectedVal1 integerValue];
@@ -709,9 +810,12 @@ enum GeneralPickerType  genPType;
             [alarm2 release];
         }
 
-        if (!isNewEvent) {
+        if (!isNewEvent)
+        {
             isSaved = [IBEKCalendarHelper updateEvent:currentEvent];
-        } else {
+        }
+        else
+        {
             isSaved = [IBEKCalendarHelper addEvent:currentEvent];
         }
 
@@ -721,29 +825,38 @@ enum GeneralPickerType  genPType;
     }
 }
 
+
+
 - (IBAction)didTapBtnSave:(id)sender
 {
     isSaved = NO;
 
-    progressHud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [progressHud setLabelText:@"Saving..."];
-    [progressHud setMode:MBProgressHUDModeIndeterminate];
+    if (progressHud == nil)
+    {
+        progressHud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [progressHud setLabelText:@"Saving..."];
+        [progressHud setMode:MBProgressHUDModeIndeterminate];
 
-    [self.navigationController.view addSubview:progressHud];
+        [self.navigationController.view addSubview:progressHud];
 
-    progressHud.dimBackground = YES;
+        progressHud.dimBackground = YES;
 
-    // Regiser for HUD callbacks so we can remove it from the window at the right time
-    progressHud.delegate = self;
+        // Regiser for HUD callbacks so we can remove it from the window at the right time
+        progressHud.delegate = self;
+    }
 
     // Show the HUD while the provided method executes in a new thread
     [progressHud showWhileExecuting:@selector(saveEvent) onTarget:self withObject:nil animated:YES];
 }
 
+
+
 - (IBAction)swipeToNavBack:(id)sender
 {
     [[self navigationController] popViewControllerAnimated:YES];
 }
+
+
 
 - (void)dealloc
 {
@@ -763,5 +876,7 @@ enum GeneralPickerType  genPType;
     [datePickerView release];
     [super dealloc];
 }
+
+
 
 @end

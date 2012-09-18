@@ -10,7 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "SMMapUtil.h"
-#import "MBProgressHUD/MBProgressHUD.h"
+#import "MBProgressHUD.h"
+#import "IBLocationWebBrowserViewController.h"
 
 @class IBAnnotation;
 
@@ -23,7 +24,7 @@
 	MKPolyline				*connectionLine;
 	MKPolylineView			*connectionLineView;
 	MKMapPoint				*pinLocations;
-	
+	CLGeocoder*				geoCodder;
 	NSMutableArray			*points;
     MBProgressHUD *progressHUD;
 }

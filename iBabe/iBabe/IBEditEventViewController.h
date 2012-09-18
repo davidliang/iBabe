@@ -16,7 +16,7 @@
 #import "SMDateConvertUtil.h"
 #import "SMStringUtil.h"
 
-#import "MBProgressHUD/MBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface IBEditEventViewController : UIViewController <UITextViewDelegate, UIGestureRecognizerDelegate, MBProgressHUDDelegate, UIAlertViewDelegate>
 {

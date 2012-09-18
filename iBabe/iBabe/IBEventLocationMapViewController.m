@@ -39,20 +39,10 @@
 
 
 
+
+
 - (IBAction)btnShowMyLocationPressed:(id)sender
 {
-    CLLocationCoordinate2D coords[2];
-
-    coords[0] = locationCoord;
-    coords[1] = mapEventLocation.userLocation.coordinate;
-
-    connectionLine = [MKPolyline polylineWithCoordinates:coords count:2];
-
-    if (Nil != connectionLine)
-    {
-        [mapEventLocation addOverlay:connectionLine];
-    }
-
     [mapEventLocation setCenterCoordinate:mapEventLocation.userLocation.coordinate animated:YES];
 }
 
@@ -69,10 +59,6 @@
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-    //	MKAnnotationView *annotationView = [views objectAtIndex:0];
-    //	id mp = [annotationView annotation];
-    //	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate] ,250,250);
-    //	[mapEventLocation setRegion:region animated:YES];
 }
 
 
@@ -97,32 +83,46 @@
 
 - (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
 {
-
+	[mapEventLocation removeOverlay:connectionLine];
 }
 
 
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+	
+	
+	
+	CLLocationCoordinate2D coords[2];
+	
+	coords[0] = locationCoord;
+	coords[1] = userLocation.coordinate;
+	
+	connectionLine = [MKPolyline polylineWithCoordinates:coords count:2];
+	
+	
+	if (Nil != connectionLine)
+	{
+		[mapEventLocation addOverlay:connectionLine];
+	}
+}
 
 - (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
 {
-    //	[progressHUD hide:YES];
+	
+
 }
 
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    // MKPinAnnotationView *annView = nil;
 
     MKAnnotationView    *annView = nil;
     static NSString     *defaultPinID = @"com.sigmapps.iBabe.defPin";
 
-    //    static NSString     *userLocationPinID = @"com.sigmapps.iBabe.userLocPin";
-
     if (annotation != mapEventLocation.userLocation)
     {
         annView = (MKPinAnnotationView *)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-
-        // annView = (MKAnnotationView*)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
 
         if (annView == nil)
         {
@@ -133,33 +133,28 @@
         annView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
         annView.image = [UIImage imageNamed:@"pin-yellow.png"];
     }
-    else
+	else
     {
-        //        annView = (MKPinAnnotationView *)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:userLocationPinID];
-        //
-        //        if (annView == nil)
-        //        {
-        //            annView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationPinID];
-        //        }
-        //
-        //        // --- Add a right arrown icon on the title box for clicking.
-        //        annView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
-
-        // annView.image = [UIImage imageNamed:@"pin-green.png"];
         [mapEventLocation.userLocation setTitle:@"Your're Here."];
-    }
+		
+	}
 
     annView.canShowCallout = YES;
     annView.draggable = NO;
 
-    return annView;
+    return annView ;
 }
 
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    //  NSLog(@"Call out tapped");
+
+	UIStoryboard* sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+	
+	IBLocationWebBrowserViewController* webViewCtrl = [sb instantiateViewControllerWithIdentifier:@"IBLocationWebBrowserView"];
+	[webViewCtrl setLocationName:[[view annotation] title]];
+	[self.navigationController pushViewController:webViewCtrl animated:YES];
 }
 
 
@@ -189,6 +184,7 @@
 
 
 
+
 #pragma mark-
 #pragma MBProgresHUD Delegate
 - (void)hudWasHidden:(MBProgressHUD *)hud
@@ -206,18 +202,16 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    if ((newLocation != nil) && (oldLocation != newLocation))
-    {
-        locationTmpNew = newLocation;
-        locationTmpOld = oldLocation;
-    }
+	
 }
+
 
 
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
 }
+
 
 
 
@@ -242,18 +236,47 @@
 
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = 6.0;
-    locationManager.distanceFilter = 6.0;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+	
+	[locationManager startUpdatingLocation];
+	
+	
     mapEventLocation.delegate = self;
-    mapEventLocation.showsUserLocation = YES;
+	mapEventLocation.showsUserLocation = YES;
     [mapEventLocation setUserTrackingMode:MKUserTrackingModeNone];
 
+
+	
+	
     progressHUD = [[MBProgressHUD alloc] initWithView:[self.navigationController view]];
     [progressHUD setLabelText:@"Loading..."];
     [progressHUD setMode:MBProgressHUDModeDeterminate];
     [self.navigationController.view addSubview:progressHUD];
 
     [self initNavigationBar];
+	
+	
+	if (![location isEqualToString:@""])
+    {
+        [locationManager startUpdatingLocation];
+		
+        // --- Set up the annotation.
+		locationCoord = [SMMapUtil getLocationFromAddressString:location];
+
+        MKPointAnnotation *annotation = [[[MKPointAnnotation alloc] init] autorelease];
+        annotation.coordinate = locationCoord;
+        annotation.title = location;
+        // annotation.subtitle = @"Get direction - Tab the 'i' icon.";
+        [mapEventLocation addAnnotation:annotation];
+		
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(locationCoord, METERS_PER_MILE, METERS_PER_MILE);
+        MKCoordinateRegion adjRegion = [mapEventLocation regionThatFits:region];
+        [mapEventLocation setRegion:adjRegion animated:YES];
+		
+    }
+	
+
 }
 
 
@@ -261,25 +284,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-
-    if (![location isEqualToString:@""])
-    {
-        [locationManager startUpdatingLocation];
-
-        locationCoord = [SMMapUtil getLocationFromAddressString:location];
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(locationCoord, METERS_PER_MILE, METERS_PER_MILE);
-
-        // --- Set up the annotation.
-        MKPointAnnotation *annotation = [[[MKPointAnnotation alloc] init] autorelease];
-        annotation.coordinate = locationCoord;
-        annotation.title = location;
-        // annotation.subtitle = @"Get direction - Tab the 'i' icon.";
-
-        [mapEventLocation addAnnotation:annotation];
-
-        MKCoordinateRegion adjRegion = [mapEventLocation regionThatFits:region];
-        [mapEventLocation setRegion:adjRegion animated:YES];
-    }
 }
 
 
@@ -304,6 +308,7 @@
 {
     [locationManager release];
     [mapEventLocation release];
+	[geoCodder release];
     [super dealloc];
 }
 

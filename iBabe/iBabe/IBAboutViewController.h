@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBProgressHUD/MBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface IBAboutViewController : UIViewController <UIWebViewDelegate, MBProgressHUDDelegate>
 {

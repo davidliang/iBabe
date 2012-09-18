@@ -394,12 +394,11 @@
 
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
-
+    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+	
     if ([self showTutorial])
     {
-        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-
-        NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
+		NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
         IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
         [tutorialView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
         [tutorialView setTutorialWithParentViewName:IBParentViewNameDashboardView];
@@ -407,6 +406,13 @@
         IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
         [[appDelegate window] addSubview:tutorialView];
     }
+	
+	NSArray                             *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
+	IBWelcomeViewController	*welcomeView = [xibContentsWelcome lastObject];
+	[welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+	[welcomeView	initContentViews];
+	IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[[appDelegate window] addSubview:welcomeView];
 }
 
 
@@ -420,6 +426,13 @@
     return !shown;
 }
 
+
+-(BOOL) showWelcomeView
+{
+	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    BOOL shown = [userDef boolForKey:@"shownWelcome"];
+    return !shown;
+}
 
 
 - (void)viewDidUnload

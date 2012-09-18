@@ -11,6 +11,10 @@
 #import "IBAppDelegate.h"
 #import "IBEditEventViewController.h"
 #import "SMImageUtl.h"
+#import "IBTutorialDashboardViewControaller.h"
+#import "IBWelcomeViewController.h"
+
+
 
 //---Sina Weibo SDK
 #import "WBEngine.h"
@@ -28,7 +32,6 @@
 #import <Accounts/Accounts.h>
 
 
-#import "IBTutorialDashboardViewControaller.h"
 
 @interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate,UIWebViewDelegate>
 {
