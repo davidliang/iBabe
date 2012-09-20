@@ -30,8 +30,8 @@
 		
 		// ---show the msg view.
         UIAlertView *alert = [[UIAlertView alloc] init];
-        [alert setMessage:@"Hints views will be shown when you reboot the iBabe."];
-		[alert addButtonWithTitle:@"OK"];
+        [alert setMessage:@"Hints will be shown when iBabe is rebooted."];
+		[alert addButtonWithTitle:@"Dismiss"];
         [alert show];
         [alert release];
     }
@@ -98,7 +98,7 @@
 - (void)viewDidLoad
 {
     [cellAbout.textLabel setText:@"About"];
-    [cellHintScreen.textLabel setText:@"Rest"];
+    [cellHintScreen.textLabel setText:@"Reset"];
 }
 
 

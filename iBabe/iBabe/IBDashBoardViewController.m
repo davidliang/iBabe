@@ -609,7 +609,7 @@
 
         // ---- Share title
         UILabel *shareTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 170, 10)];
-        [shareTitle setText:@"Share to... "];
+        [shareTitle setText:@"Post to ... "];
         [shareTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12]];
         [shareTitle setTextColor:[UIColor blackColor]];
         [shareTitle setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"transparent-bg.png"]]];
@@ -733,11 +733,11 @@
     {
         switch (self.topViewPageControl.currentPage) {
             case 0:
-                msg = [NSString stringWithFormat:@"%d Weeks + %d Days - by the #iBabe#", weeks, days];
+                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by iBabe", weeks, days];
                 break;
 
             case 1:
-                msg = [NSString stringWithFormat:@"%d Weeks + %d Days - by the #iBabe#", weeksRemain, daysRemain];
+                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by iBabe", weeksRemain, daysRemain];
                 break;
 
             default:

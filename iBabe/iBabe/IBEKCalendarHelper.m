@@ -77,8 +77,8 @@
                 eventCount++;
             }
 
-            fromDate = toDate;
-            toDate = [toDate dateByAddingTimeInterval:daysInSecond * 30];
+            fromDate = [toDate dateByAddingTimeInterval:daysInSecond*1];
+            toDate = [toDate dateByAddingTimeInterval:daysInSecond * 4*7];
         }
     }
 

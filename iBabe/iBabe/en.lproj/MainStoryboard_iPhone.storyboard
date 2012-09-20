@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
@@ -57,23 +56,38 @@
                                                         <rect key="frame" x="103" y="91" width="78" height="54"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="weeks.png" id="xmD-ZK-lPr">
-                                                        <rect key="frame" x="71" y="136" width="62" height="43"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="prenancy_days_title.png" id="ctx-y7-mvq">
-                                                        <rect key="frame" x="34" y="3" width="106" height="43"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="days-title.png" id="lDM-7s-7Tw">
-                                                        <rect key="frame" x="207" y="136" width="62" height="43"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="IPa-9i-Chy">
                                                         <rect key="frame" x="184" y="69" width="21" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="26"/>
                                                         <color key="textColor" white="0.95693674395161288" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAYS PREGNANT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gtm-ti-0fA">
+                                                        <rect key="frame" x="39" y="15" width="133" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAYS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tsg-az-uq4">
+                                                        <rect key="frame" x="223" y="146" width="60" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WEEKS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fXg-Ub-gdN">
+                                                        <rect key="frame" x="81" y="146" width="52" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <size key="shadowOffset" width="0.0" height="1"/>
@@ -113,23 +127,38 @@
                                                         <rect key="frame" x="99" y="89" width="78" height="53"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="weeks.png" id="5v6-MD-413">
-                                                        <rect key="frame" x="73" y="135" width="62" height="43"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAYS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nyw-jU-W3u">
+                                                        <rect key="frame" x="226" y="145" width="60" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="days-title.png" id="hed-uj-7qf">
-                                                        <rect key="frame" x="211" y="135" width="62" height="43"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WEEKS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Bi-12-0dW">
+                                                        <rect key="frame" x="83" y="145" width="52" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="center" image="countdown-title.png" id="4fX-jz-qOK">
-                                                        <rect key="frame" x="36" y="3" width="70" height="43"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oul-Z4-Epd">
                                                         <rect key="frame" x="183" y="68" width="21" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="26"/>
                                                         <color key="textColor" white="0.95693674399999995" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="COUNTDOWN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="sbm-PM-tvS">
+                                                        <rect key="frame" x="34" y="15" width="100" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.94766422189999999" green="0.94766422189999999" blue="0.94766422189999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <size key="shadowOffset" width="0.0" height="1"/>
@@ -512,7 +541,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Amount of recent reminders" id="20g-cO-mgo">
+                            <tableViewSection headerTitle="Number of reminders displayed" id="20g-cO-mgo">
                                 <cells>
                                     <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="tAc-SU-BJC">
                                         <rect key="frame" x="0.0" y="137" width="320" height="45"/>
@@ -541,7 +570,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Hints screen" id="PlX-LI-iQa">
+                            <tableViewSection headerTitle="Hints" id="PlX-LI-iQa">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="GeD-dl-BIl">
                                         <rect key="frame" x="0.0" y="228" width="320" height="45"/>
@@ -1076,8 +1105,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="button-share.png" width="30" height="30"/>
         <image name="countdown-bg-pink.png" width="640" height="304"/>
         <image name="countdown-bg-red.png" width="640" height="304"/>
-        <image name="countdown-title.png" width="71" height="15"/>
-        <image name="days-title.png" width="31" height="15"/>
         <image name="event-details-view-top-bg.png" width="320" height="121"/>
         <image name="gray-alarm-icon.png" width="22" height="27"/>
         <image name="gray-calendar-icon.png" width="22" height="27"/>
@@ -1085,13 +1112,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="ico_dashboard.png" width="33" height="33"/>
         <image name="ico_settings.png" width="33" height="33"/>
         <image name="placesign.png" width="17" height="22"/>
-        <image name="prenancy_days_title.png" width="101" height="15"/>
         <image name="profile-bar.png" width="320" height="2"/>
         <image name="tab-bar-calendar-icon.png" width="38" height="37"/>
         <image name="table-bg.png" width="320" height="480"/>
         <image name="w-0-down.png" width="104" height="80"/>
         <image name="w-0-up.png" width="104" height="81"/>
-        <image name="weeks.png" width="41" height="15"/>
     </resources>
     <classes>
         <class className="IBAboutViewController" superclassName="UIViewController">
