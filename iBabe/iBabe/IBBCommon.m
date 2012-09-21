@@ -175,4 +175,18 @@
 
 
 
++ (BOOL)checkIsDeviceVersionHigherThanRequiredVersion:(NSString *)requiredVersion
+{
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+
+    if ([currSysVer compare:requiredVersion options:NSNumericSearch] != NSOrderedAscending)
+    {
+        return YES;
+    }
+
+    return NO;
+}
+
+
+
 @end

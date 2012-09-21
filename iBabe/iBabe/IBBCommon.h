@@ -31,4 +31,6 @@
 
 + (void)createBBSettingsPlistFileForNewVersionWithThisVersionNumber:(int)thisVersion;
 
++ (BOOL)checkIsDeviceVersionHigherThanRequiredVersion:(NSString *)requiredVersion;
+
 @end

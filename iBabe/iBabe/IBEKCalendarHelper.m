@@ -42,7 +42,7 @@
 {
     // --- The maximun months that the logic will go through get the events.
     // --- This is to avoid the logic keep looping through the whole calendar unlimitly.
-	// --- Default value is to go through 12 months. 
+    // --- Default value is to go through 12 months.
     NSInteger maxLoopCount = 12;
 
     NSMutableArray  *currentEvents = [[NSMutableArray alloc] init];
@@ -77,12 +77,10 @@
                 eventCount++;
             }
 
-            fromDate = [toDate dateByAddingTimeInterval:daysInSecond*1];
-            toDate = [toDate dateByAddingTimeInterval:daysInSecond * 4*7];
+            fromDate = [toDate dateByAddingTimeInterval:daysInSecond * 1];
+            toDate = [toDate dateByAddingTimeInterval:daysInSecond * 4 * 7];
         }
     }
-
-	
 
     return currentEvents;
 }
@@ -93,6 +91,8 @@
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     EKSource        *locSource = Nil;
+	
+	[self checkAccessPermissionWithEventStoreObj:eventStore];
 
     // ---- Check if there is a local event source.
     for (EKSource *aSource in eventStore.sources) {
@@ -101,14 +101,12 @@
             locSource = aSource;
             break;
         }
-		
-		
     }
 
     // --- If local source not available then return nil.
     if (locSource == nil)
     {
-		[eventStore release];
+        [eventStore release];
         return NO;
     }
 
@@ -191,8 +189,6 @@
     return YES;
 }
 
-
-
 + (BOOL)deleteEvent:(NSString *)eventId
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
@@ -202,13 +198,13 @@
 
     [eventStore removeEvent:event span:EKSpanThisEvent commit:YES error:&err];
 
-		[eventStore release];
+    [eventStore release];
+
     if (err != noErr)
     {
         NSLog(@"##ERROR: deleteEvent Err - %@", err);
         return NO;
     }
-
 
     return YES;
 }
@@ -218,7 +214,8 @@
 + (void)removeDevCal
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
-
+	[self checkAccessPermissionWithEventStoreObj:eventStore];
+	
     NSUserDefaults  *userDefault = [NSUserDefaults standardUserDefaults];
     NSString        *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
 
@@ -246,7 +243,7 @@
     {
         EKEventStore    *eventStore = [[EKEventStore alloc] init];
         NSString        *calID = [[NSUserDefaults new] objectForKey:USER_DEFAULT_CALENDAR_NAME];
-		
+
         EKCalendar *ibbCal = [eventStore calendarWithIdentifier:calID];
 
         [eventStore release];
@@ -262,7 +259,9 @@
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     NSError         *err = nil;
-
+	[self checkAccessPermissionWithEventStoreObj:eventStore];
+	
+	
     EKEvent *storedEvent = [eventStore eventWithIdentifier:event.eventIdentifier];
 
     storedEvent.title = event.title;
@@ -290,6 +289,9 @@
 + (BOOL)addEvent:(EKEvent *)newEvent
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
+	[self checkAccessPermissionWithEventStoreObj:eventStore];
+	
+	
     EKEvent         *event = [EKEvent eventWithEventStore:eventStore];
     NSUserDefaults  *userDefault = [NSUserDefaults standardUserDefaults];
     NSString        *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
@@ -316,6 +318,44 @@
     return YES;
 }
 
+
+
+#pragma mark-
+#pragma UIAlertView Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	switch (buttonIndex) {
+		case 0:
+			NSLog(@"0");
+			break;
+		case 1:
+			break;
+		default:
+			break;
+	}
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+
+}
+
++ (void) checkAccessPermissionWithEventStoreObj: (EKEventStore*) eventStore
+{
+	if ([IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6.0"])
+    {
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
+			if(!granted)
+			{
+				UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Hint" message:@"Please allow iBabe to access to your calendar for the reminder feature of the iBabe." delegate:self cancelButtonTitle:@"Not Now" otherButtonTitles:@"Try Again", nil];
+				
+				[alert show];
+				
+			}
+			
+		}];
+    }
+}
 
 
 @end

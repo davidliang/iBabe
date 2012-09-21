@@ -8,31 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import <EventKit/EventKit.h>
+#import "IBBCommon.h"
 
-static NSString* CALENDAR_NAME = @"iBabe Calendar";
-static NSString* USER_DEFAULT_CALENDAR_NAME=@"iBB_Cal_ID";
-static NSString* URL_ID = @"http://iBabe.sigmapps.com.au";
+static NSString *CALENDAR_NAME = @"iBabe Calendar";
+static NSString *USER_DEFAULT_CALENDAR_NAME = @"iBB_Cal_ID";
+static NSString *URL_ID = @"http://iBabe.sigmapps.com.au";
 
-@interface IBEKCalendarHelper : NSObject
+@interface IBEKCalendarHelper : NSObject<UIAlertViewDelegate>
 {
-
 }
 
-+ (NSMutableArray*) getCurrentEventsWithTopEventNumber: (NSInteger) numberOfEvents;
-+ (NSArray*) getEventsFromDate: (NSDate*) start toDate: (NSDate*) to;
-+ (EKCalendar*) getIBabeCalendar;
++ (NSMutableArray *)getCurrentEventsWithTopEventNumber:(NSInteger)numberOfEvents;
++ (NSArray *)getEventsFromDate:(NSDate *)start toDate:(NSDate *)to;
++ (EKCalendar *)getIBabeCalendar;
 
++ (BOOL)addEvent:(EKEvent *)newEvent;
++ (BOOL)updateEvent:(EKEvent *)event;
++ (BOOL)createIBabeCalendar;
++ (BOOL)deleteEvent:(NSString *)eventId;
 
-
-+ (BOOL) addEvent:(EKEvent*) newEvent;
-+ (BOOL) updateEvent: (EKEvent*) event;
-+ (BOOL) createIBabeCalendar;
-+ (BOOL) deleteEvent: (NSString*) eventId;
-
-+ (void) removeDevCal;
-
-
-
-
++ (void)removeDevCal;
 
 @end
