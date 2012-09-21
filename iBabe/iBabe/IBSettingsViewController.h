@@ -18,6 +18,7 @@
 @property (retain, nonatomic) IBOutlet UIStepper *stpRecentReminders;
 @property (retain, nonatomic) IBOutlet UITableViewCell *cellAbout;
 @property (retain, nonatomic) IBOutlet UITableViewCell *cellHintScreen;
+@property (retain, nonatomic) IBOutlet UITableView *tableSettings;
 
 - (void) loadSettingsFromPlist;
 - (IBAction)dismissRecentReminderKeyboard:(id)sender;

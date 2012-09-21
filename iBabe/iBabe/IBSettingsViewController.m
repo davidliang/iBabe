@@ -99,6 +99,15 @@
 {
     [cellAbout.textLabel setText:@"About"];
     [cellHintScreen.textLabel setText:@"Reset"];
+	
+	UIImageView* bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"table-bg.png"]];
+	[bg setFrame:CGRectMake(0, 0, self.tableSettings.frame.size.width, self.tableSettings.frame.size.height)];
+	[self.tableSettings setBackgroundView:bg];
+	
+	[bg release];
+	
+//	[self.tableSettings setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"table-bg.png"]]];
+//	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"table-bg.png"]]];
 }
 
 
@@ -138,6 +147,7 @@
     [stpRecentReminders release];
     [cellAbout release];
     [cellHintScreen release];
+	[_tableSettings release];
     [super dealloc];
 }
 
@@ -150,6 +160,7 @@
     [self setStpRecentReminders:nil];
     [self setCellAbout:nil];
     [self setCellHintScreen:nil];
+	[self setTableSettings:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

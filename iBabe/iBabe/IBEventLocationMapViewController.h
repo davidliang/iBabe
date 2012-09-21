@@ -15,18 +15,14 @@
 
 @class IBAnnotation;
 
-@interface IBEventLocationMapViewController : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate, MBProgressHUDDelegate>
+@interface IBEventLocationMapViewController : UIViewController <MKMapViewDelegate>
 {
     CLLocationCoordinate2D  locationCoord;
-    CLLocationManager       *locationManager;
-	CLLocation				*locationTmpNew;
-	CLLocation				*locationTmpOld;
-	MKPolyline				*connectionLine;
-	MKPolylineView			*connectionLineView;
-	MKMapPoint				*pinLocations;
-	CLGeocoder*				geoCodder;
-	NSMutableArray			*points;
-    MBProgressHUD *progressHUD;
+    MKPolyline              *connectionLine;
+    MKMapPoint              *pinLocations;
+    CLGeocoder              *geoCodder;
+    NSMutableArray          *points;
+    MBProgressHUD           *progressHUD;
 }
 
 @property (retain, nonatomic) IBOutlet MKMapView    *mapEventLocation;
