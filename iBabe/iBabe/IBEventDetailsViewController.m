@@ -73,11 +73,18 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
 - (void)customiseUI
 {
     // --- Content and scroll view
-    [[self contentView] setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT * 2, self.contentView.frame.size.width, self.lbNote.frame.origin.y + self.lbNote.frame.size.height + NAVIGATION_BAR_HEIGHT * 3)];
+
+    CGFloat y = [[UIApplication sharedApplication] statusBarFrame].size.height + fabs(self.navigationController.navigationBar.frame.origin.y) + self.navigationController.navigationBar.frame.size.height;
+
+    [self.scrollView setFrame:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:self.scrollView];
+
+    [[self contentView] setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.lbNote.frame.origin.y + self.lbNote.frame.size.height + NAVIGATION_BAR_HEIGHT * 3)];
 
     [self.contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height)];
-	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
 }
 
 
@@ -143,6 +150,7 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
     [lbAlarm2 release];
     [contentView release];
     [scrollView release];
+    [_baseView release];
     [super dealloc];
 }
 
@@ -161,6 +169,7 @@ static const CGFloat NAVIGATION_BAR_HEIGHT = 44;
     [self setLbAlarm2:nil];
     [self setContentView:nil];
     [self setScrollView:nil];
+    [self setBaseView:nil];
     [super viewDidUnload];
 }
 

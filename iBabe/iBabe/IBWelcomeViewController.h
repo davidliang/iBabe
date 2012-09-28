@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IBWelcomeViewController : UIView<UIScrollViewDelegate>
+@interface IBWelcomeViewController : UIView <UIScrollViewDelegate>
 {
 }
 
-@property (retain, nonatomic) IBOutlet UIScrollView *contentScrollView;
-@property (retain, nonatomic) IBOutlet UIView *contentView;
-@property (retain, nonatomic) IBOutlet UIPageControl *pageCtrl;
+@property (retain, nonatomic) IBOutlet UIScrollView     *contentScrollView;
+@property (retain, nonatomic) IBOutlet UIView           *contentView;
+@property (retain, nonatomic) IBOutlet UIPageControl    *pageCtrl;
 
--(void)initContentViews;
+- (void)initContentViews;
 - (IBAction)didTapCloseWelcomeBtn:(id)sender;
 
 @end

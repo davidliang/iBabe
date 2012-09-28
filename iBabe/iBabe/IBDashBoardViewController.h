@@ -13,8 +13,7 @@
 #import "SMImageUtl.h"
 #import "IBTutorialDashboardViewControaller.h"
 #import "IBWelcomeViewController.h"
-
-
+#import "IBCheckPermissionLauncher.h"
 
 //---Sina Weibo SDK
 #import "WBEngine.h"
@@ -24,7 +23,6 @@
 //--- QQ Weibo SDK
 
 //--- Facebook SDK
-
 
 
 //---- Twitter SDK

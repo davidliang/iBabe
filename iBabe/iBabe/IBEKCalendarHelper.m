@@ -91,8 +91,6 @@
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     EKSource        *locSource = Nil;
-	
-	[self checkAccessPermissionWithEventStoreObj:eventStore];
 
     // ---- Check if there is a local event source.
     for (EKSource *aSource in eventStore.sources) {
@@ -189,6 +187,8 @@
     return YES;
 }
 
+
+
 + (BOOL)deleteEvent:(NSString *)eventId
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
@@ -214,8 +214,7 @@
 + (void)removeDevCal
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
-	[self checkAccessPermissionWithEventStoreObj:eventStore];
-	
+
     NSUserDefaults  *userDefault = [NSUserDefaults standardUserDefaults];
     NSString        *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
 
@@ -259,9 +258,7 @@
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     NSError         *err = nil;
-	[self checkAccessPermissionWithEventStoreObj:eventStore];
-	
-	
+
     EKEvent *storedEvent = [eventStore eventWithIdentifier:event.eventIdentifier];
 
     storedEvent.title = event.title;
@@ -288,10 +285,8 @@
 
 + (BOOL)addEvent:(EKEvent *)newEvent
 {
-    EKEventStore    *eventStore = [[EKEventStore alloc] init];
-	[self checkAccessPermissionWithEventStoreObj:eventStore];
-	
-	
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+
     EKEvent         *event = [EKEvent eventWithEventStore:eventStore];
     NSUserDefaults  *userDefault = [NSUserDefaults standardUserDefaults];
     NSString        *calID = [userDefault objectForKey:USER_DEFAULT_CALENDAR_NAME];
@@ -320,42 +315,76 @@
 
 
 
-#pragma mark-
-#pragma UIAlertView Delegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//#pragma mark-
+//#pragma UIAlertView Delegate
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    NSURL *url = [NSURL URLWithString:@"prefs:root=WIFI"];
+//
+//    switch (buttonIndex) {
+//        case 0:
+//            NSLog(@"0");
+//            break;
+//
+//        case 1:
+//
+//            [[UIApplication sharedApplication] openURL:url];
+//            break;
+//
+//        default:
+//            break;
+//    }
+//}
+//
+//
+//
+//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+//{
+//}
+//
+//
+//
+//+ (void)checkAccessPermissionWithEventStoreObj:(EKEventStore *)eventStore
+//{
+//    if ([IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6.0"])
+//    {
+//        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
+//                if (!granted)
+//                {
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hint" message:@"Please allow iBabe to access to your calendar for the reminder feature of the iBabe." delegate:self cancelButtonTitle:@"Not Now" otherButtonTitles:@"Settings", nil];
+//
+//                    [alert show];
+//                }
+//            }];
+//    }
+//}
+
++ (BOOL)checkIsCalendarAccessible
 {
-	switch (buttonIndex) {
-		case 0:
-			NSLog(@"0");
-			break;
-		case 1:
-			break;
-		default:
-			break;
+    EKEventStore    *eventStore = [[EKEventStore alloc] init];
+    __block BOOL    canAccess = NO;
+	__block BOOL blockRan = NO;
+	
+	if(![IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6"])
+		return YES;
+	
+	
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
+            canAccess = granted;
+
+            if (error!=Nil)
+            {
+                NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+            }
+		    
+			blockRan = YES;
+        }];
+
+	while (!blockRan) {
+		sleep(1);
 	}
+	
+	[eventStore release];
+    return canAccess;
 }
-
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-
-}
-
-+ (void) checkAccessPermissionWithEventStoreObj: (EKEventStore*) eventStore
-{
-	if ([IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6.0"])
-    {
-        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
-			if(!granted)
-			{
-				UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Hint" message:@"Please allow iBabe to access to your calendar for the reminder feature of the iBabe." delegate:self cancelButtonTitle:@"Not Now" otherButtonTitles:@"Try Again", nil];
-				
-				[alert show];
-				
-			}
-			
-		}];
-    }
-}
-
-
 @end

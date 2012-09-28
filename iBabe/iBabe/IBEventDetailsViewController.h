@@ -37,6 +37,7 @@
 
 @property (retain, nonatomic) EKEvent* currentEvent;
 @property (retain, nonatomic) IBOutlet UIButton *btnShowLocation;
+@property (retain, nonatomic) IBOutlet UIView *baseView;
 
 
 - (void) reloadData;

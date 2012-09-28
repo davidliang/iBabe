@@ -396,7 +396,9 @@
     self.topViewPageControl.currentPage = 0;
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
 	
-    if ([self showTutorial])
+    
+	// ---- Load Hints Views
+	if ([self showTutorial])
     {
 		NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
         IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
@@ -407,12 +409,23 @@
         [[appDelegate window] addSubview:tutorialView];
     }
 	
+	
+	// ---- Load Welcome Views
 	NSArray                             *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
 	IBWelcomeViewController	*welcomeView = [xibContentsWelcome lastObject];
 	[welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
 	[welcomeView	initContentViews];
 	IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[[appDelegate window] addSubview:welcomeView];
+	
+	// ---- Load Calendar Permission Views
+	if (![IBEKCalendarHelper checkIsCalendarAccessible])
+	{
+		IBCheckPermissionLauncher* launcher = [[IBCheckPermissionLauncher alloc]init];
+		[launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
+		[launcher release];
+	}
+	
 }
 
 

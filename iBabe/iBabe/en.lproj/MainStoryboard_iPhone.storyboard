@@ -402,6 +402,7 @@
                     <navigationItem key="navigationItem" id="MTJ-b5-QiZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="baseView" destination="FcJ-Wj-5T2" id="sYd-nL-XrI"/>
                         <outlet property="btnShowLocation" destination="qMx-28-y5C" id="hQd-bI-fGd"/>
                         <outlet property="contentView" destination="E9q-r9-rKO" id="BTs-Nv-jC6"/>
                         <outlet property="lbAlarm1" destination="kgj-eY-dq5" id="UET-My-ucP"/>
@@ -1188,6 +1189,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventDetailsViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="baseView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="btnShowLocation" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contentView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="lbAlarm1" candidateClass="UILabel"/>
@@ -1204,8 +1206,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="IBEventLocationMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IBEventLocationMapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="btnShowMyLocationPressed:"/>
-                <relationship kind="action" name="btnShowTargetLocationPressed:"/>
                 <relationship kind="outlet" name="mapEventLocation" candidateClass="MKMapView"/>
             </relationships>
         </class>

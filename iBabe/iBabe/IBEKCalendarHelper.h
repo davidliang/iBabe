@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <EventKit/EventKit.h>
 #import "IBBCommon.h"
+#import "IBCheckPermissionViewController.h"
+#import "IBAppDelegate.h"
+
 
 static NSString *CALENDAR_NAME = @"iBabe Calendar";
 static NSString *USER_DEFAULT_CALENDAR_NAME = @"iBB_Cal_ID";
@@ -28,5 +31,8 @@ static NSString *URL_ID = @"http://iBabe.sigmapps.com.au";
 + (BOOL)deleteEvent:(NSString *)eventId;
 
 + (void)removeDevCal;
+
+
++ (BOOL) checkIsCalendarAccessible;
 
 @end
