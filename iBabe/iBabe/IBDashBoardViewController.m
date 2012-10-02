@@ -775,8 +775,32 @@
 {
     //    [sharePopView setHidden:YES];
     // [self takeScreenshotForPragnencyInfoView];
+	
+	
+	FBSession* fbSession = [[FBSession alloc]init];
+
+	
+	if(!fbSession.isOpen)
+	{
+		[fbSession openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+			
+		}];
+	
+	}
+	
+	
+
 }
 
+-(void)fbDidLogin
+{
+
+}
+
+-(void)fbDidLogout
+{
+
+}
 
 
 - (void)didTapShare2Twitter:(UIButton *)btn

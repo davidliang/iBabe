@@ -23,6 +23,7 @@
 //--- QQ Weibo SDK
 
 //--- Facebook SDK
+#import "Facebook.h"
 
 
 //---- Twitter SDK
