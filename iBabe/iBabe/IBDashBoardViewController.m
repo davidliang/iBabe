@@ -395,12 +395,16 @@
     self.topScrollView.contentSize = CGSizeMake(self.topScrollView.frame.size.width * 2, self.topScrollView.frame.size.height);
     self.topViewPageControl.currentPage = 0;
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-	
-    
-	// ---- Load Hints Views
-	if ([self showTutorial])
+
+//    if (fbSession == Nil)
+//    {
+//        fbSession = [[FBSession alloc] init];
+//    }
+
+    // ---- Load Hints Views
+    if ([self showTutorial])
     {
-		NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
+        NSArray                             *xibContents = [[NSBundle mainBundle] loadNibNamed:@"DashboardTutorialView" owner:self options:nil];
         IBTutorialDashboardViewControaller  *tutorialView = [xibContents lastObject];
         [tutorialView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
         [tutorialView setTutorialWithParentViewName:IBParentViewNameDashboardView];
@@ -408,24 +412,26 @@
         IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
         [[appDelegate window] addSubview:tutorialView];
     }
-	
-	
-	// ---- Load Welcome Views
-	NSArray                             *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
-	IBWelcomeViewController	*welcomeView = [xibContentsWelcome lastObject];
-	[welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
-	[welcomeView	initContentViews];
-	IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
-	[[appDelegate window] addSubview:welcomeView];
-	
-	// ---- Load Calendar Permission Views
-	if (![IBEKCalendarHelper checkIsCalendarAccessible])
-	{
-		IBCheckPermissionLauncher* launcher = [[IBCheckPermissionLauncher alloc]init];
-		[launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
-		[launcher release];
-	}
-	
+
+    // ---- Load Welcome Views
+    NSArray                 *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
+    IBWelcomeViewController *welcomeView = [xibContentsWelcome lastObject];
+    [welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+    [welcomeView    initContentViews];
+    IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[appDelegate window] addSubview:welcomeView];
+
+    // ---- Load Calendar Permission Views
+    if (![IBEKCalendarHelper checkIsCalendarAccessible])
+    {
+        UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+        [permissionAlert show];
+
+        [permissionAlert release];
+    }
+
+//    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
+//    [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
 }
 
 
@@ -440,12 +446,36 @@
 }
 
 
--(BOOL) showWelcomeView
+
+- (BOOL)showWelcomeView
 {
-	NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    BOOL shown = [userDef boolForKey:@"shownWelcome"];
+    NSUserDefaults  *userDef = [NSUserDefaults standardUserDefaults];
+    BOOL            shown = [userDef boolForKey:@"shownWelcome"];
+
     return !shown;
 }
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
+
+    switch (buttonIndex) {
+        case 0:
+            break;
+
+        case 1:
+            [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
+            break;
+
+        default:
+            break;
+    }
+
+    [launcher release];
+}
+
 
 
 - (void)viewDidUnload
@@ -557,7 +587,7 @@
     [sharePopView release];
     [msgCenterView release];
     [weiboEngine release];
-
+//    [fbSession release];
     [qqWBWebContainer release];
 
     [super dealloc];
@@ -775,32 +805,26 @@
 {
     //    [sharePopView setHidden:YES];
     // [self takeScreenshotForPragnencyInfoView];
-	
-	
-	FBSession* fbSession = [[FBSession alloc]init];
 
-	
-	if(!fbSession.isOpen)
-	{
-		[fbSession openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-			
-		}];
-	
-	}
-	
-	
-
+//    FBSession *fbSession = [[[FBSession alloc] init] autorelease];
+//
+//    if (!fbSession.isOpen)
+//    {
+//        [fbSession openWithCompletionHandler:^(FBSession * session, FBSessionState status, NSError * error) {
+//            }];
+//    }
 }
 
--(void)fbDidLogin
+- (void)fbDidLogin
 {
-
 }
 
--(void)fbDidLogout
+
+
+- (void)fbDidLogout
 {
-
 }
+
 
 
 - (void)didTapShare2Twitter:(UIButton *)btn

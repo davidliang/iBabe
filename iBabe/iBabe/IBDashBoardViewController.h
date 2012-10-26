@@ -23,7 +23,7 @@
 //--- QQ Weibo SDK
 
 //--- Facebook SDK
-#import "Facebook.h"
+
 
 
 //---- Twitter SDK
@@ -32,7 +32,7 @@
 
 
 
-@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate,UIWebViewDelegate>
+@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate,UIWebViewDelegate, UIAlertViewDelegate>
 {
     NSMutableArray  *currentEvents;
     UIView          *sharePopView;
@@ -43,7 +43,7 @@
 	//---QQ
 	
 	//--- Facebook
-	
+
 	
 	
 	UIWebView		*qqWBWebContainer;

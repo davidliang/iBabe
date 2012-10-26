@@ -12,27 +12,30 @@
 
 @implementation IBCheckPermissionLauncher
 
-
--(void)launchCheckPermissionViewWithWidth:(CGFloat)width Height:(CGFloat)height	
+- (void)launchCheckPermissionViewWithWidth:(CGFloat)width Height:(CGFloat)height
 {
-	CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-	NSArray                             *xibContentsPermission = [[NSBundle mainBundle] loadNibNamed:@"CheckPermissionView" owner:self options:nil];
-	IBCheckPermissionViewController		*permissionView = [xibContentsPermission lastObject];
-	
-	[permissionView setFrame:CGRectMake(0,height+statusBarFrame.size.height, width, height)];
-	
-	[permissionView initContentViews];
-	
-	IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
-	[[appDelegate window] addSubview:permissionView];
-	
-	[UIView animateWithDuration:0.1 delay:2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-		[permissionView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, width, height)];
-	} completion:^(BOOL finished) {
-		
-	}];
-	
+    CGRect                          statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+    NSArray                         *xibContentsPermission = [[NSBundle mainBundle] loadNibNamed:@"CheckPermissionView" owner:self options:nil];
+    IBCheckPermissionViewController *permissionView = [xibContentsPermission lastObject];
 
+	
+	CGRect screen = [[UIScreen mainScreen]bounds];
+	
+    //	[permissionView setFrame:CGRectMake(0,height+statusBarFrame.size.height, width, height)];
+    [permissionView setFrame:CGRectMake(0, statusBarFrame.size.height, width, screen.size.height-statusBarFrame.size.height)];
+
+    [permissionView setAlpha:0.2];
+
+    [permissionView initContentViews];
+
+    IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[appDelegate window] addSubview:permissionView];
+
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [permissionView setAlpha:1];
+
+        } completion:^(BOOL finished) {
+        }];
 }
 
 @end

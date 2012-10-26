@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *contentScrollView;
 @property (retain, nonatomic) IBOutlet UIView       *contentView;
 @property (retain, nonatomic) IBOutlet UIPageControl *pageCtrl;
+@property (retain, nonatomic) IBOutlet UIImageView *imgDialogBg;
 
 @property (retain, nonatomic) IBOutlet UIButton *btnDismiss;
 
