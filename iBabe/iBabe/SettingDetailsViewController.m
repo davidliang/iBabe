@@ -59,32 +59,32 @@
 
     alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Invalid \"Last Period \" value. Your last period should be earlier than today." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [self.view addSubview:alert];
-	
-	[self	customiseSegmentControl];
+
+    [self   customiseSegmentControl];
 }
 
 
--(void) customiseSegmentControl
+
+- (void)customiseSegmentControl
 {
-	// --- Prepare images for the different parts of the Segment Control.
+    // --- Prepare images for the different parts of the Segment Control.
     UIImage *imgSelected = [[UIImage imageNamed:@"segments-selected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0f, 0, 20.0f)];
     UIImage *imgUnselected = [[UIImage imageNamed:@"segments-unselected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20.0f, 0, 20.0f)];
-	
+
     UIImage *imgSelectedUnSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIImage *imgUnSelectedUnSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIImage *imgUnSelectedSelected = [[UIImage imageNamed:@"segment-divider.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-	
+
     // --- set the selected and unselected image.
     [dateType setBackgroundImage:imgUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [dateType setBackgroundImage:imgSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-	
+
     // --- Divider
     [dateType setDividerImage:imgSelectedUnSelected forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [dateType setDividerImage:imgUnSelectedUnSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [dateType setDividerImage:imgUnSelectedSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-	
-
 }
+
 
 
 - (void)loadView
@@ -137,7 +137,10 @@
     NSInteger   selectedTypeIdx = [self.dateType selectedSegmentIndex];
     NSDate      *calDueDate = Nil;
 
-    BOOL validDate = YES;
+    BOOL        validDate = YES;
+    NSString    *errMsg1 = @"Oops! Your last period should be earlier than today. Please try again.";
+    NSString    *errMsg2 = @"Oops! Based on the value that you have provided, your baby should had been born. Please try again.";
+    NSString    *errMsg3 = @"Oops! Due date should not be more than 40 weeks from today. Please try again.";
 
     switch (selectedTypeIdx) {
         case 0:
@@ -149,8 +152,7 @@
             {
                 validDate = NO;
 
-                [alert setMessage:@"Invalid \"Last Period \" value. Your last period should be earlier than today. Please try again."];
-
+                [alert setMessage:errMsg1];
                 [alert show];
             }
             // --- Check if calulated due date which based on the last period date value
@@ -158,7 +160,7 @@
             else if ([calDueDate compare:[NSDate date]] == NSOrderedAscending)
             {
                 validDate = NO;
-                [alert setMessage:@"Invalid \"Last Period \" value. Based on your last period, your baby should had been born. Please try again."];
+                [alert setMessage:errMsg2];
                 [alert show];
             }
             else
@@ -170,7 +172,26 @@
 
         case 1:
             // --- Selected the "Due Date" option.
-            [IBBCommon saveDueDateToPlist:[dueDatePicker date]];
+
+            if ([[dueDatePicker date] compare:[NSDate date]] == NSOrderedAscending)
+            {
+                validDate = NO;
+                [alert setMessage:errMsg2];
+                [alert show];
+            }
+
+            else if ([[dueDatePicker date] compare:[[NSDate date] dateByAddingTimeInterval:60 * 60 * 24 * 7 * 40]] == NSOrderedDescending)
+            {
+                validDate = NO;
+                [alert setMessage:errMsg3];
+                [alert show];
+            }
+
+            else
+            {
+                [IBBCommon saveDueDateToPlist:[dueDatePicker date]];
+            }
+
             break;
 
         default:

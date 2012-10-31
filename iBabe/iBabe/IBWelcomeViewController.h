@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IBBCommon.h"
+#import "IBDateHelper.h"
+//#import "IBDashBoardViewController.h"
+//#import "IBAppDelegate.h"
+
+
 
 @interface IBWelcomeViewController : UIView <UIScrollViewDelegate>
 {
@@ -20,6 +26,8 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnYes;
 @property (retain, nonatomic) IBOutlet UIView *viewTop;
 @property (retain, nonatomic) IBOutlet UIView *viewBottom;
+@property (retain, nonatomic) IBOutlet UIDatePicker *dueDatePicker;
+@property (retain, nonatomic) IBOutlet UIView *welcomeView;
 
 - (void)initContentViews;
 - (IBAction)didTapCloseWelcomeBtn:(id)sender;

@@ -79,5 +79,7 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *topScrollView;
 
 - (IBAction)onTopViewChanged:(id)sender;
+- (void)initWeekAndDayIndicatorsForCountDown;
+- (void)initWeekAndDayIndicatorsForPregnancyDays;
 
 @end

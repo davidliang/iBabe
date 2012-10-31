@@ -396,10 +396,10 @@
     self.topViewPageControl.currentPage = 0;
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
 
-//    if (fbSession == Nil)
-//    {
-//        fbSession = [[FBSession alloc] init];
-//    }
+    //    if (fbSession == Nil)
+    //    {
+    //        fbSession = [[FBSession alloc] init];
+    //    }
 
     // ---- Load Hints Views
     if ([self showTutorial])
@@ -414,12 +414,16 @@
     }
 
     // ---- Load Welcome Views
-    NSArray                 *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
-    IBWelcomeViewController *welcomeView = [xibContentsWelcome lastObject];
-    [welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
-    [welcomeView    initContentViews];
-    IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[appDelegate window] addSubview:welcomeView];
+    if ([self showWelcomeView])
+    {
+        NSArray                 *xibContentsWelcome = [[NSBundle mainBundle] loadNibNamed:@"WelcomeView" owner:self options:nil];
+        IBWelcomeViewController *welcomeView = [xibContentsWelcome lastObject];
+
+        [welcomeView setFrame:CGRectMake(0, statusBarFrame.size.height + statusBarFrame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+        [welcomeView    initContentViews];
+        IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [[appDelegate window] addSubview:welcomeView];
+    }
 
     // ---- Load Calendar Permission Views
     if (![IBEKCalendarHelper checkIsCalendarAccessible])
@@ -430,8 +434,8 @@
         [permissionAlert release];
     }
 
-//    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
-//    [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
+    //    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
+    //    [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
 }
 
 
@@ -587,7 +591,7 @@
     [sharePopView release];
     [msgCenterView release];
     [weiboEngine release];
-//    [fbSession release];
+    //    [fbSession release];
     [qqWBWebContainer release];
 
     [super dealloc];
@@ -776,11 +780,12 @@
     {
         switch (self.topViewPageControl.currentPage) {
             case 0:
-                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by iBabe", weeks, days];
+                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by iBabe", weeksRemain, daysRemain];
                 break;
 
             case 1:
-                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by iBabe", weeksRemain, daysRemain];
+                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by iBabe", weeks, days];
+
                 break;
 
             default:
@@ -806,14 +811,16 @@
     //    [sharePopView setHidden:YES];
     // [self takeScreenshotForPragnencyInfoView];
 
-//    FBSession *fbSession = [[[FBSession alloc] init] autorelease];
-//
-//    if (!fbSession.isOpen)
-//    {
-//        [fbSession openWithCompletionHandler:^(FBSession * session, FBSessionState status, NSError * error) {
-//            }];
-//    }
+    //    FBSession *fbSession = [[[FBSession alloc] init] autorelease];
+    //
+    //    if (!fbSession.isOpen)
+    //    {
+    //        [fbSession openWithCompletionHandler:^(FBSession * session, FBSessionState status, NSError * error) {
+    //            }];
+    //    }
 }
+
+
 
 - (void)fbDidLogin
 {

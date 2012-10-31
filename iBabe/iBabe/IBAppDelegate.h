@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SMUICustomiseUtil.h"
 #import <EventKit/EventKit.h>
+#import "IBWelcomeViewController.h"
 
 @interface IBAppDelegate : UIResponder <UIApplicationDelegate>
 
