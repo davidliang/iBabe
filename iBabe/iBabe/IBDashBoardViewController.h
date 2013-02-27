@@ -15,40 +15,35 @@
 #import "IBWelcomeViewController.h"
 #import "IBCheckPermissionLauncher.h"
 
-//---Sina Weibo SDK
+// ---Sina Weibo SDK
 #import "WBEngine.h"
 #import "WBSendView.h"
 #import "WBLogInAlertView.h"
 
-//--- QQ Weibo SDK
+// --- QQ Weibo SDK
 
-//--- Facebook SDK
+// --- Facebook SDK
+#import <Social/Social.h>
 
-
-
-//---- Twitter SDK
+// ---- Twitter SDK
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 
-
-
-@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate,UIWebViewDelegate, UIAlertViewDelegate>
+@interface IBDashBoardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, WBEngineDelegate, WBLogInAlertViewDelegate, WBSendViewDelegate, UIWebViewDelegate, UIAlertViewDelegate>
 {
     NSMutableArray  *currentEvents;
     UIView          *sharePopView;
-	
-	//---Sina Weibo
-    WBEngine        *weiboEngine;
-	
-	//---QQ
-	
-	//--- Facebook
 
-	
-	
-	UIWebView		*qqWBWebContainer;
-	
-    UIAlertView		*msgCenterView;
+    // ---Sina Weibo
+    WBEngine *weiboEngine;
+
+    // ---QQ
+
+    // --- Facebook
+
+    UIWebView *qqWBWebContainer;
+
+    UIAlertView *msgCenterView;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView  *eventsList;

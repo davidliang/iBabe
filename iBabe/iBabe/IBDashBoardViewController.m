@@ -385,6 +385,10 @@
 {
     [super viewDidLoad];
 
+    [eventsList setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"table-bg.png"]]];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDueDateInfoPanel) name:@"notificationUpdateDueDate" object:nil];
+
     if (msgCenterView == Nil)
     {
         msgCenterView = [[UIAlertView alloc] init];
@@ -780,11 +784,11 @@
     {
         switch (self.topViewPageControl.currentPage) {
             case 0:
-                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by iBabe", weeksRemain, daysRemain];
+                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by #iBabe#", weeksRemain, daysRemain];
                 break;
 
             case 1:
-                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by iBabe", weeks, days];
+                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by #iBabe#", weeks, days];
 
                 break;
 
@@ -808,19 +812,44 @@
 
 - (void)didTapShare2Facebook:(UIButton *)btn
 {
-    //    [sharePopView setHidden:YES];
-    // [self takeScreenshotForPragnencyInfoView];
+    [sharePopView setHidden:YES];
+    UIImage *img = [self takeScreenshotForPragnencyInfoView];
 
-    //    FBSession *fbSession = [[[FBSession alloc] init] autorelease];
-    //
-    //    if (!fbSession.isOpen)
-    //    {
-    //        [fbSession openWithCompletionHandler:^(FBSession * session, FBSessionState status, NSError * error) {
-    //            }];
-    //    }
+    // 首先判断服务器是否可以访问
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+
+        // 使用SLServiceTypeSinaWeibo来创建一个新浪微博view Controller
+        SLComposeViewController *socialVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+
+        // 写一个bolck，用于completionHandler的初始化
+        SLComposeViewControllerCompletionHandler myBlock =^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultCancelled)
+            {
+	
+            }
+            else
+            {
+    
+            }
+
+            [socialVC dismissViewControllerAnimated:YES completion:Nil];
+        };
+        // 初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
+        socialVC.completionHandler = myBlock;
+
+        // 给view controller初始化默认的图片，url，文字信息
+        [socialVC setInitialText:[self generateSocialMediaDefaultMessage:NO]];
+        [socialVC addImage:img];
+
+        // 以模态的方式展现view controller
+        [self presentViewController:socialVC animated:YES completion:Nil];
+    }
+    else
+    {
+		//Facebook services unavailable.
+    }
 }
-
-
 
 - (void)fbDidLogin
 {
@@ -969,6 +998,14 @@
 #pragma mark WBLogInAlertViewDelegate
 - (void)logInAlertView:(WBLogInAlertView *)alertView logInWithUserID:(NSString *)userID password:(NSString *)password
 {
+}
+
+
+
+- (void)refreshDueDateInfoPanel
+{
+    [self initWeekAndDayIndicatorsForCountDown];
+    [self initWeekAndDayIndicatorsForPregnancyDays];
 }
 
 

@@ -28,10 +28,9 @@
 
     [IBBCommon createBBSettingsPlistFileForNewVersionWithThisVersionNumber:3];
 
-    [SMUICustomiseUtil customiseNavigationBar];
+	[SMUICustomiseUtil customiseNavigationBar];
     [SMUICustomiseUtil  customiseUISegmentedControlAndSwitch];
-    [SMUICustomiseUtil customiseTableView];
-
+	//[SMUICustomiseUtil customiseTableView];
 
     // --- Create ibabe calendar on the
     // [IBEKCalendarHelper createIBabeCalendar];
@@ -41,6 +40,17 @@
 
     return YES;
 }
+
+
+//
+//- (BOOL)application         :(UIApplication *)application
+//        openURL             :(NSURL *)url
+//        sourceApplication   :(NSString *)sourceApplication
+//        annotation          :(id)annotation
+//{
+//    // attempt to extract a token from the url
+//	//  return [FBSession.activeSession handleOpenURL:url];
+//}
 
 
 

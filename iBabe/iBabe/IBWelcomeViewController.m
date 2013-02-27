@@ -127,6 +127,11 @@ bool userKnowTheDueDate = YES;
         // --- Save user picked date.
         [IBBCommon saveUserSelectedDateToPlist:[_dueDatePicker date]];
 
+		
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"notificationUpdateDueDate" object:self];
+		
+		
         [self removeFromSuperview];
 
         // ---- TODO: un comment
