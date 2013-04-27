@@ -400,11 +400,6 @@
     self.topViewPageControl.currentPage = 0;
     CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
 
-    //    if (fbSession == Nil)
-    //    {
-    //        fbSession = [[FBSession alloc] init];
-    //    }
-
     // ---- Load Hints Views
     if ([self showTutorial])
     {
@@ -427,6 +422,9 @@
         [welcomeView    initContentViews];
         IBAppDelegate *appDelegate = (IBAppDelegate *)[[UIApplication sharedApplication] delegate];
         [[appDelegate window] addSubview:welcomeView];
+
+        NSUserDefaults *shownWelcomeDef = [NSUserDefaults standardUserDefaults];
+        [shownWelcomeDef setBool:YES forKey:@"shownWelcome"];
     }
 
     // ---- Load Calendar Permission Views
@@ -669,7 +667,7 @@
         [shareTitle release];
 
         // ---- Button share to Weibo
-        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(10, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
+        UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(30, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
         [btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
         [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Weibo];
@@ -677,7 +675,7 @@
         [btnShare2Weibo release];
 
         // ---- Button share to Facebook
-        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 10, btnShare2Weibo.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 20, btnShare2Weibo.frame.origin.y, 44, 44)];
         [btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Facebook];
@@ -685,14 +683,14 @@
         [btnShare2Facebook release];
 
         // ---- Button share to Facebook
-        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 10, btnShare2Facebook.frame.origin.y, 44, 44)];
+        UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 20, btnShare2Facebook.frame.origin.y, 44, 44)];
         [btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
         [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
         [sharePopView addSubview:btnShare2Twitter];
 
         [btnShare2Twitter release];
 
-        UIButton *btnShare2QQ = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Twitter.frame.size.width + btnShare2Twitter.frame.origin.x + 10, btnShare2Twitter.frame.origin.y, 44, 44)];
+        UIButton *btnShare2QQ = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Twitter.frame.size.width + btnShare2Twitter.frame.origin.x + 20, btnShare2Twitter.frame.origin.y, 44, 44)];
         [btnShare2QQ setImage:[UIImage imageNamed:@"qq_weibo.png"] forState:UIControlStateNormal];
         [btnShare2QQ addTarget:self action:@selector(didTapShare2QQ:) forControlEvents:UIControlEventTouchUpInside];
         [btnShare2QQ setHidden:YES];
@@ -784,11 +782,11 @@
     {
         switch (self.topViewPageControl.currentPage) {
             case 0:
-                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by #iBabe#", weeksRemain, daysRemain];
+                msg = [NSString stringWithFormat:@"I've been pregnant for %d weeks and %d days. - posted by #iBabe#", weeks, days];
                 break;
 
             case 1:
-                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by #iBabe#", weeks, days];
+                msg = [NSString stringWithFormat:@"Baby arrives in %d weeks and %d day - posted by #iBabe#", weeksRemain, daysRemain];
 
                 break;
 
@@ -815,53 +813,54 @@
     [sharePopView setHidden:YES];
     UIImage *img = [self takeScreenshotForPragnencyInfoView];
 
-    // 首先判断服务器是否可以访问
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+	// Check if user using iOS 6 or later
+    if (NSClassFromString(@"SLComposeViewController") != Nil)
     {
+        // 首先判断服务器是否可以访问
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+        {
+            // 使用SLServiceTypeSinaWeibo来创建一个facebook view Controller
+            SLComposeViewController *socialVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
 
-        // 使用SLServiceTypeSinaWeibo来创建一个新浪微博view Controller
-        SLComposeViewController *socialVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            // 写一个bolck，用于completionHandler的初始化
+            SLComposeViewControllerCompletionHandler myBlock =^(SLComposeViewControllerResult result) {
+                if (result == SLComposeViewControllerResultCancelled)
+                {
+                }
+                else
+                {
+                }
 
-        // 写一个bolck，用于completionHandler的初始化
-        SLComposeViewControllerCompletionHandler myBlock =^(SLComposeViewControllerResult result) {
-            if (result == SLComposeViewControllerResultCancelled)
-            {
-	
-            }
-            else
-            {
-    
-            }
+                [socialVC dismissViewControllerAnimated:YES completion:Nil];
+            };
+            // 初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
+            socialVC.completionHandler = myBlock;
 
-            [socialVC dismissViewControllerAnimated:YES completion:Nil];
-        };
-        // 初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
-        socialVC.completionHandler = myBlock;
+            // 给view controller初始化默认的图片，url，文字信息
+            [socialVC setInitialText:[self generateSocialMediaDefaultMessage:NO]];
+            [socialVC addImage:img];
 
-        // 给view controller初始化默认的图片，url，文字信息
-        [socialVC setInitialText:[self generateSocialMediaDefaultMessage:NO]];
-        [socialVC addImage:img];
-
-        // 以模态的方式展现view controller
-        [self presentViewController:socialVC animated:YES completion:Nil];
+            // 以模态的方式展现view controller
+            [self presentViewController:socialVC animated:YES completion:Nil];
+        }
+        else
+        {
+            // Facebook services unavailable.
+			UIAlertView* alertFBNotAvailable = [[UIAlertView alloc]initWithTitle:@"Oops" message:@"Share to Facebook feature is currently not available. Please check your internet connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+			
+			[alertFBNotAvailable show];
+			[alertFBNotAvailable release];
+        }
     }
     else
     {
-		//Facebook services unavailable.
+        // iOS 5, Social.framework unavailable, use Twitter.framework instead
+		UIAlertView* alertVersionTooLow = [[UIAlertView alloc]initWithTitle:@"Oops" message:@"Share to Facebook feature only available to iOS 6+, please upgrade your iOS system." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+		
+		[alertVersionTooLow show];
+		[alertVersionTooLow release];
     }
 }
-
-- (void)fbDidLogin
-{
-}
-
-
-
-- (void)fbDidLogout
-{
-}
-
-
 
 - (void)didTapShare2Twitter:(UIButton *)btn
 {

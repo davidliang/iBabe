@@ -243,6 +243,7 @@
 	NSError* error = nil;
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self cacheDirectoryPath] error:&error];
 	
+
 	for( NSString *file in files ) {
 		if( file != @"." && file != @".." ) {
 			

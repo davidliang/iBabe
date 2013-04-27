@@ -254,15 +254,12 @@ enum GeneralPickerType  genPType;
     tvLocation.layer.borderColor = [[UIColor colorWithRed:0.878 green:0.773 blue:0.804 alpha:1] CGColor];
 
     // --- Content and scroll view
-	
-	
-	CGFloat y = [[UIApplication sharedApplication] statusBarFrame].size.height + fabs(self.navigationController.navigationBar.frame.origin.y) + self.navigationController.navigationBar.frame.size.height;
 
-	
-	[self.scrollView setFrame:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)];
-	[self.view addSubview:self.scrollView];
+    CGFloat y = [[UIApplication sharedApplication] statusBarFrame].size.height + fabs(self.navigationController.navigationBar.frame.origin.y) + self.navigationController.navigationBar.frame.size.height;
 
-	
+    [self.scrollView setFrame:CGRectMake(0, y, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:self.scrollView];
+
     [[self contentView] setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.btnDelete.frame.origin.y + self.btnDelete.frame.size.height + NAVIGATION_BAR_HEIGHT * 3)];
 
     [self.contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];

@@ -266,6 +266,8 @@
 		63D35CC115E4959B00F0C459 /* table-list-item-bg-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D35CBD15E4959A00F0C459 /* table-list-item-bg-selected@2x.png */; };
 		63D35CC215E4959B00F0C459 /* table-list-item-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D35CBE15E4959A00F0C459 /* table-list-item-bg.png */; };
 		63D35CC315E4959B00F0C459 /* table-list-item-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D35CBF15E4959B00F0C459 /* table-list-item-bg@2x.png */; };
+		63DC3C6C16F8AFFE005FCCF5 /* welcome-set@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DC3C6B16F8AFFE005FCCF5 /* welcome-set@2x.png */; };
+		63DC3C6F16F8B0DE005FCCF5 /* welcome-set.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DC3C6E16F8B0DE005FCCF5 /* welcome-set.png */; };
 		63E24D831651260500618453 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E24D821651260500618453 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		63E24D851651261600618453 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E24D841651261600618453 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		63E24D87165127ED00618453 /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E24D86165127ED00618453 /* icon_post.png */; };
@@ -653,6 +655,8 @@
 		63D35CBD15E4959A00F0C459 /* table-list-item-bg-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-list-item-bg-selected@2x.png"; sourceTree = "<group>"; };
 		63D35CBE15E4959A00F0C459 /* table-list-item-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-list-item-bg.png"; sourceTree = "<group>"; };
 		63D35CBF15E4959B00F0C459 /* table-list-item-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-list-item-bg@2x.png"; sourceTree = "<group>"; };
+		63DC3C6B16F8AFFE005FCCF5 /* welcome-set@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-set@2x.png"; sourceTree = "<group>"; };
+		63DC3C6E16F8B0DE005FCCF5 /* welcome-set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-set.png"; sourceTree = "<group>"; };
 		63E24D75164FCDEC00618453 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Users/David/Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		63E24D821651260500618453 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		63E24D841651261600618453 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -844,6 +848,8 @@
 		63449B5316077954007CAAFE /* welcome-view */ = {
 			isa = PBXGroup;
 			children = (
+				63DC3C6E16F8B0DE005FCCF5 /* welcome-set.png */,
+				63DC3C6B16F8AFFE005FCCF5 /* welcome-set@2x.png */,
 				63FB7CB8162ECAE8005622B9 /* welcome-features-other.png */,
 				63FB7CB9162ECAE8005622B9 /* welcome-features-other@2x.png */,
 				63FB7CB6162EC7D4005622B9 /* welcome-features-share@2x.png */,
@@ -1241,10 +1247,10 @@
 				63A69B521590B16E00ABB416 /* IBCalendarViewController.m */,
 				63A69BAE1592FD9D00ABB416 /* IBSettingsNavViewController.h */,
 				63A69BAF1592FD9E00ABB416 /* IBSettingsNavViewController.m */,
-				63A69BDF1594327500ABB416 /* IBDashboardEventCellViewController.h */,
 				63A69BE01594327600ABB416 /* IBDashboardEventCellViewController.m */,
 				6348201F159984BC003594AF /* IBEventDetailsViewController.h */,
 				63482020159984BC003594AF /* IBEventDetailsViewController.m */,
+				63A69BDF1594327500ABB416 /* IBDashboardEventCellViewController.h */,
 				63482039159BE805003594AF /* IBEventLocationMapViewController.h */,
 				6348203A159BE805003594AF /* IBEventLocationMapViewController.m */,
 				6348203F159C304A003594AF /* IBAnnotation.h */,
@@ -1704,6 +1710,8 @@
 				63FB7CCB163194C1005622B9 /* button-mid-green-down@2x.png in Resources */,
 				63FB7CCD163194CA005622B9 /* button-mid-blue-down@2x.png in Resources */,
 				63E24D87165127ED00618453 /* icon_post.png in Resources */,
+				63DC3C6C16F8AFFE005FCCF5 /* welcome-set@2x.png in Resources */,
+				63DC3C6F16F8B0DE005FCCF5 /* welcome-set.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,7 +1884,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos6.1]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1894,7 +1902,7 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv6 i386";
 			};
@@ -1905,7 +1913,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos6.1]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1916,7 +1924,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv6 i386";
