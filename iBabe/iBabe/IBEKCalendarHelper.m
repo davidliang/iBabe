@@ -366,7 +366,7 @@
 	__block BOOL blockRan = NO;
 	
 	if(![IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6"])
-		return YES;
+		return NO;
 	
 	
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {

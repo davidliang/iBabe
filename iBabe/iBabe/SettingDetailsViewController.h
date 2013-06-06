@@ -11,6 +11,7 @@
 @interface SettingDetailsViewController : UIViewController<UIPickerViewDelegate>
 {
 	UIAlertView* alert;
+	IBOutlet UIImageView *bg;
 }
 
 @property(atomic,retain) IBOutlet UIDatePicker *dueDatePicker;

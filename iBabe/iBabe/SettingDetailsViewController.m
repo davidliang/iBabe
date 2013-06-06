@@ -57,6 +57,10 @@
     [self.dueDatePicker setDate:[IBBCommon loadUserSelectedDateFromPlist]];
     [self.dateType setSelectedSegmentIndex:[IBBCommon loadIsDateTypeLastPeriodFromPlist]];
 
+	
+	[bg setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+	
     alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Invalid \"Last Period \" value. Your last period should be earlier than today." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [self.view addSubview:alert];
 
@@ -98,6 +102,8 @@
 {
     [self setBtnSaveDueDate:nil];
 
+	[bg release];
+	bg = nil;
     [super viewDidUnload];
 }
 
@@ -127,6 +133,7 @@
 {
     [btnSaveDueDate release];
     [alert release];
+	[bg release];
     [super dealloc];
 }
 
