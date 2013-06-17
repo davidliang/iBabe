@@ -433,7 +433,8 @@
         UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
         [permissionAlert show];
 
-        [permissionAlert release];
+        [permissionAlert release];		
+		
     }
 
     //    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];

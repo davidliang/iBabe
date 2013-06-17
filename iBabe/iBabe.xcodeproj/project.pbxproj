@@ -676,6 +676,7 @@
 		63E2B2DB160D5EC700687629 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		63E586D315A2FD2C00C89E70 /* SMUICustomiseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUICustomiseUtil.h; sourceTree = "<group>"; };
 		63E586D415A2FD2C00C89E70 /* SMUICustomiseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUICustomiseUtil.m; sourceTree = "<group>"; };
+		63E7D5DB17693AC7004FBF0A /* iBabe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iBabe.entitlements; sourceTree = "<group>"; };
 		63E8A1C9175C7C3100ED85A1 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
 		63E8A1CA175C7C3100ED85A1 /* app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_icon@2x.png"; sourceTree = "<group>"; };
 		63EBE0A01605BD6C0067B6EA /* IBWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBWelcomeViewController.h; sourceTree = "<group>"; };
@@ -1148,6 +1149,7 @@
 		638F3215157B02350057AD60 /* iBabe */ = {
 			isa = PBXGroup;
 			children = (
+				63E7D5DB17693AC7004FBF0A /* iBabe.entitlements */,
 				636CDC64158CD194001AAD06 /* Library */,
 				63526DF5158CD0140089916D /* Resources */,
 				63E87F2915807C2700C36820 /* Entities */,
@@ -1447,7 +1449,7 @@
 		638F3202157B02340057AD60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Sigmapps Application Development";
 			};
 			buildConfigurationList = 638F3205157B02340057AD60 /* Build configuration list for PBXProject "iBabe" */;
@@ -1884,6 +1886,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos6.1]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1898,11 +1904,12 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv6 i386";
 			};
@@ -1913,18 +1920,26 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos6.1]" = "iPhone Developer";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zeting Liang";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos6.1]" = "iPhone Distribution: Zeting Liang";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos6.1;
+				PROVISIONING_PROFILE = "D59E1E3B-8CC0-4609-89A9-E5C5624C9FD1";
+				"PROVISIONING_PROFILE[sdk=iphoneos6.1]" = "D59E1E3B-8CC0-4609-89A9-E5C5624C9FD1";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv6 i386";
@@ -1939,7 +1954,7 @@
 				GCC_PREFIX_HEADER = "iBabe/iBabe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/iBabe/Library/tapku/**";
 				INFOPLIST_FILE = "iBabe/iBabe-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				New_Setting = "";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1962,7 +1977,7 @@
 				GCC_PREFIX_HEADER = "iBabe/iBabe-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/iBabe/Library/tapku/**";
 				INFOPLIST_FILE = "iBabe/iBabe-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				New_Setting = "";
 				OTHER_LDFLAGS = (
 					"-all_load",
