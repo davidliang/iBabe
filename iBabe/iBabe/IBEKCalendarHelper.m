@@ -118,7 +118,7 @@
     // --- That means app had been ran before and Cal has been created.
     if (calID != Nil)
     {
-        for (EKCalendar *aCal in eventStore.calendars) {
+        for (EKCalendar *aCal in [eventStore calendarsForEntityType:EKEntityTypeEvent]) {
             if ([aCal.title isEqualToString:CALENDAR_NAME])
             {
                 ibbCalExist = YES;
@@ -141,7 +141,7 @@
         // --- the app will pick up the exiting Calendar ID and add to the user settings.
         // --- If not, then add a new one.
 
-        for (EKCalendar *aCal in eventStore.calendars) {
+        for (EKCalendar *aCal in [eventStore calendarsForEntityType:EKEntityTypeEvent]) {
             if ([aCal.title isEqualToString:CALENDAR_NAME])
             {
                 ibbCalExist = YES;
@@ -156,7 +156,10 @@
 
     if (!ibbCalExist)
     {
-        EKCalendar *ibbCal = [EKCalendar calendarWithEventStore:eventStore];
+        //EKCalendar *ibbCal = [EKCalendar calendarWithEventStore:eventStore];
+		EKCalendar *ibbCal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:eventStore];
+		
+		
         ibbCal.title = CALENDAR_NAME;
         ibbCal.source = locSource;
         calID = ibbCal.calendarIdentifier;
@@ -223,7 +226,7 @@
 
     [eventStore removeCalendar:tCal commit:YES error:&e];
 
-    for (EKCalendar *aCal in eventStore.calendars) {
+    for (EKCalendar *aCal in [eventStore calendarsForEntityType:EKEntityTypeEvent]) {
         if ([aCal.title isEqualToString:CALENDAR_NAME])
         {
             [eventStore removeCalendar:aCal commit:YES error:&e];
@@ -363,26 +366,59 @@
 {
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     __block BOOL    canAccess = NO;
-	__block BOOL blockRan = NO;
-	
-	if(![IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6"])
-		return NO;
+//	__block BOOL blockRan = NO;
 	
 	
-    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
-            canAccess = granted;
+	
+	
+	
+	
+	if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
+	{
+		/* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+		[eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+		 {
+			 if ( granted )
+			 {
+				 NSLog(@"User has granted permission!");
+			 }
+			 else
+			 {
+				 NSLog(@"User has not granted permission!");
+			 }
+			 
+			 if (error!=Nil)
+			 {
+				 NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+			 }
 
-            if (error!=Nil)
-            {
-                NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
-            }
-		    
-			blockRan = YES;
-        }];
-
-	while (!blockRan) {
-		sleep(1);
+			 
+			 canAccess = granted;
+		 }];
 	}
+	
+	
+	
+	
+//	if(![IBBCommon checkIsDeviceVersionHigherThanRequiredVersion:@"6"])
+//		   return NO;
+//	
+//	
+//	
+//    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error) {
+//            canAccess = granted;
+//
+//            if (error!=Nil)
+//            {
+//                NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+//            }
+//		    
+////			blockRan = YES;
+//        }];
+
+//	while (!blockRan) {
+//		sleep(1);
+//	}
 	
 	[eventStore release];
     return canAccess;

@@ -428,20 +428,38 @@
     }
 
     // ---- Load Calendar Permission Views
-    if (![IBEKCalendarHelper checkIsCalendarAccessible])
-    {
-        UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
-        [permissionAlert show];
 
-        [permissionAlert release];		
-		
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
+    {
+        /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
+            {
+                if (granted)
+                {
+                    NSLog (@"User has granted permission!");
+                }
+                else
+                {
+                    UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+                    [permissionAlert show];
+
+                    [permissionAlert release];
+                }
+
+                if (error != Nil)
+                {
+                    NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+                }
+            }];
     }
+
+    [eventStore release];
 
     //    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
     //    [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
 }
-
-
 
 - (BOOL)showTutorial
 {
@@ -814,7 +832,7 @@
     [sharePopView setHidden:YES];
     UIImage *img = [self takeScreenshotForPragnencyInfoView];
 
-	// Check if user using iOS 6 or later
+    // Check if user using iOS 6 or later
     if (NSClassFromString(@"SLComposeViewController") != Nil)
     {
         // 首先判断服务器是否可以访问
@@ -847,19 +865,19 @@
         else
         {
             // Facebook services unavailable.
-			UIAlertView* alertFBNotAvailable = [[UIAlertView alloc]initWithTitle:@"Oops" message:@"Share to Facebook feature is currently not available. Please check your internet connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
-			
-			[alertFBNotAvailable show];
-			[alertFBNotAvailable release];
+            UIAlertView *alertFBNotAvailable = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Share to Facebook feature is currently not available. Please check your internet connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+
+            [alertFBNotAvailable show];
+            [alertFBNotAvailable release];
         }
     }
     else
     {
         // iOS 5, Social.framework unavailable, use Twitter.framework instead
-		UIAlertView* alertVersionTooLow = [[UIAlertView alloc]initWithTitle:@"Oops" message:@"Share to Facebook feature only available to iOS 6+, please upgrade your iOS system." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
-		
-		[alertVersionTooLow show];
-		[alertVersionTooLow release];
+        UIAlertView *alertVersionTooLow = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Share to Facebook feature only available to iOS 6+, please upgrade your iOS system." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+
+        [alertVersionTooLow show];
+        [alertVersionTooLow release];
     }
 }
 
