@@ -32,3 +32,13 @@
 
 // This macro will create a detailed log message and run even during a production build
 #define AshDetailedLog(fmt, ...) NSLog((@"Func: %s, Line: %d, " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+
+// This macro is for loging.
+#define DEBUG_MODE
+
+#ifdef DEBUG_MODE
+#define DebugLog( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define DebugLog( s, ... )
+#endif

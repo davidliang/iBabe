@@ -169,7 +169,7 @@ static int statusBarHeight = (int)20;
 
 - (void)calendarMonthView:(TKCalendarMonthView *)monthView monthDidChange:(NSDate *)d
 {
-    // NSLog(@"calendarMonthView monthDidChange");
+    // DebugLog(@"calendarMonthView monthDidChange");
 }
 
 

@@ -174,12 +174,12 @@
             // -- Add the calender identifier to the user defaults.
             [userDefault setObject:calID forKey:USER_DEFAULT_CALENDAR_NAME];
 
-            // NSLog(@"iBBCal Added. Cal Id=%@", calID);
+            // DebugLog(@"iBBCal Added. Cal Id=%@", calID);
             return YES;
         }
         else
         {
-            // NSLog(@"iBBCal can't be added");
+            // DebugLog(@"iBBCal can't be added");
             return NO;
         }
 
@@ -205,7 +205,7 @@
 
     if (err != noErr)
     {
-        NSLog(@"##ERROR: deleteEvent Err - %@", err);
+        DebugLog(@"##ERROR: deleteEvent Err - %@", err);
         return NO;
     }
 
@@ -277,7 +277,7 @@
 
     if (err != noErr)
     {
-        NSLog(@"##ERROR: updateEvent Err - %@", err);
+        DebugLog(@"##ERROR: updateEvent Err - %@", err);
         return NO;
     }
 
@@ -309,7 +309,7 @@
 
     if (err != noErr)
     {
-        NSLog(@"%@", err);
+        DebugLog(@"%@", err);
         return NO;
     }
 
@@ -326,7 +326,7 @@
 //
 //    switch (buttonIndex) {
 //        case 0:
-//            NSLog(@"0");
+//            DebugLog(@"0");
 //            break;
 //
 //        case 1:
@@ -380,16 +380,16 @@
 		 {
 			 if ( granted )
 			 {
-				 NSLog(@"User has granted permission!");
+				 DebugLog(@"User has granted permission!");
 			 }
 			 else
 			 {
-				 NSLog(@"User has not granted permission!");
+				 DebugLog(@"User has not granted permission!");
 			 }
 			 
 			 if (error!=Nil)
 			 {
-				 NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+				 DebugLog (@"# checkIsCalendarAccessible ERROR = %@", error);
 			 }
 
 			 
@@ -410,7 +410,7 @@
 //
 //            if (error!=Nil)
 //            {
-//                NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+//                DebugLog (@"# checkIsCalendarAccessible ERROR = %@", error);
 //            }
 //		    
 ////			blockRan = YES;

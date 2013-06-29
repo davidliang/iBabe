@@ -361,7 +361,7 @@
 		634156F915EA16DB0032F9AA /* SMImageUtl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMImageUtl.m; path = Utils/SMImageUtl.m; sourceTree = "<group>"; };
 		634156FF15EA17070032F9AA /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		6341570015EA17070032F9AA /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		6341570115EA17070032F9AA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		6341570115EA17070032F9AA /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GTMDefines.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6341570315EA17070032F9AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6341570615EA17070032F9AA /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		6341570715EA17070032F9AA /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
@@ -446,7 +446,7 @@
 		634DCA1715A472B800653D2C /* gray-clock-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-clock-icon.png"; sourceTree = "<group>"; };
 		634DCA1A15A502AD00653D2C /* gray-alarm-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-alarm-icon.png"; sourceTree = "<group>"; };
 		634DCA2015A6D5F000653D2C /* IBEKCalendarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEKCalendarHelper.h; sourceTree = "<group>"; };
-		634DCA2115A6D5F000653D2C /* IBEKCalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEKCalendarHelper.m; sourceTree = "<group>"; };
+		634DCA2115A6D5F000653D2C /* IBEKCalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IBEKCalendarHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		634DCA2315A6F3BC00653D2C /* IBUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUITextField.h; sourceTree = "<group>"; };
 		634DCA2415A6F3BC00653D2C /* IBUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUITextField.m; sourceTree = "<group>"; };
 		634F98A815A303C600228957 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -582,7 +582,7 @@
 		638F3217157B02350057AD60 /* iBabe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBabe-Info.plist"; sourceTree = "<group>"; };
 		638F3219157B02350057AD60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		638F321B157B02350057AD60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		638F321D157B02350057AD60 /* iBabe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iBabe-Prefix.pch"; sourceTree = "<group>"; };
+		638F321D157B02350057AD60 /* iBabe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "iBabe-Prefix.pch"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		638F321E157B02350057AD60 /* IBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBAppDelegate.h; sourceTree = "<group>"; };
 		638F321F157B02350057AD60 /* IBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBAppDelegate.m; sourceTree = "<group>"; };
 		638F3222157B02350057AD60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 		63A4BBD7161AE02C0078BF26 /* permission-bg-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "permission-bg-pink.png"; sourceTree = "<group>"; };
 		63A4BBD9161AE05B0078BF26 /* btn-permission-dismiss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-permission-dismiss.png"; sourceTree = "<group>"; };
 		63A69B511590B16E00ABB416 /* IBCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCalendarViewController.h; sourceTree = "<group>"; };
-		63A69B521590B16E00ABB416 /* IBCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBCalendarViewController.m; sourceTree = "<group>"; };
+		63A69B521590B16E00ABB416 /* IBCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = IBCalendarViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63A69B591590BA9100ABB416 /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = Library/tapku/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 		63A69B651590BA9C00ABB416 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = Library/tapku/TapkuLibrary.bundle; sourceTree = "<group>"; };
 		63A69BAE1592FD9D00ABB416 /* IBSettingsNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBSettingsNavViewController.h; sourceTree = "<group>"; };
@@ -663,15 +663,15 @@
 		63E24D86165127ED00618453 /* icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_post.png; path = ../social_services_icons/icon_post.png; sourceTree = "<group>"; };
 		63E2B2CF160D5EC700687629 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		63E2B2D0160D5EC700687629 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		63E2B2D1160D5EC700687629 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		63E2B2D1160D5EC700687629 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63E2B2D2160D5EC700687629 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		63E2B2D3160D5EC700687629 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		63E2B2D3160D5EC700687629 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSString+SBJSON.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63E2B2D4160D5EC700687629 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		63E2B2D5160D5EC700687629 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
 		63E2B2D6160D5EC700687629 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		63E2B2D7160D5EC700687629 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
 		63E2B2D8160D5EC700687629 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		63E2B2D9160D5EC700687629 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		63E2B2D9160D5EC700687629 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SBJsonParser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		63E2B2DA160D5EC700687629 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		63E2B2DB160D5EC700687629 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		63E586D315A2FD2C00C89E70 /* SMUICustomiseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUICustomiseUtil.h; sourceTree = "<group>"; };

@@ -438,7 +438,7 @@
             {
                 if (granted)
                 {
-                    NSLog (@"User has granted permission!");
+                    DebugLog (@"User has granted permission!");
                 }
                 else
                 {
@@ -450,7 +450,7 @@
 
                 if (error != Nil)
                 {
-                    NSLog (@"# checkIsCalendarAccessible ERROR = %@", error);
+                    DebugLog (@"# checkIsCalendarAccessible ERROR = %@", error);
                 }
             }];
     }
@@ -686,6 +686,7 @@
         [shareTitle release];
 
         // ---- Button share to Weibo
+
         UIButton *btnShare2Weibo = [[UIButton alloc] initWithFrame:CGRectMake(30, shareTitle.frame.origin.y + shareTitle.frame.size.height + 20, 44, 44)];
         [btnShare2Weibo setImage:[UIImage imageNamed:@"Weibo.png"] forState:UIControlStateNormal];
         [btnShare2Weibo addTarget:self action:@selector(didTapShare2Weibo:) forControlEvents:UIControlEventTouchUpInside];
@@ -697,6 +698,7 @@
         UIButton *btnShare2Facebook = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Weibo.frame.size.width + btnShare2Weibo.frame.origin.x + 20, btnShare2Weibo.frame.origin.y, 44, 44)];
         [btnShare2Facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         [btnShare2Facebook addTarget:self action:@selector(didTapShare2Facebook:) forControlEvents:UIControlEventTouchUpInside];
+
         [sharePopView addSubview:btnShare2Facebook];
 
         [btnShare2Facebook release];
@@ -705,8 +707,11 @@
         UIButton *btnShare2Twitter = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Facebook.frame.size.width + btnShare2Facebook.frame.origin.x + 20, btnShare2Facebook.frame.origin.y, 44, 44)];
         [btnShare2Twitter setImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
         [btnShare2Twitter addTarget:self action:@selector(didTapShare2Twitter:) forControlEvents:UIControlEventTouchUpInside];
-        [sharePopView addSubview:btnShare2Twitter];
 
+        //        if(	[SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        //		{
+        [sharePopView addSubview:btnShare2Twitter];
+        //		}
         [btnShare2Twitter release];
 
         UIButton *btnShare2QQ = [[UIButton alloc] initWithFrame:CGRectMake(btnShare2Twitter.frame.size.width + btnShare2Twitter.frame.origin.x + 20, btnShare2Twitter.frame.origin.y, 44, 44)];
@@ -748,28 +753,64 @@
 
 - (void)didTapShare2Weibo:(UIButton *)btn
 {
-    if (weiboEngine == Nil)
-    {
-        weiboEngine = [[WBEngine alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret];
-        [weiboEngine setDelegate:self];
-        [weiboEngine setRootViewController:self];
-    }
+    //    if (weiboEngine == Nil)
+    //    {
+    //        weiboEngine = [[WBEngine alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret];
+    //        [weiboEngine setDelegate:self];
+    //        [weiboEngine setRootViewController:self];
+    //    }
+    //
+    //    if ([weiboEngine isAuthorizeExpired] || ![weiboEngine isLoggedIn])
+    //    {
+    //        [weiboEngine logIn];
+    //    }
+    //    else
+    //    {
+    //        WBSendView *sendView = [[WBSendView alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret text:[self generateSocialMediaDefaultMessage:YES] image:[self takeScreenshotForPragnencyInfoView]];
+    //        [sendView setDelegate:self];
+    //
+    //        [sendView show:YES];
+    //        [sendView release];
+    //    }
 
-    if ([weiboEngine isAuthorizeExpired] || ![weiboEngine isLoggedIn])
-    {
-        [weiboEngine logIn];
-    }
-    else
-    {
-        WBSendView *sendView = [[WBSendView alloc] initWithAppKey:weiboAppKey appSecret:weiboAppSecret text:[self generateSocialMediaDefaultMessage:YES] image:[self takeScreenshotForPragnencyInfoView]];
-        [sendView setDelegate:self];
+    SLComposeViewController *slComposerSheet = [[SLComposeViewController alloc] init];
 
-        [sendView show:YES];
-        [sendView release];
-    }
+    [slComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            DebugLog (@"start completion block");
+            NSString *output;
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    output = @"Share to Weibo Cancelled";
+                    break;
+
+                case SLComposeViewControllerResultDone:
+                    output = @"Post Successfull";
+                    break;
+                    default:
+                    break;
+            }
+
+            if (result != SLComposeViewControllerResultCancelled)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Weibo Message" message:output delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo])
+    {
+        slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
+        [slComposerSheet setInitialText:[self generateSocialMediaDefaultMessage:YES]];
+        [slComposerSheet addImage:[self takeScreenshotForPragnencyInfoView]];
+        [self presentViewController:slComposerSheet animated:YES completion:nil];
+    }else
+	{
+		UIAlertView *alertWBNotAvailable = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"There are no Weibo account configured. You can add or create a Weibo account in the iPhone/iPad Settings." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+		
+		[alertWBNotAvailable show];
+		[alertWBNotAvailable release];
+	}
 }
-
-
 
 - (NSString *)generateSocialMediaDefaultMessage:(BOOL)isWeiBo
 {
@@ -865,7 +906,7 @@
         else
         {
             // Facebook services unavailable.
-            UIAlertView *alertFBNotAvailable = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Share to Facebook feature is currently not available. Please check your internet connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            UIAlertView *alertFBNotAvailable = [[UIAlertView alloc] initWithTitle:@"No Facebook Account" message:@"Share to Facebook feature is currently not available. Please set up you facebook login details in the iPhone/iPad Settings and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
 
             [alertFBNotAvailable show];
             [alertFBNotAvailable release];
@@ -904,7 +945,8 @@
             [alert show];
         }
 
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:^{
+            }];
     };
 
     [sharePopView setHidden:YES];
