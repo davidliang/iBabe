@@ -433,26 +433,39 @@
 
     if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
     {
-        /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
-        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
-            {
-                if (granted)
-                {
-                    DebugLog (@"User has granted permission!");
-                }
-                else
-                {
-                    UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
-                    [permissionAlert show];
+        EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
-                    [permissionAlert release];
-                }
-
-                if (error != Nil)
+        if (status == EKAuthorizationStatusAuthorized)
+        {
+            /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+            [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
                 {
-                    DebugLog (@"# checkIsCalendarAccessible ERROR = %@", error);
-                }
-            }];
+                    if (granted)
+                    {
+                        DebugLog (@"User has granted permission!");
+                    }
+                    else
+                    {
+                        UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+                        [permissionAlert show];
+
+                        [permissionAlert release];
+                    }
+
+                    if (error != Nil)
+                    {
+                        DebugLog (@"#ERROR = %@", error);
+                    }
+                }];
+        }
+        else
+        {
+            UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+            [permissionAlert show];
+
+            [permissionAlert release];
+
+        }
     }
 
     [eventStore release];
@@ -803,13 +816,14 @@
         [slComposerSheet setInitialText:[self generateSocialMediaDefaultMessage:YES]];
         [slComposerSheet addImage:[self takeScreenshotForPragnencyInfoView]];
         [self presentViewController:slComposerSheet animated:YES completion:nil];
-    }else
-	{
-		UIAlertView *alertWBNotAvailable = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"There are no Weibo account configured. You can add or create a Weibo account in the iPhone/iPad Settings." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-		
-		[alertWBNotAvailable show];
-		[alertWBNotAvailable release];
-	}
+    }
+    else
+    {
+        UIAlertView *alertWBNotAvailable = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"There are no Weibo account configured. You can add or create a Weibo account in the iPhone/iPad Settings." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+
+        [alertWBNotAvailable show];
+        [alertWBNotAvailable release];
+    }
 }
 
 - (NSString *)generateSocialMediaDefaultMessage:(BOOL)isWeiBo
