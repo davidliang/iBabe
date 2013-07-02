@@ -339,7 +339,66 @@ static int statusBarHeight = (int)20;
 
 - (void)didTapAddEventButton
 {
-    [self performSegueWithIdentifier:@"showAddEventSegue" sender:self];
+    EKEventStore *eventStore = [[[EKEventStore alloc] init] autorelease];
+
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
+    {
+        EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+
+        if ((status == EKAuthorizationStatusNotDetermined) || (status == EKAuthorizationStatusRestricted))
+        {
+            /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+            [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
+                {
+                    if (granted)
+                    {
+                        [self performSegueWithIdentifier:@"showAddEventSegue" sender:self];
+                    }
+                    else
+                    {
+                        UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+                        [permissionAlert show];
+
+                        [permissionAlert release];
+                    }
+
+                    if (error != Nil)
+                    {
+                        DebugLog (@"#ERROR = %@", error);
+                    }
+                }];
+        }
+        else if (status == EKAuthorizationStatusDenied)
+        {
+            UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+            [permissionAlert show];
+
+            [permissionAlert release];
+        }
+		else if (status == EKAuthorizationStatusAuthorized)
+		{
+		   [self performSegueWithIdentifier:@"showAddEventSegue" sender:self];
+		}
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    IBCheckPermissionLauncher *launcher = [[IBCheckPermissionLauncher alloc] init];
+
+    switch (buttonIndex) {
+        case 0:
+            break;
+
+        case 1:
+            [launcher launchCheckPermissionViewWithWidth:self.view.frame.size.width Height:self.view.frame.size.height];
+            break;
+
+        default:
+            break;
+    }
+
+    [launcher release];
 }
 
 

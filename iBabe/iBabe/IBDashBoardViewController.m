@@ -159,11 +159,6 @@
                                                 reuseIdentifier :@"cell"] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
 
-            //            cell.textLabel.textAlignment = UITextAlignmentRight;
-            //			cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.00f];
-            //			cell.textLabel.text = @"Add new reminder";
-            //			cell.textLabel.textColor = [UIColor lightGrayColor];
-
             // --- Add the "add" img.
             UIImage     *addNew = [UIImage imageNamed:@"add.png"];
             UIImageView *imgViewAddNew = [[UIImageView alloc] initWithFrame:CGRectMake(13, cell.frame.origin.y + cell.frame.size.height / 2 + 7, 27, 27)];
@@ -254,20 +249,69 @@
 {
     if ((([currentEvents count] == 0) && (indexPath.row == 0)) || ([currentEvents count] == indexPath.row))
     {
-        EKEventStore    *eventStore = [[[EKEventStore alloc] init] autorelease];
-        EKEvent         *newEvent = [EKEvent eventWithEventStore:eventStore];
+        EKEventStore *eventStore = [[[EKEventStore alloc] init] autorelease];
 
-        EKCalendar *cal = [IBEKCalendarHelper getIBabeCalendar];
-        [newEvent setCalendar:cal];
-        [newEvent setStartDate:[NSDate date]];
-        [newEvent setEndDate:[[NSDate date] dateByAddingTimeInterval:60 * 5]];
+        if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
+        {
+            EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
-        UIStoryboard                *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-        IBEditEventViewController   *editEventViewCtrl = [sb instantiateViewControllerWithIdentifier:@"IBEditEventView"];
-        [editEventViewCtrl setCurrentEvent:newEvent];
-        [editEventViewCtrl setIsNewEvent:YES];
-        [self.navigationController pushViewController:editEventViewCtrl animated:YES];
-        return;
+            if ((status == EKAuthorizationStatusNotDetermined) || (status == EKAuthorizationStatusRestricted))
+            {
+                /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+                [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
+                    {
+                        if (granted)
+                        {
+                            EKEvent *newEvent = [EKEvent eventWithEventStore:eventStore];
+                            EKCalendar *cal = [IBEKCalendarHelper getIBabeCalendar];
+                            [newEvent setCalendar:cal];
+                            [newEvent setStartDate:[NSDate date]];
+                            [newEvent setEndDate:[[NSDate date] dateByAddingTimeInterval:60 * 5]];
+
+                            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                            IBEditEventViewController *editEventViewCtrl = [sb instantiateViewControllerWithIdentifier:@"IBEditEventView"];
+                            [editEventViewCtrl setCurrentEvent:newEvent];
+                            [editEventViewCtrl setIsNewEvent:YES];
+                            [self.navigationController pushViewController:editEventViewCtrl animated:YES];
+                            return;
+                        }
+                        else
+                        {
+                            UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+                            [permissionAlert show];
+
+                            [permissionAlert release];
+                        }
+
+                        if (error != Nil)
+                        {
+                            DebugLog (@"#ERROR = %@", error);
+                        }
+                    }];
+            }
+            else if (status == EKAuthorizationStatusDenied)
+            {
+                UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
+                [permissionAlert show];
+
+                [permissionAlert release];
+            }
+            else if (status == EKAuthorizationStatusAuthorized)
+            {
+                EKEvent     *newEvent = [EKEvent eventWithEventStore:eventStore];
+                EKCalendar  *cal = [IBEKCalendarHelper getIBabeCalendar];
+                [newEvent setCalendar:cal];
+                [newEvent setStartDate:[NSDate date]];
+                [newEvent setEndDate:[[NSDate date] dateByAddingTimeInterval:60 * 5]];
+
+                UIStoryboard                *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+                IBEditEventViewController   *editEventViewCtrl = [sb instantiateViewControllerWithIdentifier:@"IBEditEventView"];
+                [editEventViewCtrl setCurrentEvent:newEvent];
+                [editEventViewCtrl setIsNewEvent:YES];
+                [self.navigationController pushViewController:editEventViewCtrl animated:YES];
+                return;
+            }
+        }
     }
 
     if ([currentEvents count] > 0)
@@ -282,8 +326,6 @@
         return;
     }
 }
-
-
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -435,7 +477,7 @@
     {
         EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
-        if (status == EKAuthorizationStatusAuthorized)
+        if ((status == EKAuthorizationStatusNotDetermined) || (status == EKAuthorizationStatusRestricted))
         {
             /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
             [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * error)
@@ -458,13 +500,12 @@
                     }
                 }];
         }
-        else
+        else if (status == EKAuthorizationStatusDenied)
         {
             UIAlertView *permissionAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please give iBabe permission to accesss your calendar for managing the reminder events." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:@"Show Me How", nil];
             [permissionAlert show];
 
             [permissionAlert release];
-
         }
     }
 

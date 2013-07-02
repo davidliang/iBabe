@@ -16,8 +16,9 @@
 #import "IBEventCellViewController.h"
 #import "IBTutorialDashboardViewControaller.h"
 #import "IBAppDelegate.h"
+#import "IBCheckPermissionLauncher.h"
 
-@interface IBCalendarViewController : UIViewController <TKCalendarMonthViewDelegate, TKCalendarMonthViewDataSource, UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate>
+@interface IBCalendarViewController : UIViewController <TKCalendarMonthViewDelegate, TKCalendarMonthViewDataSource, UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate,UIAlertViewDelegate>
 {
     TKCalendarMonthView         *calendar;
     UITableView                 *eventTable;

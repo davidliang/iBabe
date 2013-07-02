@@ -751,84 +751,84 @@ enum GeneralPickerType  genPType;
 
 - (void)saveEvent
 {
+    currentEvent.title = self.tbTitle.text;
+
     if ([SMStringUtil isEmptyString:self.tbTitle.text])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Title cannot be blank" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        alert.tag = ALERTVIEW_TAG_NORMAL;
-        [alert show];
-        [alert release];
+        //        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Title cannot be blank" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil]autorelease];
+        //        alert.tag = ALERTVIEW_TAG_NORMAL;
+        //        [alert show];
+
+        currentEvent.title = @"My iBabe Event - Untitled";
+    }
+
+    currentEvent.location = self.tvLocation.text;
+    currentEvent.notes = self.tvNote.text;
+
+    NSString *startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateStart.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+
+    currentEvent.startDate = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+
+    NSString *endDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateEnd.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnEndTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+
+    currentEvent.endDate = [SMDateConvertUtil convertString2Date:endDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
+
+    // --- Alarms
+    NSString *alarmTitle1 = [self.btnAlarm1.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    // NSMutableArray* newAlarms = [[NSMutableArray alloc]init];
+
+    switch ([currentEvent.alarms count]) {
+        case 1:
+            [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
+            break;
+
+        case 2:
+            [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:1]];
+            [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
+
+            break;
+
+        default:
+            break;
+    }
+
+    if (![alarmTitle1 isEqualToString:ALARM_NOT_SET])
+    {
+        NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
+
+        NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:titleIdx1];
+        EKAlarm     *alarm1 = [[EKAlarm alloc] init];
+        alarm1.relativeOffset = [alarmSelectedVal1 integerValue];
+
+        [currentEvent addAlarm:alarm1];
+
+        [alarm1 release];
+    }
+
+    NSString *alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    if (![alarmTitle2 isEqualToString:ALARM_NOT_SET])
+    {
+        NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:[alarmTitles indexOfObject:alarmTitle2]];
+        EKAlarm     *alarm2 = [[EKAlarm alloc] init];
+        alarm2.relativeOffset = [alarmSelectedVal1 integerValue];
+
+        [currentEvent addAlarm:alarm2];
+        [alarm2 release];
+    }
+
+    if (!isNewEvent)
+    {
+        isSaved = [IBEKCalendarHelper updateEvent:currentEvent];
     }
     else
     {
-        currentEvent.title = self.tbTitle.text;
-        currentEvent.location = self.tvLocation.text;
-        currentEvent.notes = self.tvNote.text;
-
-        NSString *startDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateStart.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnStartTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-
-        currentEvent.startDate = [SMDateConvertUtil convertString2Date:startDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
-
-        NSString *endDateTimeStr = [NSString stringWithFormat:@"%@ %@", [self.btnDateEnd.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [self.btnEndTime.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-
-        currentEvent.endDate = [SMDateConvertUtil convertString2Date:endDateTimeStr withFormatterStyle:ddMMMyyyyhhmmssa];
-
-        // --- Alarms
-        NSString *alarmTitle1 = [self.btnAlarm1.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        // NSMutableArray* newAlarms = [[NSMutableArray alloc]init];
-
-        switch ([currentEvent.alarms count]) {
-            case 1:
-                [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
-                break;
-
-            case 2:
-                [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:1]];
-                [currentEvent removeAlarm:[currentEvent.alarms objectAtIndex:0]];
-
-                break;
-
-            default:
-                break;
-        }
-
-        if (![alarmTitle1 isEqualToString:ALARM_NOT_SET])
-        {
-            NSInteger titleIdx1 = [alarmTitles indexOfObject:alarmTitle1];
-
-            NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:titleIdx1];
-            EKAlarm     *alarm1 = [[EKAlarm alloc] init];
-            alarm1.relativeOffset = [alarmSelectedVal1 integerValue];
-
-            [currentEvent addAlarm:alarm1];
-
-            [alarm1 release];
-        }
-
-        NSString *alarmTitle2 = [self.btnAlarm2.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
-        if (![alarmTitle2 isEqualToString:ALARM_NOT_SET])
-        {
-            NSNumber    *alarmSelectedVal1 = (NSNumber *)[alarmValues objectAtIndex:[alarmTitles indexOfObject:alarmTitle2]];
-            EKAlarm     *alarm2 = [[EKAlarm alloc] init];
-            alarm2.relativeOffset = [alarmSelectedVal1 integerValue];
-
-            [currentEvent addAlarm:alarm2];
-            [alarm2 release];
-        }
-
-        if (!isNewEvent)
-        {
-            isSaved = [IBEKCalendarHelper updateEvent:currentEvent];
-        }
-        else
-        {
-            isSaved = [IBEKCalendarHelper addEvent:currentEvent];
-        }
-
-        [progressHud hide:YES];
-
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        isSaved = [IBEKCalendarHelper addEvent:currentEvent];
     }
+
+    [progressHud hide:YES];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
