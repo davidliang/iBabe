@@ -1,0 +1,177 @@
+
+/* Class = "IBUIViewController"; title = "First"; ObjectID = "2"; */
+"2.title" = "First";
+
+/* Class = "IBUITabBarItem"; title = "DashBoard"; ObjectID = "7"; */
+"7.title" = "主页";
+
+/* Class = "IBUITextField"; placeholder = "Enter the number of recent reminders"; ObjectID = "0o8-1R-lxS"; */
+"0o8-1R-lxS.placeholder" = "输入要显示的最近日程的数目";
+
+/* Class = "IBUITextField"; text = "3"; ObjectID = "0o8-1R-lxS"; */
+"0o8-1R-lxS.text" = "3";
+
+/* Class = "IBUIButton"; normalTitle = "  Not Set"; ObjectID = "1To-xE-WaP"; */
+"1To-xE-WaP.normalTitle" = "  Not Set";
+
+/* Class = "IBUILabel"; text = "Note"; ObjectID = "1ab-oN-28D"; */
+"1ab-oN-28D.text" = "其他";
+
+/* Class = "IBUIButton"; normalTitle = "Delete"; ObjectID = "1jT-5h-2SA"; */
+"1jT-5h-2SA.normalTitle" = "删除";
+
+/* Class = "IBUIButton"; selectedTitle = "Save"; ObjectID = "1jT-5h-2SA"; */
+"1jT-5h-2SA.selectedTitle" = "保存";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Number of reminders displayed"; ObjectID = "20g-cO-mgo"; */
+"20g-cO-mgo.headerTitle" = "显示的最近里程数目";
+
+/* Class = "IBUILabel"; text = "Alarm1"; ObjectID = "2AK-GX-CRW"; */
+"2AK-GX-CRW.text" = "闹钟1";
+
+/* Class = "IBUILabel"; text = "Start Date"; ObjectID = "4Dy-mh-Dy5"; */
+"4Dy-mh-Dy5.text" = "开始日期";
+
+/* Class = "IBUILabel"; text = "Select the date"; ObjectID = "4ND-12-gaC"; */
+"4ND-12-gaC.text" = "请选择日期";
+
+/* Class = "IBUIButton"; normalTitle = "  09:00:00 AM"; ObjectID = "6z0-aV-R9t"; */
+"6z0-aV-R9t.normalTitle" = "  09:00:00 AM";
+
+/* Class = "IBUIButton"; normalTitle = "Save"; ObjectID = "70W-WD-teh"; */
+"70W-WD-teh.normalTitle" = "保存";
+
+/* Class = "IBUIButton"; selectedTitle = "Save"; ObjectID = "70W-WD-teh"; */
+"70W-WD-teh.selectedTitle" = "保存";
+
+/* Class = "IBUILabel"; text = "WEEKS"; ObjectID = "7Bi-12-0dW"; */
+"7Bi-12-0dW.text" = "周";
+
+/* Class = "IBUILabel"; text = "Time"; ObjectID = "7DI-vU-hYM"; */
+"7DI-vU-hYM.text" = "时间";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Due Date"; ObjectID = "7IQ-4u-2Xj"; */
+"7IQ-4u-2Xj.headerTitle" = "预产期";
+
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "8wM-7x-AV2"; */
+"8wM-7x-AV2.title" = "设置";
+
+/* Class = "IBUISegmentedControl"; BAx-EO-MJa.segmentTitles[0] = "Last Period"; ObjectID = "BAx-EO-MJa"; */
+"BAx-EO-MJa.segmentTitles[0]" = "末次月经";
+
+/* Class = "IBUISegmentedControl"; BAx-EO-MJa.segmentTitles[1] = "Due Date"; ObjectID = "BAx-EO-MJa"; */
+"BAx-EO-MJa.segmentTitles[1]" = "预产期";
+
+/* Class = "IBUITabBarItem"; title = "Reminder"; ObjectID = "BqY-Qg-rKf"; */
+"BqY-Qg-rKf.title" = "日程";
+
+/* Class = "IBUILabel"; text = "Alarm 2"; ObjectID = "Cpw-cZ-AnG"; */
+"Cpw-cZ-AnG.text" = "闹钟 2";
+
+/* Class = "IBUIButton"; normalTitle = "  10:20:00 AM"; ObjectID = "Drh-n4-xbg"; */
+"Drh-n4-xbg.normalTitle" = "  10:20:00 AM";
+
+/* Class = "IBUILabel"; text = "Select the date type"; ObjectID = "FLx-Xy-V8o"; */
+"FLx-Xy-V8o.text" = "选择日期的类型";
+
+/* Class = "IBUILabel"; text = "+"; ObjectID = "IPa-9i-Chy"; */
+"IPa-9i-Chy.text" = "+";
+
+/* Class = "IBUILabel"; text = "Time End"; ObjectID = "JBK-i0-Q20"; */
+"JBK-i0-Q20.text" = "结束的时间";
+
+/* Class = "IBUILabel"; text = "20/Nov/2012"; ObjectID = "LgO-rs-koR"; */
+"LgO-rs-koR.text" = "20/Nov/2012";
+
+/* Class = "IBUITextView"; text = "Suite 13, Royal Women's Hospital, 20 Flemington Road, Parkville VIC 3052"; ObjectID = "Ngj-Zt-Inj"; */
+"Ngj-Zt-Inj.text" = "Suite 13, Royal Women's Hospital, 20 Flemington Road, Parkville VIC 3052";
+
+/* Class = "IBUILabel"; text = "Note"; ObjectID = "NvO-6u-Nr3"; */
+"NvO-6u-Nr3.text" = "其他";
+
+/* Class = "IBUILabel"; text = "DAYS"; ObjectID = "Nyw-jU-W3u"; */
+"Nyw-jU-W3u.text" = "日";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Hints"; ObjectID = "PlX-LI-iQa"; */
+"PlX-LI-iQa.headerTitle" = "提示界面";
+
+/* Class = "IBUIButton"; normalTitle = "  Not Set"; ObjectID = "SG4-Bt-xIr"; */
+"SG4-Bt-xIr.normalTitle" = "  Not Set";
+
+/* Class = "IBUITextField"; placeholder = "Event Title"; ObjectID = "TFP-Zu-BTD"; */
+"TFP-Zu-BTD.placeholder" = "日程的标题";
+
+/* Class = "IBUITextField"; text = "adsf"; ObjectID = "TFP-Zu-BTD"; */
+"TFP-Zu-BTD.text" = "adsf";
+
+/* Class = "IBUILabel"; text = "DAYS"; ObjectID = "Tsg-az-uq4"; */
+"Tsg-az-uq4.text" = "日";
+
+/* Class = "IBUILabel"; text = "End Date"; ObjectID = "V10-gy-yLW"; */
+"V10-gy-yLW.text" = "结束日期";
+
+/* Class = "IBUITableViewSection"; headerTitle = "About"; ObjectID = "Xnc-Rs-nf2"; */
+"Xnc-Rs-nf2.headerTitle" = "关于";
+
+/* Class = "IBUILabel"; text = "Alarm2"; ObjectID = "bT5-un-YIX"; */
+"bT5-un-YIX.text" = "闹钟2";
+
+/* Class = "IBUILabel"; text = "3:00:00 PM"; ObjectID = "c2Y-mh-iWE"; */
+"c2Y-mh-iWE.text" = "3:00:00 PM";
+
+/* Class = "IBUILabel"; text = "12 Weeks ultrasound check12 Weeks ultrasound check12 Weeks ultrasound check"; ObjectID = "c6l-Ka-PuP"; */
+"c6l-Ka-PuP.text" = "12 Weeks ultrasound check12 Weeks ultrasound check12 Weeks ultrasound check";
+
+/* Class = "IBUILabel"; text = "Alarm 1"; ObjectID = "eLQ-kb-zna"; */
+"eLQ-kb-zna.text" = "闹钟1";
+
+/* Class = "IBUILabel"; text = "Event Start On:"; ObjectID = "eWG-so-583"; */
+"eWG-so-583.text" = "日程开始的时间:";
+
+/* Class = "IBUILabel"; text = "Location"; ObjectID = "fPV-hR-tLN"; */
+"fPV-hR-tLN.text" = "地点";
+
+/* Class = "IBUILabel"; text = "WEEKS"; ObjectID = "fXg-Ub-gdN"; */
+"fXg-Ub-gdN.text" = "周";
+
+/* Class = "IBUILabel"; text = "3:30:00 PM"; ObjectID = "gMb-lf-gZR"; */
+"gMb-lf-gZR.text" = "3:30:00 PM";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "gQt-mH-2DZ"; */
+"gQt-mH-2DZ.text" = "标题";
+
+/* Class = "IBUILabel"; text = "DAYS PREGNANT"; ObjectID = "gtm-ti-0fA"; */
+"gtm-ti-0fA.text" = "孕周";
+
+/* Class = "IBUILabel"; text = "Location"; ObjectID = "h21-sT-ZeE"; */
+"h21-sT-ZeE.text" = "地点";
+
+/* Class = "IBUILabel"; text = "Not Set"; ObjectID = "kgj-eY-dq5"; */
+"kgj-eY-dq5.text" = "不设置";
+
+/* Class = "IBUILabel"; text = "Time"; ObjectID = "mhP-u6-71j"; */
+"mhP-u6-71j.text" = "时间";
+
+/* Class = "IBUILabel"; text = "+"; ObjectID = "oul-Z4-Epd"; */
+"oul-Z4-Epd.text" = "+";
+
+/* Class = "IBUIButton"; normalTitle = "   12/July/2012"; ObjectID = "qrm-uK-2gb"; */
+"qrm-uK-2gb.normalTitle" = "   12/July/2012";
+
+/* Class = "IBUILabel"; text = "COUNTDOWN"; ObjectID = "sbm-PM-tvS"; */
+"sbm-PM-tvS.text" = "预产期倒数";
+
+/* Class = "IBUILabel"; text = "Time Start"; ObjectID = "tst-OS-ley"; */
+"tst-OS-ley.text" = "开始的时间";
+
+/* Class = "IBUILabel"; text = "Not Set"; ObjectID = "vJi-Gj-bDb"; */
+"vJi-Gj-bDb.text" = "Not Set";
+
+/* Class = "IBUIButton"; normalTitle = "  12/July/2012"; ObjectID = "vsA-NI-H75"; */
+"vsA-NI-H75.normalTitle" = "  12/July/2012";
+
+/* Class = "IBUITextView"; text = "Suite 13, Royal Women's Hospital, 20 Flemington Road, Parkville VIC 3052"; ObjectID = "ygH-sW-81v"; */
+"ygH-sW-81v.text" = "Suite 13, Royal Women's Hospital, 20 Flemington Road, Parkville VIC 3052";
+
+/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "zuI-b3-ozC"; */
+"zuI-b3-ozC.title" = "保存";
