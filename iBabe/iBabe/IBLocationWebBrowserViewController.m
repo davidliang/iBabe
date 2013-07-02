@@ -89,7 +89,7 @@
         NSString    *strUrl = [NSString stringWithFormat:@"http://www.google.com.au/#q=%@", locationName];
         NSString    *language = [[NSLocale preferredLanguages] objectAtIndex:0];
 
-        if (language == @"zh")
+        if ([language isEqualToString:@"zh"])//language == @"zh")
         {
             strUrl = [NSString stringWithFormat:@"www.baidu.com/s?wd=%@", locationName];
         }

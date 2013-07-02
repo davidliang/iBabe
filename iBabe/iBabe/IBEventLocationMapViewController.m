@@ -145,19 +145,7 @@
 
     if (annotation != mapEventLocation.userLocation)
     {
-        //        annView = (MKPinAnnotationView *)[mapEventLocation dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-        //
-        //        if (annView == nil)
-        //        {
-        //            annView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID];
-        //
-        //
-        //			// --- Add a right arrown icon on the title box for clicking.
-        //			annView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        //
-        //			// annView.image = [UIImage imageNamed:@"pin-yellow.png"];
-        //        }
-    }
+          }
     else
     {
         [mapEventLocation.userLocation setTitle:@"Your're Here."];
