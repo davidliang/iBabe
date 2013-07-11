@@ -92,21 +92,39 @@
     EKEventStore    *eventStore = [[EKEventStore alloc] init];
     EKSource        *locSource = Nil;
 
-    // ---- Check if there is a local event source.
-    for (EKSource *aSource in eventStore.sources) {
-        if (aSource.sourceType == EKSourceTypeLocal)
-        {
-            locSource = aSource;
-            break;
-        }
-    }
+	// ---- Check if there is a iCloud event source.
+	for (EKSource *aSource in eventStore.sources) {
+		if (aSource.sourceType == EKSourceTypeCalDAV && [aSource.title isEqualToString:@"iCloud"])
+		{
+			locSource = aSource;
+			break;
+		}
+	}
 
     // --- If local source not available then return nil.
     if (locSource == nil)
     {
-        [eventStore release];
-        return NO;
+		
+		// ---- Check if there is a local event source.
+		for (EKSource *aSource in eventStore.sources) {
+			if (aSource.sourceType == EKSourceTypeLocal)
+			{
+				locSource = aSource;
+				break;
+			}
+		}
+		
     }
+	
+	
+	
+	if (locSource == nil)
+	{
+		
+		[eventStore release];
+		return NO;
+	}
+	
 
     // --- Check if the iBabe Calendar exist or not.
     BOOL ibbCalExist = NO;
